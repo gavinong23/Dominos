@@ -1,0 +1,11 @@
+/* 
+  Main.strings
+  Dominos
+
+  Created by OngBoonFong on 30/04/2018.
+  Copyright © 2018 OngBoonFong. All rights reserved.
+*/
+
+"navigation_button_back" = "Balik";
+"navigation_home_title" = "Pizza Rumah";
+"navigation_homedetail_title" = "Pizza Info";

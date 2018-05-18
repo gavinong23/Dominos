@@ -7,13 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15AF52992F98E4E97D91C00B /* Pods_Dominos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27CAF53B785D0DEA38684D4 /* Pods_Dominos.framework */; };
+		557AF52E2096DFB300F591D5 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557AF5302096DFB300F591D5 /* Main.strings */; };
 		558255CB20919F6100F599FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558255CA20919F6100F599FA /* AppDelegate.swift */; };
-		558255CD20919F6100F599FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558255CC20919F6100F599FA /* ViewController.swift */; };
+		558255CD20919F6100F599FA /* DominoHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558255CC20919F6100F599FA /* DominoHomeViewController.swift */; };
 		558255D020919F6100F599FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 558255CE20919F6100F599FA /* Main.storyboard */; };
-		558255D220919F6400F599FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 558255D120919F6400F599FA /* Assets.xcassets */; };
 		558255D520919F6400F599FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 558255D320919F6400F599FA /* LaunchScreen.storyboard */; };
 		558255E020919F6500F599FA /* DominosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558255DF20919F6500F599FA /* DominosTests.swift */; };
 		558255EB20919F6500F599FA /* DominosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558255EA20919F6500F599FA /* DominosUITests.swift */; };
+		558256002091ACCA00F599FA /* DominoModelss(ref).swift in Sources */ = {isa = PBXBuildFile; fileRef = 558255FF2091ACCA00F599FA /* DominoModelss(ref).swift */; };
+		558256072091B0E700F599FA /* dominoVideoAds.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 558256062091B0E600F599FA /* dominoVideoAds.mp4 */; };
+		5582560E2091B2B300F599FA /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5582560D2091B2B300F599FA /* Config.swift */; };
+		558256102091B2DC00F599FA /* ScreenSaverTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5582560F2091B2DC00F599FA /* ScreenSaverTimer.swift */; };
+		5582561F2091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5582561D2091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.swift */; };
+		558256202091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5582561E2091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.xib */; };
+		5582562A2091C97500F599FA /* DominoPizzaHomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558256292091C97500F599FA /* DominoPizzaHomeDetailViewController.swift */; };
+		5582562C2091CC2800F599FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5582562B2091CC2800F599FA /* Assets.xcassets */; };
+		5582562F2091D3C800F599FA /* CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5582562E2091D3C800F599FA /* CollectionViewExtension.swift */; };
+		5583FD7B2096A8040013394D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5583FD7A2096A8040013394D /* Player.swift */; };
+		55A3B1EB209714E900BA8B8C /* PizzaServicess(ref).swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A3B1EA209714E900BA8B8C /* PizzaServicess(ref).swift */; };
+		55A3B1ED2097165500BA8B8C /* DominoHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A3B1EC2097165500BA8B8C /* DominoHomePresenter.swift */; };
+		55A3B1F02097175800BA8B8C /* DominoPizzaHomeViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A3B1EF2097175800BA8B8C /* DominoPizzaHomeViewType.swift */; };
+		55B68C9D20990347001B5400 /* ActivityIndicatorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B68C9C20990347001B5400 /* ActivityIndicatorExtension.swift */; };
+		55BCEA222096BCEF00810C71 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCEA212096BCEF00810C71 /* R.generated.swift */; };
+		7302D9FD50DD7B7389C6254F /* Pods_DominosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3AECC0E9396EEFFE95634C /* Pods_DominosUITests.framework */; };
+		A2C12C4690A13CDC80E9D885 /* Pods_DominosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E140BE1FB28F35454B3A42BA /* Pods_DominosTests.framework */; };
+		E9197BA920AA83E5003FA350 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BA820AA83E5003FA350 /* SnapshotHelper.swift */; };
+		E9197BAB20AAA827003FA350 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAA20AAA827003FA350 /* APIManager.swift */; };
+		E9197BAD20AAB117003FA350 /* DominoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAC20AAB117003FA350 /* DominoModel.swift */; };
+		E9197BAF20AAB449003FA350 /* PizzaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAE20AAB449003FA350 /* PizzaService.swift */; };
+		E9EA6DE120ABEAF3003D3E42 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EA6DE020ABEAF3003D3E42 /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,12 +57,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C3AECC0E9396EEFFE95634C /* Pods_DominosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DominosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36BBD80234D8DB785D1CAB28 /* Pods-DominosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominosUITests/Pods-DominosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3D2A7B5B90AC57BFF0C11F6C /* Pods-DominosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DominosUITests/Pods-DominosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		557AF4FA2096C46F00F591D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		557AF4FB2096C46F00F591D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		557AF52B2096DF9900F591D5 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		557AF52F2096DFB300F591D5 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		557AF5312096DFB900F591D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Main.strings; sourceTree = "<group>"; };
+		557AF5322096E3E600F591D5 /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		557AF5332096E3E700F591D5 /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/Main.strings; sourceTree = "<group>"; };
 		558255C720919F6100F599FA /* Dominos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dominos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		558255CA20919F6100F599FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		558255CC20919F6100F599FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		558255CF20919F6100F599FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		558255D120919F6400F599FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		558255D420919F6400F599FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		558255CC20919F6100F599FA /* DominoHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoHomeViewController.swift; sourceTree = "<group>"; };
 		558255D620919F6400F599FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		558255DB20919F6500F599FA /* DominosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DominosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		558255DF20919F6500F599FA /* DominosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominosTests.swift; sourceTree = "<group>"; };
@@ -47,6 +77,32 @@
 		558255E620919F6500F599FA /* DominosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DominosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		558255EA20919F6500F599FA /* DominosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominosUITests.swift; sourceTree = "<group>"; };
 		558255EC20919F6500F599FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		558255FF2091ACCA00F599FA /* DominoModelss(ref).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DominoModelss(ref).swift"; sourceTree = "<group>"; };
+		558256062091B0E600F599FA /* dominoVideoAds.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dominoVideoAds.mp4; sourceTree = "<group>"; };
+		5582560D2091B2B300F599FA /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		5582560F2091B2DC00F599FA /* ScreenSaverTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSaverTimer.swift; sourceTree = "<group>"; };
+		5582561D2091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaHomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		5582561E2091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DominoPizzaHomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		558256292091C97500F599FA /* DominoPizzaHomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaHomeDetailViewController.swift; sourceTree = "<group>"; };
+		5582562B2091CC2800F599FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5582562E2091D3C800F599FA /* CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtension.swift; sourceTree = "<group>"; };
+		5583FD7A2096A8040013394D /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		55A3B1EA209714E900BA8B8C /* PizzaServicess(ref).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PizzaServicess(ref).swift"; sourceTree = "<group>"; };
+		55A3B1EC2097165500BA8B8C /* DominoHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoHomePresenter.swift; sourceTree = "<group>"; };
+		55A3B1EF2097175800BA8B8C /* DominoPizzaHomeViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaHomeViewType.swift; sourceTree = "<group>"; };
+		55B68C9C20990347001B5400 /* ActivityIndicatorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorExtension.swift; sourceTree = "<group>"; };
+		55BCEA212096BCEF00810C71 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		B6DCFCEE2A10D73AF86A45EE /* Pods-DominosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DominosTests/Pods-DominosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C4C0A3341856012DE9D7B7BE /* Pods-DominosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DominosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DominosTests/Pods-DominosTests.release.xcconfig"; sourceTree = "<group>"; };
+		D27CAF53B785D0DEA38684D4 /* Pods_Dominos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dominos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC2AC226C8D03EC922BD14F2 /* Pods-Dominos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dominos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dominos/Pods-Dominos.release.xcconfig"; sourceTree = "<group>"; };
+		DC4832D425D26AACD7EA4755 /* Pods-Dominos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dominos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dominos/Pods-Dominos.debug.xcconfig"; sourceTree = "<group>"; };
+		E140BE1FB28F35454B3A42BA /* Pods_DominosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DominosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9197BA820AA83E5003FA350 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		E9197BAA20AAA827003FA350 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		E9197BAC20AAB117003FA350 /* DominoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoModel.swift; sourceTree = "<group>"; };
+		E9197BAE20AAB449003FA350 /* PizzaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaService.swift; sourceTree = "<group>"; };
+		E9EA6DE020ABEAF3003D3E42 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15AF52992F98E4E97D91C00B /* Pods_Dominos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2C12C4690A13CDC80E9D885 /* Pods_DominosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7302D9FD50DD7B7389C6254F /* Pods_DominosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +136,13 @@
 		558255BE20919F6100F599FA = {
 			isa = PBXGroup;
 			children = (
+				558256062091B0E600F599FA /* dominoVideoAds.mp4 */,
 				558255C920919F6100F599FA /* Dominos */,
 				558255DE20919F6500F599FA /* DominosTests */,
 				558255E920919F6500F599FA /* DominosUITests */,
 				558255C820919F6100F599FA /* Products */,
+				5CD2B7A21042AB4B18D366F2 /* Pods */,
+				78497F14F1618F72E53E6211 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +159,13 @@
 		558255C920919F6100F599FA /* Dominos */ = {
 			isa = PBXGroup;
 			children = (
-				558255CA20919F6100F599FA /* AppDelegate.swift */,
-				558255CC20919F6100F599FA /* ViewController.swift */,
-				558255CE20919F6100F599FA /* Main.storyboard */,
-				558255D120919F6400F599FA /* Assets.xcassets */,
-				558255D320919F6400F599FA /* LaunchScreen.storyboard */,
-				558255D620919F6400F599FA /* Info.plist */,
+				558255FD2091AC5E00F599FA /* Starter */,
+				5582560C2091B29F00F599FA /* Constant */,
+				558255FE2091AC8600F599FA /* Assets */,
+				558255FC2091AB8500F599FA /* Extension */,
+				558255FA2091AB6C00F599FA /* View */,
+				558255F92091AB6500F599FA /* Model */,
+				558255FB2091AB7100F599FA /* Presenter */,
 			);
 			path = Dominos;
 			sourceTree = "<group>";
@@ -119,10 +182,203 @@
 		558255E920919F6500F599FA /* DominosUITests */ = {
 			isa = PBXGroup;
 			children = (
+				E9197BA820AA83E5003FA350 /* SnapshotHelper.swift */,
 				558255EA20919F6500F599FA /* DominosUITests.swift */,
 				558255EC20919F6500F599FA /* Info.plist */,
 			);
 			path = DominosUITests;
+			sourceTree = "<group>";
+		};
+		558255F92091AB6500F599FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55A3B1E920970E5F00BA8B8C /* APIManager */,
+				E9197BAC20AAB117003FA350 /* DominoModel.swift */,
+				558255FF2091ACCA00F599FA /* DominoModelss(ref).swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		558255FA2091AB6C00F599FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				558255CE20919F6100F599FA /* Main.storyboard */,
+				558256012091AD0D00F599FA /* Common */,
+				558256032091AD3500F599FA /* DominoHome */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		558255FB2091AB7100F599FA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				55A3B1EE2097165E00BA8B8C /* DominoHome */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		558255FC2091AB8500F599FA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E9EA6DDF20ABEACA003D3E42 /* ImageView */,
+				55B68C9B20990328001B5400 /* ActivityIndicator */,
+				5582562D2091D3AE00F599FA /* CollectionView */,
+				558256052091ADB600F599FA /* Timer */,
+				558256042091ADAC00F599FA /* VideoPlayer */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		558255FD2091AC5E00F599FA /* Starter */ = {
+			isa = PBXGroup;
+			children = (
+				558255D620919F6400F599FA /* Info.plist */,
+				558255D320919F6400F599FA /* LaunchScreen.storyboard */,
+				558255CA20919F6100F599FA /* AppDelegate.swift */,
+			);
+			path = Starter;
+			sourceTree = "<group>";
+		};
+		558255FE2091AC8600F599FA /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				55BCEA212096BCEF00810C71 /* R.generated.swift */,
+				5582562B2091CC2800F599FA /* Assets.xcassets */,
+				557AF5302096DFB300F591D5 /* Main.strings */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		558256012091AD0D00F599FA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				558256022091AD1700F599FA /* Cell */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		558256022091AD1700F599FA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				558256272091C92300F599FA /* DominoPizzaHome */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		558256032091AD3500F599FA /* DominoHome */ = {
+			isa = PBXGroup;
+			children = (
+				558255CC20919F6100F599FA /* DominoHomeViewController.swift */,
+				558256262091C8FE00F599FA /* DominoPizzaDetail */,
+			);
+			path = DominoHome;
+			sourceTree = "<group>";
+		};
+		558256042091ADAC00F599FA /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				5583FD7A2096A8040013394D /* Player.swift */,
+			);
+			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		558256052091ADB600F599FA /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				5582560F2091B2DC00F599FA /* ScreenSaverTimer.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		5582560C2091B29F00F599FA /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				5582560D2091B2B300F599FA /* Config.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		558256262091C8FE00F599FA /* DominoPizzaDetail */ = {
+			isa = PBXGroup;
+			children = (
+				558256292091C97500F599FA /* DominoPizzaHomeDetailViewController.swift */,
+			);
+			path = DominoPizzaDetail;
+			sourceTree = "<group>";
+		};
+		558256272091C92300F599FA /* DominoPizzaHome */ = {
+			isa = PBXGroup;
+			children = (
+				5582561D2091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.swift */,
+				5582561E2091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.xib */,
+			);
+			path = DominoPizzaHome;
+			sourceTree = "<group>";
+		};
+		5582562D2091D3AE00F599FA /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				5582562E2091D3C800F599FA /* CollectionViewExtension.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		55A3B1E920970E5F00BA8B8C /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				E9197BAA20AAA827003FA350 /* APIManager.swift */,
+				E9197BAE20AAB449003FA350 /* PizzaService.swift */,
+				55A3B1EA209714E900BA8B8C /* PizzaServicess(ref).swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		55A3B1EE2097165E00BA8B8C /* DominoHome */ = {
+			isa = PBXGroup;
+			children = (
+				55A3B1EC2097165500BA8B8C /* DominoHomePresenter.swift */,
+				55A3B1EF2097175800BA8B8C /* DominoPizzaHomeViewType.swift */,
+			);
+			path = DominoHome;
+			sourceTree = "<group>";
+		};
+		55B68C9B20990328001B5400 /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				55B68C9C20990347001B5400 /* ActivityIndicatorExtension.swift */,
+			);
+			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		5CD2B7A21042AB4B18D366F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC4832D425D26AACD7EA4755 /* Pods-Dominos.debug.xcconfig */,
+				DC2AC226C8D03EC922BD14F2 /* Pods-Dominos.release.xcconfig */,
+				B6DCFCEE2A10D73AF86A45EE /* Pods-DominosTests.debug.xcconfig */,
+				C4C0A3341856012DE9D7B7BE /* Pods-DominosTests.release.xcconfig */,
+				36BBD80234D8DB785D1CAB28 /* Pods-DominosUITests.debug.xcconfig */,
+				3D2A7B5B90AC57BFF0C11F6C /* Pods-DominosUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		78497F14F1618F72E53E6211 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D27CAF53B785D0DEA38684D4 /* Pods_Dominos.framework */,
+				E140BE1FB28F35454B3A42BA /* Pods_DominosTests.framework */,
+				0C3AECC0E9396EEFFE95634C /* Pods_DominosUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9EA6DDF20ABEACA003D3E42 /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				E9EA6DE020ABEAF3003D3E42 /* UIImageViewExtension.swift */,
+			);
+			path = ImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,9 +388,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 558255EF20919F6500F599FA /* Build configuration list for PBXNativeTarget "Dominos" */;
 			buildPhases = (
+				EA3B4353256F5E5C6E94D3C0 /* [CP] Check Pods Manifest.lock */,
+				55BCEA1A2096AB2500810C71 /* ShellScript */,
 				558255C320919F6100F599FA /* Sources */,
 				558255C420919F6100F599FA /* Frameworks */,
 				558255C520919F6100F599FA /* Resources */,
+				A1A5373688D679C0C70E3BD8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +408,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 558255F220919F6500F599FA /* Build configuration list for PBXNativeTarget "DominosTests" */;
 			buildPhases = (
+				BD90C3F29FE7BA11FCC3B8DE /* [CP] Check Pods Manifest.lock */,
 				558255D720919F6500F599FA /* Sources */,
 				558255D820919F6500F599FA /* Frameworks */,
 				558255D920919F6500F599FA /* Resources */,
@@ -167,6 +427,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 558255F520919F6500F599FA /* Build configuration list for PBXNativeTarget "DominosUITests" */;
 			buildPhases = (
+				73A31E3BE6840C5BCE75D177 /* [CP] Check Pods Manifest.lock */,
 				558255E220919F6500F599FA /* Sources */,
 				558255E320919F6500F599FA /* Frameworks */,
 				558255E420919F6500F599FA /* Resources */,
@@ -209,8 +470,8 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				ms,
 			);
 			mainGroup = 558255BE20919F6100F599FA;
 			productRefGroup = 558255C820919F6100F599FA /* Products */;
@@ -229,9 +490,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				558256072091B0E700F599FA /* dominoVideoAds.mp4 in Resources */,
 				558255D520919F6400F599FA /* LaunchScreen.storyboard in Resources */,
-				558255D220919F6400F599FA /* Assets.xcassets in Resources */,
 				558255D020919F6100F599FA /* Main.storyboard in Resources */,
+				557AF52E2096DFB300F591D5 /* Main.strings in Resources */,
+				5582562C2091CC2800F599FA /* Assets.xcassets in Resources */,
+				558256202091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +515,131 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		55BCEA1A2096AB2500810C71 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
+		};
+		73A31E3BE6840C5BCE75D177 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DominosUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1A5373688D679C0C70E3BD8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Dominos/Pods-Dominos-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Gemini/Gemini.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gemini.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dominos/Pods-Dominos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD90C3F29FE7BA11FCC3B8DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DominosTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA3B4353256F5E5C6E94D3C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dominos-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		558255C320919F6100F599FA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				558255CD20919F6100F599FA /* ViewController.swift in Sources */,
+				5582562A2091C97500F599FA /* DominoPizzaHomeDetailViewController.swift in Sources */,
+				558255CD20919F6100F599FA /* DominoHomeViewController.swift in Sources */,
+				55A3B1F02097175800BA8B8C /* DominoPizzaHomeViewType.swift in Sources */,
+				E9197BAD20AAB117003FA350 /* DominoModel.swift in Sources */,
+				558256002091ACCA00F599FA /* DominoModelss(ref).swift in Sources */,
+				5582562F2091D3C800F599FA /* CollectionViewExtension.swift in Sources */,
+				E9197BAF20AAB449003FA350 /* PizzaService.swift in Sources */,
 				558255CB20919F6100F599FA /* AppDelegate.swift in Sources */,
+				55B68C9D20990347001B5400 /* ActivityIndicatorExtension.swift in Sources */,
+				558256102091B2DC00F599FA /* ScreenSaverTimer.swift in Sources */,
+				55A3B1EB209714E900BA8B8C /* PizzaServicess(ref).swift in Sources */,
+				55A3B1ED2097165500BA8B8C /* DominoHomePresenter.swift in Sources */,
+				5582560E2091B2B300F599FA /* Config.swift in Sources */,
+				55BCEA222096BCEF00810C71 /* R.generated.swift in Sources */,
+				E9EA6DE120ABEAF3003D3E42 /* UIImageViewExtension.swift in Sources */,
+				E9197BAB20AAA827003FA350 /* APIManager.swift in Sources */,
+				5583FD7B2096A8040013394D /* Player.swift in Sources */,
+				5582561F2091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				558255EB20919F6500F599FA /* DominosUITests.swift in Sources */,
+				E9197BA920AA83E5003FA350 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,10 +676,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		557AF5302096DFB300F591D5 /* Main.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				557AF52F2096DFB300F591D5 /* zh-Hant */,
+				557AF5312096DFB900F591D5 /* Base */,
+				557AF5332096E3E700F591D5 /* ms */,
+			);
+			name = Main.strings;
+			sourceTree = "<group>";
+		};
 		558255CE20919F6100F599FA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				558255CF20919F6100F599FA /* Base */,
+				557AF4FB2096C46F00F591D5 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -304,7 +697,9 @@
 		558255D320919F6400F599FA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				558255D420919F6400F599FA /* Base */,
+				557AF4FA2096C46F00F591D5 /* Base */,
+				557AF52B2096DF9900F591D5 /* zh-Hant */,
+				557AF5322096E3E600F591D5 /* ms */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -316,6 +711,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -376,6 +772,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -428,53 +825,50 @@
 		};
 		558255F020919F6500F599FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC4832D425D26AACD7EA4755 /* Pods-Dominos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XXNHE3Z96L;
-				INFOPLIST_FILE = Dominos/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.Dominos;
+				DEVELOPMENT_TEAM = K5J7BB7M8F;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/Dominos/Starter/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gavin.ong.dominos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		558255F120919F6500F599FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC2AC226C8D03EC922BD14F2 /* Pods-Dominos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XXNHE3Z96L;
-				INFOPLIST_FILE = Dominos/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.Dominos;
+				DEVELOPMENT_TEAM = K5J7BB7M8F;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/Dominos/Starter/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gavin.ong.dominos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		558255F320919F6500F599FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6DCFCEE2A10D73AF86A45EE /* Pods-DominosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XXNHE3Z96L;
 				INFOPLIST_FILE = DominosTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.DominosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -485,17 +879,14 @@
 		};
 		558255F420919F6500F599FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C4C0A3341856012DE9D7B7BE /* Pods-DominosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XXNHE3Z96L;
 				INFOPLIST_FILE = DominosTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.DominosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -506,16 +897,13 @@
 		};
 		558255F620919F6500F599FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36BBD80234D8DB785D1CAB28 /* Pods-DominosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XXNHE3Z96L;
 				INFOPLIST_FILE = DominosUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.DominosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -526,16 +914,13 @@
 		};
 		558255F720919F6500F599FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D2A7B5B90AC57BFF0C11F6C /* Pods-DominosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XXNHE3Z96L;
 				INFOPLIST_FILE = DominosUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.DominosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

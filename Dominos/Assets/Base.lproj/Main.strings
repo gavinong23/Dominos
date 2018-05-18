@@ -1,0 +1,13 @@
+/* 
+  Main.strings
+  Dominos
+
+  Created by OngBoonFong on 30/04/2018.
+  Copyright © 2018 OngBoonFong. All rights reserved.
+*/
+
+"navigation_button_back" = "Back";
+"navigation_home_title" = "Pizza Home";
+"navigation_homedetail_title" = "Pizza Info";
+
+"BASE_URL" = "";

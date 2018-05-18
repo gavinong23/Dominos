@@ -1,0 +1,30 @@
+/* 
+  Main.strings
+  Dominos
+
+  Created by OngBoonFong on 30/04/2018.
+  Copyright © 2018 OngBoonFong. All rights reserved.
+*/
+
+
+/*
+ File.strings
+ Dominos
+ 
+ Created by OngBoonFong on 30/04/2018.
+ Copyright © 2018 OngBoonFong. All rights reserved.
+ */
+
+
+
+"navigation_button_back" = "返回";
+"navigation_home_title" = "主頁";
+"navigation_homedetail_title" = "比萨資訊";
+
+
+//----this 1 is for more specific ---//
+//Module_label/button/header_name
+//dialog_info_noInternet(message)
+//dialog_button_ok
+//dialog_button_cancel
+//"pizzaHomeScreenNavigationTitle" = "Pizza Home %@";
