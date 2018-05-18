@@ -11,8 +11,8 @@ import UIKit
 class DominoPizzaHomeDetailViewController: UIViewController {
     
 
-    var dominoModels = [DominoModel]()
-    var dominoPizzaObj:DominoModel? = nil
+    var dominoModels = [PizzasViewData]()
+    var dominoPizzaObj:PizzasViewData? = nil
     
     
     @IBOutlet weak var dominoPizzaFullImageView: UIImageView!
@@ -40,8 +40,8 @@ class DominoPizzaHomeDetailViewController: UIViewController {
             dominoPizzaNameLabel.text = dominoPizzaObj.pizzaName
             dominoPizzaDescLabel.text = dominoPizzaObj.pizzaDesc
             
-            let pizzaTypeIcons = dominoPizzaObj.pizzaToppingImage!
-            
+//            let pizzaTypeIcons = dominoPizzaObj.pizzaToppingImage!
+//
 //            pizzaTypeIcons.map{ pizzaTypeIcon in
 //
 //                switch pizzaTypeIcon {

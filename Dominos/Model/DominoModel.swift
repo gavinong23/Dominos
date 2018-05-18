@@ -27,17 +27,11 @@ class DominoModel{
         self.pizzaImage = [JSON["pizzaImage"][0].stringValue,JSON["pizzaImage"][1].stringValue]
         
         self.pizzaDesc = JSON["pizzaDesc"].stringValue
-        //self.pizzaToppingImage = [JSON["pizzaToppingImage"].stringValue]
 
-        //print(JSON["pizzaToppingImage"].arrayValue)
-        
         self.pizzaToppingImage = JSON["pizzaToppingImage"].arrayValue.map{
             $0.stringValue
         }
         
-        //print(self.pizzaToppingImage)
-        
-//        print(self.pizzaToppingImage)
         self.pizzaTopping = [JSON["pizzaTopping"].stringValue]
     }
     

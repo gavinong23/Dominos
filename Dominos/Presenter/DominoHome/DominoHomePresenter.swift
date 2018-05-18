@@ -9,7 +9,7 @@
 import Foundation
 
 enum EnumDominoHomeRoute{
-    case pizzaDetail(model:DominoModel)
+    case pizzaDetail(model:PizzasViewData)
     
     func segueID() -> String{
         switch self{
@@ -74,7 +74,7 @@ class DominoHomePresenter{
 
 
     
-    func getPizzaDetail(model :DominoModel){
+    func getPizzaDetail(model:PizzasViewData){
 //        print(.pizzaDetail)
         dominoPizzaHomeView?.routeTo(screen: .pizzaDetail(model: model))
     }

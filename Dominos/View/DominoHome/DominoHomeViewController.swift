@@ -107,7 +107,7 @@ extension DominoHomeViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = dominoModels[indexPath.row]
-       // self.dominoHomePresenter.getPizzaDetail(model: model)
+        self.dominoHomePresenter.getPizzaDetail(model: model)
     }
     
 
@@ -136,11 +136,11 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dominoModel: DominoModel
+        let dominoModel: PizzasViewData
         
         if(segue.identifier == R.segue.dominoHomeViewController.pizzaHomeToPizzaHomeDetailID.identifier){
             
-            dominoModel = (sender as? DominoModel)!
+            dominoModel = (sender as? PizzasViewData)!
             let DominoPizzaHomeDetailViewController = segue.destination as! DominoPizzaHomeDetailViewController
         
             DominoPizzaHomeDetailViewController.dominoPizzaObj = dominoModel
@@ -148,14 +148,15 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
     }
     
     func routeTo(screen:EnumDominoHomeRoute){
-//        switch screen{
-//            case .pizzaDetail(let model):
+        switch screen{
+            case .pizzaDetail(let model):
 //                if (model.pizzaToppingImage?.contains(.shrimp))!{
 //                    self.performSegue(withIdentifier: "new screen", sender: model)
 //                } else {
 //                    self.performSegue(withIdentifier: screen.segueID(), sender: model)
 //                }
-//        }
+            self.performSegue(withIdentifier: screen.segueID(), sender: model)
+        }
     }
     
 }
