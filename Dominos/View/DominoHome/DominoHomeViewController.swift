@@ -76,30 +76,7 @@ extension DominoHomeViewController: UICollectionViewDelegate, UICollectionViewDa
         
         dominoModel = self.dominoModels[indexPath.row]
         
-        cell.pizzaThumnail.kf.setImage(with:dominoModel.pizzaThumbnail)
-
-        cell.pizzaNameLabel.text = dominoModel.pizzaName
-        
-        let subviews = cell.dominoPizzaTypeStackView.arrangedSubviews
-        
-        subviews.map{ subview in
-            subview.removeFromSuperview()
-        }
-        
-        let pizzaToppingIcons = dominoModel.pizzaToppingImage
-
-        if let pizzaToppingIcons = pizzaToppingIcons{
-            pizzaToppingIcons.map{ pizzaToppingIcon in
-                    let imageView = UIImageView()
-                    imageView.kf.setImage(with: pizzaToppingIcon)
-                    imageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
-                    imageView.layer.borderWidth=1.0
-                    imageView.layer.masksToBounds = false
-                    imageView.clipsToBounds = true
-                    imageView.layer.cornerRadius = imageView.frame.size.height/2
-                    cell.dominoPizzaTypeStackView.addArrangedSubview(imageView)
-            }
-         }
+        cell.populateCell(pizza: dominoModel, cell: cell)
         
         return cell
         
@@ -155,7 +132,7 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
 //                } else {
 //                    self.performSegue(withIdentifier: screen.segueID(), sender: model)
 //                }
-            self.performSegue(withIdentifier: screen.segueID(), sender: model)
+                self.performSegue(withIdentifier: screen.segueID(), sender: model)
         }
     }
     

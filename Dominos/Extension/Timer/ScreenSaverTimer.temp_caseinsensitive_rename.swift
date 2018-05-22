@@ -1,10 +1,13 @@
 //
-//  UIImageViewExtension.swift
+//  screenSaverTimer.swift
 //  Dominos
 //
-//  Created by Gavin Ong on 16/5/18.
+//  Created by OngBoonFong on 26/04/2018.
 //  Copyright © 2018 OngBoonFong. All rights reserved.
 //
 
 import Foundation
-import UIKit
+
+
+
+class 

@@ -22,5 +22,33 @@ class DominoPizzaHomeCollectionViewCell: GeminiCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func populateCell(pizza : PizzasViewData, cell: DominoPizzaHomeCollectionViewCell){
+        pizzaNameLabel.text = pizza.pizzaName
+        pizzaThumnail.kf.setImage(with: pizza.pizzaThumbnail)
+        
+        let pizzaToppingIcons = pizza.pizzaToppingImage
+        
+        let subviews = cell.dominoPizzaTypeStackView.arrangedSubviews
+        
+        subviews.map{ subview in
+            subview.removeFromSuperview()
+        }
+        
+        if let pizzaToppingIcons = pizzaToppingIcons{
+            pizzaToppingIcons.map{ pizzaToppingIcon in
+                let imageView = UIImageView()
+                imageView.kf.setImage(with: pizzaToppingIcon)
+                imageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+                imageView.layer.borderWidth=1.0
+                imageView.layer.masksToBounds = false
+                imageView.clipsToBounds = true
+                imageView.layer.cornerRadius = imageView.frame.size.height/2
+                dominoPizzaTypeStackView.addArrangedSubview(imageView)
+            }
+        }
+        
+        
+    }
 
 }

@@ -35,10 +35,26 @@ class DominoPizzaHomeDetailViewController: UIViewController {
     
     func setupStackView(){
         if let dominoPizzaObj = self.dominoPizzaObj{
-            //dominoPizzaFullImageView.image = dominoPizzaObj.pizzaImage![1]
-            //dominoPizzaFullImageView.image = dominoPizzaObj.pizzaImage![1].pizzaImage()
+            dominoPizzaFullImageView.kf.setImage(with: dominoPizzaObj.pizzaFull)
             dominoPizzaNameLabel.text = dominoPizzaObj.pizzaName
             dominoPizzaDescLabel.text = dominoPizzaObj.pizzaDesc
+            
+            let pizzaToppingIcons = dominoPizzaObj.pizzaToppingImage
+            
+            if let pizzaToppingIcons = pizzaToppingIcons{
+                pizzaToppingIcons.map{ pizzaToppingIcon in
+                    let imageView = UIImageView()
+                    imageView.kf.setImage(with: pizzaToppingIcon)
+                    imageView.frame = CGRect(x:0, y:0, width: 32, height: 32)
+                    imageView.layer.borderWidth = 1.0
+                    imageView.layer.masksToBounds = false
+                    imageView.clipsToBounds = true
+                    
+                    imageView.layer.cornerRadius = imageView.frame.size.height/2
+                    
+                    dominoPizzaTypeStackView.addArrangedSubview(imageView)
+                }
+            }
             
 //            let pizzaTypeIcons = dominoPizzaObj.pizzaToppingImage!
 //
@@ -67,6 +83,8 @@ class DominoPizzaHomeDetailViewController: UIViewController {
             
         }
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

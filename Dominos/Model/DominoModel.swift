@@ -13,7 +13,7 @@ import SwiftyJSON
 class DominoModel{
     let baseImageUrl = Config.Url.BASE_IMAGE_URL
     //var pizzaImg: [EnumPizzaImgs]?
-    var pizzaImage: [String]?
+    var pizzaImage: String?
     var pizzaName: String?
     var pizzaDesc: String?
     var pizzaToppingImage: [String]?
@@ -22,9 +22,9 @@ class DominoModel{
     init (JSON:JSON){
         
         self.pizzaName = JSON["pizzaName"].stringValue
-        self.pizzaImage = [JSON["pizzaImage"].stringValue]
+        //self.pizzaImage = [JSON["pizzaImage"].stringValue]
         
-        self.pizzaImage = [JSON["pizzaImage"][0].stringValue,JSON["pizzaImage"][1].stringValue]
+        self.pizzaImage = JSON["pizzaImage"].stringValue
         
         self.pizzaDesc = JSON["pizzaDesc"].stringValue
 
@@ -55,15 +55,6 @@ class DominoModel{
         
         return url
     }
-    
-//    func getPizzaIconUrl() -> URL{
-//        var url: URL?
-//
-//        if let pizzaToppingImage = self.pizzaToppingImage{
-//            /let urlString = [baseImageUrl, pizzaToppingImage].joined()
-//            url = URL(string: urlString)!
-//        }
-//    }
     
     func getPizzaIconUrl() -> [URL]?{
         var urls: [URL] = []
