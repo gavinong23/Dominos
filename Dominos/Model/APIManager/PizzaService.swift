@@ -12,7 +12,7 @@ import Foundation
 class PizzaService{
     
     
-    func callAPIGetPizzas(onSuccess successCallback: ((_ pizzas: [DominoModel]) -> Void)?,
+    func callAPIGetPizzas(onSuccess successCallback: ((_ pizzas: [DominoListingModel]) -> Void)?,
                           onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
         APIManager.instance.callAPIGetPizzas(
@@ -22,5 +22,29 @@ class PizzaService{
           
             failureCallback?(errorMessage)
         })
+    }
+    
+    func callAPIGetPizzaDetail(pizzaID:String, onSuccess successCallback: ((_ pizzas: DominoDetailModel) -> Void)?,
+                               onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
+        
+        APIManager.instance.callAPIGetPizzaWithParam(pizzaID: pizzaID,
+            onSuccess: {(pizzas) in
+            successCallback?(pizzas)
+        }, onFailure: {(errorMessage) in
+            failureCallback?(errorMessage)
+        })
+        
+    }
+    
+    func callAPIPostPizzaDetail(pizzaID:String, onSuccess successCallback: ((_ pizzas: DominoDetailModel) -> Void)?,
+                               onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
+        
+        APIManager.instance.callAPIPostPizzaWithParam(pizzaID: pizzaID,
+                                                     onSuccess: {(pizzas) in
+                                                        successCallback?(pizzas)
+        }, onFailure: {(errorMessage) in
+            failureCallback?(errorMessage)
+        })
+        
     }
 }

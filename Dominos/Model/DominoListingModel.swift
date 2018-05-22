@@ -7,13 +7,14 @@
 //
 
 import Foundation
-import ObjectMapper
 import SwiftyJSON
+import ObjectMapper
 
-class DominoModel{
+class DominoListingModel{
     let baseImageUrl = Config.Url.BASE_IMAGE_URL
     //var pizzaImg: [EnumPizzaImgs]?
-    var pizzaImage: [String]?
+    var pizzaID: String?
+    var pizzaThumbnail: String?
     var pizzaName: String?
     var pizzaDesc: String?
     var pizzaToppingImage: [String]?
@@ -21,10 +22,11 @@ class DominoModel{
     
     init (JSON:JSON){
         
-        self.pizzaName = JSON["pizzaName"].stringValue
-        self.pizzaImage = [JSON["pizzaImage"].stringValue]
+        self.pizzaID = JSON["pizzaID"].stringValue
         
-        self.pizzaImage = [JSON["pizzaImage"][0].stringValue,JSON["pizzaImage"][1].stringValue]
+        self.pizzaName = JSON["pizzaName"].stringValue
+        
+        self.pizzaThumbnail = JSON["pizzaImage"].stringValue
         
         self.pizzaDesc = JSON["pizzaDesc"].stringValue
 
@@ -38,24 +40,14 @@ class DominoModel{
     func getPizzaThumbnailUrl() -> URL? {
         var url:URL?
 
-        if let pizzaImage = self.pizzaImage {
-            let urlString = [baseImageUrl, pizzaImage[1]].joined()
+        if let pizzaThumbnail = self.pizzaThumbnail {
+            let urlString = [baseImageUrl, pizzaThumbnail].joined()
             url = URL(string: urlString)!
         }
         return url
     }
     
-    func getPizzaFullImageUrl() -> URL?{
-        var url: URL?
-        
-        if let pizzaImage = self.pizzaImage{
-            let urlString = [baseImageUrl, pizzaImage[0]].joined()
-            url = URL(string: urlString)!
-        }
-        
-        return url
-    }
-    
+
     func getPizzaIconUrl() -> [URL]?{
         var urls: [URL] = []
 

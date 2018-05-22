@@ -105,6 +105,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4HP-Lz-5KO">
+                                <rect key="frame" x="0.0" y="32" width="667" height="343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Failed to get pizza details." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="306-9b-3e7">
+                                        <rect key="frame" x="196" y="156.5" width="276.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="306-9b-3e7" firstAttribute="centerX" secondItem="4HP-Lz-5KO" secondAttribute="centerX" id="M0g-vV-p97"/>
+                                    <constraint firstItem="306-9b-3e7" firstAttribute="centerY" secondItem="4HP-Lz-5KO" secondAttribute="centerY" id="u3n-f2-6zd"/>
+                                </constraints>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="odl-Se-AKa">
                                 <rect key="frame" x="0.0" y="32" width="667" height="343"/>
                                 <subviews>
@@ -184,9 +200,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="4HP-Lz-5KO" firstAttribute="top" secondItem="rvJ-Lg-w4F" secondAttribute="top" id="5dA-By-vCf"/>
+                            <constraint firstItem="4HP-Lz-5KO" firstAttribute="leading" secondItem="rvJ-Lg-w4F" secondAttribute="leading" id="K1J-aX-HwQ"/>
                             <constraint firstItem="rvJ-Lg-w4F" firstAttribute="bottom" secondItem="odl-Se-AKa" secondAttribute="bottom" id="Sza-uT-xxR"/>
+                            <constraint firstItem="rvJ-Lg-w4F" firstAttribute="bottom" secondItem="4HP-Lz-5KO" secondAttribute="bottom" id="Yal-2C-npG"/>
                             <constraint firstItem="odl-Se-AKa" firstAttribute="leading" secondItem="rvJ-Lg-w4F" secondAttribute="leading" id="auA-bc-ile"/>
                             <constraint firstItem="rvJ-Lg-w4F" firstAttribute="trailing" secondItem="odl-Se-AKa" secondAttribute="trailing" id="eOU-36-WdY"/>
+                            <constraint firstItem="rvJ-Lg-w4F" firstAttribute="trailing" secondItem="4HP-Lz-5KO" secondAttribute="trailing" id="gVO-tw-CYG"/>
                             <constraint firstItem="odl-Se-AKa" firstAttribute="top" secondItem="rvJ-Lg-w4F" secondAttribute="top" id="tk2-Y0-OKT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rvJ-Lg-w4F"/>
@@ -197,6 +217,7 @@
                         <outlet property="dominoPizzaFullImageView" destination="oSj-KZ-xRx" id="Jyi-0Q-VJh"/>
                         <outlet property="dominoPizzaNameLabel" destination="Tb0-uS-2Yk" id="i2o-tb-3Gu"/>
                         <outlet property="dominoPizzaTypeStackView" destination="BNc-1z-IPY" id="kdu-uX-Qcs"/>
+                        <outlet property="emptyView" destination="4HP-Lz-5KO" id="hw9-DJ-0qz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sst-Vz-NRj" userLabel="First Responder" sceneMemberID="firstResponder"/>

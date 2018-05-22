@@ -18,7 +18,7 @@ class DominoHomeViewController: UIViewController {
     @IBOutlet weak var emptyPizzaView: UIView!
     
     var dominoModels = [PizzasViewData]()
-    var dominoModel = [DominoModel]()
+    var dominoModel = [DominoListingModel]()
     private let dominoHomePresenter = DominoHomePresenter(pizzaService: PizzaService())
     
     override func viewDidLoad() {
@@ -118,9 +118,11 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
         if(segue.identifier == R.segue.dominoHomeViewController.pizzaHomeToPizzaHomeDetailID.identifier){
             
             dominoModel = (sender as? PizzasViewData)!
+           
             let DominoPizzaHomeDetailViewController = segue.destination as! DominoPizzaHomeDetailViewController
         
-            DominoPizzaHomeDetailViewController.dominoPizzaObj = dominoModel
+            //DominoPizzaHomeDetailViewController.dominoPizzaObj = dominoModel
+            DominoPizzaHomeDetailViewController.pizzaID = dominoModel.pizzaID
         }
     }
     

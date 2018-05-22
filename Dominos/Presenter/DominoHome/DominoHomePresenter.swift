@@ -20,13 +20,11 @@ enum EnumDominoHomeRoute{
 }
 
 struct PizzasViewData{
+    let pizzaID: String?
     let pizzaThumbnail: URL?
-    let pizzaFull: URL?
     let pizzaName: String?
     let pizzaDesc: String?
     let pizzaToppingImage: [URL]?
-    let pizzaTopping: [String]?
-
 }
 
 class DominoHomePresenter{
@@ -61,7 +59,7 @@ class DominoHomePresenter{
                 }else{
                 
                     let mappedPizzas = pizzas.map{
-                        return PizzasViewData(pizzaThumbnail:$0.getPizzaThumbnailUrl(),pizzaFull: $0.getPizzaFullImageUrl(),pizzaName: $0.pizzaName ?? "", pizzaDesc: $0.pizzaDesc ?? "", pizzaToppingImage: $0.getPizzaIconUrl(), pizzaTopping: $0.pizzaTopping ?? [])
+                        return PizzasViewData(pizzaID: $0.pizzaID ?? "",pizzaThumbnail:$0.getPizzaThumbnailUrl(),pizzaName: $0.pizzaName ?? "", pizzaDesc: $0.pizzaDesc ?? "", pizzaToppingImage: $0.getPizzaIconUrl())
                     }
                     self.dominoPizzaHomeView?.setPizzas(pizzas: mappedPizzas)
                 }
