@@ -17,8 +17,7 @@ class DominoListingModel{
     var pizzaThumbnail: String?
     var pizzaName: String?
     var pizzaDesc: String?
-    var pizzaToppingImage: [String]?
-    var pizzaTopping: [String]?
+    var pizzaToppingImage: [EnumPizzaToppings]?
     
     init (JSON:JSON){
         
@@ -29,12 +28,19 @@ class DominoListingModel{
         self.pizzaThumbnail = JSON["pizzaImage"].stringValue
         
         self.pizzaDesc = JSON["pizzaDesc"].stringValue
-
-        self.pizzaToppingImage = JSON["pizzaToppingImage"].arrayValue.map{
-            $0.stringValue
-        }
         
-        self.pizzaTopping = [JSON["pizzaTopping"].stringValue]
+        
+    
+        
+ 
+        self.pizzaToppingImage = JSON["pizzaToppingImage"].arrayValue.map{
+                EnumPizzaToppings(rawValue: $0.stringValue)!
+               // $0.stringValue
+        }
+
+   
+        print(self.pizzaToppingImage)
+        
     }
     
     func getPizzaThumbnailUrl() -> URL? {
@@ -48,17 +54,17 @@ class DominoListingModel{
     }
     
 
-    func getPizzaIconUrl() -> [URL]?{
-        var urls: [URL] = []
-
-        for pizzaTopping in self.pizzaToppingImage!{
-            let urlString = [baseImageUrl, pizzaTopping].joined()
-
-            let pizzaToppingUrl = URL(string: urlString)!
-
-            urls.append(pizzaToppingUrl)
-        }
-
-        return urls
-    }
+//    func getPizzaIconUrl() -> [URL]?{
+//        var urls: [URL] = []
+//
+//        for pizzaTopping in self.pizzaToppingImage!{
+//            let urlString = [baseImageUrl, pizzaTopping].joined()
+//
+//            let pizzaToppingUrl = URL(string: urlString)!
+//
+//            urls.append(pizzaToppingUrl)
+//        }
+//
+//        return urls
+//    }
 }

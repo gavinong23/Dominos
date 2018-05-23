@@ -13,7 +13,7 @@ struct PizzaDetailViewData{
     var pizzaID: String?
     var pizzaName: String?
     var pizzaDesc: String?
-    var pizzaTopping: [URL]?
+    var pizzaToppingImage: [EnumPizzaToppings]?
     var pizzaFullImage: URL?
 }
 
@@ -40,15 +40,14 @@ class DominoPizzaDetailPrenseter{
         
         if let pizzaID = self.dominoPizzaDetailView?.getPizzaID(){
             pizzaService.callAPIPostPizzaDetail(pizzaID: pizzaID, onSuccess: { pizza in
-                    self.dominoPizzaDetailView?.stopLoading()
                 
-                
-                    self.dominoPizzaDetailView?.setEmptyPizzaDetail()
+            self.dominoPizzaDetailView?.setEmptyPizzaDetail()
                
+            let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil)
                     
-                let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaTopping: pizza.getPizzaIconUrl() ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil)
-                    
-                    self.dominoPizzaDetailView?.setPizzaDetail(pizza: mappedPizzaDetail)
+            self.dominoPizzaDetailView?.setPizzaDetail(pizza: mappedPizzaDetail)
+                
+            self.dominoPizzaDetailView?.stopLoading()
                 
             }, onFailure: {(errorMessage) in
                 print(errorMessage)

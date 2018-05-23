@@ -82,6 +82,25 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
         self.dominoPizzaFullImageView.kf.setImage(with: pizza.pizzaFullImage)
         self.dominoPizzaNameLabel.text = pizza.pizzaName
         self.dominoPizzaDescLabel.text = pizza.pizzaDesc
+        
+         let pizzaToppingIcons = pizza.pizzaToppingImage
+        
+        if let pizzaToppingIcons = pizzaToppingIcons{
+            pizzaToppingIcons.map{ pizzaToppingIcon in
+                let imageView = UIImageView()
+                imageView.image = pizzaToppingIcon.toppingImage()
+                //imageView.kf.setImage(with: pizzaToppingIcon)
+                imageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+                imageView.layer.borderWidth=1.0
+                imageView.layer.masksToBounds = false
+                imageView.clipsToBounds = true
+                imageView.layer.cornerRadius = imageView.frame.size.height/2
+                dominoPizzaTypeStackView.addArrangedSubview(imageView)
+            }
+        }
+        
+        
+        
     }
     
     

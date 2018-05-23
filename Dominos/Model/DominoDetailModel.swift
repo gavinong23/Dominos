@@ -16,7 +16,7 @@ class DominoDetailModel{
     var pizzaID: String?
     var pizzaName: String?
     var pizzaDesc: String?
-    var pizzaToppingImage: [String]?
+    var pizzaToppingImage: [EnumPizzaToppings]?
     var pizzaFullImage: String?
     
     
@@ -25,7 +25,11 @@ class DominoDetailModel{
         self.pizzaName = JSON["pizzaName"].stringValue
         self.pizzaDesc = JSON["pizzaDesc"].stringValue
         self.pizzaFullImage = JSON["pizzaImage"].stringValue
-        self.pizzaToppingImage = [JSON["pizzaToppingImage"].stringValue]
+        
+        self.pizzaToppingImage = JSON["pizzaToppingImage"].arrayValue.map{
+            EnumPizzaToppings(rawValue: $0.stringValue)!
+            // $0.stringValue
+        }
     }
     
     func getPizzaFullImageUrl() -> URL? {
@@ -37,22 +41,6 @@ class DominoDetailModel{
         }
         return url
     }
-    
-    func getPizzaIconUrl() -> [URL]?{
-        var urls: [URL] = []
-        
-        for pizzaToppingImage in self.pizzaToppingImage!{
-            let urlString = [baseImageUrl, pizzaToppingImage].joined()
-            
-            let pizzaToppingUrl = URL(string: urlString)!
-            
-            urls.append(pizzaToppingUrl)
-        }
-        
-        return urls
-    }
-    
-    
     
     
 }

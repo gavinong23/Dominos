@@ -38,7 +38,8 @@ class DominoPizzaHomeCollectionViewCell: GeminiCell {
         if let pizzaToppingIcons = pizzaToppingIcons{
             pizzaToppingIcons.map{ pizzaToppingIcon in
                 let imageView = UIImageView()
-                imageView.kf.setImage(with: pizzaToppingIcon)
+                imageView.image = pizzaToppingIcon.toppingImage()
+                //imageView.kf.setImage(with: pizzaToppingIcon)
                 imageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
                 imageView.layer.borderWidth=1.0
                 imageView.layer.masksToBounds = false

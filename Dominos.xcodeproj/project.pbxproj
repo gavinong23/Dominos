@@ -15,7 +15,6 @@
 		558255D520919F6400F599FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 558255D320919F6400F599FA /* LaunchScreen.storyboard */; };
 		558255E020919F6500F599FA /* DominosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558255DF20919F6500F599FA /* DominosTests.swift */; };
 		558255EB20919F6500F599FA /* DominosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558255EA20919F6500F599FA /* DominosUITests.swift */; };
-		558256002091ACCA00F599FA /* DominoModelss(ref).swift in Sources */ = {isa = PBXBuildFile; fileRef = 558255FF2091ACCA00F599FA /* DominoModelss(ref).swift */; };
 		558256072091B0E700F599FA /* dominoVideoAds.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 558256062091B0E600F599FA /* dominoVideoAds.mp4 */; };
 		5582560E2091B2B300F599FA /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5582560D2091B2B300F599FA /* Config.swift */; };
 		558256102091B2DC00F599FA /* ScreenSaverTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5582560F2091B2DC00F599FA /* ScreenSaverTimer.swift */; };
@@ -25,7 +24,6 @@
 		5582562C2091CC2800F599FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5582562B2091CC2800F599FA /* Assets.xcassets */; };
 		5582562F2091D3C800F599FA /* CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5582562E2091D3C800F599FA /* CollectionViewExtension.swift */; };
 		5583FD7B2096A8040013394D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5583FD7A2096A8040013394D /* Player.swift */; };
-		55A3B1EB209714E900BA8B8C /* PizzaServicess(ref).swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A3B1EA209714E900BA8B8C /* PizzaServicess(ref).swift */; };
 		55A3B1ED2097165500BA8B8C /* DominoHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A3B1EC2097165500BA8B8C /* DominoHomePresenter.swift */; };
 		55A3B1F02097175800BA8B8C /* DominoPizzaHomeViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A3B1EF2097175800BA8B8C /* DominoPizzaHomeViewType.swift */; };
 		55B68C9D20990347001B5400 /* ActivityIndicatorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B68C9C20990347001B5400 /* ActivityIndicatorExtension.swift */; };
@@ -38,6 +36,7 @@
 		E9197BAF20AAB449003FA350 /* PizzaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAE20AAB449003FA350 /* PizzaService.swift */; };
 		E94123B620B3E52B0054D03B /* DominoPizzaDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94123B520B3E52B0054D03B /* DominoPizzaDetailPresenter.swift */; };
 		E94123B820B3E5490054D03B /* DominoPizzaDetailViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */; };
+		E9464B2E20B5185D00E23485 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9464B2D20B5185D00E23485 /* Enum.swift */; };
 		E95E2D5E20B3BFB800F2EA17 /* DominoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E2D5D20B3BFB800F2EA17 /* DominoDetailModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +78,6 @@
 		558255E620919F6500F599FA /* DominosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DominosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		558255EA20919F6500F599FA /* DominosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominosUITests.swift; sourceTree = "<group>"; };
 		558255EC20919F6500F599FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		558255FF2091ACCA00F599FA /* DominoModelss(ref).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DominoModelss(ref).swift"; sourceTree = "<group>"; };
 		558256062091B0E600F599FA /* dominoVideoAds.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dominoVideoAds.mp4; sourceTree = "<group>"; };
 		5582560D2091B2B300F599FA /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		5582560F2091B2DC00F599FA /* ScreenSaverTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSaverTimer.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 		5582562B2091CC2800F599FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5582562E2091D3C800F599FA /* CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewExtension.swift; sourceTree = "<group>"; };
 		5583FD7A2096A8040013394D /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		55A3B1EA209714E900BA8B8C /* PizzaServicess(ref).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PizzaServicess(ref).swift"; sourceTree = "<group>"; };
 		55A3B1EC2097165500BA8B8C /* DominoHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoHomePresenter.swift; sourceTree = "<group>"; };
 		55A3B1EF2097175800BA8B8C /* DominoPizzaHomeViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaHomeViewType.swift; sourceTree = "<group>"; };
 		55B68C9C20990347001B5400 /* ActivityIndicatorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorExtension.swift; sourceTree = "<group>"; };
@@ -106,6 +103,7 @@
 		E9197BAE20AAB449003FA350 /* PizzaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaService.swift; sourceTree = "<group>"; };
 		E94123B520B3E52B0054D03B /* DominoPizzaDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaDetailPresenter.swift; sourceTree = "<group>"; };
 		E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaDetailViewType.swift; sourceTree = "<group>"; };
+		E9464B2D20B5185D00E23485 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		E95E2D5D20B3BFB800F2EA17 /* DominoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoDetailModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,7 +196,6 @@
 			children = (
 				55A3B1E920970E5F00BA8B8C /* APIManager */,
 				E9197BAC20AAB117003FA350 /* DominoListingModel.swift */,
-				558255FF2091ACCA00F599FA /* DominoModelss(ref).swift */,
 				E95E2D5D20B3BFB800F2EA17 /* DominoDetailModel.swift */,
 			);
 			path = Model;
@@ -299,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				5582560D2091B2B300F599FA /* Config.swift */,
+				E9464B2D20B5185D00E23485 /* Enum.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -333,7 +331,6 @@
 			children = (
 				E9197BAA20AAA827003FA350 /* APIManager.swift */,
 				E9197BAE20AAB449003FA350 /* PizzaService.swift */,
-				55A3B1EA209714E900BA8B8C /* PizzaServicess(ref).swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -632,14 +629,13 @@
 				558255CD20919F6100F599FA /* DominoHomeViewController.swift in Sources */,
 				55A3B1F02097175800BA8B8C /* DominoPizzaHomeViewType.swift in Sources */,
 				E9197BAD20AAB117003FA350 /* DominoListingModel.swift in Sources */,
-				558256002091ACCA00F599FA /* DominoModelss(ref).swift in Sources */,
 				5582562F2091D3C800F599FA /* CollectionViewExtension.swift in Sources */,
 				E94123B820B3E5490054D03B /* DominoPizzaDetailViewType.swift in Sources */,
 				E9197BAF20AAB449003FA350 /* PizzaService.swift in Sources */,
 				558255CB20919F6100F599FA /* AppDelegate.swift in Sources */,
 				55B68C9D20990347001B5400 /* ActivityIndicatorExtension.swift in Sources */,
 				558256102091B2DC00F599FA /* ScreenSaverTimer.swift in Sources */,
-				55A3B1EB209714E900BA8B8C /* PizzaServicess(ref).swift in Sources */,
+				E9464B2E20B5185D00E23485 /* Enum.swift in Sources */,
 				55A3B1ED2097165500BA8B8C /* DominoHomePresenter.swift in Sources */,
 				E95E2D5E20B3BFB800F2EA17 /* DominoDetailModel.swift in Sources */,
 				5582560E2091B2B300F599FA /* Config.swift in Sources */,
