@@ -127,6 +127,12 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
     }
     
     func routeTo(screen:EnumDominoHomeRoute){
+//        let a = ["a", "d", "c"]
+//        let b = a.filter{ pizza.price > 15 }
+//        if b.count == 0 {
+//            label.text = "no items above RM 15"
+//        }
+        
         switch screen{
             case .pizzaDetail(let model):
 //                if (model.pizzaToppingImage?.contains(.shrimp))!{
