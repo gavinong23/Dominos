@@ -9,6 +9,7 @@
 import UIKit
 import Gemini
 
+
 class DominoPizzaHomeCollectionViewCell: GeminiCell {
     
  
@@ -20,7 +21,6 @@ class DominoPizzaHomeCollectionViewCell: GeminiCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func populateCell(pizza : PizzasViewData, cell: DominoPizzaHomeCollectionViewCell){
@@ -39,7 +39,6 @@ class DominoPizzaHomeCollectionViewCell: GeminiCell {
             pizzaToppingIcons.map{ pizzaToppingIcon in
                 let imageView = UIImageView()
                 imageView.image = pizzaToppingIcon.toppingImage()
-                //imageView.kf.setImage(with: pizzaToppingIcon)
                 imageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
                 imageView.layer.borderWidth=1.0
                 imageView.layer.masksToBounds = false
@@ -48,7 +47,6 @@ class DominoPizzaHomeCollectionViewCell: GeminiCell {
                 dominoPizzaTypeStackView.addArrangedSubview(imageView)
             }
         }
-        
         
     }
 

@@ -15,11 +15,6 @@ class APIManager{
     
     static let instance = APIManager()
     
-//    enum RequestMethod{
-//        case get
-//        case post
-//    }
-    
     enum EndPoint: String{
         case getListingPizza = "/getAllPizza.php"
         case getDetailPizza = "/pizzaDetail.php"
@@ -30,8 +25,6 @@ class APIManager{
         
         let url = Config.Url.API_BASE_URL + EndPoint.getListingPizza.rawValue
         
-        //convert pizza ID to int
- 
         // call API
         self.createGetRequest(
             url, method: .get, headers: nil, parameters: nil,
@@ -41,8 +34,10 @@ class APIManager{
                     .arrayValue
                     .map{ DominoListingModel(JSON: $0) }
                 
-                successCallback!(pizzaData)
-      
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
+                    successCallback!(pizzaData)
+                }
+                
         },
             onFailure: {(errorMessage: String) -> Void in
                 print(errorMessage)
@@ -55,12 +50,11 @@ class APIManager{
                                   onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
         let url = Config.Url.API_BASE_URL + EndPoint.getDetailPizza.rawValue + "?&pizzaID=\(pizzaID)"
-
-        //let headers = ["Content-Type":"application/x-www-form-urlencoded"]
         
         self.createGetRequest(url, method: .get, headers: nil, parameters: nil, onSuccess: {(responseObject: JSON)-> Void in
             
-            print(responseObject["response"])
+            //print(responseObject["response"])
+            
             let pizzaData =  DominoDetailModel(JSON: responseObject["response"])
             
             successCallback?(pizzaData)
@@ -75,47 +69,39 @@ class APIManager{
     func callAPIPostPizzaWithParam(pizzaID: String, onSuccess successCallback: ((_ pizza: DominoDetailModel) -> Void)?,
                                   onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
-        //let url = Config.Url.API_BASE_URL + EndPoint.getDetailPizza.rawValue + "?&pizzaID=\(pizzaID)"
         let url = Config.Url.API_BASE_URL + EndPoint.getDetailPizza.rawValue
         
         let parameters = ["pizzaID":pizzaID]
         
-        print(parameters)
+        //print(parameters)
         
         let headers = ["Content-Type":"application/x-www-form-urlencoded"]
         
         self.createPostRequest(url, method: .post, headers: headers, parameters: parameters, encoding: URLEncoding.httpBody, onSuccess: {(responseObject: JSON)-> Void in
-            //print(responseObject["response"])
+
             let pizzaData =  DominoDetailModel(JSON: responseObject["response"])
             
             successCallback?(pizzaData)
     
         }, onFailure: {(errorMessage: String)-> Void in
-            //print("\(errorMessage)")
+            
             failureCallback?(errorMessage)
+            
         })
         
-//        {}, [], '', :
-//
-//        http%25%30%30www.google.com
+
     }
-    
-    
-    
-    
     
     
     func createPostRequest(_ url: String, method: HTTPMethod, headers: [String:String]?, parameters: [String:String]?, encoding: URLEncoding,onSuccess successCallback:((JSON)-> Void)?, onFailure failureCallback: ((String)-> Void)?){
         
         Alamofire.request(url,method: method,parameters:parameters,encoding:encoding,headers:headers).validate().responseJSON{
             response in
-            print(response.request?.url)
-            print(response.request?.httpBody?.description)
+
             switch response.result{
             case .success(let value):
                 let json = JSON(value)
                 
-                //print(json)
                 successCallback?(json)
             case .failure(let error):
                 if let callback = failureCallback{
@@ -131,10 +117,11 @@ class APIManager{
             response in
             switch response.result{
                 case .success(let value):
+                    
                     let json = JSON(value)
-                  
-                    //print(json)
                     successCallback?(json)
+                
+                
             case .failure(let error):
                 if let callback = failureCallback{
                     callback(error.localizedDescription)

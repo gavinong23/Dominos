@@ -43,6 +43,7 @@ enum EnumPizzaToppings : String{
             return R.image.icon_saucePesto()!
         case .secret:
             return R.image.icon_sauceSecret()!
+            
         }
     }
 }

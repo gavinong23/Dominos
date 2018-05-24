@@ -17,33 +17,59 @@ class DominoHomeViewController: UIViewController {
     
     @IBOutlet weak var emptyPizzaView: UIView!
     
+    @IBOutlet weak var emptyViewLabel: UILabel!
+     var refresher: UIRefreshControl!
+    
     var dominoModels = [PizzasViewData]()
-    var dominoModel = [DominoListingModel]()
+    
     private let dominoHomePresenter = DominoHomePresenter(pizzaService: PizzaService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        setupCollectionView()
+        //setupCollectionView()
+        
+        //refresh()
+        
+        if !Reachability.isConnectedToNetwork(){
+            refreshCollectionView()
+        }else{
+            setupCollectionView()
+        }
+        
+        self.refresher.addTarget(self, action: #selector(pullToRefreshCollectionView), for: .valueChanged)
+        
     }
     
+    func setupCollectionView(){
+        self.dominoHomePresenter.getPizzas()
+    }
     
+    func refreshCollectionView(){
+        self.dominoHomePresenter.NoInternetConnectionGetPizza()
+    }
+    
+    @objc func pullToRefreshCollectionView(){
+        self.dominoHomePresenter.pullToRefreshGetPizza()
+    }
+
     func setupView(){
         self.navigationItem.title = R.string.main.navigation_home_title()
         self.navigationItem.backBarButtonItem?.title = R.string.main.navigation_button_back()
         collectionView.delegate = self
         collectionView.dataSource = self
         dominoHomePresenter.attachView(view: self)
-        
-        
+        self.refresher = UIRefreshControl()
+        self.collectionView!.alwaysBounceVertical = true
+        self.refresher.tintColor = UIColor.red
+        self.collectionView!.addSubview(refresher)
+    
         //Register Nib
         self.collectionView.register(R.nib.dominoPizzaHomeCollectionViewCell)
     
     }
     
-    func setupCollectionView(){
-        self.dominoHomePresenter.getPizzas()
-    }
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -99,13 +125,32 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
         self.collectionView.reloadData()
     }
     
-    func setEmptyPizza() {
+    func setEmptyPizza(isConnectedToNetwork:Bool) {
+        
+        if !isConnectedToNetwork{
+            self.emptyViewLabel.text = "No Internet Connection. Please connect to the Internet and wait for awhile for the app to refresh."
+        }else{
+            self.emptyViewLabel.text = "No pizza added."
+        }
+        
         self.collectionView.isHidden = true
         self.emptyPizzaView.isHidden = false
+        
+    
+   
+    }
+    
+    func stopRefresher() {
+        self.refresher.endRefreshing()
     }
     
     func startLoading(){
         self.presentLoadingView()
+    }
+    
+    func startEmptyViewLoading(){
+    
+        
     }
     
     func stopLoading(){
@@ -121,25 +166,16 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
            
             let DominoPizzaHomeDetailViewController = segue.destination as! DominoPizzaHomeDetailViewController
         
-            //DominoPizzaHomeDetailViewController.dominoPizzaObj = dominoModel
             DominoPizzaHomeDetailViewController.pizzaID = dominoModel.pizzaID
         }
     }
     
     func routeTo(screen:EnumDominoHomeRoute){
-//        let a = ["a", "d", "c"]
-//        let b = a.filter{ pizza.price > 15 }
-//        if b.count == 0 {
-//            label.text = "no items above RM 15"
-//        }
+
         
         switch screen{
             case .pizzaDetail(let model):
-//                if (model.pizzaToppingImage?.contains(.shrimp))!{
-//                    self.performSegue(withIdentifier: "new screen", sender: model)
-//                } else {
-//                    self.performSegue(withIdentifier: screen.segueID(), sender: model)
-//                }
+                
                 self.performSegue(withIdentifier: screen.segueID(), sender: model)
         }
     }

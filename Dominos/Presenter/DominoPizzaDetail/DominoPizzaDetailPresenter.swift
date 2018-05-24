@@ -33,31 +33,47 @@ class DominoPizzaDetailPrenseter{
         dominoPizzaDetailView = view
     }
     
+    func dettachView(){
+        dominoPizzaDetailView = nil
+    }
+    
     
     func getPizzaDetail(){
-        
-        self.dominoPizzaDetailView?.startLoading()
-        
-        if let pizzaID = self.dominoPizzaDetailView?.getPizzaID(){
-            pizzaService.callAPIPostPizzaDetail(pizzaID: pizzaID, onSuccess: { pizza in
-                
-            self.dominoPizzaDetailView?.setEmptyPizzaDetail()
-               
-            let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil)
-                    
-            self.dominoPizzaDetailView?.setPizzaDetail(pizza: mappedPizzaDetail)
-                
-            self.dominoPizzaDetailView?.stopLoading()
-                
-            }, onFailure: {(errorMessage) in
-                print(errorMessage)
-                self.dominoPizzaDetailView?.stopLoading()
-            })
+       
+        if !(checkInternetConnection()){
+            self.dominoPizzaDetailView?.startLoading()
             
+            if let pizzaID = self.dominoPizzaDetailView?.getPizzaID(){
+                pizzaService.callAPIPostPizzaDetail(pizzaID: pizzaID, onSuccess: { pizza in
+                    
+                self.dominoPizzaDetailView?.setEmptyPizzaDetail()
+                   
+                let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil)
+                    
+                self.dominoPizzaDetailView?.setPizzaDetail(pizza: mappedPizzaDetail)
+                    
+                self.dominoPizzaDetailView?.stopLoading()
+                    
+                }, onFailure: {(errorMessage) in
+                    print(errorMessage)
+                    self.dominoPizzaDetailView?.stopLoading()
+                })
+                
+            }
+        }else{
             
         }
         
-        
+    }
+    
+    func checkInternetConnection() -> Bool{
+        if Reachability.isConnectedToNetwork() != true{
+            print("Please connect to the Internet.")
+            return true
+        }else{
+            print("You are connected to the Internet.")
+            return false
+        }
     }
 }
 

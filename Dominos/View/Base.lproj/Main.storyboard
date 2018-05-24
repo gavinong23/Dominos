@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HyP-lw-YNp">
                                 <rect key="frame" x="0.0" y="32" width="667" height="343"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza is empty." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqt-OB-z1B">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza is empty." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqt-OB-z1B">
                                         <rect key="frame" x="0.0" y="0.0" width="667" height="343"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -90,6 +90,7 @@
                     <connections>
                         <outlet property="collectionView" destination="34t-ne-sVO" id="aY9-Hp-A2A"/>
                         <outlet property="emptyPizzaView" destination="HyP-lw-YNp" id="jcF-KM-Ylb"/>
+                        <outlet property="emptyViewLabel" destination="Fqt-OB-z1B" id="q6P-x5-3V8"/>
                         <segue destination="EZw-Ks-onX" kind="show" identifier="pizzaHomeToPizzaHomeDetailID" id="JEm-2c-Z0r"/>
                     </connections>
                 </viewController>

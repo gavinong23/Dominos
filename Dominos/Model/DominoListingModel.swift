@@ -12,7 +12,6 @@ import ObjectMapper
 
 class DominoListingModel{
     let baseImageUrl = Config.Url.BASE_IMAGE_URL
-    //var pizzaImg: [EnumPizzaImgs]?
     var pizzaID: String?
     var pizzaThumbnail: String?
     var pizzaName: String?
@@ -29,18 +28,10 @@ class DominoListingModel{
         
         self.pizzaDesc = JSON["pizzaDesc"].stringValue
         
-        
-    
-        
- 
         self.pizzaToppingImage = JSON["pizzaToppingImage"].arrayValue.map{
                 EnumPizzaToppings(rawValue: $0.stringValue)!
-               // $0.stringValue
         }
 
-   
-        print(self.pizzaToppingImage)
-        
     }
     
     func getPizzaThumbnailUrl() -> URL? {
@@ -53,18 +44,4 @@ class DominoListingModel{
         return url
     }
     
-
-//    func getPizzaIconUrl() -> [URL]?{
-//        var urls: [URL] = []
-//
-//        for pizzaTopping in self.pizzaToppingImage!{
-//            let urlString = [baseImageUrl, pizzaTopping].joined()
-//
-//            let pizzaToppingUrl = URL(string: urlString)!
-//
-//            urls.append(pizzaToppingUrl)
-//        }
-//
-//        return urls
-//    }
 }

@@ -11,15 +11,16 @@ import Foundation
 
 class PizzaService{
     
-    
     func callAPIGetPizzas(onSuccess successCallback: ((_ pizzas: [DominoListingModel]) -> Void)?,
                           onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
         APIManager.instance.callAPIGetPizzas(
+           
             onSuccess: { (pizzas) in
             successCallback?(pizzas)
+                print("requested")
         }, onFailure:{ (errorMessage) in
-          
+          print(errorMessage)
             failureCallback?(errorMessage)
         })
     }
@@ -39,9 +40,12 @@ class PizzaService{
     func callAPIPostPizzaDetail(pizzaID:String, onSuccess successCallback: ((_ pizzas: DominoDetailModel) -> Void)?,
                                onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
-        APIManager.instance.callAPIPostPizzaWithParam(pizzaID: pizzaID,
-                                                     onSuccess: {(pizzas) in
-                                                        successCallback?(pizzas)
+        APIManager.instance.callAPIPostPizzaWithParam(
+            pizzaID: pizzaID,
+            onSuccess: { (pizzas) in
+                
+            successCallback?(pizzas)
+                
         }, onFailure: {(errorMessage) in
             failureCallback?(errorMessage)
         })

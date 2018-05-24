@@ -28,7 +28,6 @@ class DominoDetailModel{
         
         self.pizzaToppingImage = JSON["pizzaToppingImage"].arrayValue.map{
             EnumPizzaToppings(rawValue: $0.stringValue)!
-            // $0.stringValue
         }
     }
     

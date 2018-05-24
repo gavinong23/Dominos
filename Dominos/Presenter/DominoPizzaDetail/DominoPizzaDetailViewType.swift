@@ -12,7 +12,6 @@ import Foundation
 
 protocol DominoPizzaDetailViewType: NSObjectProtocol{
     
-    
     func setPizzaDetail(pizza: PizzaDetailViewData)
     func getPizzaID() -> String
     func startLoading()

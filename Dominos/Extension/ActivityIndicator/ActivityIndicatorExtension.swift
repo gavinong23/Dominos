@@ -16,12 +16,13 @@ var activityIndicator : NVActivityIndicatorView? = nil
 extension UIViewController: NVActivityIndicatorViewable {
     
     func presentLoadingView() {
-        activityIndicator = NVActivityIndicatorView(frame: CGRect(x:0,y:0,width: 50, height: 50), type: .ballRotateChase, color: UIColor.gray, padding: 0)
-        activityIndicator?.center = self.view.center
-        self.view.addSubview(activityIndicator!)
-        self.view.bringSubview(toFront:  activityIndicator!)
-        activityIndicator?.startAnimating()
-       
+    
+            activityIndicator = NVActivityIndicatorView(frame: CGRect(x:0,y:0,width: 50, height: 50), type: .ballRotateChase, color: UIColor.gray, padding: 0)
+            activityIndicator?.center = self.view.center
+        
+            self.view.addSubview(activityIndicator!)
+            self.view.bringSubview(toFront:  activityIndicator!)
+            activityIndicator?.startAnimating()
     }
     
     func dismissLoadingView() {

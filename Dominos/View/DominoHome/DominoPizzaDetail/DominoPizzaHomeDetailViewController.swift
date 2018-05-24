@@ -10,13 +10,9 @@ import UIKit
 
 class DominoPizzaHomeDetailViewController: UIViewController {
     
-
-    //var dominoModels = [PizzasViewData]()
-    //var dominoPizzaObj:PizzasViewData? = nil
+    var pizzaID: String?
     
     private let dominoDetailPresenter = DominoPizzaDetailPrenseter(pizzaService: PizzaService())
-    
-    var pizzaID: String?
 
     @IBOutlet weak var emptyView: UIView!
     
@@ -40,36 +36,10 @@ class DominoPizzaHomeDetailViewController: UIViewController {
         self.dominoDetailPresenter.getPizzaDetail()
     }
     
-
     func setupStackView(){
-        
-        print("DetailGetPizzaID:\(pizzaID)")
-//        if let dominoPizzaObj = self.dominoPizzaObj{
-//            //dominoPizzaFullImageView.kf.setImage(with: dominoPizzaObj.pizzaFull)
-//            dominoPizzaNameLabel.text = dominoPizzaObj.pizzaName
-//            dominoPizzaDescLabel.text = dominoPizzaObj.pizzaDesc
-//
-//            let pizzaToppingIcons = dominoPizzaObj.pizzaToppingImage
-//
-//            if let pizzaToppingIcons = pizzaToppingIcons{
-//                pizzaToppingIcons.map{ pizzaToppingIcon in
-//                    let imageView = UIImageView()
-//                    imageView.kf.setImage(with: pizzaToppingIcon)
-//                    imageView.frame = CGRect(x:0, y:0, width: 32, height: 32)
-//                    imageView.layer.borderWidth = 1.0
-//                    imageView.layer.masksToBounds = false
-//                    imageView.clipsToBounds = true
-//
-//                    imageView.layer.cornerRadius = imageView.frame.size.height/2
-//
-//                    dominoPizzaTypeStackView.addArrangedSubview(imageView)
-//                }
-//            }
-//        }
+    
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -89,7 +59,6 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
             pizzaToppingIcons.map{ pizzaToppingIcon in
                 let imageView = UIImageView()
                 imageView.image = pizzaToppingIcon.toppingImage()
-                //imageView.kf.setImage(with: pizzaToppingIcon)
                 imageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
                 imageView.layer.borderWidth=1.0
                 imageView.layer.masksToBounds = false
@@ -98,11 +67,7 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
                 dominoPizzaTypeStackView.addArrangedSubview(imageView)
             }
         }
-        
-        
-        
     }
-    
     
     func getPizzaID() -> String{
         return self.pizzaID ?? ""
@@ -121,13 +86,4 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
     }
     
 }
-
-//for i in dominoPizzaObj.pizzaTypeImg!{
-//    let image = UIImage(named: i)
-//    let imageView = UIImageView(image : image)
-//    imageView.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
-//    imageView.layer.borderWidth=1.0
-//    imageView.layer.cornerRadius = imageView.frame.size.height/2
-//    dominoPizzaTypeStackView.addArrangedSubview(imageView)
-//}
 

@@ -12,7 +12,8 @@ import Foundation
 protocol DominoPizzaHomeViewType: NSObjectProtocol{
     
     func setPizzas(pizzas:[PizzasViewData])
-    func setEmptyPizza()
+    func setEmptyPizza(isConnectedToNetwork:Bool)
+    func stopRefresher()
     func startLoading()
     func stopLoading()
     func routeTo(screen: EnumDominoHomeRoute)

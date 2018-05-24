@@ -13,7 +13,8 @@ import Foundation
 struct Config{
     
     struct Timer{
-        static let timeInterval = 360.0
+        static let timeInterval = 20.0
+        static let GetAllPizzaReqInterval = 3.0
     }
     
     struct Url{
