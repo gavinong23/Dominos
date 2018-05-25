@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum EnumPizzaToppings : String{
+enum EnumPizzaToppings : String, EnumCollection{
     case all = "0"
     case samyeang = "1"
     case chili = "2"
@@ -24,29 +24,28 @@ enum EnumPizzaToppings : String{
     
     func toppingImage() -> UIImage{
         switch self{
-        
-        case .all:
-            return UIImage()
-        case .tomato:
-            return R.image.icon_sauceTomato()!
-        case .chili:
-            return R.image.icon_sauceChili()!
-        case .veggie:
-            return R.image.icon_toppingVeggie()!
-        case .samyeang:
-            return R.image.icon_samyeangsaucered()!
-        case .smokey:
-            return R.image.icon_smokey()!
-        case .chicken:
-            return R.image.icon_toppingChicken()!
-        case .meat:
-            return R.image.icon_toppingMeat()!
-        case .shrimp:
-            return R.image.icon_toppingShrimp()!
-        case .pesto:
-            return R.image.icon_saucePesto()!
-        case .secret:
-            return R.image.icon_sauceSecret()!
+            case .all:
+                return UIImage()
+            case .tomato:
+                return R.image.icon_sauceTomato()!
+            case .chili:
+                return R.image.icon_sauceChili()!
+            case .veggie:
+                return R.image.icon_toppingVeggie()!
+            case .samyeang:
+                return R.image.icon_samyeangsaucered()!
+            case .smokey:
+                return R.image.icon_smokey()!
+            case .chicken:
+                return R.image.icon_toppingChicken()!
+            case .meat:
+                return R.image.icon_toppingMeat()!
+            case .shrimp:
+                return R.image.icon_toppingShrimp()!
+            case .pesto:
+                return R.image.icon_saucePesto()!
+            case .secret:
+                return R.image.icon_sauceSecret()!
         }
     }
     
@@ -75,23 +74,5 @@ enum EnumPizzaToppings : String{
             case .veggie:
                 return "Veggie"
         }
-    }
-    
-    public static func cases() -> AnySequence<EnumPizzaToppings> {
-        return AnySequence { () -> AnyIterator<EnumPizzaToppings> in
-            var raw = 0
-            return AnyIterator {
-                let current: EnumPizzaToppings = withUnsafePointer(to: &raw) { $0.withMemoryRebound(to: self, capacity: 1) { $0.pointee } }
-                guard current.hashValue == raw else {
-                    return nil
-                }
-                raw += 1
-                return current
-            }
-        }
-    }
-    
-    public static var allValues: [EnumPizzaToppings] {
-        return Array(self.cases())
     }
 }

@@ -70,7 +70,6 @@ class DominoHomePresenter{
             timer = Timer.scheduledTimer(timeInterval: Config.Timer.GetAllPizzaReqInterval, target: self, selector: #selector(self.getPizzas), userInfo: nil, repeats: true)
             print("start request Timer")
         }
-        
     }
     
     func stopRequestTimer(){
@@ -85,8 +84,7 @@ class DominoHomePresenter{
     }
     
     @objc func getPizzas(){
-        
-
+    
 //        self.dominoPizzaHomeView?.stopRefresher()
         self.dominoPizzaHomeView?.stopLoading()
 
@@ -103,16 +101,16 @@ class DominoHomePresenter{
                     }else{
                         
                         self.mappedPizzas = pizzas.map{
-                        return PizzasViewData(pizzaID: $0.pizzaID ?? "",pizzaThumbnail:$0.getPizzaThumbnailUrl(),pizzaName: $0.pizzaName ?? "", pizzaToppingImage: $0.pizzaToppingImage)
+                            return PizzasViewData(pizzaID: $0.pizzaID ?? "",pizzaThumbnail:$0.getPizzaThumbnailUrl(),pizzaName: $0.pizzaName ?? "", pizzaToppingImage: $0.pizzaToppingImage)
+                        }
                         
-                    }
-                    
                         self.dominoPizzaHomeView?.setPizzas(pizzas: self.mappedPizzas!)
                         self.dominoPizzaHomeView?.showPickerView()
                         self.stopRequestTimer()
                     }
                     self.dominoPizzaHomeView?.stopRefresher()
                     self.dominoPizzaHomeView?.stopLoading()
+                    
                 }, onFailure: { (errorMessage) in
                     print(errorMessage)
                     self.stopRequestTimer()
@@ -121,7 +119,6 @@ class DominoHomePresenter{
             })
         }
         
-    
     }
     
     func bindToppingToPicker(row: Int) -> String{
@@ -131,12 +128,12 @@ class DominoHomePresenter{
     func sortPizza(selectedTopping:EnumPizzaToppings){
         
         if Reachability.isConnectedToNetwork(){
+            
             if !(self.mappedPizzas?.isEmpty)!{
                 var filterPizzas = self.mappedPizzas?.filter{
                     ($0.pizzaToppingImage?.contains(selectedTopping))!
                 }
-                
-                //print("Domino Home Presenter: \(selectedTopping.toppingString())")
+            
                 if(selectedTopping.toppingString() == "All"){
                     filterPizzas = self.mappedPizzas
                 }
@@ -144,6 +141,7 @@ class DominoHomePresenter{
                 //Update Domino Home Collection View
                 dominoPizzaHomeView?.filterPizza(pizzas: filterPizzas!)
             }
+            
         }else{
             self.NoInternetConnectionGetPizza()
         }

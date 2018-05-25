@@ -199,7 +199,6 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
         self.collectionView.isHidden = true
         self.emptyPizzaView.isHidden = false
         self.pickerView.isHidden = true
-    
     }
     
     func stopRefresher() {
@@ -210,10 +209,6 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
         self.presentLoadingView()
     }
     
-    func startEmptyViewLoading(){
-    
-        
-    }
     
     func stopLoading(){
         self.dismissLoadingView()
@@ -236,9 +231,9 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
         
         switch screen{
             case .pizzaDetail(let model):
-                
                 self.performSegue(withIdentifier: screen.segueID(), sender: model)
         }
+        
     }
     
 }

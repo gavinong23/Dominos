@@ -41,6 +41,7 @@
 		E9936F8320B6BB7B00BD128B /* ToppingDropDownListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9936F8120B6BB7B00BD128B /* ToppingDropDownListTableViewCell.swift */; };
 		E9936F8420B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9936F8220B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib */; };
 		E997564F20B569F200C28597 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E997564E20B569F200C28597 /* Reachability.swift */; };
+		E9DDCE7920B7E02E0013C0FD /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DDCE7820B7E02E0013C0FD /* EnumCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		E9936F8120B6BB7B00BD128B /* ToppingDropDownListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingDropDownListTableViewCell.swift; sourceTree = "<group>"; };
 		E9936F8220B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToppingDropDownListTableViewCell.xib; sourceTree = "<group>"; };
 		E997564E20B569F200C28597 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		E9DDCE7820B7E02E0013C0FD /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 		558255FC2091AB8500F599FA /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				E9DDCE7A20B7E0450013C0FD /* Enum */,
 				55B68C9B20990328001B5400 /* ActivityIndicator */,
 				5582562D2091D3AE00F599FA /* CollectionView */,
 				558256052091ADB600F599FA /* Timer */,
@@ -399,6 +402,14 @@
 				E9936F8220B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib */,
 			);
 			path = DropDownList;
+			sourceTree = "<group>";
+		};
+		E9DDCE7A20B7E0450013C0FD /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				E9DDCE7820B7E02E0013C0FD /* EnumCollection.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,6 +660,7 @@
 				558255CD20919F6100F599FA /* DominoHomeViewController.swift in Sources */,
 				55A3B1F02097175800BA8B8C /* DominoPizzaHomeViewType.swift in Sources */,
 				E9197BAD20AAB117003FA350 /* DominoListingModel.swift in Sources */,
+				E9DDCE7920B7E02E0013C0FD /* EnumCollection.swift in Sources */,
 				5582562F2091D3C800F599FA /* CollectionViewExtension.swift in Sources */,
 				E94123B820B3E5490054D03B /* DominoPizzaDetailViewType.swift in Sources */,
 				E9197BAF20AAB449003FA350 /* PizzaService.swift in Sources */,
