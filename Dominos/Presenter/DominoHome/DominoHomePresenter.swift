@@ -23,12 +23,8 @@ struct PizzasViewData{
     let pizzaID: String?
     let pizzaThumbnail: URL?
     let pizzaName: String?
-    let pizzaDesc: String?
     let pizzaToppingImage: [EnumPizzaToppings]?
-    
-    func filter(){
-        
-    }
+   
 }
 
 class DominoHomePresenter{
@@ -36,7 +32,7 @@ class DominoHomePresenter{
     private let pizzaService: PizzaService
     weak private var dominoPizzaHomeView : DominoPizzaHomeViewType?
     var timer : Timer?
-    
+    var mappedPizzas: [PizzasViewData]?
     
     init(pizzaService: PizzaService) {
         self.pizzaService = pizzaService
@@ -106,13 +102,13 @@ class DominoHomePresenter{
                         
                     }else{
                         
-                
+                        self.mappedPizzas = pizzas.map{
+                        return PizzasViewData(pizzaID: $0.pizzaID ?? "",pizzaThumbnail:$0.getPizzaThumbnailUrl(),pizzaName: $0.pizzaName ?? "", pizzaToppingImage: $0.pizzaToppingImage)
                         
-                    let mappedPizzas = pizzas.map{
-                        return PizzasViewData(pizzaID: $0.pizzaID ?? "",pizzaThumbnail:$0.getPizzaThumbnailUrl(),pizzaName: $0.pizzaName ?? "", pizzaDesc: $0.pizzaDesc ?? "", pizzaToppingImage: $0.pizzaToppingImage)
                     }
-                        
-                        self.dominoPizzaHomeView?.setPizzas(pizzas: mappedPizzas)
+                    
+                        self.dominoPizzaHomeView?.setPizzas(pizzas: self.mappedPizzas!)
+                        self.dominoPizzaHomeView?.showPickerView()
                         self.stopRequestTimer()
                     }
                     self.dominoPizzaHomeView?.stopRefresher()
@@ -128,11 +124,37 @@ class DominoHomePresenter{
     
     }
     
+    func bindToppingToPicker(row: Int) -> String{
+         return EnumPizzaToppings.allValues[row].toppingString()
+    }
     
-
+    func sortPizza(selectedTopping:EnumPizzaToppings){
+        
+        if Reachability.isConnectedToNetwork(){
+            if !(self.mappedPizzas?.isEmpty)!{
+                var filterPizzas = self.mappedPizzas?.filter{
+                    ($0.pizzaToppingImage?.contains(selectedTopping))!
+                }
+                
+                //print("Domino Home Presenter: \(selectedTopping.toppingString())")
+                if(selectedTopping.toppingString() == "All"){
+                    filterPizzas = self.mappedPizzas
+                }
+                
+                //Update Domino Home Collection View
+                dominoPizzaHomeView?.filterPizza(pizzas: filterPizzas!)
+            }
+        }else{
+            self.NoInternetConnectionGetPizza()
+        }
+    }
 
     func getPizzaDetail(model:PizzasViewData){
-        dominoPizzaHomeView?.routeTo(screen: .pizzaDetail(model: model))
+        if(Reachability.isConnectedToNetwork()){
+            dominoPizzaHomeView?.routeTo(screen: .pizzaDetail(model: model))
+        }else{
+            self.NoInternetConnectionGetPizza()
+        }
     }
     
     

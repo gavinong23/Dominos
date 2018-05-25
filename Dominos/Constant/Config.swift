@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 
 struct Config{
@@ -25,4 +25,5 @@ struct Config{
     struct ApiKey{
         static let API_KEY = ["secret-key":"$2a$10$7fWTSD2Lf/curNInv.7dw.olYJLBwH/V2wVR4kFOh521KF6yoCGj."]
     }
+    
 }

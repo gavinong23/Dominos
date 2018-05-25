@@ -10,6 +10,7 @@ import UIKit
 import Gemini
 import NVActivityIndicatorView
 import Kingfisher
+import DropDown
 
 class DominoHomeViewController: UIViewController {
     
@@ -17,8 +18,14 @@ class DominoHomeViewController: UIViewController {
     
     @IBOutlet weak var emptyPizzaView: UIView!
     
+    @IBOutlet weak var dropDownView: UIView!
+    
     @IBOutlet weak var emptyViewLabel: UILabel!
      var refresher: UIRefreshControl!
+    
+    @IBOutlet weak var pickerView: UIPickerView!
+    
+    var toppings = [EnumPizzaToppings]()
     
     var dominoModels = [PizzasViewData]()
     
@@ -26,10 +33,15 @@ class DominoHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        //setupCollectionView()
         
-        //refresh()
+        //Setup the main view
+        setupView()
+        
+        //drag for reload data(refresher)
+        setupRefresherView()
+        
+        //Drop down list
+        setupDropDownView()
         
         if !Reachability.isConnectedToNetwork(){
             refreshCollectionView()
@@ -41,7 +53,15 @@ class DominoHomeViewController: UIViewController {
         
     }
     
+    func setupRefresherView(){
+        self.refresher = UIRefreshControl()
+        self.collectionView!.alwaysBounceVertical = true
+        self.refresher.tintColor = UIColor.red
+        self.collectionView!.addSubview(refresher)
+    }
+    
     func setupCollectionView(){
+        
         self.dominoHomePresenter.getPizzas()
     }
     
@@ -52,21 +72,25 @@ class DominoHomeViewController: UIViewController {
     @objc func pullToRefreshCollectionView(){
         self.dominoHomePresenter.pullToRefreshGetPizza()
     }
-
+    
+    func setupDropDownView(){
+        
+    }
+    
     func setupView(){
         self.navigationItem.title = R.string.main.navigation_home_title()
         self.navigationItem.backBarButtonItem?.title = R.string.main.navigation_button_back()
+        self.pickerView.isHidden = true
         collectionView.delegate = self
         collectionView.dataSource = self
+        pickerView.delegate = self
+        pickerView.dataSource = self
         dominoHomePresenter.attachView(view: self)
-        self.refresher = UIRefreshControl()
-        self.collectionView!.alwaysBounceVertical = true
-        self.refresher.tintColor = UIColor.red
-        self.collectionView!.addSubview(refresher)
-    
+        
+        
+        
         //Register Nib
         self.collectionView.register(R.nib.dominoPizzaHomeCollectionViewCell)
-    
     }
     
    
@@ -102,6 +126,8 @@ extension DominoHomeViewController: UICollectionViewDelegate, UICollectionViewDa
         
         dominoModel = self.dominoModels[indexPath.row]
         
+        self.toppings = dominoModel.pizzaToppingImage!
+        
         cell.populateCell(pizza: dominoModel, cell: cell)
         
         return cell
@@ -116,9 +142,46 @@ extension DominoHomeViewController: UICollectionViewDelegate, UICollectionViewDa
 
 }
 
+extension DominoHomeViewController: UIPickerViewDataSource, UIPickerViewDelegate{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        return EnumPizzaToppings.allValues.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
+        
+        
+        return self.dominoHomePresenter.bindToppingToPicker(row: row)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        //print(EnumPizzaToppings.allValues[row].toppingString())
+    
+        print(EnumPizzaToppings.allValues[row])
+        self.dominoHomePresenter.sortPizza(selectedTopping: EnumPizzaToppings.allValues[row])
+    }
+    
+    
+}
+
 extension DominoHomeViewController: DominoPizzaHomeViewType{
     
     func setPizzas(pizzas:[PizzasViewData]){
+        self.dominoModels = pizzas
+        self.collectionView.isHidden = false
+        self.emptyPizzaView.isHidden = true
+        self.pickerView.isHidden = true
+        self.collectionView.reloadData()
+    }
+    
+    func showPickerView(){
+        self.pickerView.isHidden = false
+    }
+    
+    func filterPizza(pizzas: [PizzasViewData]){
         self.dominoModels = pizzas
         self.collectionView.isHidden = false
         self.emptyPizzaView.isHidden = true
@@ -135,9 +198,8 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
         
         self.collectionView.isHidden = true
         self.emptyPizzaView.isHidden = false
-        
+        self.pickerView.isHidden = true
     
-   
     }
     
     func stopRefresher() {
@@ -171,7 +233,6 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
     }
     
     func routeTo(screen:EnumDominoHomeRoute){
-
         
         switch screen{
             case .pizzaDetail(let model):

@@ -25,7 +25,9 @@ class DominoPizzaHomeCollectionViewCell: GeminiCell {
     
     func populateCell(pizza : PizzasViewData, cell: DominoPizzaHomeCollectionViewCell){
         pizzaNameLabel.text = pizza.pizzaName
-        pizzaThumnail.kf.setImage(with: pizza.pizzaThumbnail)
+        
+        let imageIcon = UIImage(named: "icon-image")
+        pizzaThumnail.kf.setImage(with: pizza.pizzaThumbnail, placeholder: imageIcon)
         
         let pizzaToppingIcons = pizza.pizzaToppingImage
         

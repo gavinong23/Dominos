@@ -49,7 +49,8 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
     
  
     func setPizzaDetail(pizza:PizzaDetailViewData){
-        self.dominoPizzaFullImageView.kf.setImage(with: pizza.pizzaFullImage)
+        let imageIcon = UIImage(named: "icon-image")
+        self.dominoPizzaFullImageView.kf.setImage(with: pizza.pizzaFullImage, placeholder: imageIcon)
         self.dominoPizzaNameLabel.text = pizza.pizzaName
         self.dominoPizzaDescLabel.text = pizza.pizzaDesc
         

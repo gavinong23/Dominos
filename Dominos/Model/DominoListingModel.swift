@@ -31,7 +31,7 @@ class DominoListingModel{
         self.pizzaToppingImage = JSON["pizzaToppingImage"].arrayValue.map{
                 EnumPizzaToppings(rawValue: $0.stringValue)!
         }
-
+        
     }
     
     func getPizzaThumbnailUrl() -> URL? {
