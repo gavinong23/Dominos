@@ -27,7 +27,13 @@ class DominoPizzaHomeCollectionViewCell: GeminiCell {
         pizzaNameLabel.text = pizza.pizzaName
         
         let imageIcon = UIImage(named: "icon-image")
-        pizzaThumnail.kf.setImage(with: pizza.pizzaThumbnail, placeholder: imageIcon)
+        pizzaThumnail.kf.setImage(with: pizza.pizzaThumbnail, progressBlock:{
+            receivedSize, totalSize in
+            let percentage = (Float(receivedSize) / Float(totalSize)) * 100.0
+            print("downloading progress: \(percentage)%")
+            //myIndicator.percentage = percentage
+        })
+
         
         let pizzaToppingIcons = pizza.pizzaToppingImage
         

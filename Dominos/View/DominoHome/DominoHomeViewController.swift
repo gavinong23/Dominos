@@ -12,7 +12,7 @@ import NVActivityIndicatorView
 import Kingfisher
 import DropDown
 
-class DominoHomeViewController: UIViewController {
+class DominoHomeViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: GeminiCollectionView!
     
@@ -20,8 +20,7 @@ class DominoHomeViewController: UIViewController {
     
     @IBOutlet weak var dropDownView: UIView!
     
-    @IBOutlet weak var emptyViewLabel: UILabel!
-     var refresher: UIRefreshControl!
+    var refresher: UIRefreshControl!
     
     @IBOutlet weak var pickerView: UIPickerView!
     
@@ -48,7 +47,7 @@ class DominoHomeViewController: UIViewController {
         }else{
             setupCollectionView()
         }
-        
+
         self.refresher.addTarget(self, action: #selector(pullToRefreshCollectionView), for: .valueChanged)
         
     }
@@ -56,12 +55,11 @@ class DominoHomeViewController: UIViewController {
     func setupRefresherView(){
         self.refresher = UIRefreshControl()
         self.collectionView!.alwaysBounceVertical = true
-        self.refresher.tintColor = UIColor.red
+        self.refresher.tintColor = UIColor.blue
         self.collectionView!.addSubview(refresher)
     }
     
     func setupCollectionView(){
-        
         self.dominoHomePresenter.getPizzas()
     }
     
@@ -86,8 +84,6 @@ class DominoHomeViewController: UIViewController {
         pickerView.delegate = self
         pickerView.dataSource = self
         dominoHomePresenter.attachView(view: self)
-        
-        
         
         //Register Nib
         self.collectionView.register(R.nib.dominoPizzaHomeCollectionViewCell)
@@ -174,6 +170,7 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
         self.collectionView.isHidden = false
         self.emptyPizzaView.isHidden = true
         self.pickerView.isHidden = true
+        self.removeErrorView()
         self.collectionView.reloadData()
     }
     
@@ -188,16 +185,18 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
         self.collectionView.reloadData()
     }
     
-    func setEmptyPizza(isConnectedToNetwork:Bool) {
+    func setEmptyPizza(errorMessage: String,isConnectedToNetwork:Bool) {
         
         if !isConnectedToNetwork{
-            self.emptyViewLabel.text = "No Internet Connection. Please connect to the Internet and wait for awhile for the app to refresh."
+            self.addErrorView(errorMessage: errorMessage)
+            self.emptyPizzaView.isHidden = true
+            self.collectionView.isHidden = true
         }else{
-            self.emptyViewLabel.text = "No pizza added."
+            self.emptyPizzaView.isHidden = false
+            self.collectionView.isHidden = false
         }
         
-        self.collectionView.isHidden = true
-        self.emptyPizzaView.isHidden = false
+       
         self.pickerView.isHidden = true
     }
     

@@ -18,26 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HyP-lw-YNp">
-                                <rect key="frame" x="0.0" y="32" width="667" height="343"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza is empty." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fqt-OB-z1B">
-                                        <rect key="frame" x="0.0" y="0.0" width="667" height="343"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Fqt-OB-z1B" firstAttribute="top" secondItem="HyP-lw-YNp" secondAttribute="top" id="HaW-gF-dyP"/>
-                                    <constraint firstAttribute="bottom" secondItem="Fqt-OB-z1B" secondAttribute="bottom" id="KNj-b6-HXl"/>
-                                    <constraint firstItem="Fqt-OB-z1B" firstAttribute="leading" secondItem="HyP-lw-YNp" secondAttribute="leading" id="O4R-Ge-6BL"/>
-                                    <constraint firstItem="Fqt-OB-z1B" firstAttribute="centerY" secondItem="HyP-lw-YNp" secondAttribute="centerY" id="aYO-qN-hYg"/>
-                                    <constraint firstAttribute="trailing" secondItem="Fqt-OB-z1B" secondAttribute="trailing" id="doY-DY-hmC"/>
-                                    <constraint firstItem="Fqt-OB-z1B" firstAttribute="centerX" secondItem="HyP-lw-YNp" secondAttribute="centerX" id="eZC-11-VGM"/>
-                                </constraints>
-                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RSM-r0-2DJ">
                                 <rect key="frame" x="0.0" y="32" width="667" height="343"/>
                                 <subviews>
@@ -69,24 +49,12 @@
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="15" minY="0.0" maxX="15" maxY="15"/>
                                         </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" id="PjN-Ch-Hq2">
-                                                <rect key="frame" x="15" y="0.0" width="150" height="150"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </view>
-                                            </collectionViewCell>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" id="zNY-8X-SyH">
-                                                <rect key="frame" x="177.5" y="0.0" width="150" height="150"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </view>
-                                            </collectionViewCell>
-                                        </cells>
+                                        <view key="backgroundView" hidden="YES" contentMode="scaleToFill" fixedFrame="YES" id="HyP-lw-YNp" customClass="emptyPizzaView" customModule="Dominos" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="667" height="283"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                        <cells/>
                                         <connections>
                                             <outlet property="dataSource" destination="BYZ-38-t0r" id="wEY-zT-n2f"/>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="KE8-x4-q3s"/>
@@ -98,12 +66,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RSM-r0-2DJ" secondAttribute="trailing" id="E9p-dq-Ppe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HyP-lw-YNp" secondAttribute="trailing" id="TNB-ob-dOU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HyP-lw-YNp" secondAttribute="bottom" id="can-4A-Mok"/>
-                            <constraint firstItem="HyP-lw-YNp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="d20-u5-cad"/>
                             <constraint firstItem="RSM-r0-2DJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fE5-UF-Vt1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RSM-r0-2DJ" secondAttribute="bottom" id="opw-uq-dGA"/>
-                            <constraint firstItem="HyP-lw-YNp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yXJ-6a-tqL"/>
                             <constraint firstItem="RSM-r0-2DJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z5G-QH-IYA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -115,14 +79,13 @@
                         <outlet property="collectionView" destination="34t-ne-sVO" id="aY9-Hp-A2A"/>
                         <outlet property="dropDownView" destination="vgM-WE-n9E" id="WOQ-DZ-5qX"/>
                         <outlet property="emptyPizzaView" destination="HyP-lw-YNp" id="jcF-KM-Ylb"/>
-                        <outlet property="emptyViewLabel" destination="Fqt-OB-z1B" id="q6P-x5-3V8"/>
                         <outlet property="pickerView" destination="Zmo-Tx-qiP" id="3eE-Oj-ymX"/>
                         <segue destination="EZw-Ks-onX" kind="show" identifier="pizzaHomeToPizzaHomeDetailID" id="JEm-2c-Z0r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992.65367316341838" y="124"/>
+            <point key="canvasLocation" x="1013.3433283358322" y="413.60000000000002"/>
         </scene>
         <!--Pizza Info-->
         <scene sceneID="iGw-zJ-v4P">
@@ -136,7 +99,7 @@
                                 <rect key="frame" x="0.0" y="32" width="667" height="343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Failed to get pizza details." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="306-9b-3e7">
-                                        <rect key="frame" x="196" y="156.5" width="276.5" height="30"/>
+                                        <rect key="frame" x="195.5" y="157" width="276.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -157,13 +120,19 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oSj-KZ-xRx">
                                                 <rect key="frame" x="0.0" y="0.0" width="333.5" height="343"/>
                                             </imageView>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ay7-JG-Roz">
+                                                <rect key="frame" x="91" y="170" width="149.5" height="2"/>
+                                            </progressView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="ay7-JG-Roz" firstAttribute="centerY" secondItem="oSj-KZ-xRx" secondAttribute="centerY" id="L17-hB-wom"/>
                                             <constraint firstItem="oSj-KZ-xRx" firstAttribute="top" secondItem="p1s-sH-4Ie" secondAttribute="top" id="PU5-GW-yhz"/>
                                             <constraint firstAttribute="bottom" secondItem="oSj-KZ-xRx" secondAttribute="bottom" id="SNa-OK-5WI"/>
                                             <constraint firstAttribute="trailing" secondItem="oSj-KZ-xRx" secondAttribute="trailing" id="ak0-Ro-D7r"/>
+                                            <constraint firstItem="ay7-JG-Roz" firstAttribute="leading" secondItem="p1s-sH-4Ie" secondAttribute="leading" constant="91" id="cC9-ng-UjG"/>
                                             <constraint firstItem="oSj-KZ-xRx" firstAttribute="leading" secondItem="p1s-sH-4Ie" secondAttribute="leading" id="f9T-U3-O9E"/>
+                                            <constraint firstAttribute="trailing" secondItem="ay7-JG-Roz" secondAttribute="trailing" constant="93" id="kgs-Og-Ncs"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pDE-c8-tzl">
@@ -173,19 +142,19 @@
                                                 <rect key="frame" x="12" y="12" width="309.5" height="319"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tb0-uS-2Yk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="309.5" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="309.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="OFb-wR-9Hv">
-                                                        <rect key="frame" x="0.0" y="21" width="309.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="20.5" width="309.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="rs9-k0-w8f">
-                                                        <rect key="frame" x="0.0" y="41.5" width="309.5" height="277.5"/>
+                                                        <rect key="frame" x="0.0" y="41" width="309.5" height="278"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BNc-1z-IPY">
                                                                 <rect key="frame" x="228.5" y="0.0" width="69" height="32"/>
@@ -245,16 +214,18 @@
                         <outlet property="dominoPizzaNameLabel" destination="Tb0-uS-2Yk" id="i2o-tb-3Gu"/>
                         <outlet property="dominoPizzaTypeStackView" destination="BNc-1z-IPY" id="kdu-uX-Qcs"/>
                         <outlet property="emptyView" destination="4HP-Lz-5KO" id="hw9-DJ-0qz"/>
+                        <outlet property="imageProgressBar" destination="ay7-JG-Roz" id="cxQ-Q6-uiq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sst-Vz-NRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1852" y="127"/>
+            <point key="canvasLocation" x="1902" y="414"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="TUG-ds-d7F">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mn2-WP-i8a" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="YYx-hA-kKO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pVo-Eg-GtB">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
@@ -268,7 +239,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mif-rk-zBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="191" y="128"/>
+            <point key="canvasLocation" x="158" y="415"/>
         </scene>
     </scenes>
 </document>

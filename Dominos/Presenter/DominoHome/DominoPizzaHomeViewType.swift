@@ -12,7 +12,7 @@ import Foundation
 protocol DominoPizzaHomeViewType: NSObjectProtocol{
     
     func setPizzas(pizzas:[PizzasViewData])
-    func setEmptyPizza(isConnectedToNetwork:Bool)
+    func setEmptyPizza(errorMessage:String,isConnectedToNetwork:Bool)
     func filterPizza(pizzas:[PizzasViewData])
     func showPickerView()
     func stopRefresher()

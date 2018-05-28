@@ -13,7 +13,7 @@ import NVActivityIndicatorView
 
 var activityIndicator : NVActivityIndicatorView? = nil
 
-extension UIViewController: NVActivityIndicatorViewable {
+extension BaseViewController: NVActivityIndicatorViewable {
     
     func presentLoadingView() {
     

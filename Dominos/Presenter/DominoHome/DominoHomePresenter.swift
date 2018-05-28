@@ -60,7 +60,7 @@ class DominoHomePresenter{
     }
     
     func NoInternetConnectionGetPizza(){
-        self.dominoPizzaHomeView?.setEmptyPizza(isConnectedToNetwork: false)
+        self.dominoPizzaHomeView?.setEmptyPizza(errorMessage: "No Internet Connection. Please connect to the Internet and wait for awhile for the app to refresh.",isConnectedToNetwork: false)
         self.startRequestTimer()
     }
     
@@ -84,7 +84,6 @@ class DominoHomePresenter{
     }
     
     @objc func getPizzas(){
-    
 //        self.dominoPizzaHomeView?.stopRefresher()
         self.dominoPizzaHomeView?.stopLoading()
 
@@ -96,8 +95,7 @@ class DominoHomePresenter{
                     
                     if pizzas.count == 0{
                         self.dominoPizzaHomeView?.stopLoading()
-                        self.dominoPizzaHomeView?.setEmptyPizza(isConnectedToNetwork: true)
-                        
+                        self.dominoPizzaHomeView?.setEmptyPizza(errorMessage: "", isConnectedToNetwork: true)
                     }else{
                         
                         self.mappedPizzas = pizzas.map{
@@ -108,17 +106,21 @@ class DominoHomePresenter{
                         self.dominoPizzaHomeView?.showPickerView()
                         self.stopRequestTimer()
                     }
-                    self.dominoPizzaHomeView?.stopRefresher()
-                    self.dominoPizzaHomeView?.stopLoading()
+                     self.stopRefreshAndLoading()
                     
                 }, onFailure: { (errorMessage) in
                     print(errorMessage)
                     self.stopRequestTimer()
-                    self.dominoPizzaHomeView?.stopRefresher()
-                    self.dominoPizzaHomeView?.stopLoading()
+                    self.stopRefreshAndLoading()
+                  
             })
         }
         
+    }
+    
+    func stopRefreshAndLoading(){
+        self.dominoPizzaHomeView?.stopRefresher()
+        self.dominoPizzaHomeView?.stopLoading()
     }
     
     func bindToppingToPicker(row: Int) -> String{

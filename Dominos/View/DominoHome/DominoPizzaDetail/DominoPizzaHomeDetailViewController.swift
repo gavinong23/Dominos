@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DominoPizzaHomeDetailViewController: UIViewController {
+class DominoPizzaHomeDetailViewController: BaseViewController {
     
     var pizzaID: String?
     
@@ -24,6 +24,8 @@ class DominoPizzaHomeDetailViewController: UIViewController {
     
     @IBOutlet weak var dominoPizzaTypeStackView: UIStackView!
     
+    @IBOutlet weak var imageProgressBar: UIProgressView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -33,7 +35,9 @@ class DominoPizzaHomeDetailViewController: UIViewController {
     func setupView(){
         self.navigationItem.title = R.string.main.navigation_homedetail_title()
         dominoDetailPresenter.attachView(view: self)
+        self.imageProgressBar.isHidden = true
         self.dominoDetailPresenter.getPizzaDetail()
+
     }
     
     func setupStackView(){
@@ -49,8 +53,25 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
     
  
     func setPizzaDetail(pizza:PizzaDetailViewData){
-        let imageIcon = UIImage(named: "icon-image")
-        self.dominoPizzaFullImageView.kf.setImage(with: pizza.pizzaFullImage, placeholder: imageIcon)
+//        let imageIcon = UIImage(named: "icon-image")
+        
+        self.dominoPizzaFullImageView.kf.setImage(with: pizza.pizzaFullImage, progressBlock:{
+            receivedSize, totalSize in
+            let percentage = (Float(receivedSize) / Float(totalSize))
+            
+            if percentage != 0{
+                self.imageProgressBar.isHidden = false
+                print("downloading progress: \(percentage)%")
+                self.imageProgressBar.setProgress(percentage, animated: true)
+                
+                if percentage == 1{
+                    self.imageProgressBar.isHidden = true
+                }
+            }
+            
+        })
+        
+//        self.dominoPizzaFullImageView.kf.setImage(with: pizza.pizzaFullImage, placeholder: imageIcon)
         self.dominoPizzaNameLabel.text = pizza.pizzaName
         self.dominoPizzaDescLabel.text = pizza.pizzaDesc
         
