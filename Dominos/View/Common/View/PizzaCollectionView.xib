@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PizzaCollectionView" customModule="Dominos" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="P9c-HO-aSQ" id="ULF-s4-uke"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="V1S-mZ-otu"/>
+                <outlet property="emptyPizzaLabel" destination="BTx-zT-QXg" id="NLX-fr-J3F"/>
+                <outlet property="emptyPizzaView" destination="Ove-y9-sJP" id="BXi-QO-ocA"/>
+                <outlet property="noInternetConnectionView" destination="zuy-Ag-d3j" id="UZy-vD-bq9"/>
+                <outlet property="noInternetLabel" destination="jEL-wx-gWA" id="o3x-oz-UyO"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuy-Ag-d3j">
+                    <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Internet Connection." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEL-wx-gWA">
+                            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="jEL-wx-gWA" secondAttribute="trailing" id="F2g-tB-GfQ"/>
+                        <constraint firstItem="jEL-wx-gWA" firstAttribute="top" secondItem="zuy-Ag-d3j" secondAttribute="top" id="NL2-Ez-QRf"/>
+                        <constraint firstAttribute="bottom" secondItem="jEL-wx-gWA" secondAttribute="bottom" id="SCR-Nw-36n"/>
+                        <constraint firstItem="jEL-wx-gWA" firstAttribute="leading" secondItem="zuy-Ag-d3j" secondAttribute="leading" id="sP9-ts-p7T"/>
+                    </constraints>
+                </view>
+                <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="P9c-HO-aSQ" customClass="GeminiCollectionView" customModule="Gemini">
+                    <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HiG-Mx-5dM">
+                        <size key="itemSize" width="150" height="150"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="15" minY="0.0" maxX="15" maxY="15"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ove-y9-sJP">
+                    <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The pizza is empty." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTx-zT-QXg">
+                            <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="BTx-zT-QXg" firstAttribute="leading" secondItem="Ove-y9-sJP" secondAttribute="leading" id="PEw-SV-lOO"/>
+                        <constraint firstAttribute="bottom" secondItem="BTx-zT-QXg" secondAttribute="bottom" id="ecZ-bL-uDq"/>
+                        <constraint firstAttribute="trailing" secondItem="BTx-zT-QXg" secondAttribute="trailing" id="s1q-Qv-2Br"/>
+                        <constraint firstItem="BTx-zT-QXg" firstAttribute="top" secondItem="Ove-y9-sJP" secondAttribute="top" id="z3A-DK-6cs"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="jEL-wx-gWA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="0I9-oK-B5Q"/>
+                <constraint firstItem="zuy-Ag-d3j" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="198-Cq-VMH"/>
+                <constraint firstItem="jEL-wx-gWA" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="1TK-V9-gyr"/>
+                <constraint firstItem="zuy-Ag-d3j" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="1gQ-BG-BII"/>
+                <constraint firstAttribute="trailing" secondItem="Ove-y9-sJP" secondAttribute="trailing" id="2rD-a8-STN"/>
+                <constraint firstItem="Ove-y9-sJP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="88o-4C-JeG"/>
+                <constraint firstItem="zuy-Ag-d3j" firstAttribute="centerY" secondItem="Ove-y9-sJP" secondAttribute="centerY" id="8SC-mb-8KJ"/>
+                <constraint firstItem="Ove-y9-sJP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DWR-sy-qDc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jEL-wx-gWA" secondAttribute="trailing" id="Drr-vx-YkU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jEL-wx-gWA" secondAttribute="bottom" id="Eeq-j2-Gwd"/>
+                <constraint firstItem="Ove-y9-sJP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Fpq-Oo-3OV"/>
+                <constraint firstAttribute="bottom" secondItem="Ove-y9-sJP" secondAttribute="bottom" id="Kcf-dw-4wc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="P9c-HO-aSQ" secondAttribute="bottom" id="Lmz-tg-6Pa"/>
+                <constraint firstItem="zuy-Ag-d3j" firstAttribute="centerX" secondItem="Ove-y9-sJP" secondAttribute="centerX" id="P13-o9-B6Z"/>
+                <constraint firstItem="zuy-Ag-d3j" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="YH3-h3-39v"/>
+                <constraint firstItem="P9c-HO-aSQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="eaj-P8-zZ1"/>
+                <constraint firstItem="P9c-HO-aSQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ilS-pM-U7q"/>
+                <constraint firstItem="zuy-Ag-d3j" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="iu6-RY-Fer"/>
+                <constraint firstItem="zuy-Ag-d3j" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="ji5-Rp-Xv7"/>
+                <constraint firstItem="zuy-Ag-d3j" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="k3A-Sr-tGP"/>
+                <constraint firstItem="zuy-Ag-d3j" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="nbs-G0-rXf"/>
+                <constraint firstItem="zuy-Ag-d3j" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="o5p-JU-xZa"/>
+                <constraint firstItem="Ove-y9-sJP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pgl-FP-itw"/>
+                <constraint firstItem="Ove-y9-sJP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="vOL-iX-hOf"/>
+                <constraint firstItem="jEL-wx-gWA" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="vl8-Pk-3cH"/>
+                <constraint firstItem="zuy-Ag-d3j" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="xZ0-J4-2a8"/>
+                <constraint firstItem="jEL-wx-gWA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="xb9-fv-96l"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="P9c-HO-aSQ" secondAttribute="trailing" id="yJk-SW-VwB"/>
+                <constraint firstItem="zuy-Ag-d3j" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="zes-bz-oOq"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

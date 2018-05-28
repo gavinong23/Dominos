@@ -95,7 +95,7 @@ class DominoHomePresenter{
                     
                     if pizzas.count == 0{
                         self.dominoPizzaHomeView?.stopLoading()
-                        self.dominoPizzaHomeView?.setEmptyPizza(errorMessage: "", isConnectedToNetwork: true)
+                       // self.dominoPizzaHomeView?.setEmptyPizza(errorMessage: "", isConnectedToNetwork: true)
                     }else{
                         
                         self.mappedPizzas = pizzas.map{
@@ -150,11 +150,11 @@ class DominoHomePresenter{
     }
 
     func getPizzaDetail(model:PizzasViewData){
-        if(Reachability.isConnectedToNetwork()){
+//        if(Reachability.isConnectedToNetwork()){
             dominoPizzaHomeView?.routeTo(screen: .pizzaDetail(model: model))
-        }else{
-            self.NoInternetConnectionGetPizza()
-        }
+//        }else{
+//            self.NoInternetConnectionGetPizza()
+//        }
     }
     
     

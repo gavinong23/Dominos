@@ -30,8 +30,8 @@
 		55BCEA222096BCEF00810C71 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCEA212096BCEF00810C71 /* R.generated.swift */; };
 		7302D9FD50DD7B7389C6254F /* Pods_DominosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3AECC0E9396EEFFE95634C /* Pods_DominosUITests.framework */; };
 		A2C12C4690A13CDC80E9D885 /* Pods_DominosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E140BE1FB28F35454B3A42BA /* Pods_DominosTests.framework */; };
-		E9071B5F20BB9FBD00D28B51 /* emptyPizzaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9071B5E20BB9FBD00D28B51 /* emptyPizzaView.swift */; };
-		E9071B6120BB9FD100D28B51 /* emptyPizzaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9071B6020BB9FD100D28B51 /* emptyPizzaView.xib */; };
+		E9071B5F20BB9FBD00D28B51 /* PizzaCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9071B5E20BB9FBD00D28B51 /* PizzaCollectionView.swift */; };
+		E9071B6120BB9FD100D28B51 /* PizzaCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9071B6020BB9FD100D28B51 /* PizzaCollectionView.xib */; };
 		E9197BA920AA83E5003FA350 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BA820AA83E5003FA350 /* SnapshotHelper.swift */; };
 		E9197BAB20AAA827003FA350 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAA20AAA827003FA350 /* APIManager.swift */; };
 		E9197BAD20AAB117003FA350 /* DominoListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAC20AAB117003FA350 /* DominoListingModel.swift */; };
@@ -104,8 +104,8 @@
 		DC2AC226C8D03EC922BD14F2 /* Pods-Dominos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dominos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dominos/Pods-Dominos.release.xcconfig"; sourceTree = "<group>"; };
 		DC4832D425D26AACD7EA4755 /* Pods-Dominos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dominos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dominos/Pods-Dominos.debug.xcconfig"; sourceTree = "<group>"; };
 		E140BE1FB28F35454B3A42BA /* Pods_DominosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DominosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9071B5E20BB9FBD00D28B51 /* emptyPizzaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emptyPizzaView.swift; sourceTree = "<group>"; };
-		E9071B6020BB9FD100D28B51 /* emptyPizzaView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = emptyPizzaView.xib; sourceTree = "<group>"; };
+		E9071B5E20BB9FBD00D28B51 /* PizzaCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCollectionView.swift; sourceTree = "<group>"; };
+		E9071B6020BB9FD100D28B51 /* PizzaCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaCollectionView.xib; sourceTree = "<group>"; };
 		E9197BA820AA83E5003FA350 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		E9197BAA20AAA827003FA350 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		E9197BAC20AAB117003FA350 /* DominoListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoListingModel.swift; sourceTree = "<group>"; };
@@ -397,8 +397,8 @@
 		E9071B5D20BB9F9A00D28B51 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E9071B5E20BB9FBD00D28B51 /* emptyPizzaView.swift */,
-				E9071B6020BB9FD100D28B51 /* emptyPizzaView.xib */,
+				E9071B5E20BB9FBD00D28B51 /* PizzaCollectionView.swift */,
+				E9071B6020BB9FD100D28B51 /* PizzaCollectionView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -541,7 +541,7 @@
 				558256072091B0E700F599FA /* dominoVideoAds.mp4 in Resources */,
 				558255D520919F6400F599FA /* LaunchScreen.storyboard in Resources */,
 				558255D020919F6100F599FA /* Main.storyboard in Resources */,
-				E9071B6120BB9FD100D28B51 /* emptyPizzaView.xib in Resources */,
+				E9071B6120BB9FD100D28B51 /* PizzaCollectionView.xib in Resources */,
 				557AF52E2096DFB300F591D5 /* Main.strings in Resources */,
 				E9936F8420B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib in Resources */,
 				5582562C2091CC2800F599FA /* Assets.xcassets in Resources */,
@@ -688,7 +688,7 @@
 				558256102091B2DC00F599FA /* ScreenSaverTimer.swift in Sources */,
 				E9464B2E20B5185D00E23485 /* Enum.swift in Sources */,
 				55A3B1ED2097165500BA8B8C /* DominoHomePresenter.swift in Sources */,
-				E9071B5F20BB9FBD00D28B51 /* emptyPizzaView.swift in Sources */,
+				E9071B5F20BB9FBD00D28B51 /* PizzaCollectionView.swift in Sources */,
 				E95E2D5E20B3BFB800F2EA17 /* DominoDetailModel.swift in Sources */,
 				5582560E2091B2B300F599FA /* Config.swift in Sources */,
 				E9936F8320B6BB7B00BD128B /* ToppingDropDownListTableViewCell.swift in Sources */,

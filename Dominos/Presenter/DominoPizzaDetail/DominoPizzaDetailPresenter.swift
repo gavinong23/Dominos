@@ -41,11 +41,15 @@ class DominoPizzaDetailPrenseter{
     func getPizzaDetail(){
         
         self.dominoPizzaDetailView?.startLoading()
+        
+        if Reachability.isConnectedToNetwork(){
             
         if let pizzaID = self.dominoPizzaDetailView?.getPizzaID(){
             pizzaService.callAPIPostPizzaDetail(pizzaID: pizzaID, onSuccess: { pizza in
-                    
-            self.dominoPizzaDetailView?.setEmptyPizzaDetail()
+        
+                if (pizza.pizzaID?.isEmpty)!{
+                self.dominoPizzaDetailView?.setEmptyPizzaDetail()
+            }
                    
             let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil)
                     
@@ -59,7 +63,12 @@ class DominoPizzaDetailPrenseter{
             })
                 
             }
+        }
+        else{
+            self.dominoPizzaDetailView?.setEmptyPizzaDetail()
+        }
     }
+        
 }
 
 

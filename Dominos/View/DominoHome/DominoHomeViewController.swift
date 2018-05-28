@@ -14,15 +14,14 @@ import DropDown
 
 class DominoHomeViewController: BaseViewController {
     
-    @IBOutlet weak var collectionView: GeminiCollectionView!
-    
-    @IBOutlet weak var emptyPizzaView: UIView!
-    
+
     @IBOutlet weak var dropDownView: UIView!
     
     var refresher: UIRefreshControl!
     
     @IBOutlet weak var pickerView: UIPickerView!
+    
+    @IBOutlet weak var pizzaCollectionView: PizzaCollectionView!
     
     var toppings = [EnumPizzaToppings]()
     
@@ -39,9 +38,6 @@ class DominoHomeViewController: BaseViewController {
         //drag for reload data(refresher)
         setupRefresherView()
         
-        //Drop down list
-        setupDropDownView()
-        
         if !Reachability.isConnectedToNetwork(){
             refreshCollectionView()
         }else{
@@ -54,9 +50,12 @@ class DominoHomeViewController: BaseViewController {
     
     func setupRefresherView(){
         self.refresher = UIRefreshControl()
-        self.collectionView!.alwaysBounceVertical = true
+        self.pizzaCollectionView.collectionView.alwaysBounceVertical = true
+        
+        self.pizzaCollectionView.collectionView.delegate = self
+        self.pizzaCollectionView.collectionView.dataSource = self
         self.refresher.tintColor = UIColor.blue
-        self.collectionView!.addSubview(refresher)
+        self.pizzaCollectionView.collectionView.addSubview(refresher)
     }
     
     func setupCollectionView(){
@@ -71,22 +70,18 @@ class DominoHomeViewController: BaseViewController {
         self.dominoHomePresenter.pullToRefreshGetPizza()
     }
     
-    func setupDropDownView(){
-        
-    }
-    
     func setupView(){
         self.navigationItem.title = R.string.main.navigation_home_title()
         self.navigationItem.backBarButtonItem?.title = R.string.main.navigation_button_back()
         self.pickerView.isHidden = true
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        self.pizzaCollectionView.collectionView.delegate = self
+        self.pizzaCollectionView.collectionView.dataSource = self
         pickerView.delegate = self
         pickerView.dataSource = self
         dominoHomePresenter.attachView(view: self)
         
         //Register Nib
-        self.collectionView.register(R.nib.dominoPizzaHomeCollectionViewCell)
+        self.pizzaCollectionView.collectionView.register(R.nib.dominoPizzaHomeCollectionViewCell)
     }
     
    
@@ -99,12 +94,12 @@ class DominoHomeViewController: BaseViewController {
 extension DominoHomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.collectionView.animateVisibleCells()
+       self.pizzaCollectionView.collectionView.animateVisibleCells()
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? DominoPizzaHomeCollectionViewCell {
-            self.collectionView.animateCell(cell)
+           self.pizzaCollectionView.collectionView.animateCell(cell)
         }
     }
     
@@ -115,10 +110,10 @@ extension DominoHomeViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let dominoModel: PizzasViewData
-       
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.dominoPizzaHomeCollectionViewCell, for: indexPath) as! DominoPizzaHomeCollectionViewCell
         
-        self.collectionView.drawShadow(cell: cell)
+        self.pizzaCollectionView.collectionView.drawShadow(cell: cell)
         
         dominoModel = self.dominoModels[indexPath.row]
         
@@ -135,8 +130,9 @@ extension DominoHomeViewController: UICollectionViewDelegate, UICollectionViewDa
         self.dominoHomePresenter.getPizzaDetail(model: model)
     }
     
-
+    
 }
+
 
 extension DominoHomeViewController: UIPickerViewDataSource, UIPickerViewDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -167,11 +163,10 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
     
     func setPizzas(pizzas:[PizzasViewData]){
         self.dominoModels = pizzas
-        self.collectionView.isHidden = false
-        self.emptyPizzaView.isHidden = true
         self.pickerView.isHidden = true
-        self.removeErrorView()
-        self.collectionView.reloadData()
+        self.pizzaCollectionView.setEmptyPizza(pizzaCount:pizzas.count)
+        self.pizzaCollectionView.collectionView.reloadData()
+    
     }
     
     func showPickerView(){
@@ -180,25 +175,13 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
     
     func filterPizza(pizzas: [PizzasViewData]){
         self.dominoModels = pizzas
-        self.collectionView.isHidden = false
-        self.emptyPizzaView.isHidden = true
-        self.collectionView.reloadData()
+        self.pizzaCollectionView.collectionView.reloadData()
     }
     
-    func setEmptyPizza(errorMessage: String,isConnectedToNetwork:Bool) {
-        
-        if !isConnectedToNetwork{
-            self.addErrorView(errorMessage: errorMessage)
-            self.emptyPizzaView.isHidden = true
-            self.collectionView.isHidden = true
-        }else{
-            self.emptyPizzaView.isHidden = false
-            self.collectionView.isHidden = false
-        }
-        
-       
-        self.pickerView.isHidden = true
+    func setEmptyPizza(errorMessage:String, isConnectedToNetwork: Bool){
+        self.pizzaCollectionView.setEmptyConnectionPizza(errorMessage: errorMessage, isConnectedToNetwork: isConnectedToNetwork)
     }
+    
     
     func stopRefresher() {
         self.refresher.endRefreshing()

@@ -6,6 +6,9 @@
 //  Copyright © 2018 OngBoonFong. All rights reserved.
 //
 
+// this base is for make sure the api completely call
+//
+
 import Foundation
 import UIKit
 
@@ -29,7 +32,7 @@ class BaseViewController:UIViewController{
         
         noInternetConnectionView = UIView(frame: CGRect(x:0,y:0, width: fullWidth , height: fullHeight))
 
-        let noInternetLabel = UILabel(frame: CGRect(x:0, y: 0, width: fullWidth, height: fullHeight ))
+        let noInternetLabel = UILabel(frame: CGRect(x:0, y: 0, width: fullWidth, height: fullHeight))
 
         noInternetLabel.text = errorMessage
         noInternetLabel.numberOfLines = 2
