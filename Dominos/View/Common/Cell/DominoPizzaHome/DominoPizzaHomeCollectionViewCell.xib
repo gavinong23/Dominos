@@ -79,6 +79,10 @@
                             <constraint firstItem="c96-pl-9gO" firstAttribute="top" secondItem="KaJ-SW-vpI" secondAttribute="top" id="xbp-jW-uvV"/>
                         </constraints>
                     </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IUz-5i-gKY">
+                        <rect key="frame" x="25" y="70" width="200" height="110"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </stackView>
                 </subviews>
             </view>
             <constraints>

@@ -15,6 +15,18 @@ struct PizzaDetailViewData{
     var pizzaDesc: String?
     var pizzaToppingImage: [EnumPizzaToppings]?
     var pizzaFullImage: URL?
+    var pizzaThumbnail: URL?
+}
+
+enum EnumDominoDetailRoute{
+    case pizzaCart(model:PizzaDetailViewData)
+    
+    func segueID() -> String{
+        switch self{
+            case .pizzaCart:
+                return R.segue.dominoPizzaHomeDetailViewController.pizzaDetailToPizzaCartID.identifier
+        }
+    }
 }
 
 
@@ -25,7 +37,6 @@ class DominoPizzaDetailPrenseter{
     
     init(pizzaService: PizzaService) {
         self.pizzaService = pizzaService
-        
     }
 
     
@@ -47,11 +58,7 @@ class DominoPizzaDetailPrenseter{
         if let pizzaID = self.dominoPizzaDetailView?.getPizzaID(){
             pizzaService.callAPIPostPizzaDetail(pizzaID: pizzaID, onSuccess: { pizza in
         
-//                if (pizza.pizzaID?.isEmpty)!{
-//                self.dominoPizzaDetailView?.setEmptyPizzaDetail()
-//            }
-                
-            let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil)
+                let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil, pizzaThumbnail: pizza.getPizzaThumbnailUrl() ?? nil)
                     
             self.dominoPizzaDetailView?.setPizzaDetail(pizza: mappedPizzaDetail)
                     
@@ -68,6 +75,10 @@ class DominoPizzaDetailPrenseter{
             self.dominoPizzaDetailView?.stopLoading()
             self.dominoPizzaDetailView?.setEmptyPizzaDetail(errorMessage: "No internet connection.")
         }
+    }
+    
+    func getAddToCart(model: PizzaDetailViewData){
+        self.dominoPizzaDetailView?.routeTo(screen: .pizzaCart(model: model))
     }
         
 }

@@ -34,6 +34,8 @@ class APIManager{
                     .arrayValue
                     .map{ DominoListingModel(JSON: $0) }
                 
+          
+                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
                     successCallback!(pizzaData)
                 }
@@ -52,9 +54,7 @@ class APIManager{
         let url = Config.Url.API_BASE_URL + EndPoint.getDetailPizza.rawValue + "?&pizzaID=\(pizzaID)"
         
         self.createGetRequest(url, method: .get, headers: nil, parameters: nil, onSuccess: {(responseObject: JSON)-> Void in
-            
-            //print(responseObject["response"])
-            
+        
             let pizzaData =  DominoDetailModel(JSON: responseObject["response"])
             
             successCallback?(pizzaData)
@@ -80,6 +80,8 @@ class APIManager{
         self.createPostRequest(url, method: .post, headers: headers, parameters: parameters, encoding: URLEncoding.httpBody, onSuccess: {(responseObject: JSON)-> Void in
 
             let pizzaData =  DominoDetailModel(JSON: responseObject["response"])
+            
+            print(responseObject)
             
             successCallback?(pizzaData)
     

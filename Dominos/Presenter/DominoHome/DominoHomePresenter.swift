@@ -24,7 +24,6 @@ struct PizzasViewData{
     let pizzaThumbnail: URL?
     let pizzaName: String?
     let pizzaToppingImage: [EnumPizzaToppings]?
-   
 }
 
 class DominoHomePresenter{

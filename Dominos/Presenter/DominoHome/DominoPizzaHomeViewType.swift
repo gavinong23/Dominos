@@ -13,10 +13,11 @@ protocol DominoPizzaHomeViewType: NSObjectProtocol{
     
     func setPizzas(pizzas:[PizzasViewData])
     func filterPizza(pizzas:[PizzasViewData])
-     func noConnection(errorMessage:String, isConnectedToNetwork: Bool)
+    func noConnection(errorMessage:String, isConnectedToNetwork: Bool)
     func showPickerView()
     func stopRefresher()
     func startLoading()
     func stopLoading()
     func routeTo(screen: EnumDominoHomeRoute)
+    
 }

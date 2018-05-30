@@ -121,15 +121,12 @@ extension DominoHomeViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.populateCell(pizza: dominoModel, cell: cell)
         
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = dominoModels[indexPath.row]
         self.dominoHomePresenter.getPizzaDetail(model: model)
     }
-    
-    
 }
 
 
@@ -149,8 +146,7 @@ extension DominoHomeViewController: UIPickerViewDataSource, UIPickerViewDelegate
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        //print(EnumPizzaToppings.allValues[row].toppingString())
-    
+     
         print(EnumPizzaToppings.allValues[row])
         self.dominoHomePresenter.sortPizza(selectedTopping: EnumPizzaToppings.allValues[row])
     }

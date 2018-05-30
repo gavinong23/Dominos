@@ -26,6 +26,8 @@ class DominoPizzaHomeDetailViewController: BaseViewController {
     
     @IBOutlet weak var imageProgressBar: UIProgressView!
     
+     var model = PizzaDetailViewData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -47,13 +49,18 @@ class DominoPizzaHomeDetailViewController: BaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func addToCartButtonOnClick(_ sender: Any?) {
+        self.dominoDetailPresenter.getAddToCart(model: model)
+    }
+    
+    
 }
 
 extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
     
  
     func setPizzaDetail(pizza:PizzaDetailViewData){
-//        let imageIcon = UIImage(named: "icon-image")
         
         self.dominoPizzaFullImageView.kf.setImage(with: pizza.pizzaFullImage, progressBlock:{
             receivedSize, totalSize in
@@ -71,7 +78,6 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
             
         })
         
-//        self.dominoPizzaFullImageView.kf.setImage(with: pizza.pizzaFullImage, placeholder: imageIcon)
         self.dominoPizzaNameLabel.text = pizza.pizzaName
         self.dominoPizzaDescLabel.text = pizza.pizzaDesc
         
@@ -89,6 +95,7 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
                 dominoPizzaTypeStackView.addArrangedSubview(imageView)
             }
         }
+        self.model = pizza
     }
     
     func getPizzaID() -> String{
@@ -105,6 +112,28 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
     
     func stopLoading(){
         self.dismissLoadingView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dominoModel: PizzaDetailViewData
+        
+        if(segue.identifier == R.segue.dominoPizzaHomeDetailViewController.pizzaDetailToPizzaCartID.identifier){
+            
+            dominoModel = (sender as? PizzaDetailViewData)!
+            
+            let DominoCartViewController = segue.destination as! DominoCartViewController
+            
+            DominoCartViewController.dominoModels.append(dominoModel)
+        }
+    }
+    
+    func routeTo(screen:EnumDominoDetailRoute){
+        
+        switch screen{
+            case .pizzaCart(let model):
+                self.performSegue(withIdentifier: screen.segueID(), sender: model)
+            }
+        
     }
     
 }

@@ -26,7 +26,7 @@ class DominoPizzaHomeCollectionViewCell: GeminiCell {
     func populateCell(pizza : PizzasViewData, cell: DominoPizzaHomeCollectionViewCell){
         pizzaNameLabel.text = pizza.pizzaName
         
-        let imageIcon = UIImage(named: "icon-image")
+//        let imageIcon = UIImage(named: "icon-image")
         pizzaThumnail.kf.setImage(with: pizza.pizzaThumbnail, progressBlock:{
             receivedSize, totalSize in
             let percentage = (Float(receivedSize) / Float(totalSize)) * 100.0
