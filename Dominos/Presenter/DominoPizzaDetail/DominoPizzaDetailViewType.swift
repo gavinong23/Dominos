@@ -16,6 +16,6 @@ protocol DominoPizzaDetailViewType: NSObjectProtocol{
     func getPizzaID() -> String
     func startLoading()
     func stopLoading()
-    func setEmptyPizzaDetail()
+    func setEmptyPizzaDetail(errorMessage:String)
     
 }

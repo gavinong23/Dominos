@@ -47,10 +47,10 @@ class DominoPizzaDetailPrenseter{
         if let pizzaID = self.dominoPizzaDetailView?.getPizzaID(){
             pizzaService.callAPIPostPizzaDetail(pizzaID: pizzaID, onSuccess: { pizza in
         
-                if (pizza.pizzaID?.isEmpty)!{
-                self.dominoPizzaDetailView?.setEmptyPizzaDetail()
-            }
-                   
+//                if (pizza.pizzaID?.isEmpty)!{
+//                self.dominoPizzaDetailView?.setEmptyPizzaDetail()
+//            }
+                
             let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil)
                     
             self.dominoPizzaDetailView?.setPizzaDetail(pizza: mappedPizzaDetail)
@@ -65,7 +65,8 @@ class DominoPizzaDetailPrenseter{
             }
         }
         else{
-            self.dominoPizzaDetailView?.setEmptyPizzaDetail()
+            self.dominoPizzaDetailView?.stopLoading()
+            self.dominoPizzaDetailView?.setEmptyPizzaDetail(errorMessage: "No internet connection.")
         }
     }
         

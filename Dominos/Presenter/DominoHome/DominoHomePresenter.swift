@@ -60,7 +60,7 @@ class DominoHomePresenter{
     }
     
     func NoInternetConnectionGetPizza(){
-        self.dominoPizzaHomeView?.setEmptyPizza(errorMessage: "No Internet Connection. Please connect to the Internet and wait for awhile for the app to refresh.",isConnectedToNetwork: false)
+        self.dominoPizzaHomeView?.noConnection(errorMessage: "No Internet Connection. Please connect to the Internet and wait for awhile for the app to refresh.",isConnectedToNetwork: false)
         self.startRequestTimer()
     }
     
@@ -129,8 +129,8 @@ class DominoHomePresenter{
     
     func sortPizza(selectedTopping:EnumPizzaToppings){
         
-        if Reachability.isConnectedToNetwork(){
-            
+//        if Reachability.isConnectedToNetwork(){
+        
             if !(self.mappedPizzas?.isEmpty)!{
                 var filterPizzas = self.mappedPizzas?.filter{
                     ($0.pizzaToppingImage?.contains(selectedTopping))!
@@ -144,9 +144,9 @@ class DominoHomePresenter{
                 dominoPizzaHomeView?.filterPizza(pizzas: filterPizzas!)
             }
             
-        }else{
-            self.NoInternetConnectionGetPizza()
-        }
+//        }else{
+//            self.NoInternetConnectionGetPizza()
+//        }
     }
 
     func getPizzaDetail(model:PizzasViewData){

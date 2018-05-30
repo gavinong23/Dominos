@@ -95,8 +95,8 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
         return self.pizzaID ?? ""
     }
     
-    func setEmptyPizzaDetail() {
-        self.addErrorView(errorMessage: "gg")
+    func setEmptyPizzaDetail(errorMessage:String) {
+        self.addErrorView(errorMessage: errorMessage)
     }
     
     func startLoading(){

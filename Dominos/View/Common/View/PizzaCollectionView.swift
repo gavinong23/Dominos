@@ -39,13 +39,13 @@ class PizzaCollectionView: UIView{
     }
     
     
-    func setEmptyConnectionPizza(errorMessage: String,isConnectedToNetwork:Bool) {
-            if !isConnectedToNetwork{
+    func noConnection(errorMessage: String,isConnectedToNetwork:Bool) {
+        
                 self.noInternetConnectionView.isHidden = false
                 self.emptyPizzaView.isHidden = true
                 self.collectionView.isHidden = true
                 self.noInternetLabel.text = errorMessage
-            }
+            
         
         //self.pickerView.isHidden = true
     }
@@ -55,10 +55,12 @@ class PizzaCollectionView: UIView{
             self.emptyPizzaView.isHidden = false
             self.collectionView.isHidden = false
             self.noInternetConnectionView.isHidden = true
+            self.collectionView.reloadData()
         }else{
             self.collectionView.isHidden = false
             self.emptyPizzaView.isHidden = true
             self.noInternetConnectionView.isHidden = true
+            self.collectionView.reloadData()
         }
     }
     

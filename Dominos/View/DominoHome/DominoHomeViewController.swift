@@ -39,7 +39,7 @@ class DominoHomeViewController: BaseViewController {
         setupRefresherView()
         
         if !Reachability.isConnectedToNetwork(){
-            refreshCollectionView()
+            noInternetConnectionRequest()
         }else{
             setupCollectionView()
         }
@@ -51,7 +51,6 @@ class DominoHomeViewController: BaseViewController {
     func setupRefresherView(){
         self.refresher = UIRefreshControl()
         self.pizzaCollectionView.collectionView.alwaysBounceVertical = true
-        
         self.pizzaCollectionView.collectionView.delegate = self
         self.pizzaCollectionView.collectionView.dataSource = self
         self.refresher.tintColor = UIColor.blue
@@ -62,7 +61,7 @@ class DominoHomeViewController: BaseViewController {
         self.dominoHomePresenter.getPizzas()
     }
     
-    func refreshCollectionView(){
+    func noInternetConnectionRequest(){
         self.dominoHomePresenter.NoInternetConnectionGetPizza()
     }
     
@@ -165,7 +164,7 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
         self.dominoModels = pizzas
         self.pickerView.isHidden = true
         self.pizzaCollectionView.setEmptyPizza(pizzaCount:pizzas.count)
-        self.pizzaCollectionView.collectionView.reloadData()
+       
     
     }
     
@@ -175,11 +174,12 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
     
     func filterPizza(pizzas: [PizzasViewData]){
         self.dominoModels = pizzas
-        self.pizzaCollectionView.collectionView.reloadData()
+        self.pizzaCollectionView.setEmptyPizza(pizzaCount:pizzas.count)
     }
     
-    func setEmptyPizza(errorMessage:String, isConnectedToNetwork: Bool){
-        self.pizzaCollectionView.setEmptyConnectionPizza(errorMessage: errorMessage, isConnectedToNetwork: isConnectedToNetwork)
+    func noConnection(errorMessage:String, isConnectedToNetwork: Bool){
+        self.pizzaCollectionView.noConnection(errorMessage: errorMessage, isConnectedToNetwork: isConnectedToNetwork)
+        self.pickerView.isHidden = true
     }
     
     
