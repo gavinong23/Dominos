@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Gemini
 
-extension GeminiCollectionView{
+extension UICollectionView{
     
     func drawShadow(cell: UICollectionViewCell){
         cell.contentView.layer.cornerRadius = 4.0
@@ -40,3 +40,4 @@ extension GeminiCollectionView{
     }
 
 }
+

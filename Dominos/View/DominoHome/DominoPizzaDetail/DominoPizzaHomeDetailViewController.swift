@@ -49,10 +49,15 @@ class DominoPizzaHomeDetailViewController: BaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
     
-    @IBAction func addToCartButtonOnClick(_ sender: Any?) {
+
+    
+    @IBAction func addToCartButtonOnClick(_ sender: Any) {
         self.dominoDetailPresenter.getAddToCart(model: model)
+        
     }
+    
     
     
 }
@@ -114,16 +119,21 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
         self.dismissLoadingView()
     }
     
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dominoModel: PizzaDetailViewData
+//                let dominoModel: PizzaDetailViewData
+        
         
         if(segue.identifier == R.segue.dominoPizzaHomeDetailViewController.pizzaDetailToPizzaCartID.identifier){
             
-            dominoModel = (sender as? PizzaDetailViewData)!
             
-            let DominoCartViewController = segue.destination as! DominoCartViewController
+            if let dominoModel = sender as? PizzaDetailViewData{
+                let DominoCartViewController = segue.destination as! DominoCartViewController
+                DominoCartViewController.dominoModels.append(dominoModel)
+            }
             
-            DominoCartViewController.dominoModels.append(dominoModel)
+            
         }
     }
     
@@ -131,6 +141,7 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
         
         switch screen{
             case .pizzaCart(let model):
+            
                 self.performSegue(withIdentifier: screen.segueID(), sender: model)
             }
         

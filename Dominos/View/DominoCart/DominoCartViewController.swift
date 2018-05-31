@@ -14,12 +14,17 @@ class DominoCartViewController: UIViewController {
     
       var dominoModels = [PizzaDetailViewData]()
     
+    @IBOutlet weak var totalPriceLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
         setupCartCollectionView()
+        
+        //print("ggwp:\(dominoModels)")
+        
         // Do any additional setup after loading the view.
     }
     
@@ -28,6 +33,9 @@ class DominoCartViewController: UIViewController {
     }
     
     func setupCartCollectionView(){
+        
+        //Register Nib
+        self.collectionView.register(R.nib.dominoCartCollectionViewCell)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
     }
@@ -45,26 +53,29 @@ class DominoCartViewController: UIViewController {
 extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-      
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return self.dominoModels.count
+
         return dominoModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let dominoModel: PizzasViewData
+        let dominoModel: PizzaDetailViewData
+         
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.dominoPizzaHomeCollectionViewCell, for: indexPath) as! DominoPizzaHomeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.dominoCartCollectionViewCell, for: indexPath) as! DominoCartCollectionViewCell
+    
+        dominoModel = self.dominoModels[indexPath.row]
         
-//        self.pizzaCollectionView.collectionView.drawShadow(cell: cell)
-//
-//        dominoModel = self.dominoModels[indexPath.row]
-//
-//        self.toppings = dominoModel.pizzaToppingImage!
-//
+        self.collectionView.drawShadow(cell: cell)
+        
+        
+    
+        cell.populateCell(pizza: dominoModel, cell: cell, totalPriceLabel : self.totalPriceLabel)
+
 //        cell.populateCell(pizza: dominoModel, cell: cell)
         
         return cell

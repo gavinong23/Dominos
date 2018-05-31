@@ -13,7 +13,7 @@ import UIKit
 struct Config{
     
     struct Timer{
-        static let timeInterval = 20.0
+        static let timeInterval = 600000000.0
         static let GetAllPizzaReqInterval = 5.0
     }
     

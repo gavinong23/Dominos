@@ -16,6 +16,7 @@ struct PizzaDetailViewData{
     var pizzaToppingImage: [EnumPizzaToppings]?
     var pizzaFullImage: URL?
     var pizzaThumbnail: URL?
+    var pizzaPrice: Float?
 }
 
 enum EnumDominoDetailRoute{
@@ -58,7 +59,8 @@ class DominoPizzaDetailPrenseter{
         if let pizzaID = self.dominoPizzaDetailView?.getPizzaID(){
             pizzaService.callAPIPostPizzaDetail(pizzaID: pizzaID, onSuccess: { pizza in
         
-                let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil, pizzaThumbnail: pizza.getPizzaThumbnailUrl() ?? nil)
+                let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil, pizzaThumbnail: pizza.getPizzaThumbnailUrl() ?? nil, pizzaPrice: pizza.pizzaPrice ??
+                nil)
                     
             self.dominoPizzaDetailView?.setPizzaDetail(pizza: mappedPizzaDetail)
                     
@@ -78,6 +80,7 @@ class DominoPizzaDetailPrenseter{
     }
     
     func getAddToCart(model: PizzaDetailViewData){
+//        print("gg:\(model)")
         self.dominoPizzaDetailView?.routeTo(screen: .pizzaCart(model: model))
     }
         
