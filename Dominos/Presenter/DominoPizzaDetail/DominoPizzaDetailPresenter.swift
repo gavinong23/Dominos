@@ -17,6 +17,7 @@ struct PizzaDetailViewData{
     var pizzaFullImage: URL?
     var pizzaThumbnail: URL?
     var pizzaPrice: Float?
+    var pizzaQuantity: Double?
 }
 
 enum EnumDominoDetailRoute{
@@ -35,6 +36,7 @@ class DominoPizzaDetailPrenseter{
     
     private let pizzaService : PizzaService
     weak private var dominoPizzaDetailView : DominoPizzaDetailViewType?
+    var totalQuantity: Double = 1.0
     
     init(pizzaService: PizzaService) {
         self.pizzaService = pizzaService
@@ -59,8 +61,7 @@ class DominoPizzaDetailPrenseter{
         if let pizzaID = self.dominoPizzaDetailView?.getPizzaID(){
             pizzaService.callAPIPostPizzaDetail(pizzaID: pizzaID, onSuccess: { pizza in
         
-                let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil, pizzaThumbnail: pizza.getPizzaThumbnailUrl() ?? nil, pizzaPrice: pizza.pizzaPrice ??
-                nil)
+                let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil, pizzaThumbnail: pizza.getPizzaThumbnailUrl() ?? nil, pizzaPrice: pizza.pizzaPrice ?? nil, pizzaQuantity: self.totalQuantity)
                     
             self.dominoPizzaDetailView?.setPizzaDetail(pizza: mappedPizzaDetail)
                     
@@ -68,6 +69,7 @@ class DominoPizzaDetailPrenseter{
                     
             }, onFailure: {(errorMessage) in
                     print(errorMessage)
+    
                     self.dominoPizzaDetailView?.stopLoading()
             })
                 
@@ -79,8 +81,14 @@ class DominoPizzaDetailPrenseter{
         }
     }
     
+    
+    
     func getAddToCart(model: PizzaDetailViewData){
 //        print("gg:\(model)")
+        self.totalQuantity += 1.0
+        
+//       model.pizzaQuantity =
+        
         self.dominoPizzaDetailView?.routeTo(screen: .pizzaCart(model: model))
     }
         

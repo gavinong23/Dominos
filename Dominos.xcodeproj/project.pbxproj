@@ -44,6 +44,8 @@
 		E94123B820B3E5490054D03B /* DominoPizzaDetailViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */; };
 		E9464B2E20B5185D00E23485 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9464B2D20B5185D00E23485 /* Enum.swift */; };
 		E95E2D5E20B3BFB800F2EA17 /* DominoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E2D5D20B3BFB800F2EA17 /* DominoDetailModel.swift */; };
+		E98C466C20C1383C0097E8CC /* DominoCartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C466B20C1383C0097E8CC /* DominoCartPresenter.swift */; };
+		E98C466E20C1384A0097E8CC /* DominoCartViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C466D20C1384A0097E8CC /* DominoCartViewType.swift */; };
 		E9936F8320B6BB7B00BD128B /* ToppingDropDownListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9936F8120B6BB7B00BD128B /* ToppingDropDownListTableViewCell.swift */; };
 		E9936F8420B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9936F8220B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib */; };
 		E997564F20B569F200C28597 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E997564E20B569F200C28597 /* Reachability.swift */; };
@@ -122,6 +124,8 @@
 		E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaDetailViewType.swift; sourceTree = "<group>"; };
 		E9464B2D20B5185D00E23485 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		E95E2D5D20B3BFB800F2EA17 /* DominoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoDetailModel.swift; sourceTree = "<group>"; };
+		E98C466B20C1383C0097E8CC /* DominoCartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoCartPresenter.swift; sourceTree = "<group>"; };
+		E98C466D20C1384A0097E8CC /* DominoCartViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoCartViewType.swift; sourceTree = "<group>"; };
 		E9936F8120B6BB7B00BD128B /* ToppingDropDownListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingDropDownListTableViewCell.swift; sourceTree = "<group>"; };
 		E9936F8220B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToppingDropDownListTableViewCell.xib; sourceTree = "<group>"; };
 		E997564E20B569F200C28597 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -188,8 +192,8 @@
 				5582560C2091B29F00F599FA /* Constant */,
 				558255FC2091AB8500F599FA /* Extension */,
 				558255FA2091AB6C00F599FA /* View */,
-				558255F92091AB6500F599FA /* Model */,
 				558255FB2091AB7100F599FA /* Presenter */,
+				558255F92091AB6500F599FA /* Model */,
 			);
 			path = Dominos;
 			sourceTree = "<group>";
@@ -238,6 +242,7 @@
 		558255FB2091AB7100F599FA /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				E98C466A20C138270097E8CC /* DominoCart */,
 				55A3B1EE2097165E00BA8B8C /* DominoHome */,
 				E94123B420B3E4B20054D03B /* DominoPizzaDetail */,
 			);
@@ -438,6 +443,15 @@
 				E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */,
 			);
 			path = DominoPizzaDetail;
+			sourceTree = "<group>";
+		};
+		E98C466A20C138270097E8CC /* DominoCart */ = {
+			isa = PBXGroup;
+			children = (
+				E98C466B20C1383C0097E8CC /* DominoCartPresenter.swift */,
+				E98C466D20C1384A0097E8CC /* DominoCartViewType.swift */,
+			);
+			path = DominoCart;
 			sourceTree = "<group>";
 		};
 		E9936F7E20B6BA9C00BD128B /* DropDownList */ = {
@@ -707,6 +721,7 @@
 				558255CD20919F6100F599FA /* DominoHomeViewController.swift in Sources */,
 				55A3B1F02097175800BA8B8C /* DominoPizzaHomeViewType.swift in Sources */,
 				E9197BAD20AAB117003FA350 /* DominoListingModel.swift in Sources */,
+				E98C466C20C1383C0097E8CC /* DominoCartPresenter.swift in Sources */,
 				E9063E5820BE6E35002B10E7 /* DominoCartViewController.swift in Sources */,
 				E9DDCE7920B7E02E0013C0FD /* EnumCollection.swift in Sources */,
 				E9D1983420B8057000D99D02 /* BaseViewController.swift in Sources */,
@@ -716,6 +731,7 @@
 				558255CB20919F6100F599FA /* AppDelegate.swift in Sources */,
 				55B68C9D20990347001B5400 /* ActivityIndicatorExtension.swift in Sources */,
 				558256102091B2DC00F599FA /* ScreenSaverTimer.swift in Sources */,
+				E98C466E20C1384A0097E8CC /* DominoCartViewType.swift in Sources */,
 				E9464B2E20B5185D00E23485 /* Enum.swift in Sources */,
 				55A3B1ED2097165500BA8B8C /* DominoHomePresenter.swift in Sources */,
 				E9071B5F20BB9FBD00D28B51 /* PizzaCollectionView.swift in Sources */,
@@ -923,7 +939,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Dominos/Starter/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = gavin.ong.dominos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -941,7 +960,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Dominos/Starter/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = gavin.ong.dominos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -958,7 +980,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XXNHE3Z96L;
 				INFOPLIST_FILE = DominosTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.DominosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -976,7 +1002,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XXNHE3Z96L;
 				INFOPLIST_FILE = DominosTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.DominosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -993,7 +1023,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XXNHE3Z96L;
 				INFOPLIST_FILE = DominosUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.DominosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1010,7 +1044,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XXNHE3Z96L;
 				INFOPLIST_FILE = DominosUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.DominosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

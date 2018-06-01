@@ -109,8 +109,10 @@ class DominoHomePresenter{
                     
                 }, onFailure: { (errorMessage) in
                     print(errorMessage)
-                    self.stopRequestTimer()
+                    //self.stopRequestTimer()
+                    
                     self.stopRefreshAndLoading()
+                    self.startRequestTimer()
                   
             })
         }

@@ -26,6 +26,9 @@ class DominoPizzaHomeDetailViewController: BaseViewController {
     
     @IBOutlet weak var imageProgressBar: UIProgressView!
     
+    @IBOutlet weak var AddToCartButton: UIButton!
+    
+    
      var model = PizzaDetailViewData()
     
     override func viewDidLoad() {
@@ -38,6 +41,7 @@ class DominoPizzaHomeDetailViewController: BaseViewController {
         self.navigationItem.title = R.string.main.navigation_homedetail_title()
         dominoDetailPresenter.attachView(view: self)
         self.imageProgressBar.isHidden = true
+        self.AddToCartButton.isHidden = true
         self.dominoDetailPresenter.getPizzaDetail()
 
     }
@@ -101,6 +105,7 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
             }
         }
         self.model = pizza
+        self.AddToCartButton.isHidden = false
     }
     
     func getPizzaID() -> String{
@@ -109,6 +114,7 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
     
     func setEmptyPizzaDetail(errorMessage:String) {
         self.addErrorView(errorMessage: errorMessage)
+        self.AddToCartButton.isHidden = true
     }
     
     func startLoading(){
@@ -140,7 +146,7 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
     func routeTo(screen:EnumDominoDetailRoute){
         
         switch screen{
-            case .pizzaCart(let model):
+        case .pizzaCart(let model):
             
                 self.performSegue(withIdentifier: screen.segueID(), sender: model)
             }

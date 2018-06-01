@@ -45,6 +45,8 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
     
     var totalPriceLabel = UILabel()
     
+    var didUpdateQuantity: ((_ quantityValue: Double) -> Void)?
+    
     
     override func awakeFromNib() {
         
@@ -52,9 +54,9 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
         setupStepperView()
     }
     
-    func populateCell(pizza: PizzaDetailViewData, cell: DominoCartCollectionViewCell, totalPriceLabel: UILabel){
+    func populateCell(pizza: PizzaDetailViewData, cell: DominoCartCollectionViewCell){
 //        setupPickerView()
-        pizzaNameLabel.text = pizza.pizzaName
+         pizzaNameLabel.text = pizza.pizzaName
         
          let pizzaToppingIcons = pizza.pizzaToppingImage
         
@@ -77,14 +79,11 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
             }
         }
         
-        
-        
-        
         quantityLabel.text = "1"
         
-        self.totalPriceLabel = totalPriceLabel
+       // self.totalPriceLabel = totalPriceLabel
         
-        totalPriceLabel.text = String(format:"Total: RM %.2f",pizza.pizzaPrice ?? 0.0)
+//        totalPriceLabel.text = String(format:"Total: RM %.2f",pizza.pizzaPrice ?? 0.0)
         
         self.pizza = pizza
         
@@ -105,11 +104,13 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
     
     @IBAction func stepperOnClick(_ sender: UIStepper) {
         
-        //Pass to Presenter to do the function calculate total....
+        
+        
+        didUpdateQuantity?(sender.value)
         
         quantityLabel.text = String(Int(sender.value + 1))
         
-        totalPriceLabel.text = String(format:"Total : RM %.2f",Float(sender.value+1) * (pizza?.pizzaPrice)!)
+        //totalPriceLabel.text = String(format:"Total : RM %.2f",Float(sender.value+1) * (pizza?.pizzaPrice)!)
         
     }
     
@@ -117,26 +118,3 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
 
 
 
-//extension DominoCartCollectionViewCell: UIPickerViewDelegate, UIPickerViewDataSource{
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//
-//
-//        return self.quantity.count
-//    }
-//
-//
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
-//
-//        return self.quantity[row]
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-//
-//
-//    }
-//
-//}

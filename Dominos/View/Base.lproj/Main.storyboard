@@ -203,6 +203,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Pizza Info" id="1E6-Gl-kO0"/>
                     <connections>
+                        <outlet property="AddToCartButton" destination="7aJ-xW-ne4" id="7f1-Vp-YAy"/>
                         <outlet property="dominoPizzaDescLabel" destination="OFb-wR-9Hv" id="G7f-tK-deU"/>
                         <outlet property="dominoPizzaFullImageView" destination="oSj-KZ-xRx" id="Jyi-0Q-VJh"/>
                         <outlet property="dominoPizzaNameLabel" destination="Tb0-uS-2Yk" id="i2o-tb-3Gu"/>

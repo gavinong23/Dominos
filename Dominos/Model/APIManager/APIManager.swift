@@ -81,7 +81,7 @@ class APIManager{
 
             let pizzaData =  DominoDetailModel(JSON: responseObject["response"])
             
-            print(responseObject)
+//            print(responseObject)
             
             successCallback?(pizzaData)
     
