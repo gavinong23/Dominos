@@ -31,8 +31,8 @@ class DominoCartViewController: UIViewController {
     }
     
     func setupView(){
-        dominoCartPresenter.setCart(items: dominoModels)
         dominoCartPresenter.attachView(view: self)
+        dominoCartPresenter.setCart(items: dominoModels)
     }
     
     func setupCartCollectionView(){
@@ -67,7 +67,8 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         var dominoModel: PizzaDetailViewData
-         
+        
+        var quantity: Double?
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.dominoCartCollectionViewCell, for: indexPath) as! DominoCartCollectionViewCell
     
@@ -75,29 +76,13 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
     
         self.collectionView.drawShadow(cell: cell)
         
-        var totalPrice: Float = 0.0
-    
-//        if let pizzaPrice = dominoModel.pizzaPrice{
-////            print(pizzaPrice)
-//            totalPrice += pizzaPrice
-////            print(totalPrice)
-//        }
-        
-        
-        self.totalPriceLabel.text =  String(format:"Total : RM %.2f",totalPrice)
-        
         cell.didUpdateQuantity = { (quantityValue) in
-            print(quantityValue)
             
-            if var pizzaQuantity = dominoModel.pizzaQuantity{
-                pizzaQuantity += quantityValue
-                
-                
-            }
+            quantity = quantityValue + dominoModel.pizzaQuantity!
             
-            self.dominoCartPresenter.calculateGrandTotal(item: dominoModel)
+            dominoModel.pizzaQuantity = quantity
             
-//            self.totalPriceLabel.text = String(format:"Total : RM %.2f",Float(quantityValue+1) * dominoModel.pizzaPrice!)
+            self.dominoCartPresenter.grandTotalWithUpdateQuantity(item: dominoModel)
         }
     
         cell.populateCell(pizza: dominoModel, cell: cell)
@@ -114,6 +99,9 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension DominoCartViewController: DominoCartViewType{
     
+    func setCart(grandTotal: Float){
+        self.totalPriceLabel.text =  String(format:"Total : RM %.2f",grandTotal)
+    }
     
     func updateGrandTotal(grandTotal: Float){
         self.totalPriceLabel.text = String(format:"Total : RM %.2f",grandTotal)

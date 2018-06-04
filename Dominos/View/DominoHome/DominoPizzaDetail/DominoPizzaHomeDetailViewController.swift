@@ -128,12 +128,9 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//                let dominoModel: PizzaDetailViewData
-        
-        
+
         if(segue.identifier == R.segue.dominoPizzaHomeDetailViewController.pizzaDetailToPizzaCartID.identifier){
-            
-            
+                        
             if let dominoModel = sender as? PizzaDetailViewData{
                 let DominoCartViewController = segue.destination as! DominoCartViewController
                 DominoCartViewController.dominoModels.append(dominoModel)

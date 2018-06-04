@@ -86,7 +86,7 @@ class DominoPizzaDetailPrenseter{
     func getAddToCart(model: PizzaDetailViewData){
 //        print("gg:\(model)")
         self.totalQuantity += 1.0
-        
+    
 //       model.pizzaQuantity =
         
         self.dominoPizzaDetailView?.routeTo(screen: .pizzaCart(model: model))

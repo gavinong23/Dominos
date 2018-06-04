@@ -12,6 +12,7 @@ import Foundation
 
 protocol DominoCartViewType : NSObjectProtocol{
     
+    func setCart(grandTotal: Float)
     func updateGrandTotal(grandTotal: Float)
     
     

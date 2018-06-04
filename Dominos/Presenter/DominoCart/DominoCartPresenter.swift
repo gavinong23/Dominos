@@ -26,46 +26,41 @@ class DominoCartPresenter{
     
     func setCart(items: [PizzaDetailViewData]){
         self.pizzaCartModels =  items
-        print(self.pizzaCartModels)
-    }
-    
-    
-    func calculateGrandTotal(item: PizzaDetailViewData){
+        
         var totalPrice: Float?
         
+        if let pizzaCartModels = self.pizzaCartModels{
+            
+            if(self.pizzaCartModels?.count)! > 0{
+                totalPrice = pizzaCartModels.map{$0.pizzaPrice! * Float($0.pizzaQuantity!)}.first
+                
+                print(totalPrice)
+            }
+        }
+        self.dominoCartView?.setCart(grandTotal: totalPrice ?? 0.0)
+
+    }
+    
+    func grandTotalWithUpdateQuantity(item: PizzaDetailViewData){
+        var totalPrice: Float?
+        
+        //let preferences = UserDefaults.standardUserDefaults
+        
+        preferences.setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
         
         if let pizzaCartModels = self.pizzaCartModels{
            
             if (self.pizzaCartModels?.count)! > 0{
-                print(pizzaCartModels.filter{$0.pizzaID == item.pizzaID})
-                totalPrice = Float(pizzaCartModels.filter{$0.pizzaID == item.pizzaID}.map{ $0.pizzaPrice! * Float($0.pizzaQuantity!) }.description)
+    
+                let pizza = pizzaCartModels.filter{$0.pizzaID == item.pizzaID}.first
                 
-                print(totalPrice)
+                if let pizza = pizza{
+                   totalPrice = pizza.pizzaPrice! * Float(item.pizzaQuantity!)
+                }
+        
             }
-            
-            self.dominoCartView?.updateGrandTotal(grandTotal: totalPrice ?? 0.00)
-            
+            self.dominoCartView?.updateGrandTotal(grandTotal: totalPrice ?? 0.0)
         }
-        
-        
-        //            dominoModel.quantity = newQuantity
-        //            self.dominoCartPresenter.updateCart(item:dominoModel)
-        //
-        //
-        //            //presenter
-        //            let pizzaList:[String]
-        //            func updateCart(item:DominoModel) {
-        //                if pizzaList.count > 0 {
-        //                    pizzaList.filter{ $0.id == item.id }.map{ $0 = item }
-        //
-        //                    if let i = pizzaList.index(where: { $0.id == item.id }) {
-        //                        pizzaList[i] = item
-        //                    }
-        //                }
-        //            }
-        
     }
-    
-    
     
 }

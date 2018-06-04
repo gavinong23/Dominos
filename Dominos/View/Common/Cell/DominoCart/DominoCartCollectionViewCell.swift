@@ -104,8 +104,6 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
     
     @IBAction func stepperOnClick(_ sender: UIStepper) {
         
-        
-        
         didUpdateQuantity?(sender.value)
         
         quantityLabel.text = String(Int(sender.value + 1))
