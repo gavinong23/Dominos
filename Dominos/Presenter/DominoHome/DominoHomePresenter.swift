@@ -47,6 +47,8 @@ class DominoHomePresenter{
         
     }
     
+
+    
     func pullToRefreshGetPizza(){
         if(Reachability.isConnectedToNetwork()){
             self.getPizzas()

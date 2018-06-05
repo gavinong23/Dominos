@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum EnumPizzaToppings : String, EnumCollection{
+enum EnumPizzaToppings : String, EnumCollection, Codable{
     case all = "0"
     case samyeang = "1"
     case chili = "2"

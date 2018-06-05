@@ -144,9 +144,8 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
         
         switch screen{
         case .pizzaCart(let model):
-            
-                self.performSegue(withIdentifier: screen.segueID(), sender: model)
-            }
+            self.performSegue(withIdentifier: screen.segueID(), sender: model)
+        }
         
     }
     

@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import ObjectMapper
 
-class DominoListingModel{
+class DominoListingModel : NSObject{
     let baseImageUrl = Config.Url.BASE_IMAGE_URL
     var pizzaID: String?
     var pizzaThumbnail: String?
@@ -33,6 +33,22 @@ class DominoListingModel{
         }
         
     }
+    
+//    public func encode(with aCoder: NSCoder) {
+//        aCoder.encode(pizzaID, forKey:"pizzaID")
+//        aCoder.encode(pizzaThumbnail, forKey:"pizzaThumbnail")
+//        aCoder.encode(pizzaName, forKey:"pizzaName")
+//        aCoder.encode(pizzaDesc, forKey:"pizzaDesc")
+//        aCoder.encode(pizzaToppingImage, forKey:"pizzaToppingImage")
+//
+//    }
+//
+//    required init(coder aDecoder: NSCoder) {
+//        pizzaID = aDecoder.decodeObject(forKey:"pizzaID") as? String
+//        pizzaName = aDecoder.decodeObject(forKey:"pizzaName") as? String
+//        pizzaDesc = aDecoder.decodeObject(forKey:"pizzaDesc") as? String
+//        pizzaToppingImage = aDecoder.decodeObject(forKey:"pizzaToppingImage") as? [EnumPizzaToppings]
+//    }
     
     func getPizzaThumbnailUrl() -> URL? {
         var url:URL?

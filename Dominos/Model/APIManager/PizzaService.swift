@@ -10,6 +10,7 @@ import Foundation
 
 
 class PizzaService{
+//    var bfbgf:[String]
     
     func callAPIGetPizzas(onSuccess successCallback: ((_ pizzas: [DominoListingModel]) -> Void)?,
                           onFailure failureCallback: ((_ errorMessage: String) -> Void)?){

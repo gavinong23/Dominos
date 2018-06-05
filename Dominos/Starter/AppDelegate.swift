@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         setup()
+        setupCart()
     
         return true
     }
@@ -28,6 +29,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ScreenSaverTimer.sharedTimer.startTimer()
         tapGesture.delegate = self
         window?.addGestureRecognizer(tapGesture)
+    }
+    
+    func setupCart(){
+        let userDefaults = UserDefaults.standard
+        
+        userDefaults.removeObject(forKey: Config.preferenceKey.cartModels)
+        
+        if userDefaults.object(forKey: Config.preferenceKey.cartModels) == nil{
+            let pizzaDetailViewData = [PizzaDetailViewData]()
+            
+            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject:  pizzaDetailViewData)
+            userDefaults.set(encodedData, forKey: Config.preferenceKey.cartModels)
+            userDefaults.synchronize()
+        }else{
+            
+          if let savedCartItems = userDefaults.object(forKey: Config.preferenceKey.cartModels) as? Data {
+            let decoder = JSONDecoder()
+            
+                if let loadedCartItems = try? decoder.decode([PizzaDetailViewData].self, from: savedCartItems) {
+                    
+                    Global.sharedManager.sharedGlobalCart.append(contentsOf: loadedCartItems)
+                }
+            
+            }
+            
+            userDefaults.synchronize()
+        }
     }
     
 

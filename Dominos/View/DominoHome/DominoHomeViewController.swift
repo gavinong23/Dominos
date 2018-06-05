@@ -38,6 +38,9 @@ class DominoHomeViewController: BaseViewController {
         //drag for reload data(refresher)
         setupRefresherView()
         
+        //setup cart
+        //setupCart()
+        
         if !Reachability.isConnectedToNetwork(){
             noInternetConnectionRequest()
         }else{
@@ -81,6 +84,10 @@ class DominoHomeViewController: BaseViewController {
         
         //Register Nib
         self.pizzaCollectionView.collectionView.register(R.nib.dominoPizzaHomeCollectionViewCell)
+    }
+    
+    func setupCart(){
+       // self.dominoHomePresenter.setupCart()
     }
     
    

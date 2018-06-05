@@ -22,10 +22,16 @@ class DominoCartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let userDefaults = UserDefaults.standard
+        
+    
         setupView()
         setupCartCollectionView()
+
         
-        //print("ggwp:\(dominoModels)")
+  
+        
+//        print(dominoModels)
         
         // Do any additional setup after loading the view.
     }
@@ -99,11 +105,13 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension DominoCartViewController: DominoCartViewType{
     
-    func setCart(grandTotal: Float){
+    func setCart(dominoModels: [PizzaDetailViewData],grandTotal: Float){
+        self.dominoModels = dominoModels
         self.totalPriceLabel.text =  String(format:"Total : RM %.2f",grandTotal)
     }
     
-    func updateGrandTotal(grandTotal: Float){
+    func updateGrandTotal(dominoModels: [PizzaDetailViewData], grandTotal: Float){
+        self.dominoModels = dominoModels
         self.totalPriceLabel.text = String(format:"Total : RM %.2f",grandTotal)
     }
     

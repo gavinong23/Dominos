@@ -18,7 +18,24 @@ struct PizzaDetailViewData{
     var pizzaThumbnail: URL?
     var pizzaPrice: Float?
     var pizzaQuantity: Double?
+    
+
+    
+    
+    enum CodingKeys: String, CodingKey{
+        case pizzaID = "pizzaID"
+        case pizzaName = "pizzaName"
+        case pizzaDesc = "pizzaDesc"
+        case pizzaToppingImage = "pizzaToppingImage"
+        case pizzaFullImage = "pizzaFullImage"
+        case pizzaThumbnail = "pizzaThumbnail"
+        case pizzaPrice = "pizzaPrice"
+        case pizzaQuantity = "pizzaQuantity"
+    }
+
 }
+
+
 
 enum EnumDominoDetailRoute{
     case pizzaCart(model:PizzaDetailViewData)
@@ -37,6 +54,7 @@ class DominoPizzaDetailPrenseter{
     private let pizzaService : PizzaService
     weak private var dominoPizzaDetailView : DominoPizzaDetailViewType?
     var totalQuantity: Double = 1.0
+    var pizzaCartItems = [PizzaDetailViewData]()
     
     init(pizzaService: PizzaService) {
         self.pizzaService = pizzaService
@@ -61,7 +79,7 @@ class DominoPizzaDetailPrenseter{
         if let pizzaID = self.dominoPizzaDetailView?.getPizzaID(){
             pizzaService.callAPIPostPizzaDetail(pizzaID: pizzaID, onSuccess: { pizza in
         
-                let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil, pizzaThumbnail: pizza.getPizzaThumbnailUrl() ?? nil, pizzaPrice: pizza.pizzaPrice ?? nil, pizzaQuantity: self.totalQuantity)
+                let mappedPizzaDetail = PizzaDetailViewData(pizzaID: pizza.pizzaID ?? "", pizzaName: pizza.pizzaName ?? "", pizzaDesc: pizza.pizzaDesc ?? "", pizzaToppingImage: pizza.pizzaToppingImage ?? [], pizzaFullImage: pizza.getPizzaFullImageUrl() ?? nil, pizzaThumbnail: pizza.getPizzaThumbnailUrl() ?? nil, pizzaPrice: pizza.pizzaPrice ?? 0.00, pizzaQuantity: pizza.pizzaQuantity ?? 0.00)
                     
             self.dominoPizzaDetailView?.setPizzaDetail(pizza: mappedPizzaDetail)
                     
@@ -84,12 +102,97 @@ class DominoPizzaDetailPrenseter{
     
     
     func getAddToCart(model: PizzaDetailViewData){
-//        print("gg:\(model)")
+
         self.totalQuantity += 1.0
-    
-//       model.pizzaQuantity =
         
-        self.dominoPizzaDetailView?.routeTo(screen: .pizzaCart(model: model))
+        //print(model)
+        
+        
+        let cartSingleton = Global.sharedManager
+        //cartSingleton.item.
+           // globalCartArray.append(model)
+        
+        
+      
+        
+        let userDefaults = UserDefaults.standard
+        
+        if userDefaults.object(forKey: Config.preferenceKey.cartModels) != nil{
+            userDefaults.removeObject(forKey: Config.preferenceKey.cartModels)
+            
+            cartSingleton.sharedGlobalCart.append(model)
+            
+            print(cartSingleton.sharedGlobalCart.count)
+            
+            let encoder = JSONEncoder()
+            
+            if let encoded = try? encoder.encode(cartSingleton.sharedGlobalCart){
+                userDefaults.set(encoded, forKey: Config.preferenceKey.cartModels)
+            }
+            
+        }else{
+            
+            cartSingleton.sharedGlobalCart.append(model)
+            
+            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: cartSingleton.sharedGlobalCart)
+            userDefaults.set(encodedData, forKey: Config.preferenceKey.cartModels)
+            userDefaults.synchronize()
+        }
+        
+       // create an empty array and keep append element go into it.
+        
+//                    let cartModels = NSKeyedUnarchiver.unarchiveObject(with: data as! Data)
+//                    print("myPeopleList: \(cartModels)")
+//                    userDefaults.set(cartModels, forKey: Config.preferenceKey.cartModels)
+//
+//
+//                userDefaults.removeObject(forKey: Config.preferenceKey.cartModels)
+//
+//        if userDefaults.object(forKey: Config.preferenceKey.cartModels) != nil{
+//            let decoded  = userDefaults.object(forKey: Config.preferenceKey.cartModels) as! Data
+//
+//            if var decodedPizzaCartData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [PizzaDetailViewData]{
+//                //var decodedPizzaCartData = decodedPizzaCartData
+//                decodedPizzaCartData.append(model)
+//
+//                let encoder = JSONEncoder()
+//
+//                if let encoded = try? encoder.encode(decodedPizzaCartData) {
+//                    userDefaults.set(encoded, forKey: Config.preferenceKey.cartModels)
+//
+//                }
+//            }
+//
+//
+//
+//        }
+//
+         self.dominoPizzaDetailView?.routeTo(screen: .pizzaCart(model: model))
+   
+        
+        
+        //print(decodedPizzaCartData)
+//        let jsonEncoder = JSONEncoder()
+        
+//        var jsonData : Data?
+        
+//        do{jsonData = try jsonEncoder.encode(decodedPizzaCartData)}catch let error as NSError{}
+        
+//        let encodedData = NSKeyedArchiver.archivedData(withRootObject: decodedPizzaCartData)
+        
+       
+        
+        // JSONEncoder.encode(<#T##JSONEncoder#>)
+        //        let propertyListCartItems = decodedPizzaCartData.map{$0.propertyListRepresentation}
+        
+        //        userDefaults.set(propertyListCartItems, forKey: Config.preferenceKey.cartModels)
+        
+        
+   
+    }
+    
+    func addToCartPersistence(){
+        
     }
         
 }

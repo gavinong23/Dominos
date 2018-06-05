@@ -201,7 +201,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rvJ-Lg-w4F"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Pizza Info" id="1E6-Gl-kO0"/>
+                    <navigationItem key="navigationItem" title="Pizza Info" id="1E6-Gl-kO0">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="mRP-jE-HUF">
+                            <connections>
+                                <segue destination="FaX-TM-65a" kind="show" id="Ocf-aX-n8i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="AddToCartButton" destination="7aJ-xW-ne4" id="7f1-Vp-YAy"/>
                         <outlet property="dominoPizzaDescLabel" destination="OFb-wR-9Hv" id="G7f-tK-deU"/>
@@ -417,4 +423,7 @@
             <point key="canvasLocation" x="158" y="415"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="LHe-Aa-SXw"/>
+    </inferredMetricsTieBreakers>
 </document>

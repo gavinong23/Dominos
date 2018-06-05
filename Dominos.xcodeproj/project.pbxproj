@@ -40,9 +40,13 @@
 		E9197BAB20AAA827003FA350 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAA20AAA827003FA350 /* APIManager.swift */; };
 		E9197BAD20AAB117003FA350 /* DominoListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAC20AAB117003FA350 /* DominoListingModel.swift */; };
 		E9197BAF20AAB449003FA350 /* PizzaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAE20AAB449003FA350 /* PizzaService.swift */; };
+		E9396DF020C521E600C3F407 /* dominoListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9396DEF20C521E600C3F407 /* dominoListingModel.swift */; };
 		E94123B620B3E52B0054D03B /* DominoPizzaDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94123B520B3E52B0054D03B /* DominoPizzaDetailPresenter.swift */; };
 		E94123B820B3E5490054D03B /* DominoPizzaDetailViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */; };
 		E9464B2E20B5185D00E23485 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9464B2D20B5185D00E23485 /* Enum.swift */; };
+		E95A656F20C620650056E890 /* PizzaToppingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A656E20C620650056E890 /* PizzaToppingEnum.swift */; };
+		E95A657220C62E350056E890 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A657120C62E350056E890 /* UserDefaults.swift */; };
+		E95A657420C667090056E890 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A657320C667090056E890 /* Global.swift */; };
 		E95E2D5E20B3BFB800F2EA17 /* DominoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E2D5D20B3BFB800F2EA17 /* DominoDetailModel.swift */; };
 		E98C466C20C1383C0097E8CC /* DominoCartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C466B20C1383C0097E8CC /* DominoCartPresenter.swift */; };
 		E98C466E20C1384A0097E8CC /* DominoCartViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C466D20C1384A0097E8CC /* DominoCartViewType.swift */; };
@@ -120,9 +124,13 @@
 		E9197BAA20AAA827003FA350 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		E9197BAC20AAB117003FA350 /* DominoListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoListingModel.swift; sourceTree = "<group>"; };
 		E9197BAE20AAB449003FA350 /* PizzaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaService.swift; sourceTree = "<group>"; };
+		E9396DEF20C521E600C3F407 /* dominoListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dominoListingModel.swift; sourceTree = "<group>"; };
 		E94123B520B3E52B0054D03B /* DominoPizzaDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaDetailPresenter.swift; sourceTree = "<group>"; };
 		E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaDetailViewType.swift; sourceTree = "<group>"; };
 		E9464B2D20B5185D00E23485 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		E95A656E20C620650056E890 /* PizzaToppingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaToppingEnum.swift; sourceTree = "<group>"; };
+		E95A657120C62E350056E890 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		E95A657320C667090056E890 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		E95E2D5D20B3BFB800F2EA17 /* DominoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoDetailModel.swift; sourceTree = "<group>"; };
 		E98C466B20C1383C0097E8CC /* DominoCartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoCartPresenter.swift; sourceTree = "<group>"; };
 		E98C466D20C1384A0097E8CC /* DominoCartViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoCartViewType.swift; sourceTree = "<group>"; };
@@ -242,9 +250,9 @@
 		558255FB2091AB7100F599FA /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				E98C466A20C138270097E8CC /* DominoCart */,
 				55A3B1EE2097165E00BA8B8C /* DominoHome */,
 				E94123B420B3E4B20054D03B /* DominoPizzaDetail */,
+				E98C466A20C138270097E8CC /* DominoCart */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -252,6 +260,8 @@
 		558255FC2091AB8500F599FA /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				E95A657020C62E180056E890 /* UserDefaults */,
+				E9396DEE20C5219200C3F407 /* Coder */,
 				E9DDCE7A20B7E0450013C0FD /* Enum */,
 				55B68C9B20990328001B5400 /* ActivityIndicator */,
 				5582562D2091D3AE00F599FA /* CollectionView */,
@@ -332,6 +342,7 @@
 				5582560D2091B2B300F599FA /* Config.swift */,
 				E9464B2D20B5185D00E23485 /* Enum.swift */,
 				E997564E20B569F200C28597 /* Reachability.swift */,
+				E95A657320C667090056E890 /* Global.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -436,6 +447,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E9396DEE20C5219200C3F407 /* Coder */ = {
+			isa = PBXGroup;
+			children = (
+				E9396DEF20C521E600C3F407 /* dominoListingModel.swift */,
+				E95A656E20C620650056E890 /* PizzaToppingEnum.swift */,
+			);
+			path = Coder;
+			sourceTree = "<group>";
+		};
 		E94123B420B3E4B20054D03B /* DominoPizzaDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +463,14 @@
 				E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */,
 			);
 			path = DominoPizzaDetail;
+			sourceTree = "<group>";
+		};
+		E95A657020C62E180056E890 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				E95A657120C62E350056E890 /* UserDefaults.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		E98C466A20C138270097E8CC /* DominoCart */ = {
@@ -721,17 +749,21 @@
 				558255CD20919F6100F599FA /* DominoHomeViewController.swift in Sources */,
 				55A3B1F02097175800BA8B8C /* DominoPizzaHomeViewType.swift in Sources */,
 				E9197BAD20AAB117003FA350 /* DominoListingModel.swift in Sources */,
+				E95A657220C62E350056E890 /* UserDefaults.swift in Sources */,
 				E98C466C20C1383C0097E8CC /* DominoCartPresenter.swift in Sources */,
 				E9063E5820BE6E35002B10E7 /* DominoCartViewController.swift in Sources */,
 				E9DDCE7920B7E02E0013C0FD /* EnumCollection.swift in Sources */,
 				E9D1983420B8057000D99D02 /* BaseViewController.swift in Sources */,
 				5582562F2091D3C800F599FA /* CollectionViewExtension.swift in Sources */,
 				E94123B820B3E5490054D03B /* DominoPizzaDetailViewType.swift in Sources */,
+				E9396DF020C521E600C3F407 /* dominoListingModel.swift in Sources */,
 				E9197BAF20AAB449003FA350 /* PizzaService.swift in Sources */,
 				558255CB20919F6100F599FA /* AppDelegate.swift in Sources */,
 				55B68C9D20990347001B5400 /* ActivityIndicatorExtension.swift in Sources */,
 				558256102091B2DC00F599FA /* ScreenSaverTimer.swift in Sources */,
 				E98C466E20C1384A0097E8CC /* DominoCartViewType.swift in Sources */,
+				E95A657420C667090056E890 /* Global.swift in Sources */,
+				E95A656F20C620650056E890 /* PizzaToppingEnum.swift in Sources */,
 				E9464B2E20B5185D00E23485 /* Enum.swift in Sources */,
 				55A3B1ED2097165500BA8B8C /* DominoHomePresenter.swift in Sources */,
 				E9071B5F20BB9FBD00D28B51 /* PizzaCollectionView.swift in Sources */,

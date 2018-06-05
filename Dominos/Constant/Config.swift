@@ -26,4 +26,10 @@ struct Config{
         static let API_KEY = ["secret-key":"$2a$10$7fWTSD2Lf/curNInv.7dw.olYJLBwH/V2wVR4kFOh521KF6yoCGj."]
     }
     
+    struct preferenceKey{
+        static let cartModels = "CartModels"
+    }
+    
+ 
+    
 }
