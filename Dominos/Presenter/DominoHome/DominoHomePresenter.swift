@@ -29,12 +29,14 @@ struct PizzasViewData{
 class DominoHomePresenter{
     
     private let pizzaService: PizzaService
+    private let cartService: CartService
     weak private var dominoPizzaHomeView : DominoPizzaHomeViewType?
     var timer : Timer?
     var mappedPizzas: [PizzasViewData]?
     
-    init(pizzaService: PizzaService) {
+    init(cartService: CartService, pizzaService: PizzaService) {
         self.pizzaService = pizzaService
+        self.cartService = cartService
     
     }
     

@@ -99,6 +99,8 @@ class APIManager{
         
         Alamofire.request(url,method: method,parameters:parameters,encoding:encoding,headers:headers).validate().responseJSON{
             response in
+            
+        
 
             switch response.result{
             case .success(let value):

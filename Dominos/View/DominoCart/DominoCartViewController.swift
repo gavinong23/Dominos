@@ -16,7 +16,7 @@ class DominoCartViewController: UIViewController {
     
     @IBOutlet weak var totalPriceLabel: UILabel!
     
-    private let dominoCartPresenter = DominoCartPresenter()
+    private let dominoCartPresenter = DominoCartPresenter(cartService: CartService(),pizzaService: PizzaService())
     
     
     override func viewDidLoad() {

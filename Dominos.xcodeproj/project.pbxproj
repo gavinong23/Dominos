@@ -43,16 +43,19 @@
 		E9396DF020C521E600C3F407 /* dominoListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9396DEF20C521E600C3F407 /* dominoListingModel.swift */; };
 		E94123B620B3E52B0054D03B /* DominoPizzaDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94123B520B3E52B0054D03B /* DominoPizzaDetailPresenter.swift */; };
 		E94123B820B3E5490054D03B /* DominoPizzaDetailViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */; };
-		E9464B2E20B5185D00E23485 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9464B2D20B5185D00E23485 /* Enum.swift */; };
+		E9464B2E20B5185D00E23485 /* EnumPizzaToppings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9464B2D20B5185D00E23485 /* EnumPizzaToppings.swift */; };
 		E95A656F20C620650056E890 /* PizzaToppingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A656E20C620650056E890 /* PizzaToppingEnum.swift */; };
 		E95A657220C62E350056E890 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A657120C62E350056E890 /* UserDefaults.swift */; };
-		E95A657420C667090056E890 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A657320C667090056E890 /* Global.swift */; };
+		E95A657420C667090056E890 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A657320C667090056E890 /* UserDefaultsManager.swift */; };
+		E95AB63C20C7BA0600BB1D53 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95AB63B20C7BA0600BB1D53 /* AnyCodable.swift */; };
+		E95AB63E20C7BA4700BB1D53 /* EnumDecodableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95AB63D20C7BA4700BB1D53 /* EnumDecodableType.swift */; };
 		E95E2D5E20B3BFB800F2EA17 /* DominoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95E2D5D20B3BFB800F2EA17 /* DominoDetailModel.swift */; };
 		E98C466C20C1383C0097E8CC /* DominoCartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C466B20C1383C0097E8CC /* DominoCartPresenter.swift */; };
 		E98C466E20C1384A0097E8CC /* DominoCartViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C466D20C1384A0097E8CC /* DominoCartViewType.swift */; };
 		E9936F8320B6BB7B00BD128B /* ToppingDropDownListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9936F8120B6BB7B00BD128B /* ToppingDropDownListTableViewCell.swift */; };
 		E9936F8420B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9936F8220B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib */; };
 		E997564F20B569F200C28597 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E997564E20B569F200C28597 /* Reachability.swift */; };
+		E99FBA1720C7792500462748 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FBA1620C7792500462748 /* CartService.swift */; };
 		E9D1983420B8057000D99D02 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D1983320B8057000D99D02 /* BaseViewController.swift */; };
 		E9DDCE7920B7E02E0013C0FD /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DDCE7820B7E02E0013C0FD /* EnumCollection.swift */; };
 /* End PBXBuildFile section */
@@ -127,16 +130,19 @@
 		E9396DEF20C521E600C3F407 /* dominoListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dominoListingModel.swift; sourceTree = "<group>"; };
 		E94123B520B3E52B0054D03B /* DominoPizzaDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaDetailPresenter.swift; sourceTree = "<group>"; };
 		E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaDetailViewType.swift; sourceTree = "<group>"; };
-		E9464B2D20B5185D00E23485 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		E9464B2D20B5185D00E23485 /* EnumPizzaToppings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumPizzaToppings.swift; sourceTree = "<group>"; };
 		E95A656E20C620650056E890 /* PizzaToppingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaToppingEnum.swift; sourceTree = "<group>"; };
 		E95A657120C62E350056E890 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
-		E95A657320C667090056E890 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		E95A657320C667090056E890 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		E95AB63B20C7BA0600BB1D53 /* AnyCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
+		E95AB63D20C7BA4700BB1D53 /* EnumDecodableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumDecodableType.swift; sourceTree = "<group>"; };
 		E95E2D5D20B3BFB800F2EA17 /* DominoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoDetailModel.swift; sourceTree = "<group>"; };
 		E98C466B20C1383C0097E8CC /* DominoCartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoCartPresenter.swift; sourceTree = "<group>"; };
 		E98C466D20C1384A0097E8CC /* DominoCartViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoCartViewType.swift; sourceTree = "<group>"; };
 		E9936F8120B6BB7B00BD128B /* ToppingDropDownListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingDropDownListTableViewCell.swift; sourceTree = "<group>"; };
 		E9936F8220B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToppingDropDownListTableViewCell.xib; sourceTree = "<group>"; };
 		E997564E20B569F200C28597 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		E99FBA1620C7792500462748 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		E9D1983320B8057000D99D02 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E9DDCE7820B7E02E0013C0FD /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,6 +234,7 @@
 		558255F92091AB6500F599FA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E99FBA1520C778F300462748 /* UserDefaultsManager */,
 				55A3B1E920970E5F00BA8B8C /* APIManager */,
 				E9197BAC20AAB117003FA350 /* DominoListingModel.swift */,
 				E95E2D5D20B3BFB800F2EA17 /* DominoDetailModel.swift */,
@@ -340,9 +347,10 @@
 			isa = PBXGroup;
 			children = (
 				5582560D2091B2B300F599FA /* Config.swift */,
-				E9464B2D20B5185D00E23485 /* Enum.swift */,
+				E9464B2D20B5185D00E23485 /* EnumPizzaToppings.swift */,
 				E997564E20B569F200C28597 /* Reachability.swift */,
-				E95A657320C667090056E890 /* Global.swift */,
+				E95AB63B20C7BA0600BB1D53 /* AnyCodable.swift */,
+				E95AB63D20C7BA4700BB1D53 /* EnumDecodableType.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -489,6 +497,15 @@
 				E9936F8220B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib */,
 			);
 			path = DropDownList;
+			sourceTree = "<group>";
+		};
+		E99FBA1520C778F300462748 /* UserDefaultsManager */ = {
+			isa = PBXGroup;
+			children = (
+				E95A657320C667090056E890 /* UserDefaultsManager.swift */,
+				E99FBA1620C7792500462748 /* CartService.swift */,
+			);
+			path = UserDefaultsManager;
 			sourceTree = "<group>";
 		};
 		E9DDCE7A20B7E0450013C0FD /* Enum */ = {
@@ -762,11 +779,13 @@
 				55B68C9D20990347001B5400 /* ActivityIndicatorExtension.swift in Sources */,
 				558256102091B2DC00F599FA /* ScreenSaverTimer.swift in Sources */,
 				E98C466E20C1384A0097E8CC /* DominoCartViewType.swift in Sources */,
-				E95A657420C667090056E890 /* Global.swift in Sources */,
+				E95A657420C667090056E890 /* UserDefaultsManager.swift in Sources */,
 				E95A656F20C620650056E890 /* PizzaToppingEnum.swift in Sources */,
-				E9464B2E20B5185D00E23485 /* Enum.swift in Sources */,
+				E9464B2E20B5185D00E23485 /* EnumPizzaToppings.swift in Sources */,
+				E95AB63E20C7BA4700BB1D53 /* EnumDecodableType.swift in Sources */,
 				55A3B1ED2097165500BA8B8C /* DominoHomePresenter.swift in Sources */,
 				E9071B5F20BB9FBD00D28B51 /* PizzaCollectionView.swift in Sources */,
+				E95AB63C20C7BA0600BB1D53 /* AnyCodable.swift in Sources */,
 				E9063E5320BE3366002B10E7 /* RequestTimer.swift in Sources */,
 				E95E2D5E20B3BFB800F2EA17 /* DominoDetailModel.swift in Sources */,
 				5582560E2091B2B300F599FA /* Config.swift in Sources */,
@@ -776,6 +795,7 @@
 				E9197BAB20AAA827003FA350 /* APIManager.swift in Sources */,
 				E9063E5C20BE8E48002B10E7 /* DominoCartCollectionViewCell.swift in Sources */,
 				5583FD7B2096A8040013394D /* Player.swift in Sources */,
+				E99FBA1720C7792500462748 /* CartService.swift in Sources */,
 				E997564F20B569F200C28597 /* Reachability.swift in Sources */,
 				5582561F2091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.swift in Sources */,
 			);

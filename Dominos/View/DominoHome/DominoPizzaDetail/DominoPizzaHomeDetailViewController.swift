@@ -12,7 +12,7 @@ class DominoPizzaHomeDetailViewController: BaseViewController {
     
     var pizzaID: String?
     
-    private let dominoDetailPresenter = DominoPizzaDetailPrenseter(pizzaService: PizzaService())
+    private let dominoDetailPresenter = DominoPizzaDetailPrenseter(cartService: CartService(),pizzaService: PizzaService())
 
     @IBOutlet weak var emptyView: UIView!
     

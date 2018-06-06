@@ -13,7 +13,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+   
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -32,30 +32,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupCart(){
-        let userDefaults = UserDefaults.standard
         
-        userDefaults.removeObject(forKey: Config.preferenceKey.cartModels)
+       let cartService = CartService()
         
-        if userDefaults.object(forKey: Config.preferenceKey.cartModels) == nil{
-            let pizzaDetailViewData = [PizzaDetailViewData]()
-            
-            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject:  pizzaDetailViewData)
-            userDefaults.set(encodedData, forKey: Config.preferenceKey.cartModels)
-            userDefaults.synchronize()
-        }else{
-            
-          if let savedCartItems = userDefaults.object(forKey: Config.preferenceKey.cartModels) as? Data {
-            let decoder = JSONDecoder()
-            
-                if let loadedCartItems = try? decoder.decode([PizzaDetailViewData].self, from: savedCartItems) {
-                    
-                    Global.sharedManager.sharedGlobalCart.append(contentsOf: loadedCartItems)
-                }
-            
-            }
-            
-            userDefaults.synchronize()
-        }
+        cartService.setCart()
+    
+    
+      
+        
+        //let cartService = CartService()
+        //let pizzaDetailViewData = PizzaDetailViewData()
+        
+       // cartService.addToCart(model: pizzaDetailViewData)
+//        cartService.setCart()
+//        let userDefaults = UserDefaults.standard
+//
+//        userDefaults.removeObject(forKey: Config.preferenceKey.cartModels)
+//
+//        if userDefaults.object(forKey: Config.preferenceKey.cartModels) == nil{
+//            let pizzaDetailViewData = [PizzaDetailViewData]()
+//
+//            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject:  pizzaDetailViewData)
+//            userDefaults.set(encodedData, forKey: Config.preferenceKey.cartModels)
+//            userDefaults.synchronize()
+//        }else{
+//
+//          if let savedCartItems = userDefaults.object(forKey: Config.preferenceKey.cartModels) as? Data {
+//            let decoder = JSONDecoder()
+//
+//                if let loadedCartItems = try? decoder.decode([PizzaDetailViewData].self, from: savedCartItems) {
+//
+//                    Global.sharedManager.sharedGlobalCart.append(contentsOf: loadedCartItems)
+//                }
+//
+//            }
+//
+//            userDefaults.synchronize()
+//        }
     }
     
 

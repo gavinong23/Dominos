@@ -27,7 +27,7 @@ class DominoHomeViewController: BaseViewController {
     
     var dominoModels = [PizzasViewData]()
     
-    private let dominoHomePresenter = DominoHomePresenter(pizzaService: PizzaService())
+    private let dominoHomePresenter = DominoHomePresenter(cartService: CartService(),pizzaService: PizzaService())
     
     override func viewDidLoad() {
         super.viewDidLoad()

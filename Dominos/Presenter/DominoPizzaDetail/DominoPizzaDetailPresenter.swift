@@ -50,14 +50,16 @@ enum EnumDominoDetailRoute{
 
 
 class DominoPizzaDetailPrenseter{
-    
+    private let cartService: CartService
     private let pizzaService : PizzaService
     weak private var dominoPizzaDetailView : DominoPizzaDetailViewType?
     var totalQuantity: Double = 1.0
     var pizzaCartItems = [PizzaDetailViewData]()
+   
     
-    init(pizzaService: PizzaService) {
+    init(cartService: CartService, pizzaService: PizzaService) {
         self.pizzaService = pizzaService
+        self.cartService = cartService
     }
 
     
@@ -107,37 +109,39 @@ class DominoPizzaDetailPrenseter{
         
         //print(model)
         
+        cartService.addToCart(model: model)
         
-        let cartSingleton = Global.sharedManager
+        
+        //let cartSingleton = Global.sharedManager
         //cartSingleton.item.
            // globalCartArray.append(model)
         
+        //cartService.addToCart(model: model)
         
-      
         
-        let userDefaults = UserDefaults.standard
-        
-        if userDefaults.object(forKey: Config.preferenceKey.cartModels) != nil{
-            userDefaults.removeObject(forKey: Config.preferenceKey.cartModels)
-            
-            cartSingleton.sharedGlobalCart.append(model)
-            
-            print(cartSingleton.sharedGlobalCart.count)
-            
-            let encoder = JSONEncoder()
-            
-            if let encoded = try? encoder.encode(cartSingleton.sharedGlobalCart){
-                userDefaults.set(encoded, forKey: Config.preferenceKey.cartModels)
-            }
-            
-        }else{
-            
-            cartSingleton.sharedGlobalCart.append(model)
-            
-            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: cartSingleton.sharedGlobalCart)
-            userDefaults.set(encodedData, forKey: Config.preferenceKey.cartModels)
-            userDefaults.synchronize()
-        }
+//        let userDefaults = UserDefaults.standard
+//
+//        if userDefaults.object(forKey: Config.preferenceKey.cartModels) != nil{
+//            userDefaults.removeObject(forKey: Config.preferenceKey.cartModels)
+//
+//            cartSingleton.sharedGlobalCart.append(model)
+//
+//            print(cartSingleton.sharedGlobalCart.count)
+//
+//            let encoder = JSONEncoder()
+//
+//            if let encoded = try? encoder.encode(cartSingleton.sharedGlobalCart){
+//                userDefaults.set(encoded, forKey: Config.preferenceKey.cartModels)
+//            }
+//
+//        }else{
+//
+//            cartSingleton.sharedGlobalCart.append(model)
+//
+//            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: cartSingleton.sharedGlobalCart)
+//            userDefaults.set(encodedData, forKey: Config.preferenceKey.cartModels)
+//            userDefaults.synchronize()
+//        }
         
        // create an empty array and keep append element go into it.
         
@@ -167,7 +171,7 @@ class DominoPizzaDetailPrenseter{
 //
 //        }
 //
-         self.dominoPizzaDetailView?.routeTo(screen: .pizzaCart(model: model))
+        // self.dominoPizzaDetailView?.routeTo(screen: .pizzaCart(model: model))
    
         
         
