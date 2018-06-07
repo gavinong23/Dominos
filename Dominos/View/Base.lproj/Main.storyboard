@@ -397,7 +397,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cat-Jk-7ER"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Cart" id="5TC-NS-nlX"/>
+                    <navigationItem key="navigationItem" title="My Cart" id="5TC-NS-nlX">
+                        <barButtonItem key="rightBarButtonItem" title="Clear All" id="qjy-gS-YSj">
+                            <connections>
+                                <action selector="clearAllBarButtonOnClick:" destination="FaX-TM-65a" id="NfB-VF-dh6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="7rk-B2-sux" id="cdI-xo-Mku"/>
                         <outlet property="totalPriceLabel" destination="V7E-b5-Nrv" id="SIq-3z-UOc"/>
@@ -429,6 +435,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ocf-aX-n8i"/>
+        <segue reference="G5O-rG-xNK"/>
     </inferredMetricsTieBreakers>
 </document>

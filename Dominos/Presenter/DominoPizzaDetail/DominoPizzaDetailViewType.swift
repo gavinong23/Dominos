@@ -18,5 +18,6 @@ protocol DominoPizzaDetailViewType: NSObjectProtocol{
     func stopLoading()
     func setEmptyPizzaDetail(errorMessage:String)
     func routeTo(screen:EnumDominoDetailRoute)
+    func showAddToCartDialog(title:String,message:String)
     
 }

@@ -10,27 +10,12 @@ import Foundation
 
 
 class CartService{
-    
-    
-//    func callAPIGetPizzas(onSuccess successCallback: ((_ pizzas: [DominoListingModel]) -> Void)?,
-//                          onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
-//
-//        APIManager.instance.callAPIGetPizzas(
-//
-//            onSuccess: { (pizzas) in
-//                successCallback?(pizzas)
-//                print("requested")
-//        }, onFailure:{ (errorMessage) in
-//            print(errorMessage)
-//            failureCallback?(errorMessage)
-//        })
-//    }
-    
+        
     func setCart(){
         UserDefaultsManager.sharedManager.setCart()
     }
     
-    func addToCart(model: PizzaDetailViewData,onSuccess successCallback: ((_ pizzas: [PizzaDetailViewData]) -> Void)?,
+    func addToCart(model: PizzaDetailViewData,onSuccess successCallback: ((_ successMessage: String) -> Void)?,
                    onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
         UserDefaultsManager.sharedManager.retrieveCartItems(onSuccess: { (pizzas) in
@@ -38,6 +23,7 @@ class CartService{
             
             if (pizzas.filter{$0.pizzaID == model.pizzaID}.count) == 0 {
                 UserDefaultsManager.sharedManager.addPizzaToCart(object: model)
+                successCallback?("")
             }else{
                 failureCallback?("The item already added to cart.")
             }
@@ -63,7 +49,10 @@ class CartService{
         UserDefaultsManager.sharedManager.updateCartItem(pizzas: pizzas)
     }
     
- 
+    func removeAllCartItem(){
+        UserDefaultsManager.sharedManager.removeCart()
+         UserDefaultsManager.sharedManager.setCart()
+    }
     
     
     

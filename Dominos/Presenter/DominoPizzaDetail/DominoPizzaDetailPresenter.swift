@@ -110,8 +110,10 @@ class DominoPizzaDetailPrenseter{
     
         cartService.addToCart(model: model,
         onSuccess: { pizza in
-            print("successful added to cart.")
+            self.dominoPizzaDetailView?.showAddToCartDialog(title:"Successful Added To Cart",message: "Added \(model.pizzaName ?? "") to the cart Successfully.")
         },onFailure: {(errorMessage) in
+            
+            self.dominoPizzaDetailView?.showAddToCartDialog(title:"Item Already Existed In Cart",message: errorMessage)
             print(errorMessage)
         })
         

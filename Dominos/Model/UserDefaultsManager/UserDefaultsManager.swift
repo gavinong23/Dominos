@@ -145,7 +145,9 @@ class UserDefaultsManager{
     
     //Remove from cart
     func removeCart(){
+        self.sharedGlobalCart.removeAll()
         self.removeFromUserDefaults(key: Config.preferenceKey.cartModels)
+        self.userDefaults.synchronize()
     }
     
     func cartIsEmpty() -> Bool{

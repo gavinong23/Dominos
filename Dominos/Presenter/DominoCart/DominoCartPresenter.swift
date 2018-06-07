@@ -34,6 +34,8 @@ class DominoCartPresenter{
     
     func setCart(){
         
+        self.pizzaCartModels?.removeAll()
+        
         cartService.retrieveFromCart(onSuccess: { pizza in
             self.pizzaCartModels = pizza
             
@@ -125,6 +127,12 @@ class DominoCartPresenter{
             
             self.dominoCartView?.updateGrandTotal(dominoModels: self.temporaryCartModels!,grandTotal: totalPrice ?? 0.0)
         }
+    }
+    
+    func removeAllCartItem(){
+        cartService.removeAllCartItem()
+        self.dominoCartView?.removeAllCartItem()
+        self.setCart()
     }
     
 }

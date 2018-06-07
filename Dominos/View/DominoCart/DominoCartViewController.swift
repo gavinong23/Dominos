@@ -16,6 +16,8 @@ class DominoCartViewController: UIViewController {
     
     @IBOutlet weak var totalPriceLabel: UILabel!
     
+    
+    
     private let dominoCartPresenter = DominoCartPresenter(cartService: CartService(),pizzaService: PizzaService())
     
     
@@ -57,7 +59,17 @@ class DominoCartViewController: UIViewController {
     }
     
 
+    
+    @IBAction func clearAllBarButtonOnClick(_ sender: Any) {
+        
+        dominoCartPresenter.removeAllCartItem()
+    }
+    
+    
 }
+
+//Clear all cart item
+
 
 extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
@@ -113,21 +125,26 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
 extension DominoCartViewController: DominoCartViewType{
     
     func setCart(dominoModels: [PizzaDetailViewData],grandTotal: Float){
-       // self.dominoModels.removeAll()
+        self.dominoModels.removeAll()
         self.dominoModels = dominoModels
         self.totalPriceLabel.text =  String(format:"Total : RM %.2f",grandTotal)
         self.collectionView.reloadData()
     }
     
     func updateGrandTotal(dominoModels: [PizzaDetailViewData], grandTotal: Float){
-        //self.dominoModels.removeAll()
+        self.dominoModels.removeAll()
         self.dominoModels = dominoModels
         self.totalPriceLabel.text = String(format:"Total : RM %.2f",grandTotal)
     }
     
     func removeParticularCartItem(dominoModels: [PizzaDetailViewData]){
-//        self.dominoModels.removeAll()
+        self.dominoModels.removeAll()
         self.dominoModels = dominoModels
+        self.collectionView.reloadData()
+    }
+    
+    func removeAllCartItem(){
+        self.dominoModels.removeAll()
         self.collectionView.reloadData()
     }
     

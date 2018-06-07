@@ -26,8 +26,6 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var pizzaQuantityStackView: UIStackView!
     
-    
-  
     @IBOutlet weak var quantityLabel: UILabel!
     
    
