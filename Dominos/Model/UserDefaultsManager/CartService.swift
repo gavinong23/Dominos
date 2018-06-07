@@ -39,12 +39,12 @@ class CartService{
             if (pizzas.filter{$0.pizzaID == model.pizzaID}.count) == 0 {
                 UserDefaultsManager.sharedManager.addPizzaToCart(object: model)
             }else{
-                failureCallback?("Error")
+                failureCallback?("The item already added to cart.")
             }
             
       
-        }, onFailure: {(String)-> Void in
-            failureCallback?("Error")
+        }, onFailure: {(errorMessage) in
+            failureCallback?(errorMessage)
         })
         
         
@@ -54,8 +54,8 @@ class CartService{
                           onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         UserDefaultsManager.sharedManager.retrieveCartItems(onSuccess: { (pizzas) in
             successCallback?(pizzas)
-        }, onFailure: {(String)-> Void in
-            failureCallback?("Error")
+        }, onFailure: {errorMessage in
+            failureCallback?(errorMessage)
         })
     }
     
@@ -63,9 +63,7 @@ class CartService{
         UserDefaultsManager.sharedManager.updateCartItem(pizzas: pizzas)
     }
     
-    func removeItemFromCart(){
-        
-    }
+ 
     
     
     

@@ -59,6 +59,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="Z0l-j3-bYl">
                         <barButtonItem key="backBarButtonItem" title="Back" id="XrR-34-6KX"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cart" id="0Gc-mO-a3A">
+                            <connections>
+                                <segue destination="FaX-TM-65a" kind="show" id="G5O-rG-xNK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dropDownView" destination="vgM-WE-n9E" id="WOQ-DZ-5qX"/>
@@ -202,7 +207,7 @@
                         <viewLayoutGuide key="safeArea" id="rvJ-Lg-w4F"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pizza Info" id="1E6-Gl-kO0">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="mRP-jE-HUF">
+                        <barButtonItem key="rightBarButtonItem" title="Cart" id="mRP-jE-HUF">
                             <connections>
                                 <segue destination="FaX-TM-65a" kind="show" id="Ocf-aX-n8i"/>
                             </connections>
@@ -221,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sst-Vz-NRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="487"/>
+            <point key="canvasLocation" x="897" y="575"/>
         </scene>
         <!--My Cart-->
         <scene sceneID="Scp-ug-dfW">
@@ -400,7 +405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f7w-Ep-tHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896" y="1418"/>
+            <point key="canvasLocation" x="1724" y="-372"/>
         </scene>
         <!--Item-->
         <scene sceneID="TUG-ds-d7F">
@@ -420,10 +425,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mif-rk-zBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="158" y="415"/>
+            <point key="canvasLocation" x="145" y="-372"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LHe-Aa-SXw"/>
+        <segue reference="Ocf-aX-n8i"/>
     </inferredMetricsTieBreakers>
 </document>

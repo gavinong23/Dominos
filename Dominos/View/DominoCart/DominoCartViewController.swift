@@ -38,7 +38,7 @@ class DominoCartViewController: UIViewController {
     
     func setupView(){
         dominoCartPresenter.attachView(view: self)
-        dominoCartPresenter.setCart(items: dominoModels)
+        dominoCartPresenter.setCart()
     }
     
     func setupCartCollectionView(){
@@ -113,20 +113,21 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
 extension DominoCartViewController: DominoCartViewType{
     
     func setCart(dominoModels: [PizzaDetailViewData],grandTotal: Float){
-        self.dominoModels.removeAll()
+       // self.dominoModels.removeAll()
         self.dominoModels = dominoModels
         self.totalPriceLabel.text =  String(format:"Total : RM %.2f",grandTotal)
+        self.collectionView.reloadData()
     }
     
     func updateGrandTotal(dominoModels: [PizzaDetailViewData], grandTotal: Float){
         //self.dominoModels.removeAll()
-//        self.dominoModels = dominoModels
+        self.dominoModels = dominoModels
         self.totalPriceLabel.text = String(format:"Total : RM %.2f",grandTotal)
     }
     
     func removeParticularCartItem(dominoModels: [PizzaDetailViewData]){
-        //self.dominoModels.removeAll()
-        //self.dominoModels = dominoModels
+//        self.dominoModels.removeAll()
+        self.dominoModels = dominoModels
         self.collectionView.reloadData()
     }
     

@@ -111,8 +111,8 @@ class DominoPizzaDetailPrenseter{
         cartService.addToCart(model: model,
         onSuccess: { pizza in
             print("successful added to cart.")
-        },onFailure: {(String)-> Void in
-            print("failed.")
+        },onFailure: {(errorMessage) in
+            print(errorMessage)
         })
         
     }

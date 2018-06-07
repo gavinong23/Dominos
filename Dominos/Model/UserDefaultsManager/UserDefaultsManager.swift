@@ -57,9 +57,6 @@ class UserDefaultsManager{
         }
     }
     
-    func removeParticularItemFromCart(pizzaID : String){
-        
-    }
     
     func updateCartItem(pizzas:[PizzaDetailViewData]){
             
@@ -115,7 +112,7 @@ class UserDefaultsManager{
                 self.sharedGlobalCart = pizza
                 print(self.sharedGlobalCart.count)
             }, onFailure: {errorMessage in
-                print("gg")
+                print(errorMessage)
             })
         }else{
             let pizzaDetailViewData = [PizzaDetailViewData]()
@@ -141,7 +138,7 @@ class UserDefaultsManager{
             successCallback?(pizza as! [PizzaDetailViewData])
         }, onFailure: {(String)-> Void in
             
-            failureCallback?("Error")
+            failureCallback?("Failed to retrieve cart item.saasas")
             
         })
     }
