@@ -195,7 +195,7 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKy-zU-fAF">
                                                                                         <rect key="frame" x="0.0" y="75" width="125" height="75"/>
                                                                                         <subviews>
-                                                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Vht-Eb-iYX">
+                                                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Vht-Eb-iYX">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="29"/>
                                                                                                 <connections>
                                                                                                     <action selector="stepperOnClick:" destination="c6T-yl-vCE" eventType="valueChanged" id="yRz-7E-PVU"/>
@@ -333,6 +333,7 @@
                 <outlet property="pizzaThumbnail" destination="FBg-eO-63Q" id="Z7p-ZX-4ZJ"/>
                 <outlet property="quantityLabel" destination="ToU-yH-uFd" id="SG0-B6-GjS"/>
                 <outlet property="removeIcon" destination="9dI-8Z-byR" id="99g-fr-a5q"/>
+                <outlet property="stepper" destination="Vht-Eb-iYX" id="PXg-96-eKj"/>
                 <outlet property="wishListIcon" destination="k2D-c5-zLJ" id="ecR-zH-K6p"/>
             </connections>
             <point key="canvasLocation" x="123" y="131"/>

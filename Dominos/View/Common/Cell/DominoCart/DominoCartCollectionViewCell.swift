@@ -30,7 +30,9 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
   
     @IBOutlet weak var quantityLabel: UILabel!
     
+   
     @IBOutlet weak var stepper: UIStepper!
+   
     
     @IBOutlet weak var wishListIcon: UIImageView!
     
@@ -40,6 +42,7 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
     
     var pizza: PizzaDetailViewData?
     
+    var oldValue: Double = 0.0
     
     let quantity = ["1","2","3","4","5"]
     
@@ -79,36 +82,42 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
             }
         }
         
-        quantityLabel.text = "1"
-        
-       // self.totalPriceLabel = totalPriceLabel
-        
-//        totalPriceLabel.text = String(format:"Total: RM %.2f",pizza.pizzaPrice ?? 0.0)
+        quantityLabel.text = ("\(pizza.pizzaQuantity ?? 0)")
         
         self.pizza = pizza
         
         pizzaPriceLabel.text = String(format:"RM %.2f",pizza.pizzaPrice ?? 0.0)
-//        "RM \(pizza.pizzaPrice ?? 0.00)"
-        
-        
+
         pizzaThumbnail.kf.setImage(with: pizza.pizzaThumbnail)
         
+        self.stepper.value = pizza.pizzaQuantity!
+        
+        oldValue = pizza.pizzaQuantity!
+        
+        
+    
     
     }
     
     func setupStepperView(){
-       // stepper.isContinuous = false
+    
         
     }
     
     
     @IBAction func stepperOnClick(_ sender: UIStepper) {
         
-        didUpdateQuantity?(sender.value)
+        if  stepper.value > oldValue{
+            oldValue += 1
+             didUpdateQuantity?(+1)
+             quantityLabel.text = String(Double(quantityLabel.text!)! + 1)
+        }else{
+            oldValue -= 1
+            didUpdateQuantity?(-1)
+            quantityLabel.text = String(Double(quantityLabel.text!)! - 1)
+        }
         
-        quantityLabel.text = String(Int(sender.value + 1))
-        
-        //totalPriceLabel.text = String(format:"Total : RM %.2f",Float(sender.value+1) * (pizza?.pizzaPrice)!)
+       
         
     }
     

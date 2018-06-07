@@ -32,6 +32,7 @@ struct PizzaDetailViewData{
         case pizzaPrice = "pizzaPrice"
         case pizzaQuantity = "pizzaQuantity"
     }
+    
 
 }
 

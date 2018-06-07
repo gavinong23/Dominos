@@ -74,7 +74,6 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
         
         var dominoModel: PizzaDetailViewData
         
-        var quantity: Double?
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.dominoCartCollectionViewCell, for: indexPath) as! DominoCartCollectionViewCell
     
@@ -83,10 +82,8 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
         self.collectionView.drawShadow(cell: cell)
         
         cell.didUpdateQuantity = { (quantityValue) in
-            
-            quantity = quantityValue + dominoModel.pizzaQuantity!
-            
-            dominoModel.pizzaQuantity = quantity
+
+                dominoModel.pizzaQuantity = dominoModel.pizzaQuantity! + quantityValue
             
             self.dominoCartPresenter.grandTotalWithUpdateQuantity(item: dominoModel)
         }
@@ -106,11 +103,13 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
 extension DominoCartViewController: DominoCartViewType{
     
     func setCart(dominoModels: [PizzaDetailViewData],grandTotal: Float){
+        self.dominoModels.removeAll()
         self.dominoModels = dominoModels
         self.totalPriceLabel.text =  String(format:"Total : RM %.2f",grandTotal)
     }
     
     func updateGrandTotal(dominoModels: [PizzaDetailViewData], grandTotal: Float){
+        self.dominoModels.removeAll()
         self.dominoModels = dominoModels
         self.totalPriceLabel.text = String(format:"Total : RM %.2f",grandTotal)
     }

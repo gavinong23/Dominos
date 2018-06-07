@@ -78,6 +78,18 @@ class UserDefaultsManager{
 //        }
 //    }
     
+    
+        func updateCartItem(pizzas:[PizzaDetailViewData]){
+            
+            self.sharedGlobalCart = pizzas
+            print(self.sharedGlobalCart)
+            
+            print(self.sharedGlobalCart.count)
+            
+            //userDefaults.set(encoded, forKey: key)
+            self.saveToUserDefaults(data:self.encode(object: self.sharedGlobalCart), key: Config.preferenceKey.cartModels)
+        }
+    
         func retrieveFromCart(key: String, onSuccess successCallback:((Any)-> Void)?, onFailure failureCallback: ((String)-> Void)?){
    
             if userDefaults.object(forKey: key) != nil{
@@ -115,7 +127,7 @@ class UserDefaultsManager{
     
     func setCart(){
         
-       // self.removeCart()
+//        self.removeCart()
         if !(self.cartIsEmpty()){
             self.retrieveCartItems(onSuccess: { pizza in
                 //print(pizza)

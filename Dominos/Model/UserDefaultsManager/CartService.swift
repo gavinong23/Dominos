@@ -43,6 +43,12 @@ class CartService{
         })
     }
     
+    func updateCartItem(pizzas: [PizzaDetailViewData]){
+        UserDefaultsManager.sharedManager.updateCartItem(pizzas: pizzas)
+    }
+    
+    
+    
     
     
 }
