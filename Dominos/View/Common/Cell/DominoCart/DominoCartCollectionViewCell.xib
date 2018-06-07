@@ -245,9 +245,9 @@
                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k2D-c5-zLJ">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="82.5" height="50"/>
                                                                                     </imageView>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcR-aX-og2">
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcR-aX-og2">
                                                                                         <rect key="frame" x="87.5" y="0.0" width="82.5" height="50"/>
-                                                                                        <state key="normal" title="Remove"/>
+                                                                                        <state key="normal" title="Remove" image="icons8-trash-can-40"/>
                                                                                     </button>
                                                                                 </subviews>
                                                                                 <constraints>
@@ -340,4 +340,7 @@
             <point key="canvasLocation" x="123" y="131"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="icons8-trash-can-40" width="40" height="40"/>
+    </resources>
 </document>

@@ -10,7 +10,7 @@ import Foundation
 
 
 class CartService{
-        
+    
     func setCart(){
         UserDefaultsManager.sharedManager.setCart()
     }
@@ -53,9 +53,5 @@ class CartService{
         UserDefaultsManager.sharedManager.removeCart()
          UserDefaultsManager.sharedManager.setCart()
     }
-    
-    
-    
-    
-    
+
 }

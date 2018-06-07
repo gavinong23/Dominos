@@ -59,7 +59,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Z0l-j3-bYl">
                         <barButtonItem key="backBarButtonItem" title="Back" id="XrR-34-6KX"/>
-                        <barButtonItem key="rightBarButtonItem" title="Cart" id="0Gc-mO-a3A">
+                        <barButtonItem key="rightBarButtonItem" title="Cart" image="icons8-add-shopping-cart-50" id="0Gc-mO-a3A">
                             <connections>
                                 <segue destination="FaX-TM-65a" kind="show" id="G5O-rG-xNK"/>
                             </connections>
@@ -207,7 +207,7 @@
                         <viewLayoutGuide key="safeArea" id="rvJ-Lg-w4F"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pizza Info" id="1E6-Gl-kO0">
-                        <barButtonItem key="rightBarButtonItem" title="Cart" id="mRP-jE-HUF">
+                        <barButtonItem key="rightBarButtonItem" title="Cart" image="icons8-add-shopping-cart-50" id="mRP-jE-HUF">
                             <connections>
                                 <segue destination="FaX-TM-65a" kind="show" id="Ocf-aX-n8i"/>
                             </connections>
@@ -340,6 +340,9 @@
                                                                                         <state key="normal" title="Checkout">
                                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <segue destination="GkI-LK-bF5" kind="show" id="P1u-qx-oob"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -413,6 +416,22 @@
             </objects>
             <point key="canvasLocation" x="1724" y="-372"/>
         </scene>
+        <!--Checkout-->
+        <scene sceneID="ST5-wa-enh">
+            <objects>
+                <viewController id="GkI-LK-bF5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6J1-Ch-sUG">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="KQ5-H1-dmQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Checkout" id="1Ma-jY-SOI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7hO-no-aWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1724" y="546"/>
+        </scene>
         <!--Item-->
         <scene sceneID="TUG-ds-d7F">
             <objects>
@@ -434,7 +453,10 @@
             <point key="canvasLocation" x="145" y="-372"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-add-shopping-cart-50" width="50" height="50"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="G5O-rG-xNK"/>
+        <segue reference="LHe-Aa-SXw"/>
     </inferredMetricsTieBreakers>
 </document>
