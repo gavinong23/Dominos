@@ -39,6 +39,7 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var removeIcon: UIImageView!
     
+    @IBOutlet weak var removeCartItemButton: UIButton!
     
     var pizza: PizzaDetailViewData?
     
@@ -94,8 +95,6 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
         
         oldValue = pizza.pizzaQuantity!
         
-        
-    
     
     }
     
@@ -104,7 +103,7 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
         
     }
     
-    
+
     @IBAction func stepperOnClick(_ sender: UIStepper) {
         
         if  stepper.value > oldValue{

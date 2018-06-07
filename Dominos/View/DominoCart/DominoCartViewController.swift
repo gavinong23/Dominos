@@ -78,6 +78,10 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.dominoCartCollectionViewCell, for: indexPath) as! DominoCartCollectionViewCell
     
         dominoModel = self.dominoModels[indexPath.row]
+        
+        cell.removeCartItemButton.tag = Int(dominoModel.pizzaID!)!
+        
+        cell.removeCartItemButton.addTarget(self, action: #selector(self.removeButtonOnClick), for: UIControlEvents.touchUpInside)
     
         self.collectionView.drawShadow(cell: cell)
         
@@ -91,6 +95,12 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.populateCell(pizza: dominoModel, cell: cell)
         
         return cell
+    }
+    
+    @objc func removeButtonOnClick(sender: UIButton){
+
+        self.dominoCartPresenter.removeParticularCartItem(pizzaID:sender.tag)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -109,9 +119,15 @@ extension DominoCartViewController: DominoCartViewType{
     }
     
     func updateGrandTotal(dominoModels: [PizzaDetailViewData], grandTotal: Float){
-        self.dominoModels.removeAll()
-        self.dominoModels = dominoModels
+        //self.dominoModels.removeAll()
+//        self.dominoModels = dominoModels
         self.totalPriceLabel.text = String(format:"Total : RM %.2f",grandTotal)
+    }
+    
+    func removeParticularCartItem(dominoModels: [PizzaDetailViewData]){
+        //self.dominoModels.removeAll()
+        //self.dominoModels = dominoModels
+        self.collectionView.reloadData()
     }
     
     

@@ -57,29 +57,11 @@ class UserDefaultsManager{
         }
     }
     
-//    func retrieveFromUserDefaults(decodingType : ModelName, key: String, onSuccess successCallback:((Any)-> Void)?, onFailure failureCallback: ((String)-> Void)?){
-//
-//        if userDefaults.object(forKey: key) != nil{
-//
-//            //var result = [String: AnyCodable](minimumCapacity: decodingType.count)
-//
-//            if let savedItem = userDefaults.object(forKey: key) as? Data{
-//
-//                if let loadedItems = try?  decodingType.modelType.decode(from:  decoder, data: savedItem){
-////                    print(loadedItems)
-////                        successCallback?(loadedItems)
-//                }else{
-//                    failureCallback?("fail")
-//                }
-//            }
-//
-//        }else{
-//            failureCallback?("")
-//        }
-//    }
+    func removeParticularItemFromCart(pizzaID : String){
+        
+    }
     
-    
-        func updateCartItem(pizzas:[PizzaDetailViewData]){
+    func updateCartItem(pizzas:[PizzaDetailViewData]){
             
             self.sharedGlobalCart = pizzas
             print(self.sharedGlobalCart)
@@ -126,7 +108,6 @@ class UserDefaultsManager{
     }
     
     func setCart(){
-        
 //        self.removeCart()
         if !(self.cartIsEmpty()){
             self.retrieveCartItems(onSuccess: { pizza in
@@ -150,24 +131,6 @@ class UserDefaultsManager{
         }
         return data!
     }
-    
-//    func decode<T : Encodable>(keys: ModelName, key: String) {
-//
-//        if let savedItem = userDefaults.object(forKey: key) as? Data{
-//
-//            if let loadedItems = try? decoder.decode(, from: savedItem){
-//
-//            }
-//            if let loadedItems = try? decoder.decode(decodingType, from: savedItem){
-//
-//            }else{
-//                failureCallback?("fail")
-//            }
-//        }
-//    }
-    
-    
-    
     
     //Retreive from Cart
     func retrieveCartItems(onSuccess successCallback: ((_ pizza: [PizzaDetailViewData]) -> Void)?,
@@ -197,3 +160,18 @@ class UserDefaultsManager{
     }
     
 }
+
+//    func decode<T : Encodable>(keys: ModelName, key: String) {
+//
+//        if let savedItem = userDefaults.object(forKey: key) as? Data{
+//
+//            if let loadedItems = try? decoder.decode(, from: savedItem){
+//
+//            }
+//            if let loadedItems = try? decoder.decode(decodingType, from: savedItem){
+//
+//            }else{
+//                failureCallback?("fail")
+//            }
+//        }
+//    }

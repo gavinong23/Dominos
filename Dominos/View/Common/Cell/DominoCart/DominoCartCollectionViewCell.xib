@@ -245,9 +245,10 @@
                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k2D-c5-zLJ">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="82.5" height="50"/>
                                                                                     </imageView>
-                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dI-8Z-byR">
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcR-aX-og2">
                                                                                         <rect key="frame" x="87.5" y="0.0" width="82.5" height="50"/>
-                                                                                    </imageView>
+                                                                                        <state key="normal" title="Remove"/>
+                                                                                    </button>
                                                                                 </subviews>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="XTc-pe-sJN"/>
@@ -332,7 +333,7 @@
                 <outlet property="pizzaQuantityStackView" destination="XDH-pf-e0D" id="ceu-6z-WGr"/>
                 <outlet property="pizzaThumbnail" destination="FBg-eO-63Q" id="Z7p-ZX-4ZJ"/>
                 <outlet property="quantityLabel" destination="ToU-yH-uFd" id="SG0-B6-GjS"/>
-                <outlet property="removeIcon" destination="9dI-8Z-byR" id="99g-fr-a5q"/>
+                <outlet property="removeCartItemButton" destination="LcR-aX-og2" id="EoV-Hu-AIv"/>
                 <outlet property="stepper" destination="Vht-Eb-iYX" id="PXg-96-eKj"/>
                 <outlet property="wishListIcon" destination="k2D-c5-zLJ" id="ecR-zH-K6p"/>
             </connections>

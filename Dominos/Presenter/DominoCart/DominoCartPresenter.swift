@@ -34,8 +34,6 @@ class DominoCartPresenter{
     
     func setCart(items: [PizzaDetailViewData]){
         
-        
-        
         cartService.retrieveFromCart(onSuccess: { pizza in
             self.pizzaCartModels = pizza
             
@@ -55,6 +53,34 @@ class DominoCartPresenter{
         }
         self.dominoCartView?.setCart(dominoModels: self.pizzaCartModels!, grandTotal: totalPrice ?? 0.00)
 
+    }
+    
+    func removeParticularCartItem(pizzaID: Int){
+        
+        if let pizzaCartModels = pizzaCartModels{
+            
+            self.temporaryCartModels = pizzaCartModels
+            
+            if (temporaryCartModels?.count)! > 0 {
+                if (temporaryCartModels?.filter{$0.pizzaID == String(pizzaID)}.count)! > 0{
+                    
+                    for (index, pizza) in (temporaryCartModels?.enumerated())!{
+                        
+                        if( pizza.pizzaID == String(pizzaID)){
+                            temporaryCartModels?.remove(at: index)
+                            self.dominoCartView?.removeParticularCartItem(dominoModels: temporaryCartModels!)
+                            //Update the user defaults
+                            cartService.updateCartItem(pizzas: temporaryCartModels!)
+                            self.setCart(items: temporaryCartModels!)
+                            
+                        }
+                    }
+                
+                }
+        
+            }
+        }
+ 
     }
     
     func grandTotalWithUpdateQuantity(item: PizzaDetailViewData){
@@ -79,6 +105,7 @@ class DominoCartPresenter{
                     
                     if( pizza.pizzaID == item.pizzaID){
                         temporaryCartModels![index] = item
+                        
                     }
                 }
                 
@@ -99,9 +126,6 @@ class DominoCartPresenter{
                         $0.pizzaPrice! * Float($0.pizzaQuantity!)
                     }.reduce(0, {$0 + $1})
                 }
-                
-                    
-                
                 
                 //editedItemPrice = pizzaCartModels.filter{$0.pizzaID == item.pizzaID}.re
                 //editedItemPrice = pizzaCartModels.compactMap{$0.pizzaID == item.pizzaID ? $0.pizzaPrice! * Float(item.pizzaQuantity!) : nil}

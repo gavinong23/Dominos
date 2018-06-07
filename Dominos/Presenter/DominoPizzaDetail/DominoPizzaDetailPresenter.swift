@@ -107,95 +107,17 @@ class DominoPizzaDetailPrenseter{
     func getAddToCart(model: PizzaDetailViewData){
 
         self.totalQuantity += 1.0
+    
+        cartService.addToCart(model: model,
+        onSuccess: { pizza in
+            print("successful added to cart.")
+        },onFailure: {(String)-> Void in
+            print("failed.")
+        })
         
-        //print(model)
-        
-        cartService.addToCart(model: model)
-        
-        
-        //let cartSingleton = Global.sharedManager
-        //cartSingleton.item.
-           // globalCartArray.append(model)
-        
-        //cartService.addToCart(model: model)
-        
-        
-//        let userDefaults = UserDefaults.standard
-//
-//        if userDefaults.object(forKey: Config.preferenceKey.cartModels) != nil{
-//            userDefaults.removeObject(forKey: Config.preferenceKey.cartModels)
-//
-//            cartSingleton.sharedGlobalCart.append(model)
-//
-//            print(cartSingleton.sharedGlobalCart.count)
-//
-//            let encoder = JSONEncoder()
-//
-//            if let encoded = try? encoder.encode(cartSingleton.sharedGlobalCart){
-//                userDefaults.set(encoded, forKey: Config.preferenceKey.cartModels)
-//            }
-//
-//        }else{
-//
-//            cartSingleton.sharedGlobalCart.append(model)
-//
-//            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: cartSingleton.sharedGlobalCart)
-//            userDefaults.set(encodedData, forKey: Config.preferenceKey.cartModels)
-//            userDefaults.synchronize()
-//        }
-        
-       // create an empty array and keep append element go into it.
-        
-//                    let cartModels = NSKeyedUnarchiver.unarchiveObject(with: data as! Data)
-//                    print("myPeopleList: \(cartModels)")
-//                    userDefaults.set(cartModels, forKey: Config.preferenceKey.cartModels)
-//
-//
-//                userDefaults.removeObject(forKey: Config.preferenceKey.cartModels)
-//
-//        if userDefaults.object(forKey: Config.preferenceKey.cartModels) != nil{
-//            let decoded  = userDefaults.object(forKey: Config.preferenceKey.cartModels) as! Data
-//
-//            if var decodedPizzaCartData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [PizzaDetailViewData]{
-//                //var decodedPizzaCartData = decodedPizzaCartData
-//                decodedPizzaCartData.append(model)
-//
-//                let encoder = JSONEncoder()
-//
-//                if let encoded = try? encoder.encode(decodedPizzaCartData) {
-//                    userDefaults.set(encoded, forKey: Config.preferenceKey.cartModels)
-//
-//                }
-//            }
-//
-//
-//
-//        }
-//
-        // self.dominoPizzaDetailView?.routeTo(screen: .pizzaCart(model: model))
-   
-        
-        
-        //print(decodedPizzaCartData)
-//        let jsonEncoder = JSONEncoder()
-        
-//        var jsonData : Data?
-        
-//        do{jsonData = try jsonEncoder.encode(decodedPizzaCartData)}catch let error as NSError{}
-        
-//        let encodedData = NSKeyedArchiver.archivedData(withRootObject: decodedPizzaCartData)
-        
-       
-        
-        // JSONEncoder.encode(<#T##JSONEncoder#>)
-        //        let propertyListCartItems = decodedPizzaCartData.map{$0.propertyListRepresentation}
-        
-        //        userDefaults.set(propertyListCartItems, forKey: Config.preferenceKey.cartModels)
-        
-        
-   
     }
     
+
     func addToCartPersistence(){
         
     }

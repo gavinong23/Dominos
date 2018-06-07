@@ -14,6 +14,7 @@ protocol DominoCartViewType : NSObjectProtocol{
     
     func setCart(dominoModels: [PizzaDetailViewData],grandTotal: Float)
     func updateGrandTotal(dominoModels: [PizzaDetailViewData],grandTotal: Float)
+    func removeParticularCartItem(dominoModels: [PizzaDetailViewData])
     
     
     

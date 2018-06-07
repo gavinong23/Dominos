@@ -30,8 +30,24 @@ class CartService{
         UserDefaultsManager.sharedManager.setCart()
     }
     
-    func addToCart(model: PizzaDetailViewData){
-        UserDefaultsManager.sharedManager.addPizzaToCart(object: model)
+    func addToCart(model: PizzaDetailViewData,onSuccess successCallback: ((_ pizzas: [PizzaDetailViewData]) -> Void)?,
+                   onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
+        
+        UserDefaultsManager.sharedManager.retrieveCartItems(onSuccess: { (pizzas) in
+            
+            
+            if (pizzas.filter{$0.pizzaID == model.pizzaID}.count) == 0 {
+                UserDefaultsManager.sharedManager.addPizzaToCart(object: model)
+            }else{
+                failureCallback?("Error")
+            }
+            
+      
+        }, onFailure: {(String)-> Void in
+            failureCallback?("Error")
+        })
+        
+        
     }
     
     func retrieveFromCart(onSuccess successCallback: ((_ pizzas: [PizzaDetailViewData]) -> Void)?,
@@ -45,6 +61,10 @@ class CartService{
     
     func updateCartItem(pizzas: [PizzaDetailViewData]){
         UserDefaultsManager.sharedManager.updateCartItem(pizzas: pizzas)
+    }
+    
+    func removeItemFromCart(){
+        
     }
     
     
