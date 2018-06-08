@@ -12,10 +12,12 @@ import Foundation
 
 protocol DominoCartViewType : NSObjectProtocol{
     
-    func setCart(dominoModels: [PizzaDetailViewData],grandTotal: Float)
-    func updateGrandTotal(dominoModels: [PizzaDetailViewData],grandTotal: Float)
+    func setCart(dominoModels: [PizzaDetailViewData], subTotal: Float,grandTotal: Float)
+    func updateSubTotal(dominoModels: [PizzaDetailViewData],grandTotal: Float)
     func removeParticularCartItem(dominoModels: [PizzaDetailViewData])
     func removeAllCartItem()
+    func setDeliveryFee(deliveryFee:Float)
+    func showAlertBox(title:String,message:String)
     
     
 }

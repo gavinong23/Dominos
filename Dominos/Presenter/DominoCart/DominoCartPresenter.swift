@@ -9,6 +9,18 @@
 import Foundation
 
 
+enum EnumDominoCartRoute{
+    case pizzaCart(model:PizzaDetailViewData)
+    
+    func segueID() -> String{
+        switch self{
+        case .pizzaCart:
+            return R.segue.dominoPizzaHomeDetailViewController.pizzaDetailToPizzaCartID.identifier
+        }
+    }
+}
+
+
 class DominoCartPresenter{
     
     weak private var dominoCartView : DominoCartViewType?
@@ -16,6 +28,7 @@ class DominoCartPresenter{
     private let pizzaService : PizzaService
     var pizzaCartModels: [PizzaDetailViewData]?
     var temporaryCartModels: [PizzaDetailViewData]?
+    var deliveryFee : Float?
     
     
     init(cartService: CartService, pizzaService: PizzaService) {
@@ -43,18 +56,22 @@ class DominoCartPresenter{
             print("error")
          })
         
-        var totalPrice : Float?
+        var subTotal : Float?
+        var grandTotal : Float?
 
         if let pizzaCartModels = self.pizzaCartModels{
+            
+            let deliveryFee: Float = self.setDeliveryFee(count: self.pizzaCartModels!.count)
+            
+            self.dominoCartView?.setDeliveryFee(deliveryFee: deliveryFee)
 
             if(self.pizzaCartModels?.count)! > 0{
-                totalPrice = pizzaCartModels.map{$0.pizzaPrice! * Float($0.pizzaQuantity!)}.reduce(0,{$0 + $1})
-
-                print(totalPrice)
+                subTotal = pizzaCartModels.map{$0.pizzaPrice! * Float($0.pizzaQuantity!)}.reduce(0,{$0 + $1})
+               
+                grandTotal = subTotal! + deliveryFee
             }
         }
-        self.dominoCartView?.setCart(dominoModels: self.pizzaCartModels!, grandTotal: totalPrice ?? 0.00)
-
+           self.dominoCartView?.setCart(dominoModels: (self.pizzaCartModels ?? nil)!, subTotal:  subTotal ?? 0.00, grandTotal: grandTotal ?? 0.00)
     }
     
     func removeParticularCartItem(pizzaID: Int){
@@ -79,15 +96,13 @@ class DominoCartPresenter{
                     }
                 }
         
-            }else{
-                
             }
             
         }
  
     }
     
-    func grandTotalWithUpdateQuantity(item: PizzaDetailViewData){
+    func subTotalWithUpdateQuantity(item: PizzaDetailViewData){
         var totalPrice: Float?
         var editedItemPrice: Float?
         
@@ -125,7 +140,7 @@ class DominoCartPresenter{
                 }
             }
             
-            self.dominoCartView?.updateGrandTotal(dominoModels: self.temporaryCartModels!,grandTotal: totalPrice ?? 0.0)
+            self.dominoCartView?.updateSubTotal(dominoModels: self.temporaryCartModels!,grandTotal: totalPrice ?? 0.0)
         }
     }
     
@@ -133,6 +148,33 @@ class DominoCartPresenter{
         cartService.removeAllCartItem()
         self.dominoCartView?.removeAllCartItem()
         self.setCart()
+    }
+    
+    func setDeliveryFee(count: Int) -> Float{
+        //Call from API
+        
+        var deliveryFee: Float = 0.0
+        
+            if count > 0{
+                deliveryFee = 5.0
+            }else{
+               deliveryFee = 0.0
+            }
+        
+        
+        return deliveryFee
+    }
+    
+    func cartCheckOut(){
+        
+        if let pizzaCartModels = self.pizzaCartModels{
+            if pizzaCartModels.count > 0{
+                //perform segue
+            }else{
+                self.dominoCartView?.showAlertBox(title: "", message: "")
+            }
+        }
+        
     }
     
 }

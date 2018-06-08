@@ -168,8 +168,6 @@ extension DominoHomeViewController: DominoPizzaHomeViewType{
         self.dominoModels = pizzas
         self.pickerView.isHidden = true
         self.pizzaCollectionView.setEmptyPizza(pizzaCount:pizzas.count)
-       
-    
     }
     
     func showPickerView(){

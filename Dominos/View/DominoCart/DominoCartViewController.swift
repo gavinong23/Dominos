@@ -16,6 +16,9 @@ class DominoCartViewController: UIViewController {
     
     @IBOutlet weak var totalPriceLabel: UILabel!
     
+    @IBOutlet weak var subTotalLabel: UILabel!
+    
+    @IBOutlet weak var deliveryFeeLabel: UILabel!
     
     
     private let dominoCartPresenter = DominoCartPresenter(cartService: CartService(),pizzaService: PizzaService())
@@ -24,18 +27,15 @@ class DominoCartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let userDefaults = UserDefaults.standard
-        
-    
         setupView()
         setupCartCollectionView()
 
-        
-  
-        
-//        print(dominoModels)
-        
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @IBAction func checkOutButtonOnClick(_ sender: Any) {
+        self.performSegue(withIdentifier: R.segue.dominoCartViewController.dominoCartToCheckOutID, sender: sender)
     }
     
     func setupView(){
@@ -61,7 +61,6 @@ class DominoCartViewController: UIViewController {
 
     
     @IBAction func clearAllBarButtonOnClick(_ sender: Any) {
-        
         dominoCartPresenter.removeAllCartItem()
     }
     
@@ -101,7 +100,7 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
 
                 dominoModel.pizzaQuantity = dominoModel.pizzaQuantity! + quantityValue
             
-            self.dominoCartPresenter.grandTotalWithUpdateQuantity(item: dominoModel)
+            self.dominoCartPresenter.subTotalWithUpdateQuantity(item: dominoModel)
         }
     
         cell.populateCell(pizza: dominoModel, cell: cell)
@@ -124,17 +123,18 @@ extension DominoCartViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension DominoCartViewController: DominoCartViewType{
     
-    func setCart(dominoModels: [PizzaDetailViewData],grandTotal: Float){
+    func setCart(dominoModels: [PizzaDetailViewData], subTotal: Float,grandTotal: Float){
         self.dominoModels.removeAll()
         self.dominoModels = dominoModels
-        self.totalPriceLabel.text =  String(format:"Total : RM %.2f",grandTotal)
+        self.subTotalLabel.text = String(format:"RM %.2f",subTotal)
+        self.totalPriceLabel.text =  String(format:"RM %.2f",grandTotal)
         self.collectionView.reloadData()
     }
     
-    func updateGrandTotal(dominoModels: [PizzaDetailViewData], grandTotal: Float){
+    func updateSubTotal(dominoModels: [PizzaDetailViewData], grandTotal: Float){
         self.dominoModels.removeAll()
         self.dominoModels = dominoModels
-        self.totalPriceLabel.text = String(format:"Total : RM %.2f",grandTotal)
+        self.subTotalLabel.text = String(format:"RM %.2f",grandTotal)
     }
     
     func removeParticularCartItem(dominoModels: [PizzaDetailViewData]){
@@ -146,6 +146,16 @@ extension DominoCartViewController: DominoCartViewType{
     func removeAllCartItem(){
         self.dominoModels.removeAll()
         self.collectionView.reloadData()
+    }
+    
+    func setDeliveryFee(deliveryFee:Float){
+        self.deliveryFeeLabel.text = String(format:"RM %.2f",deliveryFee)
+    }
+    
+    func showAlertBox(title:String,message:String){
+        let alert = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     
