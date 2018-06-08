@@ -8,38 +8,40 @@
 
 import UIKit
 
-class OrderSummaryUIView: UIView {
-
+class ShipmentDetailsUIView: UIView {
+    
     @IBOutlet var contentView: UIView!
     
-    @IBOutlet weak var subTotalLabel: UILabel!
+    @IBOutlet weak var shipmentOwnerNameLabel: UILabel!
     
-    @IBOutlet weak var shippingFeeLabel: UILabel!
+    @IBOutlet weak var shipmentOwnerAddressLabel: UILabel!
     
-    @IBOutlet weak var totalAmountLabel: UILabel!
+    @IBOutlet weak var shipmentOwnerContactNumberLabel: UILabel!
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+         setupView()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupView()
     }
-    
-    private func setupView(){
+ 
         
-        Bundle.main.loadNibNamed(R.nib.orderSummaryUIView.name, owner: self, options: nil)
+    private func setupView(){
+      
+        Bundle.main.loadNibNamed(R.nib.shipmentDetailsUIView.name, owner: self, options: nil)
         
         addSubview(contentView)
-        
+
         contentView.frame = self.bounds
-        
+
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
-    
-        
-    
 
+    
+  
 }

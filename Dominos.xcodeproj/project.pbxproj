@@ -36,8 +36,8 @@
 		E9071B5F20BB9FBD00D28B51 /* PizzaCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9071B5E20BB9FBD00D28B51 /* PizzaCollectionView.swift */; };
 		E9071B6120BB9FD100D28B51 /* PizzaCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9071B6020BB9FD100D28B51 /* PizzaCollectionView.xib */; };
 		E9111BEA20CA113A00791A38 /* DominoCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9111BE920CA113A00791A38 /* DominoCheckoutViewController.swift */; };
-		E9111BF220CA61A700791A38 /* OrderSummaryUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9111BF120CA61A700791A38 /* OrderSummaryUIView.swift */; };
-		E9111BF420CA61BC00791A38 /* OrderSummaryUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9111BF320CA61BC00791A38 /* OrderSummaryUIView.xib */; };
+		E9111BF220CA61A700791A38 /* ShipmentDetailsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9111BF120CA61A700791A38 /* ShipmentDetailsUIView.swift */; };
+		E9111BF420CA61BC00791A38 /* ShipmentDetailsUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9111BF320CA61BC00791A38 /* ShipmentDetailsUIView.xib */; };
 		E9197BA920AA83E5003FA350 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BA820AA83E5003FA350 /* SnapshotHelper.swift */; };
 		E9197BAB20AAA827003FA350 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAA20AAA827003FA350 /* APIManager.swift */; };
 		E9197BAD20AAB117003FA350 /* DominoListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAC20AAB117003FA350 /* DominoListingModel.swift */; };
@@ -46,6 +46,9 @@
 		E94123B620B3E52B0054D03B /* DominoPizzaDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94123B520B3E52B0054D03B /* DominoPizzaDetailPresenter.swift */; };
 		E94123B820B3E5490054D03B /* DominoPizzaDetailViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */; };
 		E9464B2E20B5185D00E23485 /* EnumPizzaToppings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9464B2D20B5185D00E23485 /* EnumPizzaToppings.swift */; };
+		E94C5D0020CA80FE00637334 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94C5CFF20CA80FE00637334 /* UIViewExtension.swift */; };
+		E94C5D0220CA83FD00637334 /* OrderSummaryUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E94C5D0120CA83FD00637334 /* OrderSummaryUIView.xib */; };
+		E94C5D0420CA841A00637334 /* OrderSummaryUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94C5D0320CA841A00637334 /* OrderSummaryUIView.swift */; };
 		E95A656F20C620650056E890 /* PizzaToppingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A656E20C620650056E890 /* PizzaToppingEnum.swift */; };
 		E95A657220C62E350056E890 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A657120C62E350056E890 /* UserDefaults.swift */; };
 		E95A657420C667090056E890 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A657320C667090056E890 /* UserDefaultsManager.swift */; };
@@ -126,8 +129,8 @@
 		E9071B5E20BB9FBD00D28B51 /* PizzaCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaCollectionView.swift; sourceTree = "<group>"; };
 		E9071B6020BB9FD100D28B51 /* PizzaCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PizzaCollectionView.xib; sourceTree = "<group>"; };
 		E9111BE920CA113A00791A38 /* DominoCheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoCheckoutViewController.swift; sourceTree = "<group>"; };
-		E9111BF120CA61A700791A38 /* OrderSummaryUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryUIView.swift; sourceTree = "<group>"; };
-		E9111BF320CA61BC00791A38 /* OrderSummaryUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSummaryUIView.xib; sourceTree = "<group>"; };
+		E9111BF120CA61A700791A38 /* ShipmentDetailsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipmentDetailsUIView.swift; sourceTree = "<group>"; };
+		E9111BF320CA61BC00791A38 /* ShipmentDetailsUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShipmentDetailsUIView.xib; sourceTree = "<group>"; };
 		E9197BA820AA83E5003FA350 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		E9197BAA20AAA827003FA350 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		E9197BAC20AAB117003FA350 /* DominoListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoListingModel.swift; sourceTree = "<group>"; };
@@ -136,6 +139,9 @@
 		E94123B520B3E52B0054D03B /* DominoPizzaDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaDetailPresenter.swift; sourceTree = "<group>"; };
 		E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaDetailViewType.swift; sourceTree = "<group>"; };
 		E9464B2D20B5185D00E23485 /* EnumPizzaToppings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumPizzaToppings.swift; sourceTree = "<group>"; };
+		E94C5CFF20CA80FE00637334 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		E94C5D0120CA83FD00637334 /* OrderSummaryUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSummaryUIView.xib; sourceTree = "<group>"; };
+		E94C5D0320CA841A00637334 /* OrderSummaryUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryUIView.swift; sourceTree = "<group>"; };
 		E95A656E20C620650056E890 /* PizzaToppingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaToppingEnum.swift; sourceTree = "<group>"; };
 		E95A657120C62E350056E890 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		E95A657320C667090056E890 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -274,6 +280,7 @@
 		558255FC2091AB8500F599FA /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				E94C5CFE20CA80EF00637334 /* UIView */,
 				E95A657020C62E180056E890 /* UserDefaults */,
 				E9396DEE20C5219200C3F407 /* Coder */,
 				E9DDCE7A20B7E0450013C0FD /* Enum */,
@@ -475,6 +482,8 @@
 		E9111BEB20CA5C3200791A38 /* Address */ = {
 			isa = PBXGroup;
 			children = (
+				E9111BF320CA61BC00791A38 /* ShipmentDetailsUIView.xib */,
+				E9111BF120CA61A700791A38 /* ShipmentDetailsUIView.swift */,
 			);
 			path = Address;
 			sourceTree = "<group>";
@@ -482,8 +491,8 @@
 		E9111BEC20CA5C4300791A38 /* Order Summary */ = {
 			isa = PBXGroup;
 			children = (
-				E9111BF120CA61A700791A38 /* OrderSummaryUIView.swift */,
-				E9111BF320CA61BC00791A38 /* OrderSummaryUIView.xib */,
+				E94C5D0120CA83FD00637334 /* OrderSummaryUIView.xib */,
+				E94C5D0320CA841A00637334 /* OrderSummaryUIView.swift */,
 			);
 			path = "Order Summary";
 			sourceTree = "<group>";
@@ -520,6 +529,14 @@
 				E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */,
 			);
 			path = DominoPizzaDetail;
+			sourceTree = "<group>";
+		};
+		E94C5CFE20CA80EF00637334 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				E94C5CFF20CA80FE00637334 /* UIViewExtension.swift */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		E95A657020C62E180056E890 /* UserDefaults */ = {
@@ -678,7 +695,8 @@
 				558255D520919F6400F599FA /* LaunchScreen.storyboard in Resources */,
 				558255D020919F6100F599FA /* Main.storyboard in Resources */,
 				E9071B6120BB9FD100D28B51 /* PizzaCollectionView.xib in Resources */,
-				E9111BF420CA61BC00791A38 /* OrderSummaryUIView.xib in Resources */,
+				E94C5D0220CA83FD00637334 /* OrderSummaryUIView.xib in Resources */,
+				E9111BF420CA61BC00791A38 /* ShipmentDetailsUIView.xib in Resources */,
 				557AF52E2096DFB300F591D5 /* Main.strings in Resources */,
 				E9063E5D20BE8E48002B10E7 /* DominoCartCollectionViewCell.xib in Resources */,
 				E9936F8420B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib in Resources */,
@@ -816,11 +834,12 @@
 				558255CD20919F6100F599FA /* DominoHomeViewController.swift in Sources */,
 				55A3B1F02097175800BA8B8C /* DominoPizzaHomeViewType.swift in Sources */,
 				E9197BAD20AAB117003FA350 /* DominoListingModel.swift in Sources */,
-				E9111BF220CA61A700791A38 /* OrderSummaryUIView.swift in Sources */,
+				E9111BF220CA61A700791A38 /* ShipmentDetailsUIView.swift in Sources */,
 				E95A657220C62E350056E890 /* UserDefaults.swift in Sources */,
 				E98C466C20C1383C0097E8CC /* DominoCartPresenter.swift in Sources */,
 				E9063E5820BE6E35002B10E7 /* DominoCartViewController.swift in Sources */,
 				E9DDCE7920B7E02E0013C0FD /* EnumCollection.swift in Sources */,
+				E94C5D0020CA80FE00637334 /* UIViewExtension.swift in Sources */,
 				E9D1983420B8057000D99D02 /* BaseViewController.swift in Sources */,
 				5582562F2091D3C800F599FA /* CollectionViewExtension.swift in Sources */,
 				E94123B820B3E5490054D03B /* DominoPizzaDetailViewType.swift in Sources */,
@@ -849,6 +868,7 @@
 				E99FBA1720C7792500462748 /* CartService.swift in Sources */,
 				E9111BEA20CA113A00791A38 /* DominoCheckoutViewController.swift in Sources */,
 				E997564F20B569F200C28597 /* Reachability.swift in Sources */,
+				E94C5D0420CA841A00637334 /* OrderSummaryUIView.swift in Sources */,
 				5582561F2091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

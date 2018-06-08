@@ -572,7 +572,7 @@
         <!--Checkout-->
         <scene sceneID="ST5-wa-enh">
             <objects>
-                <viewController id="GkI-LK-bF5" sceneMemberID="viewController">
+                <viewController id="GkI-LK-bF5" customClass="DominoCheckoutViewController" customModule="Dominos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6J1-Ch-sUG">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -594,24 +594,6 @@
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inI-cQ-w0t">
                                                                         <rect key="frame" x="10" y="10" width="318.5" height="156.5"/>
-                                                                        <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EU8-fT-CcX">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="318.5" height="156.5"/>
-                                                                                <state key="normal" title="Button"/>
-                                                                            </button>
-                                                                            <view alpha="0.050000000000000003" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="baN-TB-MhZ">
-                                                                                <rect key="frame" x="39" y="14" width="240" height="128"/>
-                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            </view>
-                                                                        </subviews>
-                                                                        <color key="backgroundColor" red="0.080572563769999994" green="0.62250823519999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="bottom" secondItem="EU8-fT-CcX" secondAttribute="bottom" id="eDk-mb-Pa8"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="EU8-fT-CcX" secondAttribute="trailing" id="hQX-xe-6Ex"/>
-                                                                            <constraint firstItem="EU8-fT-CcX" firstAttribute="leading" secondItem="inI-cQ-w0t" secondAttribute="leading" id="oQL-8a-cw8"/>
-                                                                            <constraint firstItem="EU8-fT-CcX" firstAttribute="top" secondItem="inI-cQ-w0t" secondAttribute="top" id="pNs-S2-QuN"/>
-                                                                        </constraints>
                                                                     </view>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -626,13 +608,11 @@
                                                                 <rect key="frame" x="0.0" y="171.5" width="333.5" height="171.5"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="47X-zs-WXO">
-                                                                        <rect key="frame" x="10" y="0.0" width="318.5" height="161.5"/>
-                                                                        <color key="backgroundColor" red="0.090352783059999997" green="0.71510686530000001" blue="0.28217022330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <rect key="frame" x="10" y="0.0" width="318.5" height="166.5"/>
                                                                     </view>
                                                                 </subviews>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="bottom" secondItem="47X-zs-WXO" secondAttribute="bottom" constant="10" id="2Da-gf-Zwi"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="47X-zs-WXO" secondAttribute="bottom" constant="5" id="2Da-gf-Zwi"/>
                                                                     <constraint firstItem="47X-zs-WXO" firstAttribute="leading" secondItem="j7C-Iv-t7Q" secondAttribute="leading" constant="10" id="P2R-9U-Dbx"/>
                                                                     <constraint firstAttribute="trailing" secondItem="47X-zs-WXO" secondAttribute="trailing" constant="5" id="RIT-2g-2ii"/>
                                                                     <constraint firstItem="47X-zs-WXO" firstAttribute="top" secondItem="j7C-Iv-t7Q" secondAttribute="top" id="V4P-z5-bEP"/>
@@ -808,6 +788,10 @@
                         <viewLayoutGuide key="safeArea" id="KQ5-H1-dmQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Checkout" id="1Ma-jY-SOI"/>
+                    <connections>
+                        <outlet property="orderSummaryContainerView" destination="inI-cQ-w0t" id="4hP-t8-Luc"/>
+                        <outlet property="shipmentDetailsContainerView" destination="47X-zs-WXO" id="1Y6-9D-dIP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hO-no-aWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

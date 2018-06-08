@@ -14,7 +14,7 @@ enum EnumPaymentType {
     case cod
 }
 
-class asd:UIViewController {
+class DominoCheckoutViewController:UIViewController {
 //    let paymentView:UIView = UIView()
 //    
 //    let creditCardView = CreditCardView()
@@ -26,7 +26,34 @@ class asd:UIViewController {
 //    } else if EnumPaymentType == .cod {
 //        paymentView = codView
 //    }
+
+    @IBOutlet weak var shipmentDetailsContainerView: UIView!
+    
+    @IBOutlet weak var orderSummaryContainerView: UIView!
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupShipmentDetailsView()
+        setupOrderSummaryView()
+        
+
+    }
     
+    func setupShipmentDetailsView(){
+        let containerSize = self.shipmentDetailsContainerView.bounds
+        let shipmentDetailsUIView = ShipmentDetailsUIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height: containerSize.height))
+        //        shipmentDetailsContainerView = shipmentDetailsUIView
+        shipmentDetailsContainerView.addSubview(shipmentDetailsUIView)
+    }
+    
+    func setupOrderSummaryView(){
+        let containerSize = self.orderSummaryContainerView.bounds
+        let orderSummaryUIView = OrderSummaryUIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height: containerSize.height))
+        orderSummaryUIView.addSubview(orderSummaryUIView)
+    }
+    
+
+
 }
