@@ -24,7 +24,7 @@ class DominoCheckoutViewController:UIViewController {
 //        paymentView = codView
 //    }
     
-    private let dominoCheckoutPresenter = DominoCheckoutPresenter()
+    private let dominoCheckoutPresenter = DominoCheckoutPresenter(cartService: CartService())
 
     @IBOutlet weak var shipmentDetailsContainerView: UIView!
     
@@ -65,7 +65,16 @@ class DominoCheckoutViewController:UIViewController {
         let containerSize = self.shipmentDetailsContainerView.bounds
         let shipmentDetailsUIView = ShipmentDetailsUIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height: containerSize.height))
         self.shipmentDetailsContainerView.addSubview(shipmentDetailsUIView)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.editShipmentDetails))
+        shipmentDetailsUIView.addGestureRecognizer(tap)
     
+    }
+    
+    @objc func editShipmentDetails(){
+        print("tap address")
+        
+        //go to edit shipment details view controller
     }
     
     func setupOrderSummaryView(){
@@ -106,36 +115,6 @@ class DominoCheckoutViewController:UIViewController {
         self.dominoCheckoutPresenter.placeOrder()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardFrameChangeNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-//    }
-//
-//    @objc func keyboardFrameChangeNotification(notification: Notification) {
-//
-//        if let userInfo = notification.userInfo {
-//            let endFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect
-//            let animationDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? Double ?? 0
-//            let animationCurveRawValue = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as? Int) ?? Int(UIViewAnimationOptions.curveEaseInOut.rawValue)
-//            let animationCurve = UIViewAnimationOptions(rawValue: UInt(animationCurveRawValue))
-//            if let _ = endFrame, endFrame!.intersects(self.paymentMethodUIView.ccvTextField.frame) {
-//                self.offsetY = self.paymentMethodUIView.ccvTextField.frame.maxY - endFrame!.minY
-//                UIView.animate(withDuration: animationDuration, delay: TimeInterval(0), options: animationCurve, animations: {
-//                    self.paymentMethodUIView.ccvTextField.frame.origin.y = self.paymentMethodUIView.ccvTextField.frame.origin.y - self.offsetY
-//                }, completion: nil)
-//            } else {
-//                if self.offsetY != 0 {
-//                    UIView.animate(withDuration: animationDuration, delay: TimeInterval(0), options: animationCurve, animations: {
-//                        self.paymentMethodUIView.ccvTextField.frame.origin.y = self.paymentMethodUIView.ccvTextField.frame.origin.y + self.offsetY
-//                        self.offsetY = 0
-//                    }, completion: nil)
-//                }
-//            }
-//        }
-//    }
-    
-
-    
 }
 
 extension DominoCheckoutViewController: DominoCheckoutViewType{
@@ -163,7 +142,9 @@ extension DominoCheckoutViewController: DominoCheckoutViewType{
     func showSuccessAlertBox(title: String, message: String){
           let alert = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+            self.dominoCheckoutPresenter.removeAllCartItem()
             self.dominoCheckoutPresenter.routeTo()
+            
         }))
         self.present(alert,animated:true, completion:nil)
     }

@@ -33,10 +33,12 @@ class DominoCheckoutPresenter{
     weak private var dominoCheckoutView : DominoCheckoutViewType?
     
     var choosenEnumPaymentType: EnumPaymentType?
+    private let cartService: CartService
     
     
-    init() {
-
+    
+    init(cartService: CartService){
+        self.cartService = cartService
     }
     
     func attachView(view: DominoCheckoutViewType){
@@ -86,7 +88,7 @@ class DominoCheckoutPresenter{
             
           
             print("Order Place successfully.")
-        
+            
               self.dominoCheckoutView?.showSuccessAlertBox(title: "Order Successfully.", message: "Pizza will reach you, after 40mins.")
             
             
@@ -104,6 +106,10 @@ class DominoCheckoutPresenter{
     func routeTo(){
         self.dominoCheckoutView?.routeTo(screen: .pizzaHome)
         
+    }
+    
+    func removeAllCartItem(){
+        self.cartService.removeAllCartItem()
     }
     
     
