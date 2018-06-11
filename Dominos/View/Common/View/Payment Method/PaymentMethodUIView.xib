@@ -31,28 +31,49 @@
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mB-3O-1ox">
                     <rect key="frame" x="0.0" y="0.0" width="314" height="145"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="P5h-Ls-c25">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="P5h-Ls-c25">
                             <rect key="frame" x="0.0" y="0.0" width="314" height="145"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhO-5C-Ev4">
-                                    <rect key="frame" x="0.0" y="0.0" width="314" height="145"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Qg-Oj-rv1">
+                                    <rect key="frame" x="0.0" y="0.0" width="314" height="43.5"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can pay in cash to our courier when you receive the pizza(s) at your doorstep." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuF-qC-zfC">
-                                            <rect key="frame" x="5" y="42.5" width="304" height="61"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash On Delivery" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdb-zh-PMb">
+                                            <rect key="frame" x="5" y="0.0" width="309" height="43.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="XuF-qC-zfC" firstAttribute="centerX" secondItem="bhO-5C-Ev4" secondAttribute="centerX" id="1Ws-bd-rvW"/>
-                                        <constraint firstAttribute="trailing" secondItem="XuF-qC-zfC" secondAttribute="trailing" constant="5" id="QAT-RK-agQ"/>
-                                        <constraint firstItem="XuF-qC-zfC" firstAttribute="leading" secondItem="bhO-5C-Ev4" secondAttribute="leading" constant="5" id="Rtt-72-7Tj"/>
-                                        <constraint firstItem="XuF-qC-zfC" firstAttribute="centerY" secondItem="bhO-5C-Ev4" secondAttribute="centerY" id="ru0-xJ-Web"/>
+                                        <constraint firstAttribute="bottom" secondItem="Fdb-zh-PMb" secondAttribute="bottom" id="J1o-fw-fZX"/>
+                                        <constraint firstItem="Fdb-zh-PMb" firstAttribute="leading" secondItem="5Qg-Oj-rv1" secondAttribute="leading" constant="5" id="KRe-92-uLc"/>
+                                        <constraint firstAttribute="trailing" secondItem="Fdb-zh-PMb" secondAttribute="trailing" id="iIq-Mx-lVJ"/>
+                                        <constraint firstItem="Fdb-zh-PMb" firstAttribute="top" secondItem="5Qg-Oj-rv1" secondAttribute="top" id="on6-8y-DzA"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhO-5C-Ev4">
+                                    <rect key="frame" x="0.0" y="43.5" width="314" height="101.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can pay in cash to our courier when you receive the pizza(s) at your doorstep." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuF-qC-zfC">
+                                            <rect key="frame" x="0.0" y="0.0" width="314" height="101.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="XuF-qC-zfC" secondAttribute="bottom" id="342-ye-vuX"/>
+                                        <constraint firstItem="XuF-qC-zfC" firstAttribute="top" secondItem="bhO-5C-Ev4" secondAttribute="top" id="8yP-qG-d1T"/>
+                                        <constraint firstItem="XuF-qC-zfC" firstAttribute="leading" secondItem="bhO-5C-Ev4" secondAttribute="leading" constant="0.5" id="T3J-l8-2Lx"/>
+                                        <constraint firstAttribute="trailing" secondItem="XuF-qC-zfC" secondAttribute="trailing" id="eCa-Lp-EfM"/>
                                     </constraints>
                                 </view>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="5Qg-Oj-rv1" firstAttribute="height" secondItem="P5h-Ls-c25" secondAttribute="height" multiplier="0.3" id="V1D-Kd-qcg"/>
+                            </constraints>
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -93,7 +114,10 @@
                                             <rect key="frame" x="5" y="0.0" width="303.5" height="24"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" textContentType="cc-number"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="KpY-4p-gYb"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -110,7 +134,10 @@
                                             <rect key="frame" x="5" y="-0.5" width="303.5" height="24.5"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" textContentType="name"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="gR4-NI-XJg"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -130,13 +157,19 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="150.5" height="24"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="cc-number"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="-1" id="oD3-ZH-qa8"/>
+                                                    </connections>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kC3-hn-Yuj">
                                                     <rect key="frame" x="153.5" y="0.0" width="150" height="24"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="cc-number"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="-1" id="dCm-Nw-O0f"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </stackView>
@@ -151,13 +184,13 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b94-dU-JwR">
                                     <rect key="frame" x="0.0" y="116" width="313.5" height="29"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="MvR-Gl-fQd">
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="MvR-Gl-fQd">
                                             <rect key="frame" x="0.0" y="0.0" width="313.5" height="29"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zdl-pl-rbb">
                                                     <rect key="frame" x="0.0" y="0.0" width="235.5" height="29"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save Card                                                         Information is encrypted and securely stored." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Il-xV-mSY">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save Card                                                         Information is encrypted and securely stored." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Il-xV-mSY">
                                                             <rect key="frame" x="5" y="0.0" width="230.5" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -172,10 +205,10 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fa5-LB-OVL">
-                                                    <rect key="frame" x="256.5" y="0.0" width="57" height="29"/>
+                                                    <rect key="frame" x="260.5" y="0.0" width="53" height="29"/>
                                                     <subviews>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="top" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMC-zL-x91">
-                                                            <rect key="frame" x="0.0" y="0.0" width="59" height="29"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="55" height="29"/>
                                                         </switch>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

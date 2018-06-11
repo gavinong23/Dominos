@@ -86,11 +86,6 @@ class DominoHomeViewController: BaseViewController {
         self.pizzaCollectionView.collectionView.register(R.nib.dominoPizzaHomeCollectionViewCell)
     }
     
-    func setupCart(){
-       // self.dominoHomePresenter.setupCart()
-    }
-    
-   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

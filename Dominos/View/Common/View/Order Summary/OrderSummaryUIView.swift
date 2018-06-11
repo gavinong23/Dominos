@@ -39,7 +39,11 @@ class OrderSummaryUIView: UIView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
-        
+    func setupPrice(subTotal:String, deliveryFee:String, total:String){
+        self.subTotalLabel.text = subTotal
+        self.shippingFeeLabel.text = deliveryFee
+        self.totalAmountLabel.text = total
+    }
     
 
 }

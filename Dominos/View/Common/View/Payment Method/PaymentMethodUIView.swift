@@ -15,7 +15,8 @@ class PaymentMethodUIView: UIView {
     
     @IBOutlet weak var saveCardSwitch: UISwitch!
     
-    
+  
+
     @IBOutlet weak var creditCardView: UIView!
     
     @IBOutlet weak var codView: UIView!
@@ -53,5 +54,9 @@ class PaymentMethodUIView: UIView {
         }
     }
     
+
+  
     
 }
+
+

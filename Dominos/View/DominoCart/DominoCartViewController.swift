@@ -20,6 +20,7 @@ class DominoCartViewController: UIViewController {
     
     @IBOutlet weak var deliveryFeeLabel: UILabel!
     
+    @IBOutlet weak var checkoutButton: UIButton!
     
     private let dominoCartPresenter = DominoCartPresenter(cartService: CartService(),pizzaService: PizzaService())
     
@@ -35,7 +36,9 @@ class DominoCartViewController: UIViewController {
     
     
     @IBAction func checkOutButtonOnClick(_ sender: Any) {
-        self.performSegue(withIdentifier: R.segue.dominoCartViewController.dominoCartToCheckOutID, sender: sender)
+        
+       self.dominoCartPresenter.routeToCheckout()
+        //self.performSegue(withIdentifier: R.segue.dominoCartViewController.dominoCartToCheckOutID, sender: sender)
     }
     
     func setupView(){
@@ -156,6 +159,40 @@ extension DominoCartViewController: DominoCartViewType{
         let alert = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func routeTo(screen:EnumDominoCartRoute){
+        
+        switch screen{
+            case .checkout:
+                self.performSegue(withIdentifier: screen.segueID(), sender: self)
+            }
+        
+    }
+    
+    func disableCheckoutButton(){
+        self.checkoutButton.isEnabled = false
+
+    }
+    
+    func enableCheckoutButton(){
+        self.checkoutButton.isEnabled = true
+    }
+    
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == R.segue.dominoCartViewController.dominoCartToCheckOutID.identifier){
+            
+            //dominoModel = (sender as? PizzasViewData)!
+            
+            let DominoCheckoutViewController = segue.destination as! DominoCheckoutViewController
+            
+            DominoCheckoutViewController.subTotal = self.subTotalLabel.text!
+            DominoCheckoutViewController.deliveryFee = self.deliveryFeeLabel.text!
+            DominoCheckoutViewController.totalAmount = self.totalPriceLabel.text!
+        }
     }
     
     

@@ -14,4 +14,10 @@ protocol DominoCheckoutViewType : NSObjectProtocol{
     
     
     func showPaymentView(paymentType: EnumPaymentType)
+    func disableCreditCardButton()
+    func disableCodButton()
+    func checkIsNullCreditCard() -> Bool
+    func showAlertBox(title:String,message:String)
+     func showSuccessAlertBox(title: String, message: String)
+     func routeTo(screen:DominoCheckoutEnumRoute)
 }

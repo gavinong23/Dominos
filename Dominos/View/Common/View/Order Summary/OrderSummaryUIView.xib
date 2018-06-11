@@ -130,7 +130,7 @@
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wl1-3Z-g51">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="159.5" height="43.5"/>
                                                                                             <subviews>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping Fee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpW-C9-OQS">
+                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Fee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpW-C9-OQS">
                                                                                                     <rect key="frame" x="5" y="0.0" width="154.5" height="43.5"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                     <nil key="textColor"/>
@@ -262,7 +262,7 @@
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" red="0.93745952072538863" green="0.93745952072538863" blue="0.93745952072538863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.93745952070000005" green="0.93745952070000005" blue="0.93745952070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="nqh-C9-Vxo" firstAttribute="top" secondItem="fvv-Wp-cbr" secondAttribute="top" id="2ET-DR-0co"/>
                         <constraint firstItem="nqh-C9-Vxo" firstAttribute="leading" secondItem="fvv-Wp-cbr" secondAttribute="leading" id="4Cu-QN-pYT"/>

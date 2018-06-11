@@ -18,6 +18,8 @@ protocol DominoCartViewType : NSObjectProtocol{
     func removeAllCartItem()
     func setDeliveryFee(deliveryFee:Float)
     func showAlertBox(title:String,message:String)
-    
+    func routeTo(screen:EnumDominoCartRoute)
+    func enableCheckoutButton()
+    func disableCheckoutButton()
     
 }

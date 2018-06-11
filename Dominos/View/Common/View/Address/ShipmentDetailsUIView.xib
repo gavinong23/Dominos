@@ -36,7 +36,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZL6-Xo-ghK">
                                             <rect key="frame" x="0.0" y="0.0" width="319" height="31"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipment Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RI1-a8-5mv">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RI1-a8-5mv">
                                                     <rect key="frame" x="5" y="0.0" width="314" height="31"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,7 +63,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LuR-w5-EQ1">
                                                                     <rect key="frame" x="0.0" y="0.0" width="309" height="11.5"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ship to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MD-9B-INa">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MD-9B-INa">
                                                                             <rect key="frame" x="5" y="0.0" width="304" height="11.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,10 +78,10 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBI-Yd-c7u">
-                                                                    <rect key="frame" x="0.0" y="11.5" width="309" height="17.5"/>
+                                                                    <rect key="frame" x="0.0" y="11.5" width="309" height="17"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gavin Ong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8l-UY-oIu">
-                                                                            <rect key="frame" x="5" y="0.0" width="304" height="18"/>
+                                                                            <rect key="frame" x="5" y="0.0" width="304" height="17.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -95,16 +95,16 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bco-gP-J2d">
-                                                                    <rect key="frame" x="0.0" y="29" width="309" height="85.5"/>
+                                                                    <rect key="frame" x="0.0" y="28.5" width="309" height="86"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3MM-3r-ejB">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="309" height="85.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="309" height="86"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3V-XN-8fG">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="309" height="68.5"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="309" height="69"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address: NO. 28, JLN 2A/4, TMN BBS FASA 2A, 68100, BT CAVES, SELANGOR." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDL-gN-ZeR">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="309" height="68.5"/>
+                                                                                            <rect key="frame" x="5" y="0.0" width="304" height="69"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <nil key="highlightedColor"/>
@@ -113,15 +113,15 @@
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="bottom" secondItem="NDL-gN-ZeR" secondAttribute="bottom" id="1Ai-f8-sVL"/>
                                                                                         <constraint firstAttribute="trailing" secondItem="NDL-gN-ZeR" secondAttribute="trailing" id="Mhm-ar-lL6"/>
-                                                                                        <constraint firstItem="NDL-gN-ZeR" firstAttribute="leading" secondItem="H3V-XN-8fG" secondAttribute="leading" id="SZu-LL-JMZ"/>
+                                                                                        <constraint firstItem="NDL-gN-ZeR" firstAttribute="leading" secondItem="H3V-XN-8fG" secondAttribute="leading" constant="5" id="SZu-LL-JMZ"/>
                                                                                         <constraint firstItem="NDL-gN-ZeR" firstAttribute="top" secondItem="H3V-XN-8fG" secondAttribute="top" id="ZVz-YP-TI7"/>
                                                                                     </constraints>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cul-L0-zBI">
-                                                                                    <rect key="frame" x="0.0" y="68.5" width="309" height="17"/>
+                                                                                    <rect key="frame" x="0.0" y="69" width="309" height="17"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Number: +60143219987" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFP-c5-WVy">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="309" height="17"/>
+                                                                                            <rect key="frame" x="5" y="0.0" width="304" height="17"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <nil key="highlightedColor"/>
@@ -130,7 +130,7 @@
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="bottom" secondItem="iFP-c5-WVy" secondAttribute="bottom" id="9RS-Gb-u4x"/>
                                                                                         <constraint firstItem="iFP-c5-WVy" firstAttribute="top" secondItem="cul-L0-zBI" secondAttribute="top" id="NGG-ua-bop"/>
-                                                                                        <constraint firstItem="iFP-c5-WVy" firstAttribute="leading" secondItem="cul-L0-zBI" secondAttribute="leading" id="hZb-rY-kFP"/>
+                                                                                        <constraint firstItem="iFP-c5-WVy" firstAttribute="leading" secondItem="cul-L0-zBI" secondAttribute="leading" constant="5" id="hZb-rY-kFP"/>
                                                                                         <constraint firstAttribute="trailing" secondItem="iFP-c5-WVy" secondAttribute="trailing" id="wtf-3o-TQD"/>
                                                                                     </constraints>
                                                                                 </view>

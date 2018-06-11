@@ -28,6 +28,7 @@ class DominoPizzaHomeDetailViewController: BaseViewController {
     
     @IBOutlet weak var AddToCartButton: UIButton!
     
+    @IBOutlet weak var pizzaPriceLabel: UILabel!
     
      var model = PizzaDetailViewData()
     
@@ -104,6 +105,10 @@ extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{
         }
         self.model = pizza
         self.AddToCartButton.isHidden = false
+    
+        
+        self.pizzaPriceLabel.text =
+            String(format:"RM %.2f",pizza.pizzaPrice!)
     }
     
     func getPizzaID() -> String{

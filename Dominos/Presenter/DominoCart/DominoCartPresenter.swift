@@ -10,12 +10,12 @@ import Foundation
 
 
 enum EnumDominoCartRoute{
-    case pizzaCart(model:PizzaDetailViewData)
+    case checkout
     
     func segueID() -> String{
         switch self{
-        case .pizzaCart:
-            return R.segue.dominoPizzaHomeDetailViewController.pizzaDetailToPizzaCartID.identifier
+        case .checkout:
+            return R.segue.dominoCartViewController.dominoCartToCheckOutID.identifier
         }
     }
 }
@@ -174,7 +174,16 @@ class DominoCartPresenter{
                 self.dominoCartView?.showAlertBox(title: "", message: "")
             }
         }
+    }
+    
+    func routeToCheckout(){
         
+        if (self.pizzaCartModels?.count)! > 0{
+                self.dominoCartView?.routeTo(screen: .checkout)
+        }else{
+            self.dominoCartView?.showAlertBox(title: "Cart is empty.", message: "You cannot checkout with empty cart item.")
+        }
+    
     }
     
 }

@@ -41,6 +41,8 @@ class ShipmentDetailsUIView: UIView {
 
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
+    
+    
 
     
   
