@@ -61,9 +61,7 @@ class DominoPizzaHomeDetailViewController: BaseViewController {
         self.dominoDetailPresenter.getAddToCart(model: model)
         
     }
-    
-    
-    
+
 }
 
 extension DominoPizzaHomeDetailViewController: DominoPizzaDetailViewType{

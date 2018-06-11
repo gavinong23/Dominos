@@ -42,6 +42,10 @@
 		E9197BAB20AAA827003FA350 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAA20AAA827003FA350 /* APIManager.swift */; };
 		E9197BAD20AAB117003FA350 /* DominoListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAC20AAB117003FA350 /* DominoListingModel.swift */; };
 		E9197BAF20AAB449003FA350 /* PizzaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9197BAE20AAB449003FA350 /* PizzaService.swift */; };
+		E92614D620CE07AD005B932D /* PaymentMethodUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92614D520CE07AD005B932D /* PaymentMethodUIView.swift */; };
+		E92614D820CE07C2005B932D /* PaymentMethodUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E92614D720CE07C2005B932D /* PaymentMethodUIView.xib */; };
+		E92614DB20CE19B2005B932D /* DominoCheckoutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92614DA20CE19B2005B932D /* DominoCheckoutPresenter.swift */; };
+		E92614DD20CE19D0005B932D /* DominoCheckoutViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92614DC20CE19D0005B932D /* DominoCheckoutViewType.swift */; };
 		E9396DF020C521E600C3F407 /* dominoListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9396DEF20C521E600C3F407 /* dominoListingModel.swift */; };
 		E94123B620B3E52B0054D03B /* DominoPizzaDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94123B520B3E52B0054D03B /* DominoPizzaDetailPresenter.swift */; };
 		E94123B820B3E5490054D03B /* DominoPizzaDetailViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */; };
@@ -135,6 +139,10 @@
 		E9197BAA20AAA827003FA350 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		E9197BAC20AAB117003FA350 /* DominoListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoListingModel.swift; sourceTree = "<group>"; };
 		E9197BAE20AAB449003FA350 /* PizzaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaService.swift; sourceTree = "<group>"; };
+		E92614D520CE07AD005B932D /* PaymentMethodUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodUIView.swift; sourceTree = "<group>"; };
+		E92614D720CE07C2005B932D /* PaymentMethodUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentMethodUIView.xib; sourceTree = "<group>"; };
+		E92614DA20CE19B2005B932D /* DominoCheckoutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoCheckoutPresenter.swift; sourceTree = "<group>"; };
+		E92614DC20CE19D0005B932D /* DominoCheckoutViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoCheckoutViewType.swift; sourceTree = "<group>"; };
 		E9396DEF20C521E600C3F407 /* dominoListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dominoListingModel.swift; sourceTree = "<group>"; };
 		E94123B520B3E52B0054D03B /* DominoPizzaDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaDetailPresenter.swift; sourceTree = "<group>"; };
 		E94123B720B3E5490054D03B /* DominoPizzaDetailViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoPizzaDetailViewType.swift; sourceTree = "<group>"; };
@@ -270,6 +278,7 @@
 		558255FB2091AB7100F599FA /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				E92614D920CE1997005B932D /* DominoCheckout */,
 				55A3B1EE2097165E00BA8B8C /* DominoHome */,
 				E94123B420B3E4B20054D03B /* DominoPizzaDetail */,
 				E98C466A20C138270097E8CC /* DominoCart */,
@@ -500,6 +509,8 @@
 		E9111BED20CA60D800791A38 /* Payment Method */ = {
 			isa = PBXGroup;
 			children = (
+				E92614D720CE07C2005B932D /* PaymentMethodUIView.xib */,
+				E92614D520CE07AD005B932D /* PaymentMethodUIView.swift */,
 			);
 			path = "Payment Method";
 			sourceTree = "<group>";
@@ -511,6 +522,15 @@
 				E9071B5E20BB9FBD00D28B51 /* PizzaCollectionView.swift */,
 			);
 			path = "Pizza Home";
+			sourceTree = "<group>";
+		};
+		E92614D920CE1997005B932D /* DominoCheckout */ = {
+			isa = PBXGroup;
+			children = (
+				E92614DA20CE19B2005B932D /* DominoCheckoutPresenter.swift */,
+				E92614DC20CE19D0005B932D /* DominoCheckoutViewType.swift */,
+			);
+			path = DominoCheckout;
 			sourceTree = "<group>";
 		};
 		E9396DEE20C5219200C3F407 /* Coder */ = {
@@ -695,6 +715,7 @@
 				558255D520919F6400F599FA /* LaunchScreen.storyboard in Resources */,
 				558255D020919F6100F599FA /* Main.storyboard in Resources */,
 				E9071B6120BB9FD100D28B51 /* PizzaCollectionView.xib in Resources */,
+				E92614D820CE07C2005B932D /* PaymentMethodUIView.xib in Resources */,
 				E94C5D0220CA83FD00637334 /* OrderSummaryUIView.xib in Resources */,
 				E9111BF420CA61BC00791A38 /* ShipmentDetailsUIView.xib in Resources */,
 				557AF52E2096DFB300F591D5 /* Main.strings in Resources */,
@@ -836,6 +857,7 @@
 				E9197BAD20AAB117003FA350 /* DominoListingModel.swift in Sources */,
 				E9111BF220CA61A700791A38 /* ShipmentDetailsUIView.swift in Sources */,
 				E95A657220C62E350056E890 /* UserDefaults.swift in Sources */,
+				E92614D620CE07AD005B932D /* PaymentMethodUIView.swift in Sources */,
 				E98C466C20C1383C0097E8CC /* DominoCartPresenter.swift in Sources */,
 				E9063E5820BE6E35002B10E7 /* DominoCartViewController.swift in Sources */,
 				E9DDCE7920B7E02E0013C0FD /* EnumCollection.swift in Sources */,
@@ -855,6 +877,7 @@
 				E95AB63E20C7BA4700BB1D53 /* EnumDecodableType.swift in Sources */,
 				55A3B1ED2097165500BA8B8C /* DominoHomePresenter.swift in Sources */,
 				E9071B5F20BB9FBD00D28B51 /* PizzaCollectionView.swift in Sources */,
+				E92614DD20CE19D0005B932D /* DominoCheckoutViewType.swift in Sources */,
 				E95AB63C20C7BA0600BB1D53 /* AnyCodable.swift in Sources */,
 				E9063E5320BE3366002B10E7 /* RequestTimer.swift in Sources */,
 				E95E2D5E20B3BFB800F2EA17 /* DominoDetailModel.swift in Sources */,
@@ -863,6 +886,7 @@
 				E94123B620B3E52B0054D03B /* DominoPizzaDetailPresenter.swift in Sources */,
 				55BCEA222096BCEF00810C71 /* R.generated.swift in Sources */,
 				E9197BAB20AAA827003FA350 /* APIManager.swift in Sources */,
+				E92614DB20CE19B2005B932D /* DominoCheckoutPresenter.swift in Sources */,
 				E9063E5C20BE8E48002B10E7 /* DominoCartCollectionViewCell.swift in Sources */,
 				5583FD7B2096A8040013394D /* Player.swift in Sources */,
 				E99FBA1720C7792500462748 /* CartService.swift in Sources */,
