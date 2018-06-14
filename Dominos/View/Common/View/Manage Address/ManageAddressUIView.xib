@@ -35,26 +35,30 @@
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Tn-S5-7Aq">
                             <rect key="frame" x="0.0" y="0.0" width="667" height="274.5"/>
                             <subviews>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="30" estimatedRowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZWg-dw-KzP">
-                                    <rect key="frame" x="0.0" y="100" width="667" height="124.5"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </tableView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xw2-Tc-4h9">
                                     <rect key="frame" x="0.0" y="0.0" width="667" height="274.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJV-E6-007">
                                             <rect key="frame" x="0.0" y="0.0" width="667" height="219.5"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVz-cA-3JD">
+                                                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="30" estimatedRowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZWg-dw-KzP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="667" height="219.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </tableView>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVz-cA-3JD">
                                                     <rect key="frame" x="0.0" y="0.0" width="667" height="219.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="fVz-cA-3JD" firstAttribute="leading" secondItem="eJV-E6-007" secondAttribute="leading" id="2Ka-MT-eXk"/>
+                                                <constraint firstItem="ZWg-dw-KzP" firstAttribute="leading" secondItem="eJV-E6-007" secondAttribute="leading" id="9Sh-FF-Sd5"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZWg-dw-KzP" secondAttribute="trailing" id="9ef-Ch-xsz"/>
                                                 <constraint firstAttribute="trailing" secondItem="fVz-cA-3JD" secondAttribute="trailing" id="CWb-Y8-Hwx"/>
                                                 <constraint firstItem="fVz-cA-3JD" firstAttribute="top" secondItem="eJV-E6-007" secondAttribute="top" id="UiD-LI-cbt"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZWg-dw-KzP" secondAttribute="bottom" id="pRs-h2-Yja"/>
                                                 <constraint firstAttribute="bottom" secondItem="fVz-cA-3JD" secondAttribute="bottom" id="wYK-a0-Q4n"/>
+                                                <constraint firstItem="ZWg-dw-KzP" firstAttribute="top" secondItem="eJV-E6-007" secondAttribute="top" id="yTO-TF-VxV"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4h-mI-5wX">
@@ -121,14 +125,10 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="ZWg-dw-KzP" secondAttribute="bottom" constant="50" id="9OX-DF-CbI"/>
                                 <constraint firstItem="Xw2-Tc-4h9" firstAttribute="leading" secondItem="2Tn-S5-7Aq" secondAttribute="leading" id="EnL-CJ-WGZ"/>
-                                <constraint firstItem="ZWg-dw-KzP" firstAttribute="top" secondItem="2Tn-S5-7Aq" secondAttribute="top" constant="100" id="Oa2-67-DsB"/>
                                 <constraint firstAttribute="trailing" secondItem="Xw2-Tc-4h9" secondAttribute="trailing" id="d3I-IB-Dbm"/>
                                 <constraint firstAttribute="bottom" secondItem="Xw2-Tc-4h9" secondAttribute="bottom" id="eWI-uf-G0d"/>
-                                <constraint firstAttribute="trailing" secondItem="ZWg-dw-KzP" secondAttribute="trailing" id="ffn-gA-OlD"/>
                                 <constraint firstItem="Xw2-Tc-4h9" firstAttribute="top" secondItem="2Tn-S5-7Aq" secondAttribute="top" id="hKz-8Q-GXW"/>
-                                <constraint firstItem="ZWg-dw-KzP" firstAttribute="leading" secondItem="2Tn-S5-7Aq" secondAttribute="leading" id="jKH-bx-Xar"/>
                                 <constraint firstItem="eJV-E6-007" firstAttribute="height" secondItem="2Tn-S5-7Aq" secondAttribute="height" multiplier="0.8" id="ngN-qh-Jbd"/>
                             </constraints>
                         </view>

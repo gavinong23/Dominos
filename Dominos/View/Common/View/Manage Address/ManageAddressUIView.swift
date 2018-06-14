@@ -10,7 +10,9 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-class ManageAddressUIView: UIView {
+class ManageAddressUIView: UIView{
+
+    
 
     @IBOutlet var contentView: UIView!
     
@@ -48,12 +50,24 @@ class ManageAddressUIView: UIView {
         
         self.addNewAddressView.isHidden = true
         self.chooseAddressView.isHidden = false
+//        self.addressTableView.isHidden = true
+        self.mapView.isHidden = false
+        
+        
+//        self.bringSubview(toFront: self.mapView)
+
+        //test
 //        self.addNewAddressView.isHidden = false
 //        self.chooseAddressView.isHidden = true
         
-        self.addressTableView.isHidden = true
         
-        self.addressTableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Float.pi))
+        //test
+//            self.addressTableView.isHidden = false
+//            self.addNewAddressView.isHidden = true
+//            self.chooseAddressView.isHidden = true
+     
+        
+        self.addressResultTableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Float.pi))
         
         addSubview(contentView)
         
@@ -65,27 +79,31 @@ class ManageAddressUIView: UIView {
     }
     
     func hideAutoCompletionTableView(){
-        self.addressTableView.isHidden = true
+//        self.addressTableView.isHidden = true
+//        self.chooisHidden = true
         self.chooseAddressView.isHidden = true
-    
+        self.addressResultTableView.isHidden = true
+        self.mapView.isHidden = false
 //        self.bringSubview(toFront: self.mapView)
     }
     
     func showAutoCompletionTableView(){
-        self.addNewAddressView.isHidden = false
-        self.addressTableView.isHidden = false
+//        self.addNewAddressView.isHidden = false
+        self.addressResultTableView.isHidden = false
         self.chooseAddressView.isHidden = true
-//        self.mapView.isHidden = false
-        self.bringSubview(toFront: self.addressTableView)
+        self.mapView.isHidden = true
+//        self.bringSubview(toFront: self.addressTableView)
     }
     
     func addressAutoCompleteReloadData(){
-        self.addressTableView.reloadData()
+       self.addressResultTableView.reloadData()
     }
     
     @IBAction func addNewAddressOnClick(_ sender: Any) {
         self.addNewAddressView.isHidden = false
         self.chooseAddressView.isHidden = true
+        self.mapView.isHidden = false
+        
     }
     
     func addAddressButton(isEnabled:Bool){

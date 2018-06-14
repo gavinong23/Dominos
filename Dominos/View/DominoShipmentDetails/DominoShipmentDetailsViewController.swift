@@ -38,7 +38,7 @@ class DominoShipmentDetailsViewController: UIViewController {
         let containerSize = self.manageAddressContainerView.bounds
         manageAddressUIView = ManageAddressUIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height: containerSize.height))
         self.manageAddressContainerView.addSubview(manageAddressUIView)
-        setupAutoCompleteAddressTableView()
+      
         
         self.manageAddressUIView.addressTextField.delegate = self
         
@@ -46,15 +46,16 @@ class DominoShipmentDetailsViewController: UIViewController {
         
         
         setupMapView()
-       
+        setupAutoCompleteAddressTableView()
         
     }
     
     func setupAutoCompleteAddressTableView(){
-       self.manageAddressUIView.addressTableView.delegate = self
-        self.manageAddressUIView.addressTableView.dataSource = self
+       self.manageAddressUIView.addressResultTableView.delegate = self
+        self.manageAddressUIView.addressResultTableView.dataSource = self
         
-          manageAddressUIView.addressTableView.register(UINib(nibName: "AddressAutoCompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+          manageAddressUIView.addressResultTableView.register(UINib(nibName: "AddressAutoCompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
     }
     
     func setupMapView(){
@@ -78,19 +79,19 @@ extension DominoShipmentDetailsViewController: DominoShipmentViewType{
     
     
     func hideAutoCompletionTableView(){
-        self.view.bringSubview(toFront: self.manageAddressUIView.mapView)
+//        self.view.bringSubview(toFront: self.manageAddressUIView.mapView)
         self.manageAddressUIView.hideAutoCompletionTableView()
     }
     
     func reloadAddressAutoCompletionData(){
-        self.manageAddressUIView.showAutoCompletionTableView()
+//        self.manageAddressUIView.showAutoCompletionTableView()
         self.manageAddressUIView.addressAutoCompleteReloadData()
     }
     
     func setAutoCompleteAddress(address: [GMSAutocompletePrediction]){
         self.arrayAddress = address
         self.manageAddressUIView.showAutoCompletionTableView()
-        self.view.bringSubview(toFront: self.manageAddressUIView.addressTableView)
+//        self.view.bringSubview(toFront: self.manageAddressUIView.addressTableView)
         
 //        print(self.arrayAddress)
     }
@@ -108,12 +109,11 @@ extension DominoShipmentDetailsViewController: UITextFieldDelegate{
 //                 self.view.didMoveToSuperview()
                 self.arrayAddress.removeAll()
                 self.arrayAddress = [GMSAutocompletePrediction]()
-//                self.manageAddressUIView.hideAutoCompletionTableView()
+                self.manageAddressUIView.hideAutoCompletionTableView()
             
             
         }else{
                 dominoShipmentPresenter.addressAutoComplete(searchString: searchString)
-            self.manageAddressUIView.addressTableView.didMoveToSuperview()
         }
         
         return true
@@ -129,6 +129,8 @@ extension DominoShipmentDetailsViewController: UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AddressAutoCompleteTableViewCell
+        
+//        print("i m here cell table vidaiaka")
         
         cell.transform = CGAffineTransform(rotationAngle: CGFloat(Float.pi))
         
