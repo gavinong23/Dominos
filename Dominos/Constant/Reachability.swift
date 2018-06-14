@@ -41,36 +41,6 @@ public class Reachability {
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         let ret = (isReachable && !needsConnection)
         
-//        if(!ret){
-//
-//            let noInternetViewController = UIViewController()
-//
-//            let noInternetConnectionView = UIView(frame: CGRect.zero)
-//
-//            noInternetConnectionView.backgroundColor  = UIColor.white
-//
-//            let noInternetLabel = UILabel()
-//
-//            noInternetLabel.text = "No Internet Connection."
-//            noInternetLabel.numberOfLines = 2
-//            noInternetLabel.backgroundColor = UIColor.clear
-//            noInternetLabel.textAlignment = .center
-//            noInternetLabel.textColor = UIColor.black
-//
-//            noInternetLabel.center = noInternetConnectionView.center
-//            noInternetConnectionView.addSubview(noInternetLabel)
-//
-//            noInternetConnectionView.bringSubview(toFront: noInternetLabel)
-//
-//
-//            UIApplication.shared.keyWindow?.rootViewController?.addChildViewController(noInternetViewController)
-//
-//            UIApplication.shared.keyWindow?.addSubview(noInternetConnectionView)
-//
-//            UIApplication.shared.keyWindow?.bringSubview(toFront: noInternetConnectionView)
-//
-//        }
-        
         return ret
         
     }

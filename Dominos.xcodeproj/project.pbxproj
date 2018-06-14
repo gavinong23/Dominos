@@ -66,8 +66,17 @@
 		E997564F20B569F200C28597 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E997564E20B569F200C28597 /* Reachability.swift */; };
 		E99FBA1720C7792500462748 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FBA1620C7792500462748 /* CartService.swift */; };
 		E9D1983420B8057000D99D02 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D1983320B8057000D99D02 /* BaseViewController.swift */; };
+		E9D5520020D207940069087C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D551FF20D207940069087C /* LocationManager.swift */; };
+		E9D5520220D210D10069087C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D5520120D210D10069087C /* LocationService.swift */; };
+		E9D5520520D21AD10069087C /* DominoShipmentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D5520420D21AD10069087C /* DominoShipmentPresenter.swift */; };
+		E9D5520720D21AF90069087C /* DominoShipmentViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D5520620D21AF90069087C /* DominoShipmentViewType.swift */; };
+		E9D5520B20D232E50069087C /* AddressAutoCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D5520920D232E50069087C /* AddressAutoCompleteTableViewCell.swift */; };
+		E9D5520C20D232E50069087C /* AddressAutoCompleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D5520A20D232E50069087C /* AddressAutoCompleteTableViewCell.xib */; };
 		E9D6889820C935B9001DDC4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D6889720C935B9001DDC4E /* Assets.xcassets */; };
 		E9DDCE7920B7E02E0013C0FD /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DDCE7820B7E02E0013C0FD /* EnumCollection.swift */; };
+		E9F3FE8B20CF6D530076B4C6 /* ManageAddressUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3FE8A20CF6D530076B4C6 /* ManageAddressUIView.swift */; };
+		E9F3FE8D20CF6D620076B4C6 /* ManageAddressUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F3FE8C20CF6D620076B4C6 /* ManageAddressUIView.xib */; };
+		E9F3FE9020CF775E0076B4C6 /* DominoShipmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3FE8F20CF775E0076B4C6 /* DominoShipmentDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,8 +172,17 @@
 		E997564E20B569F200C28597 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		E99FBA1620C7792500462748 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		E9D1983320B8057000D99D02 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E9D551FF20D207940069087C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E9D5520120D210D10069087C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		E9D5520420D21AD10069087C /* DominoShipmentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoShipmentPresenter.swift; sourceTree = "<group>"; };
+		E9D5520620D21AF90069087C /* DominoShipmentViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoShipmentViewType.swift; sourceTree = "<group>"; };
+		E9D5520920D232E50069087C /* AddressAutoCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressAutoCompleteTableViewCell.swift; sourceTree = "<group>"; };
+		E9D5520A20D232E50069087C /* AddressAutoCompleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressAutoCompleteTableViewCell.xib; sourceTree = "<group>"; };
 		E9D6889720C935B9001DDC4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9DDCE7820B7E02E0013C0FD /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
+		E9F3FE8A20CF6D530076B4C6 /* ManageAddressUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAddressUIView.swift; sourceTree = "<group>"; };
+		E9F3FE8C20CF6D620076B4C6 /* ManageAddressUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManageAddressUIView.xib; sourceTree = "<group>"; };
+		E9F3FE8F20CF775E0076B4C6 /* DominoShipmentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoShipmentDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +272,7 @@
 		558255F92091AB6500F599FA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E9D551FE20D2066B0069087C /* LocationManager */,
 				E99FBA1520C778F300462748 /* UserDefaultsManager */,
 				55A3B1E920970E5F00BA8B8C /* APIManager */,
 				E9197BAC20AAB117003FA350 /* DominoListingModel.swift */,
@@ -271,6 +290,7 @@
 				558256262091C8FE00F599FA /* DominoPizzaDetail */,
 				E9063E5420BE6DEF002B10E7 /* DominoCart */,
 				E9111BE820CA106800791A38 /* DominoCheckout */,
+				E9F3FE8E20CF77040076B4C6 /* DominoShipmentDetails */,
 				E9D1983320B8057000D99D02 /* BaseViewController.swift */,
 			);
 			path = View;
@@ -279,6 +299,7 @@
 		558255FB2091AB7100F599FA /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				E9D5520320D21ABE0069087C /* DominoManageShipment */,
 				E92614D920CE1997005B932D /* DominoCheckout */,
 				55A3B1EE2097165E00BA8B8C /* DominoHome */,
 				E94123B420B3E4B20054D03B /* DominoPizzaDetail */,
@@ -334,6 +355,7 @@
 		558256022091AD1700F599FA /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				E9D5520820D2321E0069087C /* DominoAddressAutoComplete */,
 				E9063E5920BE8E15002B10E7 /* DominoCart */,
 				558256272091C92300F599FA /* DominoPizzaHome */,
 				E9936F7E20B6BA9C00BD128B /* DropDownList */,
@@ -472,10 +494,11 @@
 		E9071B5D20BB9F9A00D28B51 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E9F3FE8720CF6D0A0076B4C6 /* Manage Address */,
 				E9111BEE20CA60EF00791A38 /* Pizza Home */,
 				E9111BEC20CA5C4300791A38 /* Order Summary */,
 				E9111BED20CA60D800791A38 /* Payment Method */,
-				E9111BEB20CA5C3200791A38 /* Address */,
+				E9111BEB20CA5C3200791A38 /* ShipmentDetails */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -488,13 +511,13 @@
 			path = DominoCheckout;
 			sourceTree = "<group>";
 		};
-		E9111BEB20CA5C3200791A38 /* Address */ = {
+		E9111BEB20CA5C3200791A38 /* ShipmentDetails */ = {
 			isa = PBXGroup;
 			children = (
 				E9111BF320CA61BC00791A38 /* ShipmentDetailsUIView.xib */,
 				E9111BF120CA61A700791A38 /* ShipmentDetailsUIView.swift */,
 			);
-			path = Address;
+			path = ShipmentDetails;
 			sourceTree = "<group>";
 		};
 		E9111BEC20CA5C4300791A38 /* Order Summary */ = {
@@ -594,12 +617,56 @@
 			path = UserDefaultsManager;
 			sourceTree = "<group>";
 		};
+		E9D551FE20D2066B0069087C /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				E9D551FF20D207940069087C /* LocationManager.swift */,
+				E9D5520120D210D10069087C /* LocationService.swift */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
+		E9D5520320D21ABE0069087C /* DominoManageShipment */ = {
+			isa = PBXGroup;
+			children = (
+				E9D5520420D21AD10069087C /* DominoShipmentPresenter.swift */,
+				E9D5520620D21AF90069087C /* DominoShipmentViewType.swift */,
+			);
+			path = DominoManageShipment;
+			sourceTree = "<group>";
+		};
+		E9D5520820D2321E0069087C /* DominoAddressAutoComplete */ = {
+			isa = PBXGroup;
+			children = (
+				E9D5520920D232E50069087C /* AddressAutoCompleteTableViewCell.swift */,
+				E9D5520A20D232E50069087C /* AddressAutoCompleteTableViewCell.xib */,
+			);
+			path = DominoAddressAutoComplete;
+			sourceTree = "<group>";
+		};
 		E9DDCE7A20B7E0450013C0FD /* Enum */ = {
 			isa = PBXGroup;
 			children = (
 				E9DDCE7820B7E02E0013C0FD /* EnumCollection.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		E9F3FE8720CF6D0A0076B4C6 /* Manage Address */ = {
+			isa = PBXGroup;
+			children = (
+				E9F3FE8A20CF6D530076B4C6 /* ManageAddressUIView.swift */,
+				E9F3FE8C20CF6D620076B4C6 /* ManageAddressUIView.xib */,
+			);
+			path = "Manage Address";
+			sourceTree = "<group>";
+		};
+		E9F3FE8E20CF77040076B4C6 /* DominoShipmentDetails */ = {
+			isa = PBXGroup;
+			children = (
+				E9F3FE8F20CF775E0076B4C6 /* DominoShipmentDetailsViewController.swift */,
+			);
+			path = DominoShipmentDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -615,6 +682,7 @@
 				558255C420919F6100F599FA /* Frameworks */,
 				558255C520919F6100F599FA /* Resources */,
 				A1A5373688D679C0C70E3BD8 /* [CP] Embed Pods Frameworks */,
+				813EE8C2F5752A417F59652D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -713,6 +781,7 @@
 			files = (
 				558256072091B0E700F599FA /* dominoVideoAds.mp4 in Resources */,
 				558255D520919F6400F599FA /* LaunchScreen.storyboard in Resources */,
+				E9D5520C20D232E50069087C /* AddressAutoCompleteTableViewCell.xib in Resources */,
 				558255D020919F6100F599FA /* Main.storyboard in Resources */,
 				E9071B6120BB9FD100D28B51 /* PizzaCollectionView.xib in Resources */,
 				E92614D820CE07C2005B932D /* PaymentMethodUIView.xib in Resources */,
@@ -721,6 +790,7 @@
 				557AF52E2096DFB300F591D5 /* Main.strings in Resources */,
 				E9063E5D20BE8E48002B10E7 /* DominoCartCollectionViewCell.xib in Resources */,
 				E9936F8420B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib in Resources */,
+				E9F3FE8D20CF6D620076B4C6 /* ManageAddressUIView.xib in Resources */,
 				E9D6889820C935B9001DDC4E /* Assets.xcassets in Resources */,
 				558256202091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.xib in Resources */,
 			);
@@ -772,6 +842,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		813EE8C2F5752A417F59652D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Dominos/Pods-Dominos-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dominos/Pods-Dominos-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A1A5373688D679C0C70E3BD8 /* [CP] Embed Pods Frameworks */ = {
@@ -861,12 +951,14 @@
 				E95A657220C62E350056E890 /* UserDefaults.swift in Sources */,
 				E92614D620CE07AD005B932D /* PaymentMethodUIView.swift in Sources */,
 				E98C466C20C1383C0097E8CC /* DominoCartPresenter.swift in Sources */,
+				E9D5520B20D232E50069087C /* AddressAutoCompleteTableViewCell.swift in Sources */,
 				E9063E5820BE6E35002B10E7 /* DominoCartViewController.swift in Sources */,
 				E9DDCE7920B7E02E0013C0FD /* EnumCollection.swift in Sources */,
 				E94C5D0020CA80FE00637334 /* UIViewExtension.swift in Sources */,
 				E9D1983420B8057000D99D02 /* BaseViewController.swift in Sources */,
 				5582562F2091D3C800F599FA /* CollectionViewExtension.swift in Sources */,
 				E94123B820B3E5490054D03B /* DominoPizzaDetailViewType.swift in Sources */,
+				E9F3FE9020CF775E0076B4C6 /* DominoShipmentDetailsViewController.swift in Sources */,
 				E9396DF020C521E600C3F407 /* dominoListingModel.swift in Sources */,
 				E9197BAF20AAB449003FA350 /* PizzaService.swift in Sources */,
 				558255CB20919F6100F599FA /* AppDelegate.swift in Sources */,
@@ -882,9 +974,12 @@
 				E92614DD20CE19D0005B932D /* DominoCheckoutViewType.swift in Sources */,
 				E95AB63C20C7BA0600BB1D53 /* AnyCodable.swift in Sources */,
 				E9063E5320BE3366002B10E7 /* RequestTimer.swift in Sources */,
+				E9D5520520D21AD10069087C /* DominoShipmentPresenter.swift in Sources */,
+				E9D5520020D207940069087C /* LocationManager.swift in Sources */,
 				E95E2D5E20B3BFB800F2EA17 /* DominoDetailModel.swift in Sources */,
 				5582560E2091B2B300F599FA /* Config.swift in Sources */,
 				E9936F8320B6BB7B00BD128B /* ToppingDropDownListTableViewCell.swift in Sources */,
+				E9D5520220D210D10069087C /* LocationService.swift in Sources */,
 				E94123B620B3E52B0054D03B /* DominoPizzaDetailPresenter.swift in Sources */,
 				55BCEA222096BCEF00810C71 /* R.generated.swift in Sources */,
 				E9197BAB20AAA827003FA350 /* APIManager.swift in Sources */,
@@ -893,7 +988,9 @@
 				5583FD7B2096A8040013394D /* Player.swift in Sources */,
 				E99FBA1720C7792500462748 /* CartService.swift in Sources */,
 				E9111BEA20CA113A00791A38 /* DominoCheckoutViewController.swift in Sources */,
+				E9F3FE8B20CF6D530076B4C6 /* ManageAddressUIView.swift in Sources */,
 				E997564F20B569F200C28597 /* Reachability.swift in Sources */,
+				E9D5520720D21AF90069087C /* DominoShipmentViewType.swift in Sources */,
 				E94C5D0420CA841A00637334 /* OrderSummaryUIView.swift in Sources */,
 				5582561F2091B5C900F599FA /* DominoPizzaHomeCollectionViewCell.swift in Sources */,
 			);
@@ -1089,7 +1186,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Dominos/Starter/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = gavin.ong.dominos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1107,7 +1207,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Dominos/Starter/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = gavin.ong.dominos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1124,7 +1227,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XXNHE3Z96L;
 				INFOPLIST_FILE = DominosTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.DominosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1142,7 +1249,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XXNHE3Z96L;
 				INFOPLIST_FILE = DominosTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.DominosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1159,7 +1270,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XXNHE3Z96L;
 				INFOPLIST_FILE = DominosUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.DominosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1176,7 +1291,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XXNHE3Z96L;
 				INFOPLIST_FILE = DominosUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.gavin.DominosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

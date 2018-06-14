@@ -18,6 +18,7 @@ protocol DominoCheckoutViewType : NSObjectProtocol{
     func disableCodButton()
     func checkIsNullCreditCard() -> Bool
     func showAlertBox(title:String,message:String)
-     func showSuccessAlertBox(title: String, message: String)
-     func routeTo(screen:DominoCheckoutEnumRoute)
+    func showSuccessAlertBox(title: String, message: String)
+    func resetAllView()
+    func routeTo(screen:DominoCheckoutEnumRoute)
 }

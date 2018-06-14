@@ -235,6 +235,85 @@
             </objects>
             <point key="canvasLocation" x="897" y="575"/>
         </scene>
+        <!--Domino Shipment Details View Controller-->
+        <scene sceneID="qLU-HM-rKr">
+            <objects>
+                <viewController id="xa0-RY-rbR" customClass="DominoShipmentDetailsViewController" customModule="Dominos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aUd-BM-os5">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lf3-k7-LRd">
+                                <rect key="frame" x="0.0" y="32" width="667" height="343"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EYq-bI-nWO">
+                                        <rect key="frame" x="0.0" y="0.0" width="667" height="343"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Izh-gi-V02">
+                                                <rect key="frame" x="0.0" y="0.0" width="667" height="51.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="UB9-J8-wep">
+                                                        <rect key="frame" x="0.0" y="0.0" width="667" height="51.5"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3X-tP-9Js">
+                                                                <rect key="frame" x="0.0" y="0.0" width="333" height="51.5"/>
+                                                                <color key="backgroundColor" red="0.080572563769999994" green="0.62250823519999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <state key="normal" title="Manage Address">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSW-bD-wk7">
+                                                                <rect key="frame" x="334" y="0.0" width="333" height="51.5"/>
+                                                                <color key="backgroundColor" red="0.080572563769999994" green="0.62250823519999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <state key="normal" title="Manage Contact">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="UB9-J8-wep" secondAttribute="trailing" id="3AK-iE-1PJ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="UB9-J8-wep" secondAttribute="bottom" id="S7N-dN-o9X"/>
+                                                    <constraint firstItem="UB9-J8-wep" firstAttribute="leading" secondItem="Izh-gi-V02" secondAttribute="leading" id="her-xL-CVZ"/>
+                                                    <constraint firstItem="UB9-J8-wep" firstAttribute="top" secondItem="Izh-gi-V02" secondAttribute="top" id="yer-NX-iWK"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9H-SF-DkE">
+                                                <rect key="frame" x="0.0" y="51.5" width="667" height="291.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="EYq-bI-nWO" secondAttribute="trailing" id="9mW-7j-ecS"/>
+                                    <constraint firstItem="EYq-bI-nWO" firstAttribute="top" secondItem="Lf3-k7-LRd" secondAttribute="top" id="M56-br-2rs"/>
+                                    <constraint firstItem="EYq-bI-nWO" firstAttribute="leading" secondItem="Lf3-k7-LRd" secondAttribute="leading" id="RJN-o1-pVy"/>
+                                    <constraint firstItem="Izh-gi-V02" firstAttribute="height" secondItem="Lf3-k7-LRd" secondAttribute="height" multiplier="0.15" id="VtF-eq-dlh"/>
+                                    <constraint firstAttribute="bottom" secondItem="EYq-bI-nWO" secondAttribute="bottom" id="jO7-LM-V9p"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0C2-pV-aMm" firstAttribute="trailing" secondItem="Lf3-k7-LRd" secondAttribute="trailing" id="3tn-76-SYU"/>
+                            <constraint firstItem="Lf3-k7-LRd" firstAttribute="leading" secondItem="0C2-pV-aMm" secondAttribute="leading" id="QMj-VL-436"/>
+                            <constraint firstItem="0C2-pV-aMm" firstAttribute="bottom" secondItem="Lf3-k7-LRd" secondAttribute="bottom" id="Qws-6b-jJv"/>
+                            <constraint firstItem="Lf3-k7-LRd" firstAttribute="top" secondItem="0C2-pV-aMm" secondAttribute="top" id="uUZ-p8-gTy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0C2-pV-aMm"/>
+                    </view>
+                    <connections>
+                        <outlet property="manageAddressContainerView" destination="I9H-SF-DkE" id="ZIo-nm-lfX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xlh-Cb-iFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1647.5262368815593" y="-1154.4000000000001"/>
+        </scene>
         <!--My Cart-->
         <scene sceneID="Scp-ug-dfW">
             <objects>
@@ -846,12 +925,12 @@
                         <outlet property="orderSummaryContainerView" destination="inI-cQ-w0t" id="4hP-t8-Luc"/>
                         <outlet property="paymentMethodContainerView" destination="kVm-Wh-2Zo" id="x4t-3R-opq"/>
                         <outlet property="shipmentDetailsContainerView" destination="47X-zs-WXO" id="1Y6-9D-dIP"/>
-                        <segue destination="Mn2-WP-i8a" kind="show" identifier="checkoutToHomeID" id="I4S-M9-4gD"/>
+                        <segue destination="xa0-RY-rbR" kind="show" identifier="CheckoutToShipmentDetails" id="fbd-rJ-b1a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hO-no-aWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896" y="-1162"/>
+            <point key="canvasLocation" x="937" y="-1154"/>
         </scene>
         <!--Item-->
         <scene sceneID="TUG-ds-d7F">

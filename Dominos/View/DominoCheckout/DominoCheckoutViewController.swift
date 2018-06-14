@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import GooglePlaces
+import GoogleMaps
 
 
 
@@ -73,7 +75,7 @@ class DominoCheckoutViewController:UIViewController {
     
     @objc func editShipmentDetails(){
         print("tap address")
-        
+        self.dominoCheckoutPresenter.routeTo()
         //go to edit shipment details view controller
     }
     
@@ -97,6 +99,9 @@ class DominoCheckoutViewController:UIViewController {
     }
     
     
+
+    
+    
     @IBAction func creditCardMethodButtonOnClick(_ sender: Any) {
         
         dominoCheckoutPresenter.showPaymentView(paymentType: EnumPaymentType.cc)
@@ -109,7 +114,6 @@ class DominoCheckoutViewController:UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
     
     @IBAction func placeOrderButtonOnClick(_ sender: Any) {
         self.dominoCheckoutPresenter.placeOrder()
@@ -143,14 +147,14 @@ extension DominoCheckoutViewController: DominoCheckoutViewType{
           let alert = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
             self.dominoCheckoutPresenter.removeAllCartItem()
-            self.dominoCheckoutPresenter.routeTo()
+            self.dominoCheckoutPresenter.resetAllView()
             
         }))
         self.present(alert,animated:true, completion:nil)
     }
     
     
-    func routeTo(screen:DominoCheckoutEnumRoute){
+    func resetAllView(){
  
 //        switch screen{
 //        case .pizzaHome:
@@ -160,6 +164,13 @@ extension DominoCheckoutViewController: DominoCheckoutViewType{
         let mainViewController: UINavigationController = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "DominoHomeViewController") as! UINavigationController
         self.present(mainViewController, animated: false, completion: nil)
 
+    }
+    
+    func routeTo(screen: DominoCheckoutEnumRoute){
+        switch screen{
+        case .pizzaManageShipmentDetails:
+            self.performSegue(withIdentifier: screen.segueID(), sender: self)
+        }
     }
     
     func checkIsNullCreditCard() -> Bool{

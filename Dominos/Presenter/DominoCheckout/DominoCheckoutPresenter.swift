@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import UIKit
+import GoogleMaps
+import GooglePlaces
 
 
 enum EnumPaymentType {
@@ -15,13 +18,13 @@ enum EnumPaymentType {
 }
 
 enum DominoCheckoutEnumRoute{
-    case pizzaHome
+    case pizzaManageShipmentDetails
     
     func segueID() -> String{
         switch self{
-        case .pizzaHome:
+        case .pizzaManageShipmentDetails:
 //            return ""
-            return R.segue.dominoCheckoutViewController.checkoutToHomeID.identifier
+            return R.segue.dominoCheckoutViewController.checkoutToShipmentDetails.identifier
         }
         
     }
@@ -102,15 +105,20 @@ class DominoCheckoutPresenter{
         
     }
     
-    
     func routeTo(){
-        self.dominoCheckoutView?.routeTo(screen: .pizzaHome)
+        self.dominoCheckoutView?.routeTo(screen: .pizzaManageShipmentDetails)
+    }
+    
+    func resetAllView(){
+        self.dominoCheckoutView?.resetAllView()
         
     }
     
     func removeAllCartItem(){
         self.cartService.removeAllCartItem()
     }
+    
+
     
     
     
