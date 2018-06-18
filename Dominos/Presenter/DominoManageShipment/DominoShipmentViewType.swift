@@ -18,5 +18,5 @@ protocol DominoShipmentViewType : NSObjectProtocol {
     func setAutoCompleteAddress(address: [GMSAutocompletePrediction])
     func hideAutoCompletionTableView()
     func drawMarkerView(marker: GMSMarker)
-    func updateMapViewMarker(marker: GMSMarker, place: GMSPlace)
+    func updateViewWhenAddressResultViewRowTap(marker: GMSMarker, place: GMSPlace)
 }

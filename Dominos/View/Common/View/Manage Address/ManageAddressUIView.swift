@@ -52,7 +52,7 @@ class ManageAddressUIView: UIView{
         
         self.addNewAddressView.isHidden = true
         self.chooseAddressView.isHidden = false
-//        self.addressTableView.isHidden = true
+        self.addressTableView.isHidden = false
         self.mapView.isHidden = false
         
         self.addressResultTableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Float.pi))
@@ -64,6 +64,9 @@ class ManageAddressUIView: UIView{
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
         self.setupMapView()
+        
+        addressTableView.removeTheExtraLine()
+        addressResultTableView.removeTheExtraLine()
         
 //        setupAddressAutoCompleteTableView()
         
@@ -85,6 +88,8 @@ class ManageAddressUIView: UIView{
         
         self.googleMapView = GMSMapView.map(withFrame: self.mapView.bounds, camera: camera)
         
+       
+        
         self.mapView.addSubview(self.googleMapView)
         
     }
@@ -94,17 +99,66 @@ class ManageAddressUIView: UIView{
     }
     
     func updateMarkerMapView(marker:GMSMarker, place: GMSPlace){
-        self.googleMapView.clear()
-        
-        self.addressResultTableView.isHidden = true
-        self.mapView.isHidden = false
-        
-        self.addressTextField.text = place.formattedAddress
+        self.hideResultAddressTableView()
+        self.showMapView()
+        self.setAddressTextField(formattedAddress: place.formattedAddress!)
+        self.updateMapView(marker: marker, coordinate: place.coordinate)
+    }
     
-        self.googleMapView.moveCamera(GMSCameraUpdate.setTarget((place.coordinate), zoom: 18))
-        
-        marker.map = self.googleMapView
-        
+    func updateMapView(marker: GMSMarker, coordinate: CLLocationCoordinate2D){
+        self.googleMapView.clear()
+        self.googleMapView.moveCamera(GMSCameraUpdate.setTarget((coordinate), zoom: 18))
+        self.drawMarkerView(marker: marker)
+    }
+    
+    func manageAddressButtonTapSwitchView(){
+        self.hideAddNewAddressView()
+        self.showChooseAddressView()
+    }
+    
+    
+    func setAddressTextField(formattedAddress:String){
+        self.addressTextField.text = formattedAddress
+    }
+    
+    func hideChooseAddressView(){
+        self.chooseAddressView.isHidden = true
+    }
+    
+    func hideAddNewAddressView(){
+        self.addNewAddressView.isHidden = true
+    }
+    
+    func hideAddressTableView(){
+        self.addressTableView.isHidden = true
+    }
+    
+    func hideMapView(){
+        self.mapView.isHidden = true
+    }
+    
+    func hideResultAddressTableView(){
+        self.addressResultTableView.isHidden = true
+    }
+    
+    func showChooseAddressView(){
+        self.chooseAddressView.isHidden = false
+    }
+    
+    func showAddNewAddressView(){
+        self.addNewAddressView.isHidden = false
+    }
+    
+    func showAddressTableView(){
+        self.addressTableView.isHidden = false
+    }
+    
+    func showResultAddressTableView(){
+        self.addressResultTableView.isHidden = false
+    }
+    
+    func showMapView(){
+        self.mapView.isHidden = false
     }
     
     func hideAutoCompletionTableView(){
@@ -132,21 +186,12 @@ class ManageAddressUIView: UIView{
         self.addNewAddressView.isHidden = false
         self.chooseAddressView.isHidden = true
         self.mapView.isHidden = false
-        
     }
     
     func addAddressButton(isEnabled:Bool){
         addNewAddressButton.isEnabled = isEnabled
     }
     
-    
-    
-//    func setupPrice(subTotal:String, deliveryFee:String, total:String){
-////        self.subTotalLabel.text = subTotal
-////        self.shippingFeeLabel.text = deliveryFee
-////        self.totalAmountLabel.text = total
-//    }
-
 }
 
 

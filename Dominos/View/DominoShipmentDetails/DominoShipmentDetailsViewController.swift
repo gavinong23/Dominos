@@ -19,6 +19,7 @@ class DominoShipmentDetailsViewController: UIViewController {
     @IBOutlet weak var manageAddressContainerView: UIView!
     
     var arrayAddress = [GMSAutocompletePrediction]()
+    var arraySavedAddress : [String] = ["a","b","c"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,10 @@ class DominoShipmentDetailsViewController: UIViewController {
         
         self.manageAddressUIView.addressTextField.delegate = self
         
-        setupAutoCompleteAddressTableView()
+        setupAutoCompleteAddressResultTableView()
+        
+        
+        setupAddressTableView()
         
         drawMarkerView()
         
@@ -54,18 +58,31 @@ class DominoShipmentDetailsViewController: UIViewController {
     }
     
     //The table view for main manage Address *** table view *** to show the result of the search address
-    func setupAutoCompleteAddressTableView(){
+    func setupAutoCompleteAddressResultTableView(){
        self.manageAddressUIView.addressResultTableView.delegate = self
-        self.manageAddressUIView.addressResultTableView.dataSource = self
+       self.manageAddressUIView.addressResultTableView.dataSource = self
         
-          manageAddressUIView.addressResultTableView.register(UINib(nibName: "AddressAutoCompleteTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        manageAddressUIView.addressResultTableView.register(R.nib.addressAutoCompleteTableViewCell(), forCellReuseIdentifier: R.reuseIdentifier.cell.identifier)
         
+    }
+    
+    //setup the address table for choose the saved address
+    func setupAddressTableView(){
+        self.manageAddressUIView.addressTableView.delegate = self
+        self.manageAddressUIView.addressTableView.dataSource = self
+        
+        manageAddressUIView.addressTableView.register(R.nib.addressAutoCompleteTableViewCell(), forCellReuseIdentifier: R.reuseIdentifier.cell.identifier)
     }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    @IBAction func manageAddressButtonOnClick(_ sender: Any) {
+        self.manageAddressUIView.manageAddressButtonTapSwitchView() 
+    }
+    
 
 }
 
@@ -94,8 +111,8 @@ extension DominoShipmentDetailsViewController: DominoShipmentViewType{
         self.manageAddressUIView.drawMarkerView(marker: marker)
     }
     
-    //when user click the row then update the marker, hide the table view, set the address to the text field, and reset the array address
-    func updateMapViewMarker(marker: GMSMarker, place: GMSPlace){
+    //when user click the row then update the marker, hide the table view, set the address to the text field, and reset the array address // update view when address tap
+    func updateViewWhenAddressResultViewRowTap(marker: GMSMarker, place: GMSPlace){
         self.manageAddressUIView.updateMarkerMapView(marker:marker, place: place)
         self.arrayAddress.removeAll()
     }
@@ -127,23 +144,54 @@ extension DominoShipmentDetailsViewController: UITextFieldDelegate{
 
 extension DominoShipmentDetailsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.arrayAddress.count
+        
+        var count: Int = 0
+        
+        if tableView == self.manageAddressUIView.addressResultTableView{
+              count = self.arrayAddress.count
+        }else if tableView == self.manageAddressUIView.addressTableView{
+            count = self.arraySavedAddress.count
+        }else{
+            count = 0
+        }
+        
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AddressAutoCompleteTableViewCell
+        let cell:UITableViewCell? = nil
         
-//        print("i m here cell table vidaiaka")
+        if tableView == self.manageAddressUIView.addressResultTableView{
+            
         
-        cell.transform = CGAffineTransform(rotationAngle: CGFloat(Float.pi))
-        
-        if !self.arrayAddress.isEmpty && self.arrayAddress.count > indexPath.row{
-            cell.addressLabel.attributedText = arrayAddress[indexPath.row].attributedFullText
+            if !self.arrayAddress.isEmpty && self.arrayAddress.count > indexPath.row{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AddressAutoCompleteTableViewCell
+                
+                //        print("i m here cell table vidaiaka")
+                
+                
+    
+                cell.transform = CGAffineTransform(rotationAngle: CGFloat(Float.pi))
+                cell.addressLabel.attributedText = arrayAddress[indexPath.row].attributedFullText
+                
+                return cell
+
+            
+            }
+
+        }else{
+//            return cell
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AddressAutoCompleteTableViewCell
+            
+            cell.addressLabel.text = arraySavedAddress[indexPath.row]
+            
+            return cell
         }
         
+        return cell!
         
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

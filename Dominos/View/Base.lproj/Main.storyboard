@@ -261,6 +261,9 @@
                                                                 <state key="normal" title="Manage Address">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="manageAddressButtonOnClick:" destination="xa0-RY-rbR" eventType="touchUpInside" id="U8M-eo-UrR"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSW-bD-wk7">
                                                                 <rect key="frame" x="334" y="0.0" width="333" height="51.5"/>

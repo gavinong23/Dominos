@@ -68,7 +68,7 @@ class DominoShipmentPresenter{
 //            self.locationService.place.coordinate
             let marker = self.locationService.setupMarkerWithTitle(title: place.name,target: place.coordinate)
             
-            self.dominoShipmentView?.updateMapViewMarker(marker: marker, place: place)
+            self.dominoShipmentView?.updateViewWhenAddressResultViewRowTap(marker: marker, place: place)
             
         }, onFailure: { (errorMessage) in
             //

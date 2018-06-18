@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+//This file is generate the field at story board for adding border to the UIView
 extension UIView {
     
     @IBInspectable var borderWidth: CGFloat {
