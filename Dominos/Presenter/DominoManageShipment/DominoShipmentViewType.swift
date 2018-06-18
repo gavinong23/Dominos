@@ -14,8 +14,9 @@ import GoogleMaps
 
 protocol DominoShipmentViewType : NSObjectProtocol {
     
-    
     func reloadAddressAutoCompletionData()
     func setAutoCompleteAddress(address: [GMSAutocompletePrediction])
     func hideAutoCompletionTableView()
+    func drawMarkerView(marker: GMSMarker)
+    func updateMapViewMarker(marker: GMSMarker, place: GMSPlace)
 }

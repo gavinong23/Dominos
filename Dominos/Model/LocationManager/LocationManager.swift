@@ -31,77 +31,31 @@ class LocationManager{
     func setupGoogleMapAPI() -> Bool{
         
         if(GMSServices.provideAPIKey(Config.ApiKey.GOOGLE_MAP_API_KEY) && GMSPlacesClient.provideAPIKey(Config.ApiKey.GOOGLE_MAP_API_KEY)){
-            print("Valid Google Map API Key")
-//            GMSServices.provideAPIKey(Config.ApiKey.GOOGLE_MAP_API_KEY)
-//            GMSPlacesClient.provideAPIKey(Config.ApiKey.GOOGLE_MAP_API_KEY)
               return true
         }else{
-            print("Please setup a valid Google Map API Key")
+
             return false
         }
     }
     
-    
-//    func setupCurrentLocation(){
-//        self.locationManager.requestAlwaysAuthorization()
-//
-//        self.locationManager.requestWhenInUseAuthorization()
-//
-//        if CLLocationManager.locationServicesEnabled(){
-////            locationManager.delegate = self
-//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-//            locationManager.startUpdatingLocation()
-//        }
-//    }
-    
-    func intializeMap(mapContainerView: UIView, latitude: CLLocationDegrees, longitude: CLLocationDegrees, zoom: Float){
-      
-        if(self.setupGoogleMapAPI()){
-            let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom)
-            
-            self.mapView = GMSMapView.map(withFrame: mapContainerView.bounds, camera: camera)
-            
-            mapContainerView.addSubview(self.mapView)
-        }
-    }
-    
-    func initializeMap(mapContainerView:UIView, target: CLLocationCoordinate2D, zoom: Float){
-        
-        if(self.setupGoogleMapAPI()){
+    func drawMarker(target: CLLocationCoordinate2D) -> GMSMarker{
+            self.marker = GMSMarker()
 
-            let camera = GMSCameraPosition.camera(withTarget: target, zoom: zoom)
-            
-            self.mapView = GMSMapView.map(withFrame: mapContainerView.bounds, camera: camera)
-            
-            mapContainerView.addSubview(self.mapView)
-        }
-   
-    }
-    
-    func drawMarker(target: CLLocationCoordinate2D){
-        
-        if self.mapView != nil{
-            self.marker = GMSMarker()
-            
             marker.position = target
-            
-            marker.map = mapView
-        }
+        
+            return marker
     }
     
-    func drawMarker(latitude: CLLocationDegrees, longitude: CLLocationDegrees){
-        if self.mapView != nil{
-            self.marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-            marker.map = mapView
-        }
+    func drawMarker(title: String, target: CLLocationCoordinate2D) -> GMSMarker{
+        self.marker = GMSMarker()
+        
+        marker.position = target
+        marker.title = title
+
+        return marker
     }
     
-    func updateMap(target: CLLocationCoordinate2D, zoom: Float){
-        self.mapView.clear()
-        self.mapView.moveCamera(GMSCameraUpdate.setTarget(target, zoom: zoom))
-//        GMSPlacesClient.shared().loo
-    }
+
     
     func autoCompleteAddress(searchString:String,onSuccess successCallback: ((_ address: [GMSAutocompletePrediction]) -> Void)?, onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
@@ -109,23 +63,84 @@ class LocationManager{
             GMSPlacesClient.shared().autocompleteQuery(searchString, bounds: nil, filter: self.filter, callback: { (result, error) in
                 if error == nil && result != nil{
                     
-                
-    //                self.arrayAddress = [GMSAutocompletePrediction]()
-    //
-    //                self.arrayAddress = result!
-                    
-//                    print(result)
-                    //self.tableView.reloadData()
                     successCallback?(result!)
                     
                 }else{
-                    print(error)
+                   // print(error)
                     failureCallback?(error as! String)
                 }
                 })
         }
     }
     
+    // get the particular address's place id's details such as longitude, latitude etc.
+    func getParticularAddressDetail(placeID: String, onSuccess successCallback: ((_ place: GMSPlace) -> Void)?, onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
+        
+        GMSPlacesClient.shared().lookUpPlaceID(placeID, callback: { (result, error) in
+            
+            if error == nil && result != nil{
+                
+                successCallback?(result!)
+                
+            }else{
+                
+                failureCallback?(error as! String)
+            }
+
+            })
+    }
+    
+    
+    //    func setupCurrentLocation(){
+    //        self.locationManager.requestAlwaysAuthorization()
+    //
+    //        self.locationManager.requestWhenInUseAuthorization()
+    //
+    //        if CLLocationManager.locationServicesEnabled(){
+    ////            locationManager.delegate = self
+    //            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+    //            locationManager.startUpdatingLocation()
+    //        }
+    //    }
+    
+    //    func intializeMap(mapContainerView: UIView, latitude: CLLocationDegrees, longitude: CLLocationDegrees, zoom: Float){
+    //
+    //        if(self.setupGoogleMapAPI()){
+    //            let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom)
+    //
+    //            self.mapView = GMSMapView.map(withFrame: mapContainerView.bounds, camera: camera)
+    //
+    //            mapContainerView.addSubview(self.mapView)
+    //        }
+    //    }
+    
+    //    func initializeMap(mapContainerView:UIView, target: CLLocationCoordinate2D, zoom: Float){
+    //
+    //        if(self.setupGoogleMapAPI()){
+    //
+    //            let camera = GMSCameraPosition.camera(withTarget: target, zoom: zoom)
+    //
+    //            self.mapView = GMSMapView.map(withFrame: mapContainerView.bounds, camera: camera)
+    //
+    //            mapContainerView.addSubview(self.mapView)
+    //        }
+    //
+    //    }
+    
+    
+    //    func drawMarker(latitude: CLLocationDegrees, longitude: CLLocationDegrees){
+    //        if self.mapView != nil{
+    //            self.marker = GMSMarker()
+    //            marker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    //            marker.map = mapView
+    //        }
+    //    }
+    
+    //    func updateMap(target: CLLocationCoordinate2D, zoom: Float){
+    //        self.mapView.clear()
+    //        self.mapView.moveCamera(GMSCameraUpdate.setTarget(target, zoom: zoom))
+    ////        GMSPlacesClient.shared().loo
+    //    }
     
     
 }

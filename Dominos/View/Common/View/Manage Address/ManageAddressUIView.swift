@@ -30,6 +30,8 @@ class ManageAddressUIView: UIView{
     
     @IBOutlet weak var addressTableView: UITableView!
     
+    var googleMapView: GMSMapView!
+    
     @IBOutlet weak var addressResultTableView: UITableView!
     //    var dominoShipmentDetailsViewController: DominoShipmentDetailsViewController!
     
@@ -53,20 +55,6 @@ class ManageAddressUIView: UIView{
 //        self.addressTableView.isHidden = true
         self.mapView.isHidden = false
         
-        
-//        self.bringSubview(toFront: self.mapView)
-
-        //test
-//        self.addNewAddressView.isHidden = false
-//        self.chooseAddressView.isHidden = true
-        
-        
-        //test
-//            self.addressTableView.isHidden = false
-//            self.addNewAddressView.isHidden = true
-//            self.chooseAddressView.isHidden = true
-     
-        
         self.addressResultTableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Float.pi))
         
         addSubview(contentView)
@@ -75,7 +63,48 @@ class ManageAddressUIView: UIView{
         
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
+        self.setupMapView()
+        
 //        setupAddressAutoCompleteTableView()
+        
+        //        self.bringSubview(toFront: self.mapView)
+        
+        //test
+        //        self.addNewAddressView.isHidden = false
+        //        self.chooseAddressView.isHidden = true
+        
+        
+        //test
+        //            self.addressTableView.isHidden = false
+        //            self.addNewAddressView.isHidden = true
+        //            self.chooseAddressView.isHidden = true
+    }
+    
+    func setupMapView(){
+        let camera = GMSCameraPosition.camera(withTarget: CLLocationCoordinate2D(latitude: 3.1412, longitude: 101.68653), zoom: 10)
+        
+        self.googleMapView = GMSMapView.map(withFrame: self.mapView.bounds, camera: camera)
+        
+        self.mapView.addSubview(self.googleMapView)
+        
+    }
+    
+    func drawMarkerView(marker:GMSMarker){
+        marker.map = self.googleMapView
+    }
+    
+    func updateMarkerMapView(marker:GMSMarker, place: GMSPlace){
+        self.googleMapView.clear()
+        
+        self.addressResultTableView.isHidden = true
+        self.mapView.isHidden = false
+        
+        self.addressTextField.text = place.formattedAddress
+    
+        self.googleMapView.moveCamera(GMSCameraUpdate.setTarget((place.coordinate), zoom: 18))
+        
+        marker.map = self.googleMapView
+        
     }
     
     func hideAutoCompletionTableView(){
@@ -109,6 +138,8 @@ class ManageAddressUIView: UIView{
     func addAddressButton(isEnabled:Bool){
         addNewAddressButton.isEnabled = isEnabled
     }
+    
+    
     
 //    func setupPrice(subTotal:String, deliveryFee:String, total:String){
 ////        self.subTotalLabel.text = subTotal

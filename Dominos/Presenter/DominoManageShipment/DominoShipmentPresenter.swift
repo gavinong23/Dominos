@@ -33,12 +33,16 @@ class DominoShipmentPresenter{
     }
     
     
-    func setupGoogleMap(mapContainerView:UIView, target: CLLocationCoordinate2D,zoom : Float){
-        self.locationService.setupGoogleMap(mapContainerView: mapContainerView, target: target, zoom: zoom)
-    }
+//    func setupGoogleMap(mapContainerView:UIView, target: CLLocationCoordinate2D,zoom : Float){
+////        self.locationService.setupGoogleMap(mapContainerView: mapContainerView, target: target, zoom: zoom)
+//    }
     
-    func setupMarker(target:CLLocationCoordinate2D){
-        self.locationService.setupMarker(target: target)
+    func setupMarker(target:CLLocationCoordinate2D) {
+        
+        //set marker to the view
+        let marker = self.locationService.setupMarker(target: target)
+        
+        self.dominoShipmentView?.drawMarkerView(marker: marker)
     }
     
     func addressAutoComplete(searchString: String){
@@ -56,6 +60,18 @@ class DominoShipmentPresenter{
        
         }, onFailure: { (errorMessage) in
             print(errorMessage)
+        })
+    }
+    
+    func getPlaceDetail(placeID: String){
+        self.locationService.getPlaceDetail(placeID: placeID, onSuccess: { (place) in
+//            self.locationService.place.coordinate
+            let marker = self.locationService.setupMarkerWithTitle(title: place.name,target: place.coordinate)
+            
+            self.dominoShipmentView?.updateMapViewMarker(marker: marker, place: place)
+            
+        }, onFailure: { (errorMessage) in
+            //
         })
     }
     

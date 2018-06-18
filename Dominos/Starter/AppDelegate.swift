@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         setup()
         setupCart()
-    
+        setupGoogleMapAPI()
+        
         return true
     }
     
@@ -34,10 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupCart(){
-        
        let cartService = CartService()
-        
         cartService.setCart()
+    }
+    
+    func setupGoogleMapAPI(){
+        let locationService = LocationService()
+        locationService.setupGoogleMapAPI()
     }
     
 

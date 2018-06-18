@@ -34,6 +34,7 @@ class DominoShipmentDetailsViewController: UIViewController {
         
     }
     
+    //The main manage Address View
     func setupManageAddressView(){
         let containerSize = self.manageAddressContainerView.bounds
         manageAddressUIView = ManageAddressUIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height: containerSize.height))
@@ -42,14 +43,17 @@ class DominoShipmentDetailsViewController: UIViewController {
         
         self.manageAddressUIView.addressTextField.delegate = self
         
-//        self.manageAddressUIView.addressTableView.dataSource = self
-        
-        
-        setupMapView()
         setupAutoCompleteAddressTableView()
+        
+        drawMarkerView()
         
     }
     
+    func drawMarkerView(){
+        self.dominoShipmentPresenter.setupMarker(target: CLLocationCoordinate2D(latitude: 3.1412, longitude: 101.68653))
+    }
+    
+    //The table view for main manage Address *** table view *** to show the result of the search address
     func setupAutoCompleteAddressTableView(){
        self.manageAddressUIView.addressResultTableView.delegate = self
         self.manageAddressUIView.addressResultTableView.dataSource = self
@@ -58,16 +62,6 @@ class DominoShipmentDetailsViewController: UIViewController {
         
     }
     
-    func setupMapView(){
-
-        dominoShipmentPresenter.setupGoogleMap(mapContainerView: self.manageAddressUIView.mapView, target: CLLocationCoordinate2D(latitude: 3.1412, longitude: 101.68653), zoom: 10)
-        
-        setupMarker()
-    }
-    
-    func setupMarker(){
-        dominoShipmentPresenter.setupMarker(target: CLLocationCoordinate2D(latitude: 3.1412, longitude: 101.68653))
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -94,6 +88,16 @@ extension DominoShipmentDetailsViewController: DominoShipmentViewType{
 //        self.view.bringSubview(toFront: self.manageAddressUIView.addressTableView)
         
 //        print(self.arrayAddress)
+    }
+    
+    func drawMarkerView(marker: GMSMarker){
+        self.manageAddressUIView.drawMarkerView(marker: marker)
+    }
+    
+    //when user click the row then update the marker, hide the table view, set the address to the text field, and reset the array address
+    func updateMapViewMarker(marker: GMSMarker, place: GMSPlace){
+        self.manageAddressUIView.updateMarkerMapView(marker:marker, place: place)
+        self.arrayAddress.removeAll()
     }
     
 }
@@ -140,6 +144,15 @@ extension DominoShipmentDetailsViewController: UITableViewDelegate, UITableViewD
         
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if self.arrayAddress.count > indexPath.row{
+            
+            self.dominoShipmentPresenter.getPlaceDetail(placeID: arrayAddress[indexPath.row].placeID!)
+            
+        }
     }
     
 }
