@@ -19,6 +19,8 @@ class APIManager{
         case getListingPizza = "/getAllPizza.php"
         case getDetailPizza = "/pizzaDetail.php"
         case getParticularUserAllAddress = "/getParticularUserAllAddress.php"
+        case addAddress = "/addAddress.php"
+
     }
     
     func callAPIGetPizzas(onSuccess successCallback: ((_ pizzas: [DominoListingModel]) -> Void)?,
@@ -73,6 +75,23 @@ class APIManager{
         })
     }
     
+    
+    func callAPIUploadAddress(userID:String, address:String,onSuccess successCallback: ((_ successMessage:JSON) -> Void)?,
+                              onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
+        
+        let url = self.createUrlStringWithBaseUrl(EndPoint: EndPoint.addAddress.rawValue)
+        
+        let parameters = ["userID":userID, "address":address]
+        
+        self.createPostRequest(url, parameters:parameters, encoding: URLEncoding.httpBody, onSuccess: { (successMessage: JSON) -> Void in
+            successCallback!(successMessage)
+        }, onFailure: { (errorMessage: String)-> Void in
+            failureCallback!(errorMessage)
+        })
+        
+    }
+    
+    
     func callAPIGetPizzaWithParam(pizzaID: String, onSuccess successCallback: ((_ pizza: DominoDetailModel) -> Void)?,
                                   onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
@@ -113,11 +132,10 @@ class APIManager{
         
 
     }
-    
+
     func createUrlStringWithBaseUrl(EndPoint: String) -> String{
         return Config.Url.API_BASE_URL + EndPoint
     }
-    
     
     func createPostRequest(_ url: String, parameters: [String:String]?, encoding: URLEncoding,onSuccess successCallback:((JSON)-> Void)?, onFailure failureCallback: ((String)-> Void)?){
         
@@ -159,6 +177,8 @@ class APIManager{
             }
         }
     }
+    
+    
     
 }
     

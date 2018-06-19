@@ -34,6 +34,8 @@ class ManageAddressUIView: UIView{
     
     @IBOutlet weak var addressResultTableView: UITableView!
     
+    var didClickSubmitAddressButton: ((_ clicked: Bool) -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -74,6 +76,11 @@ class ManageAddressUIView: UIView{
     
     func drawMarkerView(marker:GMSMarker){
         marker.map = self.googleMapView
+    }
+    
+    
+    @IBAction func submitAddressToSaveOnClick(_ sender: Any) {
+        didClickSubmitAddressButton?(true)
     }
     
     func hideAutoCompletionTableView(){

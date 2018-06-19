@@ -20,4 +20,6 @@ protocol DominoShipmentViewType : NSObjectProtocol {
     func drawMarkerView(marker: GMSMarker)
     func updateViewWhenAddressResultViewRowTap(marker: GMSMarker, place: GMSPlace)
     func setChooseAddressView(addresses: [UserAddressModel])
+    func showAlertBox(title: String, message: String)
+    func showConfirmationBox(title:String, message: String)
 }

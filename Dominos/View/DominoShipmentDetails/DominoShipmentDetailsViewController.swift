@@ -33,10 +33,8 @@ class DominoShipmentDetailsViewController: UIViewController {
         
     }
     
-    
     func setupView(){
         dominoShipmentPresenter.attachView(view: self)
-        
     }
     
     //The main manage Address View
@@ -45,22 +43,25 @@ class DominoShipmentDetailsViewController: UIViewController {
         manageAddressUIView = ManageAddressUIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height: containerSize.height))
         self.manageAddressContainerView.addSubview(manageAddressUIView)
       
-        
         self.manageAddressUIView.addressTextField.delegate = self
-        
         setupAutoCompleteAddressResultTableView()
-        
-        
         setupAddressTableView()
-        
         drawMarkerView()
-        
+        SubmitAddressOnClick()
     }
     
     func drawMarkerView(){
         self.dominoShipmentPresenter.setupMarker(target: CLLocationCoordinate2D(latitude: 3.1412, longitude: 101.68653))
     }
     
+    func SubmitAddressOnClick(){
+        self.manageAddressUIView.didClickSubmitAddressButton = { (clicked) in
+            if clicked{
+                self.dominoShipmentPresenter.confirmationUploadAddress()
+            }
+            
+        }
+    }
     
     //The table view for main manage Address *** table view *** to show the result of the search address
     func setupAutoCompleteAddressResultTableView(){
@@ -131,6 +132,28 @@ extension DominoShipmentDetailsViewController: DominoShipmentViewType{
         
     }
     
+    func showConfirmationBox(title:String, message: String) {
+        let refreshAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
+          
+            self.dominoShipmentPresenter.uploadNewAddressToServer(uploadAddressText: self.manageAddressUIView.addressTextField.text!)
+          
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    func showAlertBox(title:String,message:String){
+        let alert = UIAlertController(title: title , message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension DominoShipmentDetailsViewController: UITextFieldDelegate{
@@ -154,7 +177,6 @@ extension DominoShipmentDetailsViewController: UITextFieldDelegate{
         return true
     }
 }
-
 
 extension DominoShipmentDetailsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -210,10 +232,16 @@ extension DominoShipmentDetailsViewController: UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if self.arrayAddress.count > indexPath.row{
+        
+        if tableView == self.manageAddressUIView.addressTableView{
             
-            self.dominoShipmentPresenter.getPlaceDetail(placeID: arrayAddress[indexPath.row].placeID!)
+        }else if tableView == self.manageAddressUIView.addressResultTableView{
             
+            if self.arrayAddress.count > indexPath.row{
+                
+                self.dominoShipmentPresenter.getPlaceDetail(placeID: arrayAddress[indexPath.row].placeID!)
+                
+            }
         }
     }
     

@@ -89,4 +89,27 @@ class DominoShipmentPresenter{
         })
     }
     
+    func uploadNewAddressToServer(uploadAddressText: String){
+      
+        if uploadAddressText != ""{
+            
+            // upload to database(model  - pizza service)
+            print(uploadAddressText)
+            
+            
+            
+            //show successfully uploaded alert box
+            self.dominoShipmentView?.showAlertBox(title: "Successfully added address.", message: "You left 4 address slot(s).")
+        }else{
+            //show alert box
+            self.dominoShipmentView?.showAlertBox(title: "Failed to add address.", message: "empty address entered.")
+        }
+        
+        
+    }
+    
+    func confirmationUploadAddress(){
+        self.dominoShipmentView?.showConfirmationBox(title: "Are you sure you want to add this address?", message: "You only left 5 address slot(s)")
+    }
+    
 }
