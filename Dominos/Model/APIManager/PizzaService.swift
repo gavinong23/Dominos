@@ -45,10 +45,25 @@ class PizzaService{
             pizzaID: pizzaID,
             onSuccess: { (pizzas) in
                 
-             
             successCallback?(pizzas)
                 
         }, onFailure: {(errorMessage) in
+            failureCallback?(errorMessage)
+        })
+        
+    }
+    
+    func callAPIGetParticularUserAllAddress(userID:String,onSuccess successCallback: ((_ addresses: [UserAddressModel]) -> Void)?,
+                                            onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
+        
+        
+        APIManager.instance.callAPIGetParticularUserAllAddress(userID: userID, onSuccess: { (addresses) in
+            
+            successCallback?(addresses)
+            
+            print(addresses)
+            
+        }, onFailure: { (errorMessage) in
             failureCallback?(errorMessage)
         })
         

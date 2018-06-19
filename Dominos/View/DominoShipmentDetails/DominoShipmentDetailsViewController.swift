@@ -14,18 +14,22 @@ class DominoShipmentDetailsViewController: UIViewController {
     
     var manageAddressUIView = ManageAddressUIView()
     
-    private let dominoShipmentPresenter = DominoShipmentPresenter(locationService:LocationService())
+    private let dominoShipmentPresenter = DominoShipmentPresenter(locationService:LocationService(), pizzaService: PizzaService())
     
     @IBOutlet weak var manageAddressContainerView: UIView!
     
     var arrayAddress = [GMSAutocompletePrediction]()
-    var arraySavedAddress : [String] = ["a","b","c"]
+    
+    var arraySavedAddress = [UserAddressModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        self.dominoShipmentPresenter.getParticularUserAddress(userID: "1")
         setupManageAddressView()
         manageAddressUIView.addAddressButton(isEnabled: true)
+        
+     
         
     }
     
@@ -57,6 +61,7 @@ class DominoShipmentDetailsViewController: UIViewController {
         self.dominoShipmentPresenter.setupMarker(target: CLLocationCoordinate2D(latitude: 3.1412, longitude: 101.68653))
     }
     
+    
     //The table view for main manage Address *** table view *** to show the result of the search address
     func setupAutoCompleteAddressResultTableView(){
        self.manageAddressUIView.addressResultTableView.delegate = self
@@ -72,6 +77,8 @@ class DominoShipmentDetailsViewController: UIViewController {
         self.manageAddressUIView.addressTableView.dataSource = self
         
         manageAddressUIView.addressTableView.register(R.nib.addressAutoCompleteTableViewCell(), forCellReuseIdentifier: R.reuseIdentifier.cell.identifier)
+        
+       
     }
     
     
@@ -115,6 +122,13 @@ extension DominoShipmentDetailsViewController: DominoShipmentViewType{
     func updateViewWhenAddressResultViewRowTap(marker: GMSMarker, place: GMSPlace){
         self.manageAddressUIView.updateMarkerMapView(marker:marker, place: place)
         self.arrayAddress.removeAll()
+    }
+    
+    func setChooseAddressView(addresses: [UserAddressModel]){
+        self.arraySavedAddress = addresses
+        print("haha:\(addresses)")
+        self.manageAddressUIView.reloadChooseAddressTableView()
+        
     }
     
 }
@@ -185,7 +199,7 @@ extension DominoShipmentDetailsViewController: UITableViewDelegate, UITableViewD
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AddressAutoCompleteTableViewCell
             
-            cell.addressLabel.text = arraySavedAddress[indexPath.row]
+            cell.addressLabel.text = arraySavedAddress[indexPath.row].address
             
             return cell
         }

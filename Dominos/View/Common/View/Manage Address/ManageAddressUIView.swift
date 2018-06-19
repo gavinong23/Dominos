@@ -33,9 +33,6 @@ class ManageAddressUIView: UIView{
     var googleMapView: GMSMapView!
     
     @IBOutlet weak var addressResultTableView: UITableView!
-    //    var dominoShipmentDetailsViewController: DominoShipmentDetailsViewController!
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,35 +64,42 @@ class ManageAddressUIView: UIView{
         
         addressTableView.removeTheExtraLine()
         addressResultTableView.removeTheExtraLine()
-        
-//        setupAddressAutoCompleteTableView()
-        
-        //        self.bringSubview(toFront: self.mapView)
-        
-        //test
-        //        self.addNewAddressView.isHidden = false
-        //        self.chooseAddressView.isHidden = true
-        
-        
-        //test
-        //            self.addressTableView.isHidden = false
-        //            self.addNewAddressView.isHidden = true
-        //            self.chooseAddressView.isHidden = true
     }
     
     func setupMapView(){
         let camera = GMSCameraPosition.camera(withTarget: CLLocationCoordinate2D(latitude: 3.1412, longitude: 101.68653), zoom: 10)
-        
         self.googleMapView = GMSMapView.map(withFrame: self.mapView.bounds, camera: camera)
-        
-       
-        
         self.mapView.addSubview(self.googleMapView)
-        
     }
     
     func drawMarkerView(marker:GMSMarker){
         marker.map = self.googleMapView
+    }
+    
+    func hideAutoCompletionTableView(){
+        self.hideChooseAddressView()
+        self.hideResultAddressTableView()
+        self.showMapView()
+    }
+    
+    func showAutoCompletionTableView(){
+        self.showResultAddressTableView()
+        self.hideChooseAddressView()
+        self.hideMapView()
+    }
+    
+    func addressAutoCompleteReloadData(){
+        self.addressResultTableView.reloadData()
+    }
+    
+    @IBAction func addNewAddressOnClick(_ sender: Any) {
+        self.showAddNewAddressView()
+        self.hideChooseAddressView()
+        self.showMapView()
+    }
+    
+    func addAddressButton(isEnabled:Bool){
+        addNewAddressButton.isEnabled = isEnabled
     }
     
     func updateMarkerMapView(marker:GMSMarker, place: GMSPlace){
@@ -114,6 +118,10 @@ class ManageAddressUIView: UIView{
     func manageAddressButtonTapSwitchView(){
         self.hideAddNewAddressView()
         self.showChooseAddressView()
+    }
+    
+    func reloadChooseAddressTableView(){
+        self.addressTableView.reloadData()
     }
     
     
@@ -160,38 +168,7 @@ class ManageAddressUIView: UIView{
     func showMapView(){
         self.mapView.isHidden = false
     }
-    
-    func hideAutoCompletionTableView(){
-//        self.addressTableView.isHidden = true
-//        self.chooisHidden = true
-        self.chooseAddressView.isHidden = true
-        self.addressResultTableView.isHidden = true
-        self.mapView.isHidden = false
-//        self.bringSubview(toFront: self.mapView)
-    }
-    
-    func showAutoCompletionTableView(){
-//        self.addNewAddressView.isHidden = false
-        self.addressResultTableView.isHidden = false
-        self.chooseAddressView.isHidden = true
-        self.mapView.isHidden = true
-//        self.bringSubview(toFront: self.addressTableView)
-    }
-    
-    func addressAutoCompleteReloadData(){
-       self.addressResultTableView.reloadData()
-    }
-    
-    @IBAction func addNewAddressOnClick(_ sender: Any) {
-        self.addNewAddressView.isHidden = false
-        self.chooseAddressView.isHidden = true
-        self.mapView.isHidden = false
-    }
-    
-    func addAddressButton(isEnabled:Bool){
-        addNewAddressButton.isEnabled = isEnabled
-    }
-    
+
 }
 
 

@@ -29,6 +29,7 @@
 		55BCEA222096BCEF00810C71 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55BCEA212096BCEF00810C71 /* R.generated.swift */; };
 		7302D9FD50DD7B7389C6254F /* Pods_DominosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C3AECC0E9396EEFFE95634C /* Pods_DominosUITests.framework */; };
 		A2C12C4690A13CDC80E9D885 /* Pods_DominosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E140BE1FB28F35454B3A42BA /* Pods_DominosTests.framework */; };
+		E90151C220D8B10100F283CB /* UserAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90151C120D8B10100F283CB /* UserAddressModel.swift */; };
 		E9063E5320BE3366002B10E7 /* RequestTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9063E5220BE3366002B10E7 /* RequestTimer.swift */; };
 		E9063E5820BE6E35002B10E7 /* DominoCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9063E5720BE6E35002B10E7 /* DominoCartViewController.swift */; };
 		E9063E5C20BE8E48002B10E7 /* DominoCartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9063E5A20BE8E48002B10E7 /* DominoCartCollectionViewCell.swift */; };
@@ -136,6 +137,7 @@
 		DC2AC226C8D03EC922BD14F2 /* Pods-Dominos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dominos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dominos/Pods-Dominos.release.xcconfig"; sourceTree = "<group>"; };
 		DC4832D425D26AACD7EA4755 /* Pods-Dominos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dominos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dominos/Pods-Dominos.debug.xcconfig"; sourceTree = "<group>"; };
 		E140BE1FB28F35454B3A42BA /* Pods_DominosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DominosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E90151C120D8B10100F283CB /* UserAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAddressModel.swift; sourceTree = "<group>"; };
 		E9063E5220BE3366002B10E7 /* RequestTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTimer.swift; sourceTree = "<group>"; };
 		E9063E5720BE6E35002B10E7 /* DominoCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoCartViewController.swift; sourceTree = "<group>"; };
 		E9063E5A20BE8E48002B10E7 /* DominoCartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominoCartCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				55A3B1E920970E5F00BA8B8C /* APIManager */,
 				E9197BAC20AAB117003FA350 /* DominoListingModel.swift */,
 				E95E2D5D20B3BFB800F2EA17 /* DominoDetailModel.swift */,
+				E90151C120D8B10100F283CB /* UserAddressModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -997,6 +1000,7 @@
 				E9197BAB20AAA827003FA350 /* APIManager.swift in Sources */,
 				E92614DB20CE19B2005B932D /* DominoCheckoutPresenter.swift in Sources */,
 				E9063E5C20BE8E48002B10E7 /* DominoCartCollectionViewCell.swift in Sources */,
+				E90151C220D8B10100F283CB /* UserAddressModel.swift in Sources */,
 				5583FD7B2096A8040013394D /* Player.swift in Sources */,
 				E99FBA1720C7792500462748 /* CartService.swift in Sources */,
 				E9111BEA20CA113A00791A38 /* DominoCheckoutViewController.swift in Sources */,

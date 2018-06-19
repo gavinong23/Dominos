@@ -16,11 +16,13 @@ import GoogleMaps
 class DominoShipmentPresenter{
     
      private let locationService: LocationService
+     private let pizzaService: PizzaService
      weak private var dominoShipmentView : DominoShipmentViewType?
     
-    init(locationService: LocationService){
+    init(locationService: LocationService, pizzaService: PizzaService){
 
         self.locationService = locationService
+        self.pizzaService = pizzaService
     }
     
     func attachView(view: DominoShipmentViewType){
@@ -72,6 +74,18 @@ class DominoShipmentPresenter{
             
         }, onFailure: { (errorMessage) in
             //
+        })
+    }
+    
+    func getParticularUserAddress(userID: String){
+        self.pizzaService.callAPIGetParticularUserAllAddress(userID: userID, onSuccess: { (addresses) in
+            
+            print(addresses)
+            
+            self.dominoShipmentView?.setChooseAddressView(addresses: addresses)
+            
+        }, onFailure: { (errorMessage) in
+            print(errorMessage)
         })
     }
     

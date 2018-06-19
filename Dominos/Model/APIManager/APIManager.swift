@@ -18,6 +18,7 @@ class APIManager{
     enum EndPoint: String{
         case getListingPizza = "/getAllPizza.php"
         case getDetailPizza = "/pizzaDetail.php"
+        case getParticularUserAllAddress = "/getParticularUserAllAddress.php"
     }
     
     func callAPIGetPizzas(onSuccess successCallback: ((_ pizzas: [DominoListingModel]) -> Void)?,
@@ -27,7 +28,7 @@ class APIManager{
         
         // call API
         self.createGetRequest(
-            url, method: .get, headers: nil, parameters: nil,
+            url, headers: nil, parameters: nil,
             onSuccess: {(responseObject: JSON) -> Void in
                 
                 let pizzaData:[DominoListingModel] = responseObject["response"]
@@ -48,12 +49,36 @@ class APIManager{
         )
     }
     
+    func callAPIGetParticularUserAllAddress(userID: String,onSuccess successCallback: ((_ pizzas: [UserAddressModel]) -> Void)?,
+                                            onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
+        
+        let url = self.createUrlStringWithBaseUrl(EndPoint: EndPoint.getParticularUserAllAddress.rawValue)
+        
+        
+        print(url)
+        
+        let parameters = ["userID": userID]
+        
+        self.createPostRequest(url, parameters: parameters, encoding: URLEncoding.httpBody, onSuccess: { (responseObject: JSON) -> Void in
+            let addressData:[UserAddressModel] = responseObject["response"].arrayValue.map{
+                UserAddressModel(JSON: $0)
+            }
+            
+            print(addressData)
+            
+            successCallback!(addressData)
+            
+        }, onFailure: { (errorMessage: String)-> Void in
+            failureCallback?(errorMessage)
+        })
+    }
+    
     func callAPIGetPizzaWithParam(pizzaID: String, onSuccess successCallback: ((_ pizza: DominoDetailModel) -> Void)?,
                                   onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
         let url = Config.Url.API_BASE_URL + EndPoint.getDetailPizza.rawValue + "?&pizzaID=\(pizzaID)"
         
-        self.createGetRequest(url, method: .get, headers: nil, parameters: nil, onSuccess: {(responseObject: JSON)-> Void in
+        self.createGetRequest(url, headers: nil, parameters: nil, onSuccess: {(responseObject: JSON)-> Void in
         
             let pizzaData =  DominoDetailModel(JSON: responseObject["response"])
             
@@ -65,19 +90,14 @@ class APIManager{
         })
     }
     
-    
     func callAPIPostPizzaWithParam(pizzaID: String, onSuccess successCallback: ((_ pizza: DominoDetailModel) -> Void)?,
                                   onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
         let url = Config.Url.API_BASE_URL + EndPoint.getDetailPizza.rawValue
         
         let parameters = ["pizzaID":pizzaID]
-        
-        //print(parameters)
-        
-        let headers = ["Content-Type":"application/x-www-form-urlencoded"]
-        
-        self.createPostRequest(url, method: .post, headers: headers, parameters: parameters, encoding: URLEncoding.httpBody, onSuccess: {(responseObject: JSON)-> Void in
+    
+        self.createPostRequest(url, parameters: parameters, encoding: URLEncoding.httpBody, onSuccess: {(responseObject: JSON)-> Void in
 
             let pizzaData =  DominoDetailModel(JSON: responseObject["response"])
             
@@ -94,10 +114,16 @@ class APIManager{
 
     }
     
+    func createUrlStringWithBaseUrl(EndPoint: String) -> String{
+        return Config.Url.API_BASE_URL + EndPoint
+    }
     
-    func createPostRequest(_ url: String, method: HTTPMethod, headers: [String:String]?, parameters: [String:String]?, encoding: URLEncoding,onSuccess successCallback:((JSON)-> Void)?, onFailure failureCallback: ((String)-> Void)?){
+    
+    func createPostRequest(_ url: String, parameters: [String:String]?, encoding: URLEncoding,onSuccess successCallback:((JSON)-> Void)?, onFailure failureCallback: ((String)-> Void)?){
         
-        Alamofire.request(url,method: method,parameters:parameters,encoding:encoding,headers:headers).validate().responseJSON{
+        let headers = ["Content-Type":"application/x-www-form-urlencoded"]
+        
+        Alamofire.request(url,method: .post,parameters:parameters,encoding:encoding,headers:headers).validate().responseJSON{
             response in
             
         
@@ -115,9 +141,9 @@ class APIManager{
         }
     }
     
-    func createGetRequest(_ url: String, method: HTTPMethod, headers: [String:String]?, parameters: AnyObject?, onSuccess successCallback:((JSON)-> Void)?, onFailure failureCallback: ((String)-> Void)?){
+    func createGetRequest(_ url: String, headers: [String:String]?, parameters: AnyObject?, onSuccess successCallback:((JSON)-> Void)?, onFailure failureCallback: ((String)-> Void)?){
         
-        Alamofire.request(url,method: method,headers:headers).validate().responseJSON{
+        Alamofire.request(url,method: .get,headers:headers).validate().responseJSON{
             response in
             switch response.result{
                 case .success(let value):

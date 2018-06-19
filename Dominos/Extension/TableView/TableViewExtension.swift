@@ -12,13 +12,8 @@ import UIKit
 
 extension UITableView{
     
-    
-    
     func removeTheExtraLine(){
         self.tableFooterView = UIView()
     }
-    
-    
-    
     
 }

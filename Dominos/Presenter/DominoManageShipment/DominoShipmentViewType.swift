@@ -19,4 +19,5 @@ protocol DominoShipmentViewType : NSObjectProtocol {
     func hideAutoCompletionTableView()
     func drawMarkerView(marker: GMSMarker)
     func updateViewWhenAddressResultViewRowTap(marker: GMSMarker, place: GMSPlace)
+    func setChooseAddressView(addresses: [UserAddressModel])
 }
