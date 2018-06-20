@@ -22,4 +22,6 @@ protocol DominoShipmentViewType : NSObjectProtocol {
     func setChooseAddressView(addresses: [UserAddressModel])
     func showAlertBox(title: String, message: String)
     func showConfirmationBox(title:String, message: String)
+    func switchToChooseAddressViewAfterAddedNewAddress()
+    func deleteAddressUpdateView(row: Int, indexPath: IndexPath)
 }

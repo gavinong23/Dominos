@@ -127,6 +127,18 @@ class ManageAddressUIView: UIView{
         self.showChooseAddressView()
     }
     
+    func afterAddedNewAddressSwitchBackToChooseAddressView(){
+        self.hideAddNewAddressView()
+        self.hideResultAddressTableView()
+        self.showChooseAddressView()
+        self.reloadChooseAddressTableView()
+    }
+    
+    func deleteAddressRow(indexPath: IndexPath){
+        self.addressTableView.deleteRows(at: [indexPath], with: .automatic)
+        self.reloadChooseAddressTableView()
+    }
+    
     func reloadChooseAddressTableView(){
         self.addressTableView.reloadData()
     }

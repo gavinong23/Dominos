@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 
 class PizzaService{
@@ -66,6 +67,27 @@ class PizzaService{
         }, onFailure: { (errorMessage) in
             failureCallback?(errorMessage)
         })
+    }
+    
+    func callAPIUploadUserAddress(userID: String, address: String, onSuccess successCallback: ((_ successMessage: String) -> Void)?,
+                                  onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
+        
+        APIManager.instance.callAPIUploadAddress(userID: userID, address: address, onSuccess: { (successMessage) in
+            successCallback?(successMessage)
+        }, onFailure: { (errorMessage) in
+            failureCallback?(errorMessage)
+        })
+        
+    }
+    
+    func callAPIDeleteUserAddress(userID:String, addressID: String, onSuccess successCallback: ((_ successMessage: String) -> Void)?,
+                                  onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
+        
+        APIManager.instance.callAPIDeleteParticularAddress(userID: userID, addressID: addressID, onSuccess: { (successMessage) in
+            successCallback?(successMessage)
+        }, onFailure: {(errorMessage) in
+            failureCallback?(errorMessage)
+        })
     }
 }

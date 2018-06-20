@@ -37,6 +37,10 @@ class DominoShipmentDetailsViewController: UIViewController {
         dominoShipmentPresenter.attachView(view: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.dominoShipmentPresenter.getParticularUserAddress(userID: "1")
+    }
+    
     //The main manage Address View
     func setupManageAddressView(){
         let containerSize = self.manageAddressContainerView.bounds
@@ -154,6 +158,15 @@ extension DominoShipmentDetailsViewController: DominoShipmentViewType{
         self.present(alert, animated: true, completion: nil)
     }
     
+    func switchToChooseAddressViewAfterAddedNewAddress(){
+        self.manageAddressUIView.afterAddedNewAddressSwitchBackToChooseAddressView()
+    }
+    
+    func deleteAddressUpdateView(row: Int, indexPath: IndexPath){
+        self.arraySavedAddress.remove(at: row)
+        self.manageAddressUIView.deleteAddressRow(indexPath: indexPath)
+    }
+    
 }
 
 extension DominoShipmentDetailsViewController: UITextFieldDelegate{
@@ -241,6 +254,23 @@ extension DominoShipmentDetailsViewController: UITableViewDelegate, UITableViewD
                 
                 self.dominoShipmentPresenter.getPlaceDetail(placeID: arrayAddress[indexPath.row].placeID!)
                 
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if tableView == self.manageAddressUIView.addressTableView{
+            
+            let address = self.arraySavedAddress[indexPath.row]
+        
+            if let addressID = address.addressID{
+                
+                if self.arraySavedAddress.count > indexPath.row{
+              
+                    self.dominoShipmentPresenter.deleteParticularAddress(addressID: addressID, row: indexPath.row, indexPath: indexPath)
+                    
+                }
             }
         }
     }

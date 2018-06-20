@@ -19,6 +19,8 @@ class DominoShipmentPresenter{
      private let pizzaService: PizzaService
      weak private var dominoShipmentView : DominoShipmentViewType?
     
+    var userID: String?
+    
     init(locationService: LocationService, pizzaService: PizzaService){
 
         self.locationService = locationService
@@ -81,7 +83,7 @@ class DominoShipmentPresenter{
         self.pizzaService.callAPIGetParticularUserAllAddress(userID: userID, onSuccess: { (addresses) in
             
             print(addresses)
-            
+            self.userID = userID
             self.dominoShipmentView?.setChooseAddressView(addresses: addresses)
             
         }, onFailure: { (errorMessage) in
@@ -96,10 +98,22 @@ class DominoShipmentPresenter{
             // upload to database(model  - pizza service)
             print(uploadAddressText)
             
+//            print(self.userID!)
             
-            
-            //show successfully uploaded alert box
-            self.dominoShipmentView?.showAlertBox(title: "Successfully added address.", message: "You left 4 address slot(s).")
+            if !self.userID!.isEmpty{
+                self.pizzaService.callAPIUploadUserAddress(userID: self.userID!, address: uploadAddressText, onSuccess: { (successMessage) in
+                    //show successfully uploaded alert box
+                    //self.dominoShipmentView?.showAlertBox(title: successMessage, message: "You left 4 address slot(s).")
+                    
+                    self.getParticularUserAddress(userID: self.userID!)
+                    
+                    self.dominoShipmentView?.switchToChooseAddressViewAfterAddedNewAddress()
+                }, onFailure: { (errorMessage) in
+                    //show alert box
+                    self.dominoShipmentView?.showAlertBox(title: "Failed to upload address.", message: errorMessage)
+                })
+            }
+
         }else{
             //show alert box
             self.dominoShipmentView?.showAlertBox(title: "Failed to add address.", message: "empty address entered.")
@@ -110,6 +124,18 @@ class DominoShipmentPresenter{
     
     func confirmationUploadAddress(){
         self.dominoShipmentView?.showConfirmationBox(title: "Are you sure you want to add this address?", message: "You only left 5 address slot(s)")
+    }
+    
+    func deleteParticularAddress(addressID: String, row: Int, indexPath: IndexPath){
+        
+        if !self.userID!.isEmpty{
+            self.pizzaService.callAPIDeleteUserAddress(userID: self.userID!, addressID: addressID, onSuccess: { (successMessage) in
+                self.getParticularUserAddress(userID: self.userID!)
+                self.dominoShipmentView?.deleteAddressUpdateView(row: row, indexPath: indexPath)
+            }, onFailure: { (errorMessage) in
+                
+            })
+        }
     }
     
 }

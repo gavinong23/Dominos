@@ -20,6 +20,7 @@ class APIManager{
         case getDetailPizza = "/pizzaDetail.php"
         case getParticularUserAllAddress = "/getParticularUserAllAddress.php"
         case addAddress = "/addAddress.php"
+        case deleteParticularAddress = "/deleteParticularAddress.php"
 
     }
     
@@ -76,16 +77,31 @@ class APIManager{
     }
     
     
-    func callAPIUploadAddress(userID:String, address:String,onSuccess successCallback: ((_ successMessage:JSON) -> Void)?,
+    func callAPIUploadAddress(userID:String, address:String,onSuccess successCallback: ((_ responseObject:String) -> Void)?,
                               onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
         let url = self.createUrlStringWithBaseUrl(EndPoint: EndPoint.addAddress.rawValue)
         
         let parameters = ["userID":userID, "address":address]
         
-        self.createPostRequest(url, parameters:parameters, encoding: URLEncoding.httpBody, onSuccess: { (successMessage: JSON) -> Void in
-            successCallback!(successMessage)
+        self.createPostRequest(url, parameters:parameters, encoding: URLEncoding.httpBody, onSuccess: { (responseObject: JSON) -> Void in
+            successCallback!(responseObject["response"].stringValue)
         }, onFailure: { (errorMessage: String)-> Void in
+            failureCallback!(errorMessage)
+        })
+        
+    }
+    
+    func callAPIDeleteParticularAddress(userID: String, addressID: String,onSuccess successCallback: ((_ responseObject:String) -> Void)?,
+        onFailure failureCallback: ((_ errorMessage: String) -> Void)?) {
+        
+        let url = self.createUrlStringWithBaseUrl(EndPoint: EndPoint.deleteParticularAddress.rawValue)
+        
+        let parameters = ["userID": userID, "addressID": addressID]
+        
+        self.createPostRequest(url, parameters: parameters, encoding: URLEncoding.httpBody, onSuccess: { (responseObject: JSON) -> Void in
+            successCallback!(responseObject["response"].stringValue)
+        }, onFailure: { (errorMessage: String) -> Void in
             failureCallback!(errorMessage)
         })
         
@@ -132,6 +148,7 @@ class APIManager{
         
 
     }
+    
 
     func createUrlStringWithBaseUrl(EndPoint: String) -> String{
         return Config.Url.API_BASE_URL + EndPoint
@@ -177,6 +194,8 @@ class APIManager{
             }
         }
     }
+    
+    
     
     
     
