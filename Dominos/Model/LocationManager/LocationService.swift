@@ -47,7 +47,7 @@ class LocationService{
         })
     }
     
-    func autoCompleteAddress(searchString: String,onSuccess successCallback: ((_ addresses: [GMSAutocompletePrediction]) -> Void)?, onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
+    func autoCompleteAddress(searchString: String,onSuccess successCallback: ((_ addresses: [GMSAutocompletePrediction]) -> Void)?, onFailure failureCallback: ((_ errorMessage: Error) -> Void)?){
         
         LocationManager.instance.autoCompleteAddress(searchString: searchString, onSuccess: { (addresses) in
             successCallback?(addresses)

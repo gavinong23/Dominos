@@ -233,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sst-Vz-NRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897" y="575"/>
+            <point key="canvasLocation" x="896" y="858"/>
         </scene>
         <!--Domino Shipment Details View Controller-->
         <scene sceneID="qLU-HM-rKr">
@@ -309,13 +309,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0C2-pV-aMm"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xBo-Bk-M5u"/>
                     <connections>
                         <outlet property="manageAddressContainerView" destination="I9H-SF-DkE" id="ZIo-nm-lfX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xlh-Cb-iFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1647.5262368815593" y="-1154.4000000000001"/>
+            <point key="canvasLocation" x="1685" y="-1154"/>
         </scene>
         <!--My Cart-->
         <scene sceneID="Scp-ug-dfW">
@@ -933,7 +934,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hO-no-aWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="-1154"/>
+            <point key="canvasLocation" x="940" y="-1154"/>
         </scene>
         <!--Item-->
         <scene sceneID="TUG-ds-d7F">

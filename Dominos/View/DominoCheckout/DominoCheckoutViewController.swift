@@ -26,13 +26,20 @@ class DominoCheckoutViewController:UIViewController {
 //        paymentView = codView
 //    }
     
-    private let dominoCheckoutPresenter = DominoCheckoutPresenter(cartService: CartService())
+    private let dominoCheckoutPresenter = DominoCheckoutPresenter(userService: UserService(), cartService: CartService())
 
     @IBOutlet weak var shipmentDetailsContainerView: UIView!
     
+     var shipmentDetailsUIView  = ShipmentDetailsUIView()
+    
+    
     @IBOutlet weak var orderSummaryContainerView: UIView!
     
+    var orderSummaryUIView = OrderSummaryUIView()
+    
     @IBOutlet weak var paymentMethodContainerView: UIView!
+
+    var paymentMethodUIView = PaymentMethodUIView()
     
     @IBOutlet weak var creditCardButton: UIButton!
 
@@ -41,9 +48,7 @@ class DominoCheckoutViewController:UIViewController {
     var offsetY:CGFloat = 0
 
     @IBOutlet weak var placeOrderButton: UIButton!
-    
-    var paymentMethodUIView = PaymentMethodUIView()
-  
+
     
     var subTotal = String()
     var deliveryFee = String()
@@ -63,13 +68,19 @@ class DominoCheckoutViewController:UIViewController {
       dominoCheckoutPresenter.attachView(view: self)
     }
     
+    func updateShipmentAddressView(address:String){
+       // self.shipmentDetailsUIView.shipmentOwnerAddressLabel.text = address
+    }
+    
     func setupShipmentDetailsView(){
         let containerSize = self.shipmentDetailsContainerView.bounds
-        let shipmentDetailsUIView = ShipmentDetailsUIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height: containerSize.height))
+        shipmentDetailsUIView = ShipmentDetailsUIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height: containerSize.height))
         self.shipmentDetailsContainerView.addSubview(shipmentDetailsUIView)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.editShipmentDetails))
         shipmentDetailsUIView.addGestureRecognizer(tap)
+        
+        self.dominoCheckoutPresenter.setShipmentDetails()
     
     }
     
@@ -81,7 +92,7 @@ class DominoCheckoutViewController:UIViewController {
     
     func setupOrderSummaryView(){
         let containerSize = self.orderSummaryContainerView.bounds
-        let orderSummaryUIView = OrderSummaryUIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height: containerSize.height))
+        orderSummaryUIView = OrderSummaryUIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height: containerSize.height))
         self.orderSummaryContainerView.addSubview(orderSummaryUIView)
         orderSummaryUIView.setupPrice(subTotal: subTotal, deliveryFee: deliveryFee, total: totalAmount)
     }
@@ -169,7 +180,15 @@ extension DominoCheckoutViewController: DominoCheckoutViewType{
     func routeTo(screen: DominoCheckoutEnumRoute){
         switch screen{
         case .pizzaManageShipmentDetails:
+           
             self.performSegue(withIdentifier: screen.segueID(), sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == R.segue.dominoCheckoutViewController.checkoutToShipmentDetails.identifier{
+            let shipmentDetailsVC = segue.destination as! DominoShipmentDetailsViewController
+            shipmentDetailsVC.dominoCheckoutViewController = self
         }
     }
     

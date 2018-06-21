@@ -12,17 +12,17 @@ import Foundation
 class CartService{
     
     func setCart(){
-        UserDefaultsManager.sharedManager.setCart()
+        CartUserDefaultsManager.sharedManager.setCart()
     }
     
     func addToCart(model: PizzaDetailViewData,onSuccess successCallback: ((_ successMessage: String) -> Void)?,
                    onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
         
-        UserDefaultsManager.sharedManager.retrieveCartItems(onSuccess: { (pizzas) in
+        CartUserDefaultsManager.sharedManager.retrieveCartItems(onSuccess: { (pizzas) in
             
             
             if (pizzas.filter{$0.pizzaID == model.pizzaID}.count) == 0 {
-                UserDefaultsManager.sharedManager.addPizzaToCart(object: model)
+                CartUserDefaultsManager.sharedManager.addPizzaToCart(object: model)
                 successCallback?("")
             }else{
                 failureCallback?("The item already added to cart.")
@@ -38,7 +38,7 @@ class CartService{
     
     func retrieveFromCart(onSuccess successCallback: ((_ pizzas: [PizzaDetailViewData]) -> Void)?,
                           onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
-        UserDefaultsManager.sharedManager.retrieveCartItems(onSuccess: { (pizzas) in
+        CartUserDefaultsManager.sharedManager.retrieveCartItems(onSuccess: { (pizzas) in
             successCallback?(pizzas)
         }, onFailure: {errorMessage in
             failureCallback?(errorMessage)
@@ -46,12 +46,12 @@ class CartService{
     }
     
     func updateCartItem(pizzas: [PizzaDetailViewData]){
-        UserDefaultsManager.sharedManager.updateCartItem(pizzas: pizzas)
+        CartUserDefaultsManager.sharedManager.updateCartItem(pizzas: pizzas)
     }
     
     func removeAllCartItem(){
-        UserDefaultsManager.sharedManager.removeCart()
-         UserDefaultsManager.sharedManager.setCart()
+        CartUserDefaultsManager.sharedManager.removeCart()
+        CartUserDefaultsManager.sharedManager.setCart()
     }
 
 }

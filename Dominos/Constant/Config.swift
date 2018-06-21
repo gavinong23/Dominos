@@ -15,6 +15,7 @@ struct Config{
     struct Timer{
         static let timeInterval = 600000000.0
         static let GetAllPizzaReqInterval = 5.0
+        static let debounceTimer = 3.0
     }
     
     struct Url{
@@ -31,6 +32,8 @@ struct Config{
     
     struct preferenceKey{
         static let cartModels = "CartModels"
+        static let userID = "userID"
+        static let addressID = "addressID"
     }
     
  

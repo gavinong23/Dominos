@@ -37,11 +37,12 @@ class DominoCheckoutPresenter{
     
     var choosenEnumPaymentType: EnumPaymentType?
     private let cartService: CartService
+    private let userService: UserService
     
     
-    
-    init(cartService: CartService){
+    init(userService:UserService,cartService: CartService){
         self.cartService = cartService
+        self.userService = userService
     }
     
     func attachView(view: DominoCheckoutViewType){
@@ -118,7 +119,12 @@ class DominoCheckoutPresenter{
         self.cartService.removeAllCartItem()
     }
     
-
+    
+    func setShipmentDetails(){
+        let addressID = self.userService.retrieveAddressID()
+        
+       // self.pizzaService.callAPIGetShipmentDetails()
+    }
     
     
     

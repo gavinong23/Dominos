@@ -57,9 +57,8 @@ class LocationManager{
     
 
     
-    func autoCompleteAddress(searchString:String,onSuccess successCallback: ((_ address: [GMSAutocompletePrediction]) -> Void)?, onFailure failureCallback: ((_ errorMessage: String) -> Void)?){
+    func autoCompleteAddress(searchString:String,onSuccess successCallback: ((_ address: [GMSAutocompletePrediction]) -> Void)?, onFailure failureCallback: ((_ errorMessage: Error) -> Void)?){
         
-         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             GMSPlacesClient.shared().autocompleteQuery(searchString, bounds: nil, filter: self.filter, callback: { (result, error) in
                 if error == nil && result != nil{
                     
@@ -67,10 +66,10 @@ class LocationManager{
                     
                 }else{
                    // print(error)
-                    failureCallback?(error as! String)
+                
+                    failureCallback?(error!)
                 }
                 })
-        }
     }
     
     // get the particular address's place id's details such as longitude, latitude etc.

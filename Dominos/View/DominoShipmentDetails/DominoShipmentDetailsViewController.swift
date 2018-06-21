@@ -14,13 +14,15 @@ class DominoShipmentDetailsViewController: UIViewController {
     
     var manageAddressUIView = ManageAddressUIView()
     
-    private let dominoShipmentPresenter = DominoShipmentPresenter(locationService:LocationService(), pizzaService: PizzaService())
+    private let dominoShipmentPresenter = DominoShipmentPresenter(userService:UserService(), locationService:LocationService(), pizzaService: PizzaService())
     
     @IBOutlet weak var manageAddressContainerView: UIView!
     
     var arrayAddress = [GMSAutocompletePrediction]()
     
     var arraySavedAddress = [UserAddressModel]()
+    
+    weak var dominoCheckoutViewController: DominoCheckoutViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,7 @@ class DominoShipmentDetailsViewController: UIViewController {
         setupManageAddressView()
         manageAddressUIView.addAddressButton(isEnabled: true)
         
-     
+        
         
     }
     
@@ -99,6 +101,7 @@ class DominoShipmentDetailsViewController: UIViewController {
 }
 
 extension DominoShipmentDetailsViewController: DominoShipmentViewType{
+
     
     
     func hideAutoCompletionTableView(){
@@ -131,12 +134,11 @@ extension DominoShipmentDetailsViewController: DominoShipmentViewType{
     
     func setChooseAddressView(addresses: [UserAddressModel]){
         self.arraySavedAddress = addresses
-        print("haha:\(addresses)")
         self.manageAddressUIView.reloadChooseAddressTableView()
         
     }
     
-    func showConfirmationBox(title:String, message: String) {
+    func showConfirmationBoxForAddAddress(title:String, message: String) {
         let refreshAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -150,6 +152,23 @@ extension DominoShipmentDetailsViewController: DominoShipmentViewType{
         }))
         
         present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    func showConfirmationBoxForChoosenAddress(title:String, message: String){
+        let refreshAlert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action: UIAlertAction!) in
+            //self.dominoShipmentPresenter.routeTo()
+           // self.delegate.shipmentDetailsUIView.shipmentOwnerAddressLabel.text = "gg"
+           self.dominoShipmentPresenter.routeTo()
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    
     }
     
     func showAlertBox(title:String,message:String){
@@ -167,25 +186,26 @@ extension DominoShipmentDetailsViewController: DominoShipmentViewType{
         self.manageAddressUIView.deleteAddressRow(indexPath: indexPath)
     }
     
+    func searchAddressStringNull(){
+        
+        self.arrayAddress.removeAll()
+        self.arrayAddress = [GMSAutocompletePrediction]()
+        self.manageAddressUIView.hideAutoCompletionTableView()
+    }
+    
+    func routeTo(address: String) {
+        self.dominoCheckoutViewController.updateShipmentAddressView(address: address)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
 }
 
 extension DominoShipmentDetailsViewController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let searchString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
-        //         self.arrayAddress.removeAll()
-        
-        
-        if searchString == ""{
-//                 self.view.didMoveToSuperview()
-                self.arrayAddress.removeAll()
-                self.arrayAddress = [GMSAutocompletePrediction]()
-                self.manageAddressUIView.hideAutoCompletionTableView()
-            
-            
-        }else{
-                dominoShipmentPresenter.addressAutoComplete(searchString: searchString)
-        }
+        dominoShipmentPresenter.addressAutoComplete(searchString: searchString)
         
         return true
     }
@@ -225,8 +245,6 @@ extension DominoShipmentDetailsViewController: UITableViewDelegate, UITableViewD
                 cell.addressLabel.attributedText = arrayAddress[indexPath.row].attributedFullText
                 
                 return cell
-
-            
             }
 
         }else{
@@ -247,6 +265,8 @@ extension DominoShipmentDetailsViewController: UITableViewDelegate, UITableViewD
         
         
         if tableView == self.manageAddressUIView.addressTableView{
+            
+            self.dominoShipmentPresenter.confirmationChooseAddress(selectedAddress: self.arraySavedAddress[indexPath.row].addressID!)
             
         }else if tableView == self.manageAddressUIView.addressResultTableView{
             

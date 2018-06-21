@@ -102,6 +102,7 @@ class APIManager{
         self.createPostRequest(url, parameters: parameters, encoding: URLEncoding.httpBody, onSuccess: { (responseObject: JSON) -> Void in
             successCallback!(responseObject["response"].stringValue)
         }, onFailure: { (errorMessage: String) -> Void in
+            
             failureCallback!(errorMessage)
         })
         

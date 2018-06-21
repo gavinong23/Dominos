@@ -12,17 +12,32 @@ import GooglePlaces
 import GoogleMaps
 
 
+//enum DominoCheckoutEnumRoute{
+//    case pizzaManageShipmentDetails
+//    
+//    func segueID() -> String{
+//        switch self{
+//        case .pizzaManageShipmentDetails:
+//            //            return ""
+//            return R.segue.dominoCheckoutViewController.checkoutToShipmentDetails.identifier
+//        }
+//        
+//    }
+//    
+//}
 
 class DominoShipmentPresenter{
     
+     private let userService: UserService
      private let locationService: LocationService
      private let pizzaService: PizzaService
      weak private var dominoShipmentView : DominoShipmentViewType?
     
     var userID: String?
+    var selectedAddress: String?
     
-    init(locationService: LocationService, pizzaService: PizzaService){
-
+    init(userService: UserService, locationService: LocationService, pizzaService: PizzaService){
+        self.userService = userService
         self.locationService = locationService
         self.pizzaService = pizzaService
     }
@@ -50,21 +65,39 @@ class DominoShipmentPresenter{
     }
     
     func addressAutoComplete(searchString: String){
-        self.locationService.autoCompleteAddress(searchString: searchString, onSuccess: { (addresses) in
+        
+        
+        let debouncedFunction  = Debouncer(delay: Config.Timer.debounceTimer){
             
-            if addresses.count > 0{
-                self.dominoShipmentView?.setAutoCompleteAddress(address: addresses)
-//                print(addresses)
-                self.dominoShipmentView?.reloadAddressAutoCompletionData()
-            }else{
-                self.dominoShipmentView?.hideAutoCompletionTableView()
-            }
-           
+            print("delayed")
+            self.locationService.autoCompleteAddress(searchString: searchString, onSuccess: { (addresses) in
+                
+                if addresses.count > 0{
+                    self.dominoShipmentView?.setAutoCompleteAddress(address: addresses)
+                    //                print(addresses)
+                    self.dominoShipmentView?.reloadAddressAutoCompletionData()
+                }else{
+                    self.dominoShipmentView?.hideAutoCompletionTableView()
+                }
+                
+                
+                
+            }, onFailure: { (errorMessage) in
+                print(errorMessage)
+            })
+        }
+        
+        if searchString == ""{
+            debouncedFunction.call()
+            self.dominoShipmentView?.searchAddressStringNull()
+        }else{
             
+            debouncedFunction.call()
+        }
+        
        
-        }, onFailure: { (errorMessage) in
-            print(errorMessage)
-        })
+        
+       
     }
     
     func getPlaceDetail(placeID: String){
@@ -123,7 +156,7 @@ class DominoShipmentPresenter{
     }
     
     func confirmationUploadAddress(){
-        self.dominoShipmentView?.showConfirmationBox(title: "Are you sure you want to add this address?", message: "You only left 5 address slot(s)")
+        self.dominoShipmentView?.showConfirmationBoxForAddAddress(title: "Are you sure you want to add this address?", message: "You only left 5 address slot(s)")
     }
     
     func deleteParticularAddress(addressID: String, row: Int, indexPath: IndexPath){
@@ -136,6 +169,20 @@ class DominoShipmentPresenter{
                 
             })
         }
+    }
+    
+    func confirmationChooseAddress(selectedAddress: String){
+        
+        self.selectedAddress = selectedAddress
+        
+        self.dominoShipmentView?.showConfirmationBoxForChoosenAddress(title: "Are you sure you selected the correct delivery address?", message: "The pizza will send to the address you selected.")
+    }
+    
+    func routeTo(){
+        
+        self.userService.updateAddressID(addressID: self.selectedAddress!)
+        self.dominoShipmentView?.routeTo(address: self.selectedAddress!)
+//        self.dominoShipmentView?.routeTo(screen: .pizzaManageShipmentDetails)
     }
     
 }
