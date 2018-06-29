@@ -104,7 +104,7 @@ class DominoCartPresenter{
     
     func subTotalWithUpdateQuantity(item: PizzaDetailViewData){
         var totalPrice: Float?
-        var editedItemPrice: Float?
+        //var editedItemPrice: Float?
         
         if let pizzaCartModels = self.pizzaCartModels{
             

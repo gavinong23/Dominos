@@ -26,5 +26,5 @@ protocol DominoShipmentViewType : NSObjectProtocol {
     func deleteAddressUpdateView(row: Int, indexPath: IndexPath)
     func searchAddressStringNull()
     func showConfirmationBoxForChoosenAddress(title:String, message: String)
-    func routeTo(address:String)
+    func routeTo(currentAddressID:String)
 }

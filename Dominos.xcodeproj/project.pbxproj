@@ -67,6 +67,7 @@
 		E9936F8420B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9936F8220B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib */; };
 		E997564F20B569F200C28597 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E997564E20B569F200C28597 /* Reachability.swift */; };
 		E99FBA1720C7792500462748 /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99FBA1620C7792500462748 /* CartService.swift */; };
+		E9C79ED620E329690083A2B3 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C79ED520E329690083A2B3 /* Encodable.swift */; };
 		E9D1983420B8057000D99D02 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D1983320B8057000D99D02 /* BaseViewController.swift */; };
 		E9D5520020D207940069087C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D551FF20D207940069087C /* LocationManager.swift */; };
 		E9D5520220D210D10069087C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D5520120D210D10069087C /* LocationService.swift */; };
@@ -179,6 +180,7 @@
 		E9936F8220B6BB7B00BD128B /* ToppingDropDownListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToppingDropDownListTableViewCell.xib; sourceTree = "<group>"; };
 		E997564E20B569F200C28597 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		E99FBA1620C7792500462748 /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
+		E9C79ED520E329690083A2B3 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		E9D1983320B8057000D99D02 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E9D551FF20D207940069087C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E9D5520120D210D10069087C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -576,6 +578,7 @@
 			children = (
 				E9396DEF20C521E600C3F407 /* dominoListingModel.swift */,
 				E95A656E20C620650056E890 /* PizzaToppingEnum.swift */,
+				E9C79ED520E329690083A2B3 /* Encodable.swift */,
 			);
 			path = Coder;
 			sourceTree = "<group>";
@@ -1027,6 +1030,7 @@
 				E95AB63C20C7BA0600BB1D53 /* AnyCodable.swift in Sources */,
 				E978773920D7AF7C008FBB26 /* TableViewExtension.swift in Sources */,
 				E9063E5320BE3366002B10E7 /* RequestTimer.swift in Sources */,
+				E9C79ED620E329690083A2B3 /* Encodable.swift in Sources */,
 				E9D5520520D21AD10069087C /* DominoShipmentPresenter.swift in Sources */,
 				E9D5520020D207940069087C /* LocationManager.swift in Sources */,
 				E95E2D5E20B3BFB800F2EA17 /* DominoDetailModel.swift in Sources */,

@@ -33,6 +33,8 @@ class DominoShipmentPresenter{
      private let pizzaService: PizzaService
      weak private var dominoShipmentView : DominoShipmentViewType?
     
+    var currentAddressID: String?
+    
     var userID: String?
     var selectedAddress: String?
     
@@ -115,7 +117,7 @@ class DominoShipmentPresenter{
     func getParticularUserAddress(userID: String){
         self.pizzaService.callAPIGetParticularUserAllAddress(userID: userID, onSuccess: { (addresses) in
             
-            print(addresses)
+            //print(addresses)
             self.userID = userID
             self.dominoShipmentView?.setChooseAddressView(addresses: addresses)
             
@@ -163,7 +165,11 @@ class DominoShipmentPresenter{
         
         if !self.userID!.isEmpty{
             self.pizzaService.callAPIDeleteUserAddress(userID: self.userID!, addressID: addressID, onSuccess: { (successMessage) in
+                
+                //reload the address again with api call to get all address again
                 self.getParticularUserAddress(userID: self.userID!)
+                
+                self.userService.removeAddressID(deletedAddressID: addressID)
                 self.dominoShipmentView?.deleteAddressUpdateView(row: row, indexPath: indexPath)
             }, onFailure: { (errorMessage) in
                 
@@ -175,13 +181,15 @@ class DominoShipmentPresenter{
         
         self.selectedAddress = selectedAddress
         
+        self.currentAddressID = self.userService.retrieveAddressID()
+        
         self.dominoShipmentView?.showConfirmationBoxForChoosenAddress(title: "Are you sure you selected the correct delivery address?", message: "The pizza will send to the address you selected.")
     }
     
     func routeTo(){
-        
+       
         self.userService.updateAddressID(addressID: self.selectedAddress!)
-        self.dominoShipmentView?.routeTo(address: self.selectedAddress!)
+        self.dominoShipmentView?.routeTo(currentAddressID: self.currentAddressID!)
 //        self.dominoShipmentView?.routeTo(screen: .pizzaManageShipmentDetails)
     }
     

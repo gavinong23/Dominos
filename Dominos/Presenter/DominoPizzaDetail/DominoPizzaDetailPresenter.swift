@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import ObjectMapper
+import SwiftyJSON
+
+struct PizzaDetailViewData {
 
 
-struct PizzaDetailViewData{
+
+    
     var pizzaID: String?
     var pizzaName: String?
     var pizzaDesc: String?
@@ -20,7 +25,7 @@ struct PizzaDetailViewData{
     var pizzaQuantity: Double?
     
 
-    
+
     
     enum CodingKeys: String, CodingKey{
         case pizzaID = "pizzaID"

@@ -42,7 +42,18 @@ class ShipmentDetailsUIView: UIView {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
     
+    func updateShipmentDetailsView(shipmentDetails: ShipmentDetailsViewData){
     
+        self.shipmentOwnerAddressLabel.text = String(format:"Address: %@",shipmentDetails.address!)
+        self.shipmentOwnerContactNumberLabel.text = String(format:"Contact Number: %@ ",shipmentDetails.contactNumber!)
+        self.shipmentOwnerNameLabel.text = shipmentDetails.userName
+    }
+    
+    func clearShipmentDetailsView(){
+        self.shipmentOwnerAddressLabel.text = "Address: "
+        self.shipmentOwnerContactNumberLabel.text = "Contact Number: "
+        self.shipmentOwnerNameLabel.text = ""
+    }
 
     
   

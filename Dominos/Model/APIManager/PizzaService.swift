@@ -62,7 +62,7 @@ class PizzaService{
             
             successCallback?(addresses)
             
-            print(addresses)
+//            print(addresses)
             
         }, onFailure: { (errorMessage) in
             failureCallback?(errorMessage)
@@ -89,5 +89,26 @@ class PizzaService{
         }, onFailure: {(errorMessage) in
             failureCallback?(errorMessage)
         })
+    }
+    
+    func callAPIGetParticularUserShipmentDetails(addressID:String, onSuccess successCallback: ((_ addresses: UserAddressModel) -> Void)?, onFailure failureCallback:((_ errorMessage: String) -> Void)?){
+        
+        APIManager.instance.callAPIGetParticularUserShipmentDetails(addressID: addressID, onSuccess: { (shipmentDetails) in
+            successCallback?(shipmentDetails)
+        }, onFailure: { (errorMessage) in
+            failureCallback?(errorMessage)
+        })
+    }
+    
+    
+    func callAPIPlaceOrder(paymentTypeID: String, userID: String, addressID: String, pizzaCartItems: [PizzaDetailViewData], onSuccess successCallback: ((_ successMessage: String) -> Void)?, onFailure failureCallback:((_ errorMessage: String) -> Void)?){
+        
+        
+        APIManager.instance.callAPIPlaceOrder(paymentTypeID: paymentTypeID, userID: userID, addressID: addressID, pizzaCartItems: pizzaCartItems, onSuccess:{ (successMessage) in
+            successCallback?(successMessage)
+        }, onFailure: { (errorMessage) in
+            failureCallback?(errorMessage)
+        })
+        
     }
 }

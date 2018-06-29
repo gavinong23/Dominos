@@ -44,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userService = UserService()
         userService.setAddressID()
         userService.setUserID()
+       // userService.updateUserID(userID: "1")
+        
+        print("User ID: \(userService.retrieveUserID())")
     }
 
     func setupGoogleMapAPI(){

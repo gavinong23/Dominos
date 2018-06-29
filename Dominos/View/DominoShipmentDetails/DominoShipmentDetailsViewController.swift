@@ -33,6 +33,7 @@ class DominoShipmentDetailsViewController: UIViewController {
         
         
         
+        
     }
     
     func setupView(){
@@ -41,6 +42,7 @@ class DominoShipmentDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.dominoShipmentPresenter.getParticularUserAddress(userID: "1")
+        
     }
     
     //The main manage Address View
@@ -183,6 +185,7 @@ extension DominoShipmentDetailsViewController: DominoShipmentViewType{
     
     func deleteAddressUpdateView(row: Int, indexPath: IndexPath){
         self.arraySavedAddress.remove(at: row)
+        //self.dominoCheckoutViewController.viewDidAppear(true)
         self.manageAddressUIView.deleteAddressRow(indexPath: indexPath)
     }
     
@@ -193,9 +196,15 @@ extension DominoShipmentDetailsViewController: DominoShipmentViewType{
         self.manageAddressUIView.hideAutoCompletionTableView()
     }
     
-    func routeTo(address: String) {
-        self.dominoCheckoutViewController.updateShipmentAddressView(address: address)
+    func routeTo(currentAddressID:String) {
+        self.dominoCheckoutViewController.currentAddressID = currentAddressID
         self.navigationController?.popViewController(animated: true)
+    
+//         self.dominoCheckoutViewController.view.setNeedsDisplay()
+//        let dominoCheckoutViewController: UIViewController = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "DominoCheckoutViewController")
+//            self.present(dominoCheckoutViewController, animated: false, completion: nil)
+        
+        
     }
     
     

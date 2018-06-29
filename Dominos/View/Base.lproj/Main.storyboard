@@ -238,7 +238,7 @@
         <!--Domino Shipment Details View Controller-->
         <scene sceneID="qLU-HM-rKr">
             <objects>
-                <viewController id="xa0-RY-rbR" customClass="DominoShipmentDetailsViewController" customModule="Dominos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DominoCheckoutViewController" id="xa0-RY-rbR" customClass="DominoShipmentDetailsViewController" customModule="Dominos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aUd-BM-os5">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -316,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xlh-Cb-iFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1685" y="-1154"/>
+            <point key="canvasLocation" x="1684" y="-1154"/>
         </scene>
         <!--My Cart-->
         <scene sceneID="Scp-ug-dfW">

@@ -25,6 +25,7 @@ class UserUserDefaultsManager{
     
     func saveAddressID(addressID: String){
        // userDefaultsManager.removeFromUserDefaults(key: Config.preferenceKey.addressID)
+        self.addressID = addressID
         userDefaultsManager.saveToUserDefaults(data: addressID, key: Config.preferenceKey.addressID)
     }
     
@@ -66,10 +67,13 @@ class UserUserDefaultsManager{
         return userID
     }
     
-    func removeAddressID(){
-        self.addressID.removeAll()
-        userDefaultsManager.removeFromUserDefaults(key: Config.preferenceKey.addressID)
-        userDefaultsManager.sync()
+    func removeAddressID(deletedAddressID : String){
+        
+        if self.addressID == deletedAddressID{
+            self.addressID.removeAll()
+            userDefaultsManager.removeFromUserDefaults(key: Config.preferenceKey.addressID)
+            userDefaultsManager.sync()
+        }
     }
     
     func removeUserID(){

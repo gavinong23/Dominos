@@ -21,4 +21,6 @@ protocol DominoCheckoutViewType : NSObjectProtocol{
     func showSuccessAlertBox(title: String, message: String)
     func resetAllView()
     func routeTo(screen:DominoCheckoutEnumRoute)
+    func setShipmentDetails(shipmentDetails: ShipmentDetailsViewData)
+    func clearShipmentDetails()
 }

@@ -42,8 +42,8 @@ class UserService{
     
     
     //The address being deleted
-    func removeAddressID(){
-        UserUserDefaultsManager.sharedManager.removeAddressID()
+    func removeAddressID(deletedAddressID : String){
+        UserUserDefaultsManager.sharedManager.removeAddressID(deletedAddressID : deletedAddressID)
     }
     
     

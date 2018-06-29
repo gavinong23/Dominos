@@ -26,7 +26,7 @@ class DominoCheckoutViewController:UIViewController {
 //        paymentView = codView
 //    }
     
-    private let dominoCheckoutPresenter = DominoCheckoutPresenter(userService: UserService(), cartService: CartService())
+    private let dominoCheckoutPresenter = DominoCheckoutPresenter(pizzaService: PizzaService(),userService: UserService(), cartService: CartService())
 
     @IBOutlet weak var shipmentDetailsContainerView: UIView!
     
@@ -46,8 +46,12 @@ class DominoCheckoutViewController:UIViewController {
     @IBOutlet weak var codButton: UIButton!
     
     var offsetY:CGFloat = 0
+    
+    var currentAddressID: String?
 
     @IBOutlet weak var placeOrderButton: UIButton!
+    
+    var shipmentDetails = ShipmentDetailsViewData()
 
     
     var subTotal = String()
@@ -57,6 +61,8 @@ class DominoCheckoutViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        self.dominoCheckoutPresenter.setCurrentAddressID()
         setupView()
         setupShipmentDetailsView()
         setupOrderSummaryView()
@@ -69,6 +75,7 @@ class DominoCheckoutViewController:UIViewController {
     }
     
     func updateShipmentAddressView(address:String){
+        
        // self.shipmentDetailsUIView.shipmentOwnerAddressLabel.text = address
     }
     
@@ -80,8 +87,16 @@ class DominoCheckoutViewController:UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.editShipmentDetails))
         shipmentDetailsUIView.addGestureRecognizer(tap)
         
-        self.dominoCheckoutPresenter.setShipmentDetails()
+        //self.dominoCheckoutPresenter.initializeShipmentDetails()
+ 
     
+    }
+    
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //self.dominoCheckoutPresenter.setCurrentAddressID()
+        self.dominoCheckoutPresenter.setShipmentDetails(currentAddressID: self.currentAddressID ?? "")
     }
     
     @objc func editShipmentDetails(){
@@ -207,6 +222,15 @@ extension DominoCheckoutViewController: DominoCheckoutViewType{
         }
         
         return isNull
+    }
+    
+    func setShipmentDetails(shipmentDetails: ShipmentDetailsViewData){
+        self.shipmentDetails = shipmentDetails
+        self.shipmentDetailsUIView.updateShipmentDetailsView(shipmentDetails: shipmentDetails)
+    }
+    
+    func clearShipmentDetails(){
+        self.shipmentDetailsUIView.clearShipmentDetailsView()
     }
     
 }

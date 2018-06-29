@@ -113,9 +113,6 @@ class DominoCartCollectionViewCell: UICollectionViewCell {
             didUpdateQuantity?(-1)
             quantityLabel.text = String(Double(quantityLabel.text!)! - 1)
         }
-        
-       
-        
     }
     
 }
