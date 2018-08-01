@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupCart()
         setupAddressIDAndUserID()
         setupGoogleMapAPI()
+        setupPaypal()
         
         return true
     }
@@ -35,6 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.addGestureRecognizer(tapGesture)
     }
     
+    func setupPaypal(){
+    
+        PayPalMobile.initializeWithClientIds(forEnvironments:[PayPalEnvironmentProduction: "ATXB2d3cy1s7gTQoQtg6iVkNrDLS60ZkK5t-HIyxo3VX1JB3jusybV_9HwN05FZJEN3lTIz_eY3v4SQs",
+                                                               PayPalEnvironmentSandbox: "ATXB2d3cy1s7gTQoQtg6iVkNrDLS60ZkK5t-HIyxo3VX1JB3jusybV_9HwN05FZJEN3lTIz_eY3v4SQs"])
+    }
+    
     func setupCart(){
        let cartService = CartService()
         cartService.setCart()
@@ -43,8 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupAddressIDAndUserID(){
         let userService = UserService()
         userService.setAddressID()
-        userService.setUserID()
-       // userService.updateUserID(userID: "1")
+//        userService.setUserID()
+        userService.updateUserID(userID: "1")
         
         print("User ID: \(userService.retrieveUserID())")
     }
@@ -53,9 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let locationService = LocationService()
         locationService.setupGoogleMapAPI()
     }
-    
-
-    
 
 
     func applicationWillResignActive(_ application: UIApplication) {

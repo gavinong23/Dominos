@@ -120,10 +120,7 @@ class DominoCheckoutPresenter{
                         self.pizzaService.callAPIPlaceOrder(paymentTypeID:
                          EnumPaymentType.cc.getCreditCardID(), userID: userID, addressID: addressID, pizzaCartItems: pizzaCartModels, onSuccess: { successMessage in
                             
-                        
                             self.dominoCheckoutView?.showSuccessAlertBox(title: "Order Successfully.", message: "Pizza will reach you, after 40mins.")
-                           // print("Order Place successfully.")
-                            
                             print(successMessage)
                             
                         }, onFailure: { errorMessage in
@@ -132,36 +129,47 @@ class DominoCheckoutPresenter{
                     }
                 }
             }else if self.choosenEnumPaymentType == EnumPaymentType.cod{
-            
-                self.cartService.retrieveFromCart(onSuccess: { (cartPizza) in
-                    self.pizzaCartModels = cartPizza
-                    
-                    if let pizzaCartModels = self.pizzaCartModels{
-                        print("Order user ID: \(userID)\n")
-                        print("Order address ID: \(addressID)")
-                        
-                        self.pizzaService.callAPIPlaceOrder(paymentTypeID: EnumPaymentType.cod.getCashOnDeliveryID(), userID: userID, addressID: addressID, pizzaCartItems: pizzaCartModels, onSuccess: { successMessage in
-                            
-                            self.dominoCheckoutView?.showSuccessAlertBox(title: "Order Successfully.", message: "Pizza will reach you, after 40mins and pay your money to the deliver. Thank you.")
-                            
-                            print("Place order Success Message: \(successMessage)")
-                        }, onFailure: { errorMessage in
-                            print("Place order Error Message:\(errorMessage)")
-                        })
-                        
-                    }
                 
+                self.retrieveCartItem()
+                
+                if let pizzaCartModels = self.pizzaCartModels{
+                    print("Order user ID: \(userID)\n")
+                    print("Order address ID: \(addressID)")
                     
-                }, onFailure: { (String)-> Void in
+                    self.pizzaService.callAPIPlaceOrder(paymentTypeID: EnumPaymentType.cod.getCashOnDeliveryID(), userID: userID, addressID: addressID, pizzaCartItems: pizzaCartModels, onSuccess: { successMessage in
+                        
+                        self.dominoCheckoutView?.showSuccessAlertBox(title: "Order Successfully.", message: "Pizza will reach you, after 40mins and pay your money to the deliver. Thank you.")
+                        
+                        print("Place order Success Message: \(successMessage)")
+                    }, onFailure: { errorMessage in
+                        print("Place order Error Message:\(errorMessage)")
+                    })
                     
-                })
+                }
+            
+//                self.cartService.retrieveFromCart(onSuccess: { (cartPizza) in
+//                    self.pizzaCartModels = cartPizza
+//
+//
+//                }, onFailure: { (String)-> Void in
+//                    print("test")
+//                })
                 
     
             }else{
                 self.dominoCheckoutView?.showAlertBox(title: "Error Message", message: "Invalid errors.")
             }
-            
+        
         }
+    }
+    
+    
+    func retrieveCartItem(){
+        self.cartService.retrieveFromCart(onSuccess: { (cartPizza) in
+            self.pizzaCartModels = cartPizza
+        }, onFailure: { (String)-> Void in
+            print("test")
+        })
     }
     
     func setupPaymentMethod(paymentType: EnumPaymentType){
@@ -208,13 +216,46 @@ class DominoCheckoutPresenter{
         }
     }
     
-
     
+    func payPalView(){
+        
+        self.retrieveCartItem()
+        
+        var items = [PayPalItem]()
+        
+        if let pizzaCartModels = self.pizzaCartModels{
+            pizzaCartModels.map{
+                items.append(PayPalItem(name: $0.pizzaName!, withQuantity: UInt($0.pizzaQuantity!), withPrice: NSDecimalNumber(string: String(describing:$0.pizzaPrice!)), withCurrency: "MYR", withSku: $0.pizzaID!))
+            }
+        }
+        
+        let subTotal = PayPalItem.totalPrice(forItems: items)
+        
+        let shipping = NSDecimalNumber(string: "5.00")
+        
+        let tax = NSDecimalNumber(string: "0.00")
+        
+        let paymentDetails = PayPalPaymentDetails(subtotal: subTotal, withShipping: shipping, withTax: 0)
+        
+        let total = subTotal.adding(shipping).adding(tax)
+        
+        let payment = PayPalPayment(amount: total, currencyCode: "MYR", shortDescription: "Dominos' Pizza", intent: .sale)
+        
+        payment.items = items
+        
+        payment.paymentDetails = paymentDetails
+    
+        if(payment.processable){
+            self.dominoCheckoutView?.showPayPalView(payment: payment)
+        }else{
+            print("Payment not processable: \(payment)")
+        }
+    
+    }
+        
     func setCurrentAddressID(){
         self.currentAddressID = self.userService.retrieveAddressID()
     }
-    
-    
     
     
 }

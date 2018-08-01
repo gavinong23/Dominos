@@ -53,10 +53,29 @@ class DominoCheckoutViewController:UIViewController {
     
     var shipmentDetails = ShipmentDetailsViewData()
 
-    
     var subTotal = String()
     var deliveryFee = String()
     var totalAmount = String()
+    
+    //PayPal
+    
+    
+    var payPalConfig = PayPalConfiguration()
+    
+    var environment: String = PayPalEnvironmentSandbox{
+        willSet(newEnvironment){
+            if(newEnvironment != environment){
+                PayPalMobile.preconnect(withEnvironment: newEnvironment)
+            }
+        }
+    }
+    
+    var acceptCreditCards: Bool = true{
+        didSet{
+            payPalConfig.acceptCreditCards = acceptCreditCards
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,12 +139,28 @@ class DominoCheckoutViewController:UIViewController {
        // self.creditCardButton.isEnabled = false
        // self.codButton.isEnabled = true
         
+        setupPayPal()
+        
         self.paymentMethodContainerView.addSubview(paymentMethodUIView)
 
     }
     
+    func setupPayPal(){
+        payPalConfig.acceptCreditCards = acceptCreditCards;
+        payPalConfig.merchantName = "gavin";
+        payPalConfig.languageOrLocale = NSLocale.preferredLanguages[0]
+        payPalConfig.payPalShippingAddressOption = .payPal
+
+        
+        PayPalMobile.preconnect(withEnvironment: environment)
+        
+    }
     
 
+    
+    @IBAction func payPalMethodButtonOnClick(_ sender: Any) {
+        dominoCheckoutPresenter.payPalView()
+    }
     
     
     @IBAction func creditCardMethodButtonOnClick(_ sender: Any) {
@@ -233,4 +268,28 @@ extension DominoCheckoutViewController: DominoCheckoutViewType{
         self.shipmentDetailsUIView.clearShipmentDetailsView()
     }
     
+    func showPayPalView(payment: PayPalPayment){
+        let paymentViewController = PayPalPaymentViewController(payment: payment, configuration: payPalConfig, delegate: self)
+        present(paymentViewController!, animated: true, completion: nil)
+    }
+    
+}
+
+extension DominoCheckoutViewController: PayPalPaymentDelegate{
+    
+    func payPalPaymentDidCancel(_ paymentViewController: PayPalPaymentViewController) {
+        paymentViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func payPalPaymentViewController(_ paymentViewController: PayPalPaymentViewController, didComplete completedPayment: PayPalPayment) {
+        paymentViewController.dismiss(animated: true, completion: { () -> Void in
+            
+            print("\(completedPayment.amount,completedPayment.confirmation)\n\n")
+            print("\(completedPayment.description)")
+            
+        })
+        
+        self.dominoCheckoutPresenter.removeAllCartItem()
+        self.resetAllView()
+    }
 }

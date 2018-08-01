@@ -54,6 +54,14 @@
 		E94C5D0020CA80FE00637334 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94C5CFF20CA80FE00637334 /* UIViewExtension.swift */; };
 		E94C5D0220CA83FD00637334 /* OrderSummaryUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E94C5D0120CA83FD00637334 /* OrderSummaryUIView.xib */; };
 		E94C5D0420CA841A00637334 /* OrderSummaryUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94C5D0320CA841A00637334 /* OrderSummaryUIView.swift */; };
+		E94C6C5320EA167800E9368F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94C6C4B20EA167700E9368F /* AudioToolbox.framework */; };
+		E94C6C5420EA167800E9368F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94C6C4C20EA167700E9368F /* AVFoundation.framework */; };
+		E94C6C5520EA167800E9368F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94C6C4D20EA167700E9368F /* CoreLocation.framework */; };
+		E94C6C5620EA167800E9368F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94C6C4E20EA167700E9368F /* CoreMedia.framework */; };
+		E94C6C5720EA167800E9368F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94C6C4F20EA167700E9368F /* MessageUI.framework */; };
+		E94C6C5820EA167800E9368F /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94C6C5020EA167800E9368F /* SafariServices.framework */; };
+		E94C6C5920EA167800E9368F /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94C6C5120EA167800E9368F /* Accelerate.framework */; };
+		E94C6C5A20EA167800E9368F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94C6C5220EA167800E9368F /* SystemConfiguration.framework */; };
 		E95A656F20C620650056E890 /* PizzaToppingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A656E20C620650056E890 /* PizzaToppingEnum.swift */; };
 		E95A657220C62E350056E890 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A657120C62E350056E890 /* UserDefaults.swift */; };
 		E95A657420C667090056E890 /* CartUserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A657320C667090056E890 /* CartUserDefaultsManager.swift */; };
@@ -167,6 +175,16 @@
 		E94C5CFF20CA80FE00637334 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		E94C5D0120CA83FD00637334 /* OrderSummaryUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSummaryUIView.xib; sourceTree = "<group>"; };
 		E94C5D0320CA841A00637334 /* OrderSummaryUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryUIView.swift; sourceTree = "<group>"; };
+		E94C6C4720EA15B700E9368F /* Dominos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Dominos-Bridging-Header.h"; sourceTree = "<group>"; };
+		E94C6C4A20EA15F600E9368F /* ZZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZAppDelegate.h; sourceTree = "<group>"; };
+		E94C6C4B20EA167700E9368F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E94C6C4C20EA167700E9368F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E94C6C4D20EA167700E9368F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E94C6C4E20EA167700E9368F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E94C6C4F20EA167700E9368F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		E94C6C5020EA167800E9368F /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		E94C6C5120EA167800E9368F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		E94C6C5220EA167800E9368F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E95A656E20C620650056E890 /* PizzaToppingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaToppingEnum.swift; sourceTree = "<group>"; };
 		E95A657120C62E350056E890 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		E95A657320C667090056E890 /* CartUserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartUserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -204,6 +222,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E94C6C5320EA167800E9368F /* AudioToolbox.framework in Frameworks */,
+				E94C6C5420EA167800E9368F /* AVFoundation.framework in Frameworks */,
+				E94C6C5520EA167800E9368F /* CoreLocation.framework in Frameworks */,
+				E94C6C5620EA167800E9368F /* CoreMedia.framework in Frameworks */,
+				E94C6C5720EA167800E9368F /* MessageUI.framework in Frameworks */,
+				E94C6C5820EA167800E9368F /* SafariServices.framework in Frameworks */,
+				E94C6C5920EA167800E9368F /* Accelerate.framework in Frameworks */,
+				E94C6C5A20EA167800E9368F /* SystemConfiguration.framework in Frameworks */,
 				15AF52992F98E4E97D91C00B /* Pods_Dominos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +256,7 @@
 		558255BE20919F6100F599FA = {
 			isa = PBXGroup;
 			children = (
+				E94C6C4720EA15B700E9368F /* Dominos-Bridging-Header.h */,
 				558256062091B0E600F599FA /* dominoVideoAds.mp4 */,
 				558255C920919F6100F599FA /* Dominos */,
 				558255DE20919F6500F599FA /* DominosTests */,
@@ -326,6 +353,7 @@
 		558255FC2091AB8500F599FA /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				E94C6C4620EA159100E9368F /* Paypal */,
 				E9FF3C8B20DB32CF00C80915 /* Debouncer */,
 				E978773720D7AF26008FBB26 /* TableView */,
 				E94C5CFE20CA80EF00637334 /* UIView */,
@@ -484,6 +512,14 @@
 		78497F14F1618F72E53E6211 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E94C6C5120EA167800E9368F /* Accelerate.framework */,
+				E94C6C4B20EA167700E9368F /* AudioToolbox.framework */,
+				E94C6C4C20EA167700E9368F /* AVFoundation.framework */,
+				E94C6C4D20EA167700E9368F /* CoreLocation.framework */,
+				E94C6C4E20EA167700E9368F /* CoreMedia.framework */,
+				E94C6C4F20EA167700E9368F /* MessageUI.framework */,
+				E94C6C5020EA167800E9368F /* SafariServices.framework */,
+				E94C6C5220EA167800E9368F /* SystemConfiguration.framework */,
 				D27CAF53B785D0DEA38684D4 /* Pods_Dominos.framework */,
 				E140BE1FB28F35454B3A42BA /* Pods_DominosTests.framework */,
 				0C3AECC0E9396EEFFE95634C /* Pods_DominosUITests.framework */,
@@ -598,6 +634,14 @@
 				E94C5CFF20CA80FE00637334 /* UIViewExtension.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		E94C6C4620EA159100E9368F /* Paypal */ = {
+			isa = PBXGroup;
+			children = (
+				E94C6C4A20EA15F600E9368F /* ZZAppDelegate.h */,
+			);
+			path = Paypal;
 			sourceTree = "<group>";
 		};
 		E95A657020C62E180056E890 /* UserDefaults */ = {
@@ -796,6 +840,7 @@
 				TargetAttributes = {
 					558255C620919F6100F599FA = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 					558255DA20919F6500F599FA = {
 						CreatedOnToolsVersion = 9.3;
@@ -1241,6 +1286,7 @@
 			baseConfigurationReference = DC4832D425D26AACD7EA4755 /* Pods-Dominos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K5J7BB7M8F;
 				ENABLE_BITCODE = NO;
@@ -1252,6 +1298,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gavin.ong.dominos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dominos-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1262,6 +1310,7 @@
 			baseConfigurationReference = DC2AC226C8D03EC922BD14F2 /* Pods-Dominos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K5J7BB7M8F;
 				ENABLE_BITCODE = NO;
@@ -1273,6 +1322,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = gavin.ong.dominos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dominos-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

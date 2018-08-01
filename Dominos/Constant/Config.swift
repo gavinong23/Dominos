@@ -28,6 +28,8 @@ struct Config{
         
         static let GOOGLE_MAP_API_KEY = "AIzaSyDOlFMjuhBGPi8HnpuhxhY2zjCftcCxbRc"
         
+        static let PAY_PAL_API_KEY = "fT7KoEM9OCMnhVoqwOVyYpj-yBDLIAJOm8WgWHYgQpytsDLNHHYv-xYcY6qFQZjiYhqnEhpe0ifHJZJ"
+        
     }
     
     struct preferenceKey{

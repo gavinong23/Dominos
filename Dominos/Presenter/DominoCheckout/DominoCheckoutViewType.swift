@@ -23,4 +23,5 @@ protocol DominoCheckoutViewType : NSObjectProtocol{
     func routeTo(screen:DominoCheckoutEnumRoute)
     func setShipmentDetails(shipmentDetails: ShipmentDetailsViewData)
     func clearShipmentDetails()
+    func showPayPalView(payment: PayPalPayment)
 }

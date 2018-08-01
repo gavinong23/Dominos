@@ -753,13 +753,35 @@
                                                                                 <rect key="frame" x="5" y="5" width="313.5" height="86"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xlJ-mu-B3e">
-                                                                                        <rect key="frame" x="55" y="0.0" width="193.5" height="86"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="313.5" height="86"/>
                                                                                         <subviews>
+                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPi-U1-V5Q">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="104" height="86"/>
+                                                                                                <subviews>
+                                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehi-Aw-vmQ">
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="104" height="86"/>
+                                                                                                        <color key="backgroundColor" red="0.94857108160000003" green="0.94857108160000003" blue="0.94857108160000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                        <state key="normal" title="PayPal">
+                                                                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                        </state>
+                                                                                                        <connections>
+                                                                                                            <action selector="payPalMethodButtonOnClick:" destination="GkI-LK-bF5" eventType="touchUpInside" id="XLs-Du-uC4"/>
+                                                                                                        </connections>
+                                                                                                    </button>
+                                                                                                </subviews>
+                                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                <constraints>
+                                                                                                    <constraint firstItem="ehi-Aw-vmQ" firstAttribute="top" secondItem="vPi-U1-V5Q" secondAttribute="top" id="0Zb-Gq-lZf"/>
+                                                                                                    <constraint firstAttribute="bottom" secondItem="ehi-Aw-vmQ" secondAttribute="bottom" id="S5v-Cb-OVh"/>
+                                                                                                    <constraint firstItem="ehi-Aw-vmQ" firstAttribute="leading" secondItem="vPi-U1-V5Q" secondAttribute="leading" id="bht-ei-jfV"/>
+                                                                                                    <constraint firstAttribute="trailing" secondItem="ehi-Aw-vmQ" secondAttribute="trailing" id="vko-EB-NlB"/>
+                                                                                                </constraints>
+                                                                                            </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHt-xi-pjR">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="96.5" height="86"/>
+                                                                                                <rect key="frame" x="104.5" y="0.0" width="104.5" height="86"/>
                                                                                                 <subviews>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUz-Et-JyK">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="96.5" height="86"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="86"/>
                                                                                                         <color key="backgroundColor" red="0.93745952070000005" green="0.93745952070000005" blue="0.93745952070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                         <state key="normal" image="icons8-credit-card-50"/>
                                                                                                         <connections>
@@ -776,13 +798,13 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssO-9I-032">
-                                                                                                <rect key="frame" x="97" y="0.0" width="96.5" height="86"/>
+                                                                                                <rect key="frame" x="209.5" y="0.0" width="104" height="86"/>
                                                                                                 <subviews>
                                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBF-qJ-KEX">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="96.5" height="86"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="104" height="86"/>
                                                                                                         <subviews>
                                                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8M7-GJ-JrM">
-                                                                                                                <rect key="frame" x="0.0" y="0.0" width="96.5" height="86"/>
+                                                                                                                <rect key="frame" x="0.0" y="0.0" width="104" height="86"/>
                                                                                                                 <color key="backgroundColor" red="0.93745952070000005" green="0.93745952070000005" blue="0.93745952070000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                                                 <state key="normal" image="icons8-receive-cash-64"/>
                                                                                                                 <connections>
@@ -812,9 +834,9 @@
                                                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
                                                                                     <constraint firstItem="xlJ-mu-B3e" firstAttribute="top" secondItem="SmQ-jl-BPc" secondAttribute="top" id="Syv-sB-3ts"/>
-                                                                                    <constraint firstItem="xlJ-mu-B3e" firstAttribute="leading" secondItem="SmQ-jl-BPc" secondAttribute="leading" constant="55" id="Zfn-u1-3VE"/>
+                                                                                    <constraint firstItem="xlJ-mu-B3e" firstAttribute="leading" secondItem="SmQ-jl-BPc" secondAttribute="leading" id="Zfn-u1-3VE"/>
                                                                                     <constraint firstAttribute="bottom" secondItem="xlJ-mu-B3e" secondAttribute="bottom" id="dJG-Js-nQQ"/>
-                                                                                    <constraint firstAttribute="trailing" secondItem="xlJ-mu-B3e" secondAttribute="trailing" constant="65" id="ofj-qj-Fzd"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="xlJ-mu-B3e" secondAttribute="trailing" id="ofj-qj-Fzd"/>
                                                                                 </constraints>
                                                                             </view>
                                                                         </subviews>

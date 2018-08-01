@@ -198,13 +198,13 @@ class APIManager{
       //  if let json = json{
            // print(json)
             
-            let parameters = ["paymentTypeID": paymentTypeID,"addressID":addressID,"userID": userID, "c artItems": self.encode(object: self.mappedPizzaOrderDetail)] as [String : Any]
+            let parameters = ["paymentTypeID": paymentTypeID,"addressID":addressID,"userID": userID, "cartItems": self.encode(object: self.mappedPizzaOrderDetail)] as [String : Any]
         
             self.createPostRequestJSON(url, parameters: parameters, onSuccess: {(responseObject: String) -> Void in
                 
                 
                 print(responseObject)
-                //successCallback!(responseObject["response"].stringValue)
+                successCallback!(responseObject)
             }, onFailure: { (errorMessage: String)-> Void in
                 failureCallback!(errorMessage)
             })

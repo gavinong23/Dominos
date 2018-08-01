@@ -1,0 +1,10 @@
+app_identifier("gavin.ong.dominos") # The bundle identifier of your app
+apple_id("iOS@uberfusion.com") # Your Apple email address
+
+itc_team_id("1026539") # iTunes Connect Team ID
+team_id("K5J7BB7M8F") # Developer Portal Team ID
+itc_team_id("1026539") # iTunes Connect Team ID
+team_id("K5J7BB7M8F") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

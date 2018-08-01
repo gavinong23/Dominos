@@ -1,0 +1,83 @@
+PODS:
+  - Alamofire (4.7.2)
+  - CardIO (5.4.1)
+  - DropDown (2.3.2)
+  - Gemini (1.2.0)
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.7.0):
+    - GoogleMaps/Base (= 2.7.0)
+  - IQKeyboardManagerSwift (6.0.2)
+  - Kingfisher (4.7.0)
+  - NVActivityIndicatorView (4.2.0):
+    - NVActivityIndicatorView/Presenter (= 4.2.0)
+  - NVActivityIndicatorView/Presenter (4.2.0)
+  - ObjectMapper (3.1.0)
+  - PayPal-iOS-SDK (2.18.1):
+    - PayPal-iOS-SDK/CardIO (= 2.18.1)
+    - PayPal-iOS-SDK/Core (= 2.18.1)
+  - PayPal-iOS-SDK/CardIO (2.18.1):
+    - CardIO (~> 5.4.1)
+  - PayPal-iOS-SDK/Core (2.18.1)
+  - Player (0.8.4)
+  - R.swift (4.0.0):
+    - R.swift.Library (~> 4.0.0)
+  - R.swift.Library (4.0.0)
+  - SwiftyJSON (4.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - DropDown
+  - Gemini
+  - GoogleMaps
+  - GooglePlaces
+  - IQKeyboardManagerSwift
+  - Kingfisher (~> 4.0)
+  - NVActivityIndicatorView
+  - ObjectMapper (~> 3.1)
+  - PayPal-iOS-SDK
+  - Player (~> 0.8.0)
+  - R.swift
+  - SwiftyJSON (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - CardIO
+    - DropDown
+    - Gemini
+    - GoogleMaps
+    - GooglePlaces
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - NVActivityIndicatorView
+    - ObjectMapper
+    - PayPal-iOS-SDK
+    - Player
+    - R.swift
+    - R.swift.Library
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
+  DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
+  Gemini: acff98012273066f1b83c887731260abfaf18ec5
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
+  IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
+  Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
+  NVActivityIndicatorView: 75c9634073e03b31d7e2748cd2417feab1206195
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  PayPal-iOS-SDK: 10654cd111e911a9807bddb96fae81aacb8e9915
+  Player: e45514e9e5fb8ff18f50eb2ba6f84dac9b6a0024
+  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
+  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+
+PODFILE CHECKSUM: 610fa5696ba998261f24cb7f3cc120c1df69c451
+
+COCOAPODS: 1.5.0
